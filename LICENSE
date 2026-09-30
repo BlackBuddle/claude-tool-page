@@ -1,0 +1,105 @@
+ClaudeTool 개인 사용 라이선스 v1.0
+ClaudeTool Personal Use License v1.0
+
+Copyright (c) 2026 BlackBuddle. 모든 권리 보유. All rights reserved.
+
+이 라이선스는 한국어본과 영어본으로 함께 제공합니다. 두 판의 뜻이 다르면 한국어본이 우선합니다.
+This license is provided in Korean and English. If the two versions differ, the Korean version prevails.
+
+================================================================
+한국어
+================================================================
+
+제1조 (용어)
+1. "소프트웨어"는 ClaudeTool(Windows용 Claude 데스크톱 펫)과 그 설치 프로그램, 소스 코드, 캐릭터·아이콘·그림, 문서, 소개 페이지, 그리고 이 저장소에 담긴 모든 파일을 말합니다.
+2. "저작권자"는 위 저작권 표시의 BlackBuddle(GitHub 계정)입니다.
+3. "개인 사용자"는 영리를 목적으로 하지 않고 자기 자신을 위해 소프트웨어를 쓰는 개인(자연인)입니다.
+4. "플러그인"은 사용자가 소프트웨어에 더해 쓰는, 저작권자가 아닌 사람이 만든 확장 기능입니다.
+
+제2조 (사용 허락)
+저작권자는 개인 사용자에게, 이 라이선스의 조건을 지키는 한, 소프트웨어를 자기 컴퓨터에 설치하고 실행하여 개인적인 용도로 무료로 사용할 수 있는 권리를 줍니다. 이 권리는 비독점적이고, 다른 사람에게 넘길 수 없으며, 다른 사람에게 다시 허락해 줄 수 없고, 제8조에 따라 종료되거나 철회될 수 있습니다.
+
+제3조 (허락하지 않는 것)
+저작권자의 사전 서면 허락 없이는 다음을 할 수 없습니다.
+1. 회사·학교·단체·기관의 업무나 영리 활동을 위한 사용(개인이 취미로 자기 컴퓨터에서 쓰는 것은 제외합니다)
+2. 소프트웨어를 판매·대여·임대하거나, 호스팅하거나, 서비스로 제공하거나, 다른 제품에 포함하는 것
+3. 소프트웨어 또는 그 일부(수정본 포함)를 복제·배포·공개·전송하는 것(개인이 자기 컴퓨터에 설치하려고 복사하는 것은 제외합니다)
+4. 소프트웨어를 수정하거나 2차적 저작물을 만드는 것(법령이 허락하는 범위, 그리고 사용자가 소프트웨어의 기능을 이용해 직접 만드는 캐릭터·플러그인·설정은 제외합니다)
+5. 소스 코드를 알아내려고 역설계·역컴파일·역어셈블하는 것(법령이 허락하는 범위는 제외합니다)
+6. 저작권 표시, 상표 표시, 이 라이선스와 면책조항의 표시를 지우거나 바꾸는 것
+7. 소프트웨어를 이용해 다른 사람을 해치거나 법령을 어기는 것
+8. 공개 저장소를 GitHub 안에서 열람하거나 포크하는 것은 GitHub 서비스 약관이 허락하는 범위에서만 가능하며, 그것이 이 라이선스에 없는 권리를 주지는 않습니다.
+
+제4조 (사용자가 만든 것)
+사용자가 직접 만든 캐릭터·플러그인·설정과 사용자의 질문·답변·데이터는 사용자의 것이며, 저작권자는 이에 대한 권리를 주장하지 않습니다. 다만 다른 사람이 만든 캐릭터·플러그인에는 그 사람이 정한 조건이 따로 있으며, 이 라이선스는 그것에 적용되지 않습니다.
+
+제5조 (제3자 구성요소와 상표)
+1. 소프트웨어에는 Electron, Chromium, Node.js 등 오픈소스 구성요소가 들어 있으며, 각 구성요소는 자신의 라이선스를 따릅니다. 이 라이선스는 그 구성요소의 라이선스를 바꾸지 않습니다.
+2. "Claude", "Anthropic" 및 관련 이름·로고는 Anthropic PBC의 상표입니다. 이 프로젝트는 개인 프로젝트이며 Anthropic과 제휴·후원·승인 관계가 없습니다.
+
+제6조 (권리의 귀속)
+소프트웨어의 저작권과 그 밖의 모든 권리는 저작권자에게 있습니다. 이 라이선스는 사용권만 줄 뿐 소유권을 넘기지 않으며, 이 라이선스가 명시적으로 주지 않은 권리는 모두 저작권자가 가집니다.
+
+제7조 (무보증과 면책)
+소프트웨어는 "있는 그대로" 무료로 제공됩니다. 보증과 책임에 관한 내용은 함께 제공하는 면책조항(DISCLAIMER.md)에 따르며, 면책조항은 이 라이선스의 일부입니다.
+
+제8조 (기간과 종료)
+이 라이선스는 소프트웨어를 받은 때부터 시작합니다. 사용자가 이 라이선스를 어기면 저작권자의 통지가 없어도 자동으로 종료하며, 종료되면 소프트웨어의 사용을 멈추고 모든 복사본을 지워야 합니다. 저작권자는 언제든 앞으로의 사용 허락을 철회할 수 있습니다. 소프트웨어는 무료이므로 환불은 없습니다.
+
+제9조 (그 밖의 사용 문의)
+제3조에서 허락하지 않는 사용(업무·영리 사용, 재배포 등)을 하려면 저작권자의 서면 허락이 필요합니다. 문의는 GitHub 계정 BlackBuddle의 프로필이나 소개 페이지 저장소(claude-tool-page)의 Issues로 해 주세요. 민감한 정보는 공개된 곳에 쓰지 마세요.
+
+제10조 (준거법과 관할)
+이 라이선스는 대한민국 법에 따라 해석하며, 분쟁의 관할은 민사소송법이 정하는 바에 따릅니다.
+
+제11조 (일부 무효, 변경)
+이 라이선스의 일부가 무효이거나 집행할 수 없어도 나머지는 그대로 효력이 있습니다. 저작권자는 이 라이선스를 바꿀 수 있으며, 새 버전은 저장소에 올린 때부터 그 뒤에 받거나 갱신하는 소프트웨어에 적용됩니다.
+
+================================================================
+English
+================================================================
+
+1. Definitions
+(a) "Software" means ClaudeTool (a Claude desktop pet for Windows), its installer, source code, characters, icons, images, documentation, introduction page, and every file contained in this repository.
+(b) "Licensor" means BlackBuddle (GitHub account), named in the copyright notice above.
+(c) "Personal User" means an individual (natural person) who uses the Software for himself or herself, without any commercial purpose.
+(d) "Plugin" means an extension added to the Software that was made by someone other than the Licensor.
+
+2. Grant
+The Licensor grants each Personal User, as long as this license is followed, the right to install and run the Software on his or her own computer and to use it free of charge for personal purposes. This right is non-exclusive, non-transferable, cannot be sublicensed, and may end or be withdrawn under Section 8.
+
+3. What is not allowed
+Without the Licensor's prior written permission, you may not:
+(a) use the Software for the business or commercial activities of a company, school, organization or institution (use by an individual on his or her own computer as a hobby is not restricted);
+(b) sell, rent, lease, host, offer the Software as a service, or include it in another product;
+(c) copy, distribute, publish or transmit the Software or any part of it, including modified versions (copying it to install it on your own computer is allowed);
+(d) modify the Software or create derivative works (except as permitted by law, and except characters, plugins and settings you create yourself using the Software's own features);
+(e) reverse engineer, decompile or disassemble the Software to obtain source code (except as permitted by law);
+(f) remove or change the copyright notices, trademark notices, or the notices of this license and the disclaimer;
+(g) use the Software to harm others or to break the law;
+(h) Viewing or forking a public repository within GitHub is permitted only to the extent allowed by GitHub's Terms of Service and does not grant any right not granted by this license.
+
+4. What you create
+Characters, plugins and settings you create yourself, and your own questions, answers and data, belong to you; the Licensor claims no rights in them. Characters and plugins made by other people are subject to that person's own terms, and this license does not apply to them.
+
+5. Third-party components and trademarks
+(a) The Software contains open-source components such as Electron, Chromium and Node.js. Each component remains under its own license; this license does not change them.
+(b) "Claude", "Anthropic" and related names and logos are trademarks of Anthropic PBC. This is a personal project and is not affiliated with, sponsored by, or approved by Anthropic.
+
+6. Ownership
+The copyright and all other rights in the Software belong to the Licensor. This license grants only a right of use and does not transfer ownership. All rights not expressly granted are reserved by the Licensor.
+
+7. No warranty and disclaimer
+The Software is provided free of charge "AS IS". Warranties and liability are governed by the accompanying disclaimer (DISCLAIMER.md), which is part of this license.
+
+8. Term and termination
+This license begins when you receive the Software. If you breach this license it ends automatically without notice, and you must stop using the Software and delete all copies. The Licensor may withdraw permission for future use at any time. The Software is free, so no refund applies.
+
+9. Other uses
+Uses not allowed by Section 3 (business or commercial use, redistribution, etc.) require the Licensor's written permission. Please ask through the GitHub profile of BlackBuddle or the Issues of the introduction-page repository (claude-tool-page). Do not post sensitive information in public.
+
+10. Governing law and jurisdiction
+This license is interpreted under the laws of the Republic of Korea, and jurisdiction over disputes follows the Korean Civil Procedure Act.
+
+11. Severability and changes
+If any part of this license is invalid or unenforceable, the rest remains in force. The Licensor may change this license; a new version applies from the time it is posted in the repository to Software received or updated after that time.
