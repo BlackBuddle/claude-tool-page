@@ -2,15 +2,24 @@
 
 화면 위를 돌아다니는 Windows용 데스크톱 펫이에요. 펫을 누르면 Claude를 얼마나 썼는지 보여 주고 단축키로 질문하면 말풍선으로 답해요. 0.4.0부터는 **플러그인**으로 기능을 더할 수도 있어요.
 
-> `Windows 10·11 (64비트)` · `버전 0.4.0` · `개인 무료 라이선스`
+<p align="center">
+  <img src="images/banner.png" width="100%" alt="어두운 바탕 위에 도트 슈크림빵 펫이 서 있고 머리 위 말풍선에 “안녕하세요! Ctrl+Alt+K로 무엇이든 물어보세요.”라고 적혀 있어요.">
+</p>
 
-[![ClaudeTool 설정 창의 캐릭터 탭. 슈크림빵(도트)이 골라져 있고 슈크림빵(벡터) 카드와 만들기·가져오기(.zip) 카드, 크기·투명도 막대, 방향 따라 뒤집기 칸, 사용하기·편집·내보내기·지우기·폴더 열기 버튼이 보여요.](images/settings-character-tab.png)](https://blackbuddle.github.io/claude-tool-page/)
-
-**[설치 파일 내려받기(0.4.0)](https://github.com/BlackBuddle/claude-tool-page/releases/latest)** · [소개 페이지](https://blackbuddle.github.io/claude-tool-page/)
+**[설치 파일 내려받기(0.4.0)](https://github.com/BlackBuddle/claude-tool-page/releases/latest)** · [소개 페이지](https://blackbuddle.github.io/claude-tool-page/) · [릴리스](https://github.com/BlackBuddle/claude-tool-page/releases)
 
 ClaudeTool은 개인 프로젝트이며 Anthropic과 관계없는 **비공식** 프로그램이에요.
 
-바로 가기: [내려받기와 설치](#내려받기와-설치) · [이런 걸 해요](#이런-걸-해요) · [플러그인 쓰기](#플러그인-쓰기) · [AI로 만들 때 쓰는 규칙](#ai로-만들-때-쓰는-규칙) · [자주 묻는 질문과 문제 해결](#자주-묻는-질문과-문제-해결) · [개인정보와 데이터](#개인정보와-데이터) · [라이선스와 면책](#라이선스와-면책)
+## 한눈에 보기
+
+- **하는 일:** 사용량 보기 · 질문하기 · 캐릭터 꾸미기와 만들기 · 움직임 정하기 · 플러그인으로 기능 더하기
+- **필요한 것:** Windows 10·11(64비트). 질문하기는 이 PC에 로그인된 Claude Code가 있어야 해요(Anthropic API 키로 바꿔 쓸 수도 있어요). 펫·캐릭터·플러그인은 Claude Code가 없어도 돼요.
+- **설치:** 이 저장소의 [릴리스](https://github.com/BlackBuddle/claude-tool-page/releases/latest)에서 설치 파일(약 102MB)을 받아 실행해요. 사용자별 설치라 관리자 권한은 필요 없어요.
+- **가격:** 개인 사용은 무료예요. 업무·영리 목적의 사용과 재배포는 저작권자의 허락이 필요해요([라이선스](#라이선스)).
+- **내 데이터:** 설치 폴더 바로 옆의 `<설치 폴더 이름>-data`에만 쌓여요. 가입·로그인·사용 통계 전송이 없어요([개인정보와 데이터](#개인정보와-데이터)).
+- **소스 코드:** 공개하지 않아요. 이 저장소에는 사용 설명서·소개 페이지·법적 문서가 있고 설치 파일은 릴리스에 있어요.
+
+바로 가기: [내려받기와 설치](#내려받기와-설치) · [이런 걸 해요](#이런-걸-해요) · [플러그인 쓰기](#플러그인-쓰기) · [AI로 만들 때 쓰는 규칙](#ai로-만들-때-쓰는-규칙) · [자주 묻는 질문과 문제 해결](#자주-묻는-질문과-문제-해결) · [개인정보와 데이터](#개인정보와-데이터) · [라이선스와 면책](#라이선스와-면책) · [문서](#문서)
 
 ## 내려받기와 설치
 
@@ -63,38 +72,86 @@ Windows 설정의 앱 목록(Windows 10은 앱 및 기능, 11은 설치된 앱)�
 
 ## 이런 걸 해요
 
-- **화면 위의 펫.** 기본 캐릭터인 도트 슈크림빵이 정한 범위 안을 걷고 쉬고 앉고 오래 쉬면 잠들어요(기본은 2분 뒤). 끌어서 옮길 수 있어요. 늘 다른 창 위에 떠 있지만 펫과 말풍선이 아닌 곳을 누르면 클릭이 아래 창으로 그대로 지나가서 하던 일을 방해하지 않아요.
-- **사용량 보기.** 펫을 누르면 **사용량 창**이 열려요(한 번 더 누르면 닫혀요). 트레이의 **사용량 소스**에서 항목별로 켜고 꺼요.
+그림 가운데 설정 창 화면 두 장(캐릭터 탭·움직임 탭)은 실제 화면이고 나머지는 [소개 페이지](https://blackbuddle.github.io/claude-tool-page/)에서 옮긴 설명용 그림이에요.
 
-  | 항목 | 보여 주는 것 |
-  |---|---|
-  | 이 앱의 API | 이 앱에서 한 질문에 쓴 토큰(API 키 방식이면 비용도) |
-  | Claude Code | 이 PC의 Claude Code 사용 기록에서 읽은 토큰 사용량 |
-  | 구독 한도 | 5시간 세션·7일 한도(사용량 창에서 **Claude Code 연결**을 해야 해요) |
-  | Console 조직 | 조직의 Admin API 키가 있을 때 조직 사용량(기본은 꺼져 있어요) |
+### 화면 위의 펫
 
-  보여 주는 사용량·한도·비용은 참고용 추정치라서 실제 청구나 한도와 다를 수 있어요.
+기본 캐릭터인 도트 슈크림빵이 정한 범위 안을 걷고 쉬고 앉고 오래 쉬면 잠들어요(기본은 2분 뒤). 끌어서 옮길 수 있어요. 늘 다른 창 위에 떠 있지만 펫과 말풍선이 아닌 곳을 누르면 클릭이 아래 창으로 그대로 지나가서 하던 일을 방해하지 않아요.
 
-- **질문하기.** `Ctrl+Alt+K`를 누르고 질문을 쓴 뒤 `Enter`를 누르면 답이 말풍선에 이어서 나타나요. 펫을 더블클릭하거나 우클릭 › **질문하기**로도 열 수 있고 답이 나오는 중에는 `Esc`로 취소해요. 이어서 묻기 위해 앱이 켜져 있는 동안 최근 대화(6번까지)를 기억하고 쓴 토큰 수는 답 아래에 보여요.
-  - 기본은 이 PC에 **로그인된 Claude Code**가 구독으로 답해요. 별도 API 키는 필요 없어요. 이때 Claude Code는 **답만 하도록** 실행돼요(도구·MCP를 끄고 설정·메모리를 읽지 않게 해요. [개인정보와 데이터](#개인정보와-데이터) 참고).
-  - 원하면 트레이의 **질문 방식**에서 **API 키**로 바꿔 Anthropic API 키로 쓸 수도 있어요(선택 사항이에요).
-  - 질문은 Anthropic으로 전송되니 비밀번호·키·개인정보·회사 기밀은 쓰지 마세요. AI의 답은 틀릴 수 있어요.
-- **캐릭터 꾸미기.** 설정 창 › 🐾 캐릭터에서 캐릭터를 고르고 크기(50~200%)·투명도·방향 따라 뒤집기를 정해요. 내장 캐릭터는 슈크림빵(도트)·슈크림빵(벡터) 두 가지이고 직접 만들 수도 있어요.
-  - **만들기:** 쉬기·걷기·앉기·잠자기·반응·말하기·끌려가기 7가지 모습에 그림(GIF·APNG·WebP·PNG·SVG)을 넣어요. 쉬기 그림만 있어도 저장돼요.
-  - **새 동작:** 춤추기·점프 같은 동작을 12개까지 더해요. 동작마다 얼마나 자주(드물게·가끔·자주), 얼마나 오래, 제자리에서 할지 걸으며 할지, 그리고 **언제** 할지(쉬는 중 무작위·클릭했을 때·오래 쉬면·플러그인 신호)를 정해요.
-  - **주고받기:** 만든 캐릭터는 .zip으로 내보내고 가져와요. 플러그인 신호를 연결한 캐릭터는 0.3.0 이하 앱에서는 열 수 없어요.
-  - **AI에게 부탁하기:** 캐릭터 탭 제목 줄의 **📄 만드는 법(.md) 받기**를 AI에게 건네면 캐릭터를 만들어 줘요. 규칙만 모은 [AI로 만들 때 쓰는 규칙](#ai로-만들-때-쓰는-규칙)을 건네도 돼요.
-- **움직임 정하기.** 설정 창 › ↔ 움직임에서 속도·활동성·잠들기까지의 시간·돌아다니는 범위(화면 전체·아래쪽 띠·직접 지정)·모니터를 정해요.
+<p align="center">
+  <img src="images/overlay.png" width="560" alt="펫 오버레이의 구조를 그린 그림. 투명한 오버레이 창(항상 위)에는 펫과 말풍선만 그려지고, 펫과 말풍선을 누르면 펫이 받고 그 밖을 누르면 아래에 있는 다른 앱 창이 받아요.">
+</p>
 
-  ![ClaudeTool 설정 창의 움직임 탭. 속도·활동성 막대, 잠들기까지(분) 칸, 돌아다니는 범위(화면 전체·아래쪽 띠·직접 지정), 모니터 고르기, 영역 그리기 버튼과 기본값으로 버튼이 보여요.](images/settings-movement-tab.png)
+### 사용량 보기
 
-- **플러그인(0.4.0 새 기능).** 받은 .zip을 가져와서 펫에 기능을 더해요. 가져올 때 동의 창이 플러그인이 할 수 있는 일과 접속할 주소를 보여 줘요. 자세한 건 [플러그인 쓰기](#플러그인-쓰기)에 있어요.
-- **메뉴.**
+펫을 누르면 **사용량 창**이 열려요(한 번 더 누르면 닫혀요). 트레이의 **사용량 소스**에서 항목별로 켜고 꺼요.
 
-  | 어디서 | 항목 |
-  |---|---|
-  | 펫 우클릭 | 질문하기 · 사용량 · 일시정지 · 캐릭터 바꾸기 ▸ · 설정… · 종료 |
-  | 트레이 아이콘 우클릭 | 펫 보이기 · 일시정지 · 사용량 소스 ▸ · 말풍선 자동 닫힘 ▸ · 질문 방식 ▸ · 질문 모델 ▸ · API 키 설정… · 설정… · 종료 |
+<p align="center">
+  <img src="images/usage.png" width="560" alt="사용량 소스를 그린 그림. 이 앱의 질문 사용 원장, Claude Code 로컬 로그, 구독 한도(5시간·7일), 조직 사용량(Admin API 키) 네 가지가 사용량 창의 막대로 모여요.">
+</p>
+
+| 항목 | 보여 주는 것 |
+|---|---|
+| 이 앱의 API | 이 앱에서 한 질문에 쓴 토큰(API 키 방식이면 비용도) |
+| Claude Code | 이 PC의 Claude Code 사용 기록에서 읽은 토큰 사용량 |
+| 구독 한도 | 5시간 세션·7일 한도(사용량 창에서 **Claude Code 연결**을 해야 해요) |
+| Console 조직 | 조직의 Admin API 키가 있을 때 조직 사용량(기본은 꺼져 있어요) |
+
+보여 주는 사용량·한도·비용은 참고용 추정치라서 실제 청구나 한도와 다를 수 있어요.
+
+### 질문하기
+
+`Ctrl+Alt+K`를 누르고 질문을 쓴 뒤 `Enter`를 누르면 답이 말풍선에 이어서 나타나요. 펫을 더블클릭하거나 우클릭 › **질문하기**로도 열 수 있고 답이 나오는 중에는 `Esc`로 취소해요. 이어서 묻기 위해 앱이 켜져 있는 동안 최근 대화(6번까지)를 기억하고 쓴 토큰 수는 답 아래에 보여요.
+
+<p align="center">
+  <img src="images/ask.png" width="560" alt="질문하는 순서를 그린 그림. Ctrl+Alt+K로 질문 말풍선이 열리고, 질문을 적어 보내고, Claude Code 구독이나 Anthropic API 키 중 고른 방식으로 답을 받고, 답이 말풍선에 이어서 나타나며 쓴 토큰이 아래에 붙어요. Esc로 취소해요.">
+</p>
+
+- 기본은 이 PC에 **로그인된 Claude Code**가 구독으로 답해요. 별도 API 키는 필요 없어요. 이때 Claude Code는 **답만 하도록** 실행돼요(도구·MCP를 끄고 설정·메모리를 읽지 않게 해요. [개인정보와 데이터](#개인정보와-데이터) 참고).
+- 원하면 트레이의 **질문 방식**에서 **API 키**로 바꿔 Anthropic API 키로 쓸 수도 있어요(선택 사항이에요).
+- 질문은 Anthropic으로 전송되니 비밀번호·키·개인정보·회사 기밀은 쓰지 마세요. AI의 답은 틀릴 수 있어요.
+
+### 캐릭터 꾸미기
+
+설정 창 › 🐾 캐릭터에서 캐릭터를 고르고 크기(50~200%)·투명도·방향 따라 뒤집기를 정해요. 내장 캐릭터는 슈크림빵(도트)·슈크림빵(벡터) 두 가지이고 직접 만들 수도 있어요.
+
+<p align="center">
+  <img src="images/character.png" width="560" alt="캐릭터 상태 보기를 그린 그림. 도트 슈크림빵의 쉬기 모습과 쉬기·걷기·앉기·잠자기·반응·말하기·끌려가기 단추, 자동 재생 칸이 있어요. 쉬기 그림만 있어도 캐릭터를 저장할 수 있어요.">
+</p>
+
+- **만들기:** 쉬기·걷기·앉기·잠자기·반응·말하기·끌려가기 7가지 모습에 그림(GIF·APNG·WebP·PNG·SVG)을 넣어요. 쉬기 그림만 있어도 저장돼요.
+- **새 동작:** 춤추기·점프 같은 동작을 12개까지 더해요. 동작마다 얼마나 자주(드물게·가끔·자주), 얼마나 오래, 제자리에서 할지 걸으며 할지, 그리고 **언제** 할지(쉬는 중 무작위·클릭했을 때·오래 쉬면·플러그인 신호)를 정해요.
+- **주고받기:** 만든 캐릭터는 .zip으로 내보내고 가져와요. 플러그인 신호를 연결한 캐릭터는 0.3.0 이하 앱에서는 열 수 없어요.
+- **AI에게 부탁하기:** 캐릭터 탭 제목 줄의 **📄 만드는 법(.md) 받기**를 AI에게 건네면 캐릭터를 만들어 줘요. 규칙만 모은 [AI로 만들 때 쓰는 규칙](#ai로-만들-때-쓰는-규칙)을 건네도 돼요.
+
+<p align="center">
+  <img src="images/settings-character-tab.png" alt="ClaudeTool 설정 창의 캐릭터 탭. 슈크림빵(도트)이 골라져 있고 슈크림빵(벡터) 카드와 만들기·가져오기(.zip) 카드, 크기·투명도 막대, 방향 따라 뒤집기 칸, 사용하기·편집·내보내기·지우기·폴더 열기 버튼이 보여요."><br>
+  <sub>설정 창 › 캐릭터 탭(실제 화면)</sub>
+</p>
+
+### 움직임 정하기
+
+설정 창 › ↔ 움직임에서 속도·활동성·잠들기까지의 시간·돌아다니는 범위(화면 전체·아래쪽 띠·직접 지정)·모니터를 정해요.
+
+<p align="center">
+  <img src="images/range.png" width="560" alt="돌아다니는 범위 세 가지를 그린 그림. 화면 전체는 작업 표시줄을 뺀 화면 어디든, 아래쪽 띠는 작업 표시줄 바로 위 펫 키만 한 띠, 직접 지정은 화면 위에서 드래그해 정한 영역이에요.">
+</p>
+
+<p align="center">
+  <img src="images/settings-movement-tab.png" alt="ClaudeTool 설정 창의 움직임 탭. 속도·활동성 막대, 잠들기까지(분) 칸, 돌아다니는 범위(화면 전체·아래쪽 띠·직접 지정), 모니터 고르기, 영역 그리기 버튼과 기본값으로 버튼이 보여요."><br>
+  <sub>설정 창 › 움직임 탭(실제 화면)</sub>
+</p>
+
+### 플러그인(0.4.0 새 기능)
+
+받은 .zip을 가져와서 펫에 기능을 더해요. 가져올 때 동의 창이 플러그인이 할 수 있는 일과 접속할 주소를 보여 줘요. 자세한 건 [플러그인 쓰기](#플러그인-쓰기)에 있어요.
+
+### 메뉴
+
+| 어디서 | 항목 |
+|---|---|
+| 펫 우클릭 | 질문하기 · 사용량 · 일시정지 · 캐릭터 바꾸기 ▸ · 설정… · 종료 |
+| 트레이 아이콘 우클릭 | 펫 보이기 · 일시정지 · 사용량 소스 ▸ · 말풍선 자동 닫힘 ▸ · 질문 방식 ▸ · 질문 모델 ▸ · API 키 설정… · 설정… · 종료 |
 
 ## 플러그인 쓰기
 
@@ -105,7 +162,16 @@ Windows 설정의 앱 목록(Windows 10은 앱 및 기능, 11은 설치된 앱)�
 
 > **한 줄 요약:** 출처를 아는 플러그인만 설치하고 동의 창을 꼼꼼히 읽고 비밀 칸에는 그 플러그인 전용 키만 넣으세요.
 
+<p align="center">
+  <img src="images/plugin-tab.png" alt="설정 창의 플러그인 탭을 본떠 그린 그림. 위쪽에 안녕 펫(실행 중)·가져오기(.zip)·내장 기능 카드가 있고, 아래에 고른 플러그인의 설명, 켜기 칸, 인사말 설정 칸, 플러그인이 그린 화면, 폴더 열기·내보내기·지우기 버튼이 있어요."><br>
+  <sub>설정 창 › 플러그인 탭(화면을 본떠 그린 그림). 예제 플러그인 “안녕 펫”을 가져온 모습이에요. 안녕 펫은 설치 파일에 들어 있지 않아요.</sub>
+</p>
+
 ### 플러그인이 할 수 있는 일과 없는 일
+
+<p align="center">
+  <img src="images/plugin-isolation.png" width="420" alt="플러그인 격리 구조를 그린 그림. 플러그인 A와 B는 각자 보이지 않는 격리된 창에서 돌고, 관문이 동의한 권한인지와 한도 안인지 확인한 뒤 말풍선·펫 동작·화면 세 곳·신호·앱 소식·저장 공간·비밀 칸·설정 값에만 닿게 해요. 나가는 연결은 선언하고 동의한 주소로만 가고, 들어오는 연결은 내 PC 안 127.0.0.1 전용 포트와 플러그인별 토큰으로만 와요.">
+</p>
 
 - **할 수 있는 일:** 말풍선 띄우기, 펫 움직이기, 캐릭터에 신호 보내기, 자기 화면 그리기(말풍선 안·설정 창 안·따로 뜨는 창), 설정 칸에 넣은 값 읽기(비밀 칸 포함)와 자기 저장 공간 쓰기, 동의한 주소로 인터넷 요청 보내기, 이 PC의 다른 프로그램이 보내는 신호 받기.
 - **막아 둔 것(보증은 아니에요):** 자기 폴더 밖의 파일 읽고 쓰기, 프로그램 실행, 다른 플러그인이나 앱 화면 내용 보기, 카메라·마이크·화면 캡처, 클립보드 **읽기**, 전역 단축키, 동의하지 않은 주소로 접속하기. 다만 클립보드를 **바꾸는** 것과 DNS 이름 조회로 정보를 내보내는 것은 막지 못했어요([알아 둘 한계](#알아-둘-한계)).
@@ -209,11 +275,14 @@ AI에게 부탁해서 만들 수 있어요. 규칙만 모은 [AI로 만들 때 �
 
 ## AI로 만들 때 쓰는 규칙
 
-캐릭터나 플러그인을 AI에게 부탁할 때는 아래 규칙을 복사해서 건네세요. 앱이 실제로 받아들이는 형식과 한도만 적었어요. 예제 코드와 오류 문구까지 든 전체 안내는 설정 창 캐릭터 탭·플러그인 탭 제목 줄의 **📄 만드는 법(.md) 받기**로 받아요.
+캐릭터나 플러그인을 AI에게 부탁할 때는 아래 규칙을 펼쳐서 복사해 건네세요. 앱이 실제로 받아들이는 형식과 한도만 적었어요. 예제 코드와 오류 문구까지 든 전체 안내는 설정 창 캐릭터 탭·플러그인 탭 제목 줄의 **📄 만드는 법(.md) 받기**로 받아요.
 
 ### 캐릭터 규칙
 
 캐릭터를 AI에게 부탁할 때 이 규칙을 통째로 건네세요. 앱이 실제로 받아들이는 형식만 적었어요.
+
+<details>
+<summary><b>캐릭터 규칙 펼치기</b></summary>
 
 **구성**
 
@@ -322,9 +391,14 @@ mochi/
 }
 ```
 
+</details>
+
 ### 플러그인 규칙
 
 플러그인을 AI에게 부탁할 때 이 규칙을 통째로 건네세요. 앱이 실제로 받아들이는 형식과 한도만 적었어요.
+
+<details>
+<summary><b>플러그인 규칙 펼치기</b></summary>
 
 **성격**
 
@@ -483,6 +557,8 @@ my-timer/
 // main.js
 await claudetool.bubble.toast('안녕하세요!');
 ```
+
+</details>
 
 ## 자주 묻는 질문과 문제 해결
 
@@ -676,19 +752,29 @@ ClaudeTool 개인 사용 라이선스 v1.0이에요. 전문은 [LICENSE](LICENSE
 
 공개 이슈에 자세히 쓰지 마세요. 이 저장소의 **Security** 탭 › **Report a vulnerability**로 비공개로 알려 주세요. 알리면 좋은 정보와 범위는 [SECURITY.md](SECURITY.md)에 있어요.
 
-### 다른 문서
+## 문서
 
 | 문서 | 내용 |
 |---|---|
+| [소개 페이지](https://blackbuddle.github.io/claude-tool-page/) | 화면과 기능을 한눈에 보여 주는 페이지(움직임 포함) |
+| [릴리스](https://github.com/BlackBuddle/claude-tool-page/releases) | 설치 파일과 새 판의 변경 내용 |
 | [LICENSE](LICENSE) | 라이선스 전문(한국어·영어) |
 | [DISCLAIMER.md](DISCLAIMER.md) | 면책조항 |
-| [SECURITY.md](SECURITY.md) | 보안 문제 신고 방법 |
 | [PRIVACY.md](PRIVACY.md) | 개인정보와 데이터 |
+| [SECURITY.md](SECURITY.md) | 보안 문제 신고 방법 |
 | [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md) | 함께 들어 있는 오픈소스 소프트웨어의 고지 |
 
-## 소개 페이지
+## English summary
 
-화면과 기능을 한눈에 보여 주는 [소개 페이지](https://blackbuddle.github.io/claude-tool-page/)가 있어요.
+ClaudeTool is an unofficial desktop pet for Windows 10/11 that roams your screen. Click it to see your Claude usage, or press `Ctrl+Alt+K` to ask a question and read the answer in a speech bubble (through a logged-in Claude Code, or optionally an Anthropic API key). You can design your own characters, tune how the pet moves, and add features with sandboxed plugins imported as `.zip` files.
+
+- **Download:** installers are published in this repository's [Releases](https://github.com/BlackBuddle/claude-tool-page/releases/latest) (Windows 10/11 x64, per-user install, no admin rights needed). Check the SHA-256 value given above before you run it. The installer is not code-signed, so Windows SmartScreen may show a warning.
+- **License:** free for personal, non-commercial use. Business or commercial use and redistribution need the copyright holder's permission (see [LICENSE](LICENSE)). The source code is not published.
+- **Privacy:** no account, no telemetry, no auto-update, and no server run by the author. Your data stays in a `-data` folder next to the install folder ([PRIVACY.md](PRIVACY.md)).
+- **Plugins are third-party code.** They run in hidden, isolated windows behind a permission gate, but this is not a guarantee (for example, DNS lookups can carry short values out). Install only plugins you trust.
+- **Disclaimer:** provided as is, without warranty, and not affiliated with Anthropic. AI answers can be wrong ([DISCLAIMER.md](DISCLAIMER.md)). Please report security problems privately through the Security tab ([SECURITY.md](SECURITY.md)).
+
+The rest of this README is in Korean.
 
 ---
 
