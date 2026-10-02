@@ -28,13 +28,14 @@ This license is provided in Korean and English. If the two versions differ, the 
 5. 소스 코드를 알아내려고 역설계·역컴파일·역어셈블하는 것(법령이 허락하는 범위는 제외합니다)
 6. 저작권 표시, 상표 표시, 이 라이선스와 면책조항의 표시를 지우거나 바꾸는 것
 7. 소프트웨어를 이용해 다른 사람을 해치거나 법령을 어기는 것
-8. 공개 저장소를 GitHub 안에서 열람하거나 포크하는 것은 GitHub 서비스 약관이 허락하는 범위에서만 가능하며, 그것이 이 라이선스에 없는 권리를 주지는 않습니다.
+8. 공개 저장소를 GitHub 안에서 열람하거나 포크하는 것을, GitHub 서비스 약관이 허락하는 범위를 넘어서 하는 것(그 범위 안의 열람·포크는 GitHub 서비스 약관에 따른 것일 뿐, 이 라이선스에 없는 권리를 주지는 않습니다)
 
 제4조 (사용자가 만든 것)
-사용자가 직접 만든 캐릭터·플러그인·설정과 사용자의 질문·답변·데이터는 사용자의 것이며, 저작권자는 이에 대한 권리를 주장하지 않습니다. 다만 다른 사람이 만든 캐릭터·플러그인에는 그 사람이 정한 조건이 따로 있으며, 이 라이선스는 그것에 적용되지 않습니다.
+1. 사용자가 직접 만든 캐릭터·플러그인·설정과 사용자의 질문·답변·데이터는 사용자의 것이며, 저작권자는 이에 대한 권리를 주장하지 않습니다. 다만 다른 사람이 만든 캐릭터·플러그인에는 그 사람이 정한 조건이 따로 있으며, 이 라이선스는 그것에 적용되지 않습니다.
+2. (추가 허락) 소프트웨어와 함께 제공되는 예제(앱의 "만드는 법(.md) 받기"로 받는 안내 문서와 그 안에 든 예제 코드를 포함합니다)와, 그 예제를 바탕으로 만든 플러그인은, 저작권자 표시(출처)를 밝히고 영리를 목적으로 하지 않는 경우에 한하여 제3조 3호와 4호에도 불구하고 복사·수정하고 다른 사람에게 나누어 줄 수 있으며, 그 안내 문서를 AI 도구에 건네 써도 됩니다. 영리 목적의 사용, 판매, 유료 배포는 이 항의 허락에 포함되지 않으며 저작권자의 사전 서면 허락이 필요합니다. 이 항은 예제와 그것을 바탕으로 만든 플러그인에만 적용되고, 이 라이선스의 다른 조항은 바뀌지 않습니다.
 
 제5조 (제3자 구성요소와 상표)
-1. 소프트웨어에는 Electron, Chromium, Node.js 등 오픈소스 구성요소가 들어 있으며, 각 구성요소는 자신의 라이선스를 따릅니다. 이 라이선스는 그 구성요소의 라이선스를 바꾸지 않습니다.
+1. 소프트웨어에는 Electron, Chromium, Node.js 등 오픈소스 구성요소가 들어 있으며, 각 구성요소는 자신의 라이선스를 따릅니다. 이 라이선스는 그 구성요소의 라이선스를 바꾸지 않습니다. 구성요소의 목록과 라이선스는 함께 제공하는 THIRD_PARTY_NOTICES.md에 있습니다.
 2. "Claude", "Anthropic" 및 관련 이름·로고는 Anthropic PBC의 상표입니다. 이 프로젝트는 개인 프로젝트이며 Anthropic과 제휴·후원·승인 관계가 없습니다.
 
 제6조 (권리의 귀속)
@@ -77,13 +78,14 @@ Without the Licensor's prior written permission, you may not:
 (e) reverse engineer, decompile or disassemble the Software to obtain source code (except as permitted by law);
 (f) remove or change the copyright notices, trademark notices, or the notices of this license and the disclaimer;
 (g) use the Software to harm others or to break the law;
-(h) Viewing or forking a public repository within GitHub is permitted only to the extent allowed by GitHub's Terms of Service and does not grant any right not granted by this license.
+(h) view or fork a public repository within GitHub beyond what GitHub's Terms of Service allow (viewing or forking within that scope is only under GitHub's Terms of Service and does not grant any right not granted by this license).
 
 4. What you create
-Characters, plugins and settings you create yourself, and your own questions, answers and data, belong to you; the Licensor claims no rights in them. Characters and plugins made by other people are subject to that person's own terms, and this license does not apply to them.
+(a) Characters, plugins and settings you create yourself, and your own questions, answers and data, belong to you; the Licensor claims no rights in them. Characters and plugins made by other people are subject to that person's own terms, and this license does not apply to them.
+(b) (Additional permission) The examples provided with the Software (including the guide documents you get with "Get the how-to (.md)" in the app and the example code in them), and plugins made based on those examples, may, notwithstanding Sections 3(c) and 3(d), be copied, modified and given to others, provided that you credit the Licensor as the source by keeping the copyright notice and that you do so for non-commercial purposes. You may also give those guide documents to an AI tool. Commercial use, selling and paid distribution are not covered by this permission and require the Licensor's prior written permission. This permission applies only to the examples and the plugins made from them, and does not change any other provision of this license.
 
 5. Third-party components and trademarks
-(a) The Software contains open-source components such as Electron, Chromium and Node.js. Each component remains under its own license; this license does not change them.
+(a) The Software contains open-source components such as Electron, Chromium and Node.js. Each component remains under its own license; this license does not change them. The list of components and their licenses is in the accompanying THIRD_PARTY_NOTICES.md.
 (b) "Claude", "Anthropic" and related names and logos are trademarks of Anthropic PBC. This is a personal project and is not affiliated with, sponsored by, or approved by Anthropic.
 
 6. Ownership

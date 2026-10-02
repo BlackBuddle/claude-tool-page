@@ -5,16 +5,29 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="color-scheme" content="light dark">
 <title>ClaudeTool</title>
-<meta name="description" content="화면 위를 돌아다니는 Windows용 Claude 데스크톱 펫. 클릭하면 사용량을, 단축키를 누르면 질문의 답을 말풍선으로 보여 줍니다.">
+<meta name="description" content="화면 위를 걷고 쉬고 잠드는 Windows용 데스크톱 펫. 클릭하면 Claude 사용량을, 단축키를 누르면 질문의 답을 말풍선으로 보여 주고 받은 플러그인으로 기능을 더해요. 비공식 개인 프로젝트예요.">
+<script>
+  // 첫 그림 전에 정한다: 이 브라우저에 저장해 둔 화면 테마와 움직임 허용 여부. 늦게 정하면 첫 화면이 깜빡이거나 배치가 흔들린다.
+  (() => {
+    const html = document.documentElement;
+    try {
+      const theme = localStorage.getItem('ct-theme');
+      if (theme === 'light' || theme === 'dark') html.dataset.theme = theme;
+    } catch { /* 저장소를 쓸 수 없는 창이면 OS 설정을 따른다 */ }
+    html.classList.toggle('motion', !window.matchMedia('(prefers-reduced-motion: reduce)').matches);
+  })();
+</script>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' shape-rendering='crispEdges'%3E%3Crect x='10' y='1' width='3' height='1' fill='%237A4A22'/%3E%3Crect x='9' y='2' width='1' height='1' fill='%237A4A22'/%3E%3Crect x='10' y='2' width='3' height='1' fill='%23FFE9A8'/%3E%3Crect x='13' y='2' width='1' height='1' fill='%237A4A22'/%3E%3Crect x='5' y='3' width='5' height='1' fill='%237A4A22'/%3E%3Crect x='10' y='3' width='4' height='1' fill='%23FFE9A8'/%3E%3Crect x='14' y='3' width='1' height='1' fill='%237A4A22'/%3E%3Crect x='3' y='4' width='2' height='1' fill='%237A4A22'/%3E%3Crect x='5' y='4' width='5' height='1' fill='%23E6A955'/%3E%3Crect x='10' y='4' width='1' height='1' fill='%237A4A22'/%3E%3Crect x='11' y='4' width='3' height='1' fill='%23FFE9A8'/%3E%3Crect x='14' y='4' width='1' height='1' fill='%237A4A22'/%3E%3Crect x='2' y='5' width='1' height='1' fill='%237A4A22'/%3E%3Crect x='3' y='5' width='8' height='1' fill='%23E6A955'/%3E%3Crect x='11' y='5' width='3' height='1' fill='%237A4A22'/%3E%3Crect x='2' y='6' width='1' height='1' fill='%237A4A22'/%3E%3Crect x='3' y='6' width='10' height='1' fill='%23E6A955'/%3E%3Crect x='13' y='6' width='1' height='1' fill='%237A4A22'/%3E%3Crect x='1' y='7' width='1' height='1' fill='%237A4A22'/%3E%3Crect x='2' y='7' width='12' height='1' fill='%23E6A955'/%3E%3Crect x='14' y='7' width='1' height='1' fill='%237A4A22'/%3E%3Crect x='1' y='8' width='1' height='1' fill='%237A4A22'/%3E%3Crect x='2' y='8' width='12' height='1' fill='%23E6A955'/%3E%3Crect x='14' y='8' width='1' height='1' fill='%237A4A22'/%3E%3Crect x='1' y='9' width='1' height='1' fill='%237A4A22'/%3E%3Crect x='2' y='9' width='3' height='1' fill='%23E6A955'/%3E%3Crect x='5' y='9' width='1' height='1' fill='%233A2416'/%3E%3Crect x='6' y='9' width='4' height='1' fill='%23E6A955'/%3E%3Crect x='10' y='9' width='1' height='1' fill='%233A2416'/%3E%3Crect x='11' y='9' width='3' height='1' fill='%23E6A955'/%3E%3Crect x='14' y='9' width='1' height='1' fill='%237A4A22'/%3E%3Crect x='1' y='10' width='1' height='1' fill='%237A4A22'/%3E%3Crect x='2' y='10' width='1' height='1' fill='%23E6A955'/%3E%3Crect x='3' y='10' width='1' height='1' fill='%23F4A28C'/%3E%3Crect x='4' y='10' width='8' height='1' fill='%23E6A955'/%3E%3Crect x='12' y='10' width='1' height='1' fill='%23F4A28C'/%3E%3Crect x='13' y='10' width='1' height='1' fill='%23E6A955'/%3E%3Crect x='14' y='10' width='1' height='1' fill='%237A4A22'/%3E%3Crect x='1' y='11' width='1' height='1' fill='%237A4A22'/%3E%3Crect x='2' y='11' width='1' height='1' fill='%23C4843A'/%3E%3Crect x='3' y='11' width='10' height='1' fill='%23E6A955'/%3E%3Crect x='13' y='11' width='1' height='1' fill='%23C4843A'/%3E%3Crect x='14' y='11' width='1' height='1' fill='%237A4A22'/%3E%3Crect x='1' y='12' width='1' height='1' fill='%237A4A22'/%3E%3Crect x='2' y='12' width='2' height='1' fill='%23C4843A'/%3E%3Crect x='4' y='12' width='8' height='1' fill='%23E6A955'/%3E%3Crect x='12' y='12' width='2' height='1' fill='%23C4843A'/%3E%3Crect x='14' y='12' width='1' height='1' fill='%237A4A22'/%3E%3Crect x='2' y='13' width='1' height='1' fill='%237A4A22'/%3E%3Crect x='3' y='13' width='10' height='1' fill='%23C4843A'/%3E%3Crect x='13' y='13' width='1' height='1' fill='%237A4A22'/%3E%3Crect x='3' y='14' width='10' height='1' fill='%237A4A22'/%3E%3C/svg%3E">
 <style>
 /*
   소개 페이지 한 파일. 외부 글꼴·스크립트·그림 주소를 쓰지 않는다(오프라인에서도 열리게).
-  공개용이다: 비공개 소스 저장소·내부 문서로 가는 링크나 경로를 넣지 않는다.
   색 원칙: 펫(도트 슈크림빵)과 강조색(빵 갈색, 앱 설정 창 강조색 #c4843a 계열)만 따뜻한 색이고, 바탕은 차가운 "바탕 화면" 색이다.
-  선 원칙: 실선은 출시본(0.3.0)에 있는 것, 점선은 아직 개발 중인 것(플러그인 틀)이다.
-  모션 원칙: 도트 요소(펫·반짝이·크림 방울)는 계단식(steps), 화면 배치의 등장은 부드럽게.
-  움직임 줄이기(prefers-reduced-motion)면 html에 motion 클래스가 붙지 않아 모든 등장·자동 움직임이 꺼지고 정지 프레임만 보인다.
+  선 원칙: 실선은 눈에 보이는 창·화면, 점선은 보이지 않는 경계(투명한 오버레이 창, 이동 범위, 플러그인이 도는 격리된 창)다.
+  모션 원칙: 도트 요소(펫·반짝이·크림 방울)는 계단식(steps), 화면 배치의 등장은 부드럽게. transform·opacity 위주로 움직이고,
+  크기는 미리 잡아 두어 움직여도 배치가 흔들리지 않게 한다. 데모는 기본(정지 화면)이 마지막 장면이고, 움직일 때만 처음 모습에서 출발한다.
+  움직임 줄이기(prefers-reduced-motion)면 html에 motion 클래스가 붙지 않아 모든 등장·자동 움직임이 꺼지고 정지 화면만 보인다.
+  탭이 숨으면 requestAnimationFrame 루프와 데모의 CSS 애니메이션을 멈춘다.
+  숫자(버전·태스크·시험 수)는 data-stat 속성으로 감싸 이름으로 찾아 바꿀 수 있게 한다.
 */
 :root {
   color-scheme: light dark;
@@ -44,6 +57,13 @@
   --plan: #2a6f92;
   --plan-bg: #e8f0f5;
   --plan-grid: rgba(42, 111, 146, 0.1);
+  --term: #14212c;          /* 터미널 모형 바탕(두 테마 모두 어둡다) */
+  --term-ink: #e3ebf2;
+  --term-soft: #93a7b8;
+  --ok: #2f7d4f;            /* 받아들임 표시(글자 대비 AA) */
+  --ok-soft: rgba(47, 125, 79, 0.12);
+  --no: #b2402f;            /* 막힘 표시(글자 대비 AA) */
+  --no-soft: rgba(178, 64, 47, 0.12);
   --shadow: 0 10px 28px rgba(12, 24, 36, 0.26);
   --lift-shadow: 0 12px 26px rgba(12, 24, 36, 0.16);
   --focus: var(--accent);
@@ -70,8 +90,9 @@
   --nav-h: 52px;
 }
 
+/* 어두운 화면: OS 설정을 따르되, 위쪽 내비게이션의 화면 버튼으로 고른 값(html의 data-theme)이 있으면 그것을 따른다. 두 블록의 값은 같다. */
 @media (prefers-color-scheme: dark) {
-  :root {
+  :root:not([data-theme="light"]) {
     --bg: #0f151b;
     --surface: #17202a;
     --ink: #e4eaf0;
@@ -93,9 +114,81 @@
     --plan: #6fb3d2;
     --plan-bg: #102130;
     --plan-grid: rgba(111, 179, 210, 0.08);
+    --term: #0a1219;
+    --ok: #6fcf97;
+    --ok-soft: rgba(111, 207, 151, 0.14);
+    --no: #f08a7a;
+    --no-soft: rgba(240, 138, 122, 0.14);
     --shadow: 0 10px 28px rgba(0, 0, 0, 0.5);
     --lift-shadow: 0 12px 26px rgba(0, 0, 0, 0.45);
   }
+}
+:root[data-theme="light"] { color-scheme: light; }
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #0f151b;
+  --surface: #17202a;
+  --ink: #e4eaf0;
+  --ink-soft: #9daab8;
+  --rule: #283542;
+  --accent: #e3a95f;
+  --accent-fill: #d99a4f;
+  --accent-soft: rgba(227, 169, 95, 0.16);
+  --on-accent: #1b140c;
+  --code-bg: #1e2934;
+  --desk: #162634;
+  --desk-ink: #e9f0f5;
+  --desk-soft: #9fb3c2;
+  --desk-line: rgba(159, 179, 194, 0.32);
+  --taskbar: #0c1720;
+  --taskbar-item: #1f3344;
+  --bubble: #f4f7fa;
+  --bubble-ink: #17212b;
+  --plan: #6fb3d2;
+  --plan-bg: #102130;
+  --plan-grid: rgba(111, 179, 210, 0.08);
+  --term: #0a1219;
+  --ok: #6fcf97;
+  --ok-soft: rgba(111, 207, 151, 0.14);
+  --no: #f08a7a;
+  --no-soft: rgba(240, 138, 122, 0.14);
+  --shadow: 0 10px 28px rgba(0, 0, 0, 0.5);
+  --lift-shadow: 0 12px 26px rgba(0, 0, 0, 0.45);
+}
+
+/* 밝음↔어두움이 바뀔 때 색이 한 번에 튀지 않고 부드럽게 넘어가게, 색 변수를 <color>로 등록해 :root에서 보간한다.
+   움직임 줄이기면 html.motion이 없어 바로 바뀐다. 등록을 모르는 브라우저는 그냥 바로 바뀐다. */
+@property --bg { syntax: "<color>"; inherits: true; initial-value: #f2f4f6; }
+@property --surface { syntax: "<color>"; inherits: true; initial-value: #ffffff; }
+@property --ink { syntax: "<color>"; inherits: true; initial-value: #17212b; }
+@property --ink-soft { syntax: "<color>"; inherits: true; initial-value: #4b5968; }
+@property --rule { syntax: "<color>"; inherits: true; initial-value: #d3dae1; }
+@property --accent { syntax: "<color>"; inherits: true; initial-value: #8a5a26; }
+@property --accent-fill { syntax: "<color>"; inherits: true; initial-value: #c4843a; }
+@property --accent-soft { syntax: "<color>"; inherits: true; initial-value: rgba(196, 132, 58, 0.14); }
+@property --on-accent { syntax: "<color>"; inherits: true; initial-value: #ffffff; }
+@property --code-bg { syntax: "<color>"; inherits: true; initial-value: #e5ebef; }
+@property --desk { syntax: "<color>"; inherits: true; initial-value: #22384a; }
+@property --desk-ink { syntax: "<color>"; inherits: true; initial-value: #f1f5f8; }
+@property --desk-soft { syntax: "<color>"; inherits: true; initial-value: #b9c9d5; }
+@property --desk-line { syntax: "<color>"; inherits: true; initial-value: rgba(185, 201, 213, 0.38); }
+@property --taskbar { syntax: "<color>"; inherits: true; initial-value: #172835; }
+@property --taskbar-item { syntax: "<color>"; inherits: true; initial-value: #2c4356; }
+@property --bubble { syntax: "<color>"; inherits: true; initial-value: #ffffff; }
+@property --plan { syntax: "<color>"; inherits: true; initial-value: #2a6f92; }
+@property --plan-bg { syntax: "<color>"; inherits: true; initial-value: #e8f0f5; }
+@property --plan-grid { syntax: "<color>"; inherits: true; initial-value: rgba(42, 111, 146, 0.1); }
+@property --term { syntax: "<color>"; inherits: true; initial-value: #14212c; }
+@property --ok { syntax: "<color>"; inherits: true; initial-value: #2f7d4f; }
+@property --ok-soft { syntax: "<color>"; inherits: true; initial-value: rgba(47, 125, 79, 0.12); }
+@property --no { syntax: "<color>"; inherits: true; initial-value: #b2402f; }
+@property --no-soft { syntax: "<color>"; inherits: true; initial-value: rgba(178, 64, 47, 0.12); }
+html.motion {
+  transition-property: --bg, --surface, --ink, --ink-soft, --rule, --accent, --accent-fill, --accent-soft, --on-accent, --code-bg,
+    --desk, --desk-ink, --desk-soft, --desk-line, --taskbar, --taskbar-item, --bubble, --plan, --plan-bg, --plan-grid,
+    --term, --ok, --ok-soft, --no, --no-soft;
+  transition-duration: 0.5s;
+  transition-timing-function: ease;
 }
 
 *, *::before, *::after { box-sizing: border-box; }
@@ -142,6 +235,10 @@ kbd {
   line-height: 1.5;
 }
 .sprite { position: absolute; width: 0; height: 0; overflow: hidden; }
+/* 플러그인 조각·문서 아이콘(글자 크기를 따른다) */
+.pz, .doc-ico { display: inline-block; flex: none; width: 1.1em; height: 1.1em; vertical-align: -0.18em; }
+.pz { color: var(--accent-fill); }
+.doc-ico { color: var(--ink-soft); }
 .sr-only { position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
 .skip {
   position: absolute; left: 12px; top: -64px; z-index: 40;
@@ -150,9 +247,19 @@ kbd {
 }
 .skip:focus { top: 12px; }
 
-/* ── 모션 공통: 떠오름(마이크로 인터랙션), 스크롤 등장, 첫 화면 차례 등장 ── */
-.lift { transition: transform 0.18s ease, box-shadow 0.18s ease; }
+/* ── 모션 공통: 떠오름(마이크로 인터랙션), 스크롤 등장, 첫 화면 차례 등장 ──
+   hover로 움직이는 것은 움직인 뒤에도 hover 판정 영역이 원래 자리를 덮게 한다. 안 그러면 아래 가장자리에서 포인터가 요소 밖으로
+   밀려나 hover가 깜빡이고, 그 띠에서 누른 click이 빠진다. */
+/* 떠오름(버튼·작은 칸): 떠 있는 동안에만 보이지 않는 띠(::after)가 비운 아래 3px을 덮는다. hover 전 판정 영역은 그대로다. */
+.lift { position: relative; transition: transform 0.18s ease, box-shadow 0.18s ease; }
 .lift:hover { transform: translateY(-3px); box-shadow: var(--lift-shadow); }
+.lift:hover::after { content: ""; position: absolute; left: 0; right: 0; top: 100%; height: 4px; }
+/* 카드 기울이기: hover는 움직이지 않는 바깥 상자(.tilt-host)가 받고, 안쪽 카드(.tilt)만 떠오르며 기운다. 바깥 상자는 카드가 꽉 차는 한 칸 그리드다.
+   정밀 포인터(마우스)를 따라 최대 3도쯤 기운다(--rx·--ry는 스크립트가 바깥 상자에 넣고 카드가 물려받는다). 터치나 움직임 줄이기에서는 떠오름만 하거나 그대로 둔다. */
+.tilt-host { display: grid; grid-template-columns: minmax(0, 1fr); }
+.tilt { transition: transform 0.25s ease, box-shadow 0.25s ease; }
+.tilt-host:hover > .tilt { transform: translateY(-3px); box-shadow: var(--lift-shadow); }
+html.motion .tilt-host:hover > .tilt { transform: perspective(900px) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg)) translateY(-3px); }
 /* 등장은 translate·scale 속성으로, 떠오름은 transform으로 해서 둘이 서로 덮어쓰지 않게 한다. */
 html.motion .reveal {
   opacity: 0; translate: 0 20px; scale: 0.985;
@@ -180,9 +287,34 @@ html.motion .rise { animation: rise 0.7s cubic-bezier(0.2, 0.7, 0.2, 1) both; an
   display: flex; gap: 20px; white-space: nowrap; overflow-x: auto; scrollbar-width: none;
   font-size: var(--step--1);
 }
+/* 좁은 화면에서 링크가 넘치면 가로로 밀어 보는데, 더 있는 쪽 가장자리를 흐리게 해 알린다(스크립트가 data-more에 start·end를 붙인다) */
+.topnav ul[data-more="end"] {
+  -webkit-mask-image: linear-gradient(to right, #000 calc(100% - 36px), transparent);
+  mask-image: linear-gradient(to right, #000 calc(100% - 36px), transparent);
+}
+.topnav ul[data-more="start"] {
+  -webkit-mask-image: linear-gradient(to left, #000 calc(100% - 36px), transparent);
+  mask-image: linear-gradient(to left, #000 calc(100% - 36px), transparent);
+}
+.topnav ul[data-more="start end"] {
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 36px, #000 calc(100% - 36px), transparent);
+  mask-image: linear-gradient(to right, transparent, #000 36px, #000 calc(100% - 36px), transparent);
+}
 .navlink { display: block; padding: 6px 0 4px; color: var(--desk-soft); text-decoration: none; border-bottom: 2px solid transparent; transition: color 0.2s ease, border-color 0.2s ease; }
 .navlink:hover { color: var(--desk-ink); }
 .navlink[aria-current] { color: var(--desk-ink); border-bottom-color: var(--hero-btn); }
+.nav-right { display: flex; align-items: center; gap: 16px; min-width: 0; }
+/* 화면 테마 버튼: 누르면 밝게↔어둡게(aria-pressed가 어두운 화면). 반쪽 원 그림이 반 바퀴 돈다. */
+.theme-btn {
+  flex: none; display: grid; place-items: center;
+  width: 36px; height: 36px; padding: 0;
+  border: 1px solid var(--desk-line); border-radius: 9px;
+  background: transparent; color: var(--desk-ink); cursor: pointer;
+}
+.theme-btn:hover { border-color: var(--desk-soft); }
+.theme-btn svg { display: block; width: 18px; height: 18px; }
+.theme-btn[aria-pressed="true"] svg { rotate: 180deg; }
+html.motion .theme-btn svg { transition: rotate 0.45s cubic-bezier(0.2, 0.7, 0.2, 1); }
 
 /* ── 첫 화면: 바탕 화면처럼 그리고, 도트 펫이 아래쪽 띠를 돌아다닌다 ── */
 .desk {
@@ -193,6 +325,14 @@ html.motion .rise { animation: rise 0.7s cubic-bezier(0.2, 0.7, 0.2, 1) both; an
   overflow: hidden;
 }
 .hero { position: relative; z-index: 1; max-width: var(--wrap); margin: 0 auto; padding: clamp(28px, 6vw, 72px) var(--gutter) 0; }
+.hero-new {
+  display: inline-flex; align-items: center; gap: 10px; max-width: 100%;
+  margin: 0 0 20px; padding: 4px 14px 4px 4px;
+  border: 1px solid var(--desk-line); border-radius: 999px;
+  color: var(--desk-ink); text-decoration: none; font-size: var(--step--1); line-height: 1.5;
+}
+.hero-new b { flex: none; padding: 1px 10px; border-radius: 999px; background: var(--hero-btn); color: var(--hero-btn-ink); font-weight: 700; }
+.hero-new:hover { border-color: var(--desk-soft); }
 .hero-title {
   margin: 0;
   font-size: var(--step-hero);
@@ -200,7 +340,7 @@ html.motion .rise { animation: rise 0.7s cubic-bezier(0.2, 0.7, 0.2, 1) both; an
   line-height: 1;
   letter-spacing: -0.028em;
 }
-.hero-lede { margin: 20px 0 0; max-width: 30rem; font-size: var(--step-1); font-weight: 600; line-height: 1.45; }
+.hero-lede { margin: 20px 0 0; max-width: 34rem; font-size: var(--step-1); font-weight: 600; line-height: 1.45; }
 .hero-text { margin: 10px 0 0; max-width: 34rem; color: var(--desk-soft); }
 .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
 .btn {
@@ -213,6 +353,12 @@ html.motion .rise { animation: rise 0.7s cubic-bezier(0.2, 0.7, 0.2, 1) both; an
 .btn-solid:hover { background: var(--hero-btn-hover); }
 .btn-line { border-color: var(--desk-soft); color: var(--desk-ink); }
 .btn-line:hover { border-color: var(--desk-ink); }
+/* 준비 중 안내: 공개 설치 파일이 아직 없어서 내려받기 자리에 누를 수 없는 안내를 둔다(옅은 바탕·시계 그림, hover·포커스 없음) */
+.btn-wait {
+  gap: 9px; padding-block: 6px; text-align: center; line-height: 1.45; cursor: default;
+  background: rgba(255, 255, 255, 0.07); border-color: var(--desk-line); color: var(--desk-ink);
+}
+.btn-wait svg { flex: none; width: 18px; height: 18px; color: var(--desk-soft); }
 .hero-note { margin: 14px 0 0; font-size: var(--step--1); color: var(--desk-soft); }
 
 /* 배경의 도트 장식(크림 방울·반짝이). 아주 옅게, 계단식으로만 움직인다. */
@@ -280,8 +426,12 @@ html.motion .deco .twinkle { animation: twinkle var(--dur, 3.4s) steps(4, jump-n
 .tray i { width: 14px; height: 14px; border-radius: 4px; }
 .tray svg { width: 16px; height: 16px; display: block; }
 
-/* ── 본문 절 ── */
+/* ── 본문 절 ──
+   글이 많아 처음 배치가 무겁다: 화면 밖의 무거운 덩어리(.cv)는 첫 그림에서 건너뛰고(content-visibility: auto, --cis 높이로 자리만 잡아 둠),
+   스크립트가 쉬는 틈에 하나씩 is-warm을 붙여 미리 그려 둔다(가까이 스크롤하면 브라우저가 먼저 그린다). 한 번에 짧게 그리려고 절이 아니라 덩어리 단위다. */
 .section { max-width: var(--wrap); margin: 0 auto; padding: clamp(56px, 9vw, 104px) var(--gutter) 0; }
+.cv { content-visibility: auto; contain-intrinsic-size: auto var(--cis, 400px); }
+.cv.is-warm { content-visibility: visible; }
 .section-title { margin: 0; font-size: var(--step-3); line-height: 1.2; letter-spacing: -0.015em; }
 .section-lede { margin: 12px 0 0; max-width: var(--measure); color: var(--ink-soft); }
 
@@ -303,6 +453,54 @@ html.motion .deco .twinkle { animation: twinkle var(--dur, 3.4s) steps(4, jump-n
   border: 1px solid var(--rule); border-radius: 10px; background: var(--surface);
 }
 .shot figcaption { margin-top: 10px; font-size: var(--step--1); color: var(--ink-soft); max-width: var(--measure); }
+.shot-wide { grid-column: 1 / -1; }
+
+/* 플러그인 탭 모형: 앱 설정 창의 플러그인 탭(카드 → 고른 카드의 상세 두 칸)을 본떠 HTML로 그린 그림. 글자는 페이지 글꼴이다. */
+.ptab {
+  padding: clamp(14px, 2.6vw, 28px);
+  border: 1px solid var(--rule); border-radius: 10px; background: var(--surface);
+  font-size: 14px; line-height: 1.45; color: var(--ink);
+}
+.pt-head { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px 12px; margin-bottom: 14px; }
+.pt-head b { font-family: var(--font-display); font-size: 20px; }
+.pt-btn, .pt-btns > span, .pt-vbtns > span {
+  display: inline-block; padding: 2px 11px; white-space: nowrap;
+  border: 1px solid var(--rule); border-radius: 7px; background: var(--surface); font-size: 13px;
+}
+.pt-cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(116px, 1fr)); gap: 10px; }
+.pt-card {
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1px;
+  min-height: 112px; padding: 8px 6px; text-align: center;
+  border: 1px solid var(--rule); border-radius: 9px;
+}
+.pt-card i { font-style: normal; font-size: 22px; line-height: 1; margin-bottom: 6px; }
+.pt-card b { font-size: 13.5px; line-height: 1.3; }
+.pt-card small { font-size: 12px; color: var(--ink-soft); }
+.pt-card .pt-badge { margin-top: 3px; padding: 0 8px; border-radius: 999px; background: var(--accent-soft); color: var(--ink); }
+.pt-sel { background: var(--accent-soft); border-color: var(--accent-fill); box-shadow: inset 0 0 0 1px var(--accent-fill); }
+.pt-add { border-style: dashed; color: var(--ink-soft); }
+.pt-detail {
+  display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.3fr); gap: 18px 28px;
+  margin-top: 18px; padding-top: 16px; border-top: 1px solid var(--rule);
+}
+.pt-about, .pt-ctl { display: flex; flex-direction: column; align-items: flex-start; gap: 6px; min-width: 0; }
+.pt-name { font-size: 17px; }
+.pt-note { font-size: 12.5px; color: var(--ink-soft); }
+.pt-list { display: flex; flex-direction: column; gap: 2px; padding-left: 18px; font-size: 13px; }
+.pt-list > span { display: list-item; }
+.pt-check { display: inline-flex; align-items: center; gap: 8px; font-weight: 600; }
+.pt-check i { position: relative; width: 16px; height: 16px; border-radius: 4px; background: var(--accent-fill); }
+.pt-check i::after {
+  content: ""; position: absolute; left: 5px; top: 2px; width: 4px; height: 8px;
+  border: solid #ffffff; border-width: 0 2px 2px 0; transform: rotate(45deg);
+}
+.pt-field { display: flex; flex-direction: column; gap: 3px; width: 100%; font-size: 13px; }
+.pt-input { display: block; width: 100%; padding: 3px 9px; border: 1px solid var(--rule); border-radius: 6px; background: var(--bg); }
+.pt-strip { margin-top: 4px; font-size: 11.5px; color: var(--ink-soft); }
+.pt-view { display: flex; flex-direction: column; gap: 6px; width: 100%; padding: 10px 12px; border: 1px dashed var(--rule); border-radius: 8px; font-size: 13px; }
+.pt-vbtns, .pt-btns { display: flex; flex-wrap: wrap; gap: 6px; }
+.pt-btns { margin-top: 4px; }
+.pt-btns > .pt-danger { color: var(--no); border-color: var(--no); }
 
 /* 동작 방식 */
 .how { margin-top: 24px; }
@@ -350,8 +548,8 @@ html.motion .deco .twinkle { animation: twinkle var(--dur, 3.4s) steps(4, jump-n
   background: var(--bubble); color: var(--bubble-ink);
   font-size: 12px; box-shadow: 0 3px 10px rgba(12, 24, 36, 0.18);
 }
-.cursor { position: absolute; width: 18px; height: 20px; }
-.cursor path { fill: var(--ink); stroke: var(--surface); stroke-width: 1.3; }
+/* 커서 색은 <svg>에 준다: <use>로 복제된 path에는 문서의 ".cursor path" 같은 규칙이 닿지 않아 상속으로만 칠해진다 */
+.cursor { position: absolute; width: 18px; height: 20px; fill: var(--ink); stroke: var(--surface); stroke-width: 1.3; }
 /* 커서 끝(왼쪽 위)이 펫 한가운데(가로 83%, 세로 67%)와 창의 빈 자리를 가리키게 한다. */
 .cursor-on { left: 82%; top: 66%; }
 .cursor-through { left: 30%; top: 56%; }
@@ -473,9 +671,9 @@ html.motion .deco .twinkle { animation: twinkle var(--dur, 3.4s) steps(4, jump-n
 .dot-band { left: 58%; bottom: 14%; }
 .dot-custom { left: 54%; top: 30%; }
 .drag-cursor { position: absolute; left: 76%; top: 52%; width: 11%; height: auto; }
-.drag-cursor path { fill: var(--ink); stroke: var(--surface); stroke-width: 1.3; }
+.drag-cursor { fill: var(--ink); stroke: var(--surface); stroke-width: 1.3; }
 
-/* ── 플러그인 틀(개발 중): 설계도처럼 점선과 모눈 ── */
+/* ── 플러그인: 격리된 창과 통로는 설계도처럼 점선과 모눈으로 그린다(점선 = 보이지 않는 경계) ── */
 .plan {
   margin-top: 28px;
   padding: clamp(18px, 4vw, 40px);
@@ -490,10 +688,12 @@ html.motion .deco .twinkle { animation: twinkle var(--dur, 3.4s) steps(4, jump-n
 .title-row { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 16px; }
 .status {
   display: inline-block; padding: 2px 12px; border-radius: 999px;
-  border: 1.5px dashed var(--plan); color: var(--plan);
+  background: var(--accent-soft); color: var(--accent);
   font-size: 15px; font-weight: 700; line-height: 1.6;
 }
-.plan-grid { display: grid; grid-template-columns: minmax(0, 6fr) minmax(0, 5fr); gap: 28px 40px; align-items: start; }
+.sub-title { margin: clamp(44px, 7vw, 64px) 0 0; font-size: var(--step-2); line-height: 1.25; }
+.sub-lede { margin: 10px 0 0; max-width: var(--measure); color: var(--ink-soft); }
+.plan-grid { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); gap: 28px 40px; align-items: start; }
 .arch { margin: 0; display: grid; gap: 10px; justify-items: stretch; }
 .arch-row { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
 .arch-box {
@@ -515,15 +715,277 @@ html.motion .deco .twinkle { animation: twinkle var(--dur, 3.4s) steps(4, jump-n
   font-size: 13.5px; line-height: 1.4; background: var(--surface);
 }
 .arch-net svg { flex: none; width: 26px; height: 26px; color: var(--plan); }
+/* 통로 목록: 플러그인이 닿을 수 있는 곳 한 줄씩 */
+.lanes { margin: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 215px), 1fr)); gap: 8px; align-content: start; }
+.lanes > div { padding: 8px 12px; border-radius: 8px; border: 1px solid var(--rule); background: var(--surface); }
+.lanes dt { font-weight: 650; font-size: 15px; line-height: 1.4; }
+.lanes dd { margin: 2px 0 0; font-size: 13.5px; line-height: 1.5; color: var(--ink-soft); }
 .points { margin: 0; padding: 0; list-style: none; display: grid; gap: 12px; }
 .points li { padding-left: 16px; border-left: 2px solid var(--plan); line-height: 1.55; }
 .points strong { display: block; }
-.progress { margin-top: 32px; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
-.progress div { padding-top: 10px; border-top: 1.5px dashed var(--plan); }
-.progress b { display: block; font-size: var(--step-1); font-family: var(--font-display); line-height: 1.3; }
-.progress span { font-size: var(--step--1); color: var(--ink-soft); }
-.bar { display: block; height: 8px; margin: 8px 0 6px; border-radius: 4px; background: var(--rule); overflow: hidden; }
-.bar i { display: block; height: 100%; width: calc(var(--done) / var(--all) * 100%); background: var(--plan); }
+.points-grid { margin-top: 28px; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 16px 28px; }
+
+/* ── 플러그인 흐름 무대(가져오기 → 동의 → 격리된 창 → 반응)
+   정지 화면(기본, 움직임 줄이기·스크립트 없음)은 네 장면을 나란히 마지막 모습으로 보인다.
+   움직이는 화면(is-live)은 네 장면을 한 칸에 겹쳐(높이는 가장 큰 장면) 차례로 바꾸고, 장면 안 움직임은 is-active가 붙을 때 처음부터 돈다. ── */
+.flow-demo { margin-top: 28px; }
+.flow-note { margin: 16px 0 0; max-width: var(--measure); }
+.flow-ctrl { display: none; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px 16px; margin-bottom: 14px; }
+.flow-demo.is-live .flow-ctrl { display: flex; }
+.flow-steps { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; }
+.flow-steps button {
+  display: inline-flex; align-items: center; gap: 8px;
+  min-height: 40px; padding: 0 14px 0 6px; border-radius: 999px; cursor: pointer;
+  font: inherit; font-size: 15px; font-weight: 600;
+  color: var(--ink); background: var(--surface); border: 1.5px solid var(--rule);
+}
+.flow-steps button b {
+  display: grid; place-items: center; width: 26px; height: 26px; border-radius: 50%;
+  font-size: 13px; color: var(--accent); border: 1.5px solid var(--accent);
+}
+.flow-steps button:hover { border-color: var(--accent); }
+.flow-steps button[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: var(--on-accent); }
+.flow-steps button[aria-pressed="true"] b { color: var(--on-accent); border-color: var(--on-accent); }
+.flow-scenes {
+  list-style: none; margin: 0; padding: 0;
+  display: grid; gap: 24px 20px; grid-template-columns: repeat(auto-fit, minmax(min(100%, 360px), 1fr));
+}
+.flow-demo.is-live .flow-scenes { grid-template-columns: minmax(0, 1fr); }
+.flow-demo.is-live .scene {
+  grid-area: 1 / 1; opacity: 0; visibility: hidden; translate: 0 10px;
+  transition: opacity 0.4s ease, translate 0.5s cubic-bezier(0.2, 0.7, 0.2, 1), visibility 0s linear 0.4s;
+}
+.flow-demo.is-live .scene.is-active {
+  opacity: 1; visibility: visible; translate: none;
+  transition: opacity 0.4s ease, translate 0.5s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+.scene { min-width: 0; }
+.scene-vis {
+  position: relative; display: flex; align-items: center; justify-content: center; gap: 14px;
+  min-height: 252px; padding: 22px 18px; overflow: hidden;
+  border: 1px solid var(--rule); border-radius: var(--radius-m); background: var(--bg);
+  font-size: 13px; line-height: 1.45;
+}
+.scene-cap { margin: 12px 0 0; max-width: 46rem; font-size: 15.5px; color: var(--ink-soft); }
+.scene-cap b { margin-right: 8px; color: var(--ink); }
+/* 장면 속 마우스 커서: 누를 대상 안에 두어 화면 폭이 달라도 정확히 그 대상을 누른다. 정지 화면에서는 숨긴다. */
+.sv-cur { position: absolute; z-index: 3; width: 18px; height: 20px; opacity: 0; pointer-events: none; fill: var(--ink); stroke: var(--surface); stroke-width: 1.3; }
+.sv-cur-1 { left: 56%; top: 50%; }
+.sv-cur-2, .sv-cur-3 { left: 58%; top: 55%; }
+@keyframes sv-pop { from { opacity: 0; translate: 0 12px; scale: 0.97; } }
+@keyframes sv-click { 50% { scale: 0.92; } }
+@keyframes sv-cur-a {
+  0% { opacity: 0; translate: 70px 64px; scale: 1; }
+  15% { opacity: 1; }
+  55% { translate: 0 0; scale: 1; }
+  62% { scale: 0.8; }
+  70% { scale: 1; opacity: 1; }
+  100% { translate: 0 0; opacity: 0; }
+}
+@keyframes sv-cur-b {
+  0% { opacity: 0; translate: -48px 36px; scale: 1; }
+  20% { opacity: 1; }
+  60% { translate: 0 0; scale: 1; }
+  72% { scale: 0.8; }
+  84% { scale: 1; }
+  100% { translate: 0 0; opacity: 1; }
+}
+@keyframes sv-press { 0% { background-color: transparent; border-color: var(--rule); } 40% { scale: 0.95; } }
+@keyframes sv-sel { from { background-color: transparent; } }
+@keyframes sv-sweep { from { transform: scaleX(0); } }
+/* 장면 1: 플러그인 탭의 "＋ 가져오기(.zip)"를 눌러 열기 창에서 zip을 고른다 */
+.sv-import { flex-wrap: wrap; align-content: center; }
+.mt { padding: 12px 14px; border: 1px solid var(--rule); border-radius: 10px; background: var(--surface); }
+.mt-title { display: block; margin-bottom: 8px; font-weight: 700; font-size: 15px; }
+.mt-cards { display: flex; gap: 8px; }
+.mt-card {
+  position: relative; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px;
+  width: 104px; height: 92px; padding: 6px; text-align: center; font-size: 12.5px; line-height: 1.3;
+  border: 1px solid var(--rule); border-radius: 9px;
+}
+.mt-card small { font-size: 11.5px; color: var(--ink-soft); }
+.mt-add { border-style: dashed; border-color: var(--accent-fill); background-color: var(--accent-soft); color: var(--ink-soft); }
+.mt-plus, .mt-ico { font-size: 20px; line-height: 1.1; }
+.od { position: relative; z-index: 2; width: 214px; overflow: hidden; border: 1px solid var(--rule); border-radius: 10px; background: var(--surface); box-shadow: var(--lift-shadow); }
+.od-bar { display: block; padding: 5px 10px; font-weight: 600; font-size: 12.5px; background: var(--code-bg); }
+.od-row { display: flex; align-items: center; gap: 8px; padding: 5px 10px; font-family: var(--font-code); font-size: 12.5px; }
+.od-row svg { flex: none; width: 16px; height: 16px; color: var(--accent); }
+.od-sel { background-color: var(--accent-soft); }
+.od-btns { display: flex; justify-content: flex-end; gap: 6px; padding: 8px 10px; }
+.od-btns > span { position: relative; padding: 2px 12px; border: 1px solid var(--rule); border-radius: 6px; font-size: 12.5px; }
+.od-btns > .od-ok, .mb-btns > .mb-ok { background: var(--accent); border-color: var(--accent); color: var(--on-accent); }
+.flow-demo.is-live .is-active .sv-cur-1 { animation: sv-cur-a 1.6s ease 0.1s both; }
+.flow-demo.is-live .is-active .mt-add { animation: sv-press 0.5s ease 0.95s both; }
+.flow-demo.is-live .is-active .od { animation: sv-pop 0.4s cubic-bezier(0.2, 0.7, 0.2, 1) 1.35s both; }
+.flow-demo.is-live .is-active .od-sel { animation: sv-sel 0.3s ease 1.95s both; }
+.flow-demo.is-live .is-active .sv-cur-2 { animation: sv-cur-b 1.1s ease 2.2s both; }
+.flow-demo.is-live .is-active .od-ok { animation: sv-click 0.3s ease 2.95s; }
+/* 장면 2: 동의 창(앱이 띄우는 Windows 확인 창과 같은 문구). 할 수 있는 일 줄이 차례로 켜진다 */
+.mb { width: min(100%, 470px); overflow: hidden; border: 1px solid var(--rule); border-radius: 10px; background: var(--surface); box-shadow: var(--lift-shadow); }
+.mb-bar { display: flex; justify-content: flex-end; padding: 3px 10px; background: var(--code-bg); font-size: 12px; color: var(--ink-soft); }
+.mb-body { display: flex; gap: 12px; padding: 14px 16px 4px; }
+.mb-q { flex: none; display: grid; place-items: center; width: 28px; height: 28px; border-radius: 50%; background: var(--plan); color: var(--surface); font-weight: 700; }
+.mb-text { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.mb-msg { margin-bottom: 4px; font-size: 14.5px; }
+.mb-perm { position: relative; isolation: isolate; margin-left: -6px; padding: 1px 6px; border-radius: 5px; color: var(--ink); }
+.mb-perm::before {
+  content: ""; position: absolute; inset: 0; z-index: -1; border-radius: inherit;
+  background: var(--accent-soft); transform-origin: left center;
+}
+.mb-dim { margin-top: 4px; font-size: 12px; color: var(--ink-soft); }
+.mb-btns { display: flex; justify-content: flex-end; gap: 8px; padding: 10px 16px 14px; }
+.mb-btns > span { position: relative; min-width: 72px; padding: 3px 14px; text-align: center; border: 1px solid var(--rule); border-radius: 6px; }
+.flow-demo.is-live .is-active .mb { animation: sv-pop 0.4s cubic-bezier(0.2, 0.7, 0.2, 1) 0.1s both; }
+.flow-demo.is-live .is-active .mb-perm::before { animation: sv-sweep 0.45s cubic-bezier(0.2, 0.7, 0.2, 1) calc(0.8s + var(--k, 0) * 0.6s) both; }
+.flow-demo.is-live .is-active .sv-cur-3 { animation: sv-cur-b 1.1s ease 2.9s both; }
+.flow-demo.is-live .is-active .mb-ok { animation: sv-click 0.3s ease 3.65s; }
+/* 장면 3: 보이지 않는 격리된 창(점선 상자) 안에서 도는 플러그인. 막힌 곳으로 간 점은 벽에서 튕기고, 허락한 통로로 간 점은 나간다 */
+.sv-sandbox { flex-direction: column; gap: 12px; }
+.sb { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; align-items: center; gap: 14px; width: min(100%, 640px); }
+.sb-side { display: flex; flex-direction: column; align-items: flex-start; gap: 6px; }
+.sb-chip { display: inline-flex; align-items: center; gap: 6px; padding: 2px 10px 2px 4px; border-radius: 999px; font-size: 12.5px; white-space: nowrap; color: var(--ink); }
+.sb-chip i { display: grid; place-items: center; width: 18px; height: 18px; border-radius: 50%; font-style: normal; font-size: 11px; font-weight: 700; color: var(--surface); }
+.sb-no { background: var(--no-soft); }
+.sb-no i { background: var(--no); }
+.sb-ok { background: var(--ok-soft); }
+.sb-ok i { background: var(--ok); }
+.sb-box {
+  position: relative; display: flex; flex-direction: column; align-items: center; gap: 8px;
+  padding: 30px 16px 18px; border: 2px dashed var(--plan); border-radius: 12px; background: var(--plan-bg);
+}
+.sb-label { position: absolute; top: 6px; left: 12px; right: 12px; font-size: 11.5px; font-weight: 600; color: var(--plan); text-align: left; }
+.sb-plugin { display: inline-flex; align-items: center; gap: 8px; padding: 6px 12px; border: 1px solid var(--rule); border-radius: 9px; background: var(--surface); font-weight: 650; }
+.sb-plugin .pz, .rx-box .pz, .ib-plug-box .pz { width: 1.4em; height: 1.4em; }
+.sb-beat { display: inline-flex; align-items: center; gap: 4px; font-size: 12px; color: var(--ink-soft); }
+.sb-beat i { width: 6px; height: 6px; background: var(--accent-fill); }
+.sb-lane { position: absolute; top: 62%; height: 10px; opacity: 0; }
+.sb-lane-no { left: 10px; right: 50%; }
+.sb-lane-ok { left: 50%; right: -46px; }
+.sb-lane i { position: absolute; top: 0; width: 10px; height: 10px; border-radius: 2px; }
+.sb-lane-no i { right: 0; background: var(--no); }
+.sb-lane-ok i { left: 0; background: var(--ok); }
+.sb-foot { font-size: 12px; color: var(--ink-soft); text-align: center; }
+@keyframes sb-beat { 0%, 100% { opacity: 0.25; } 30%, 60% { opacity: 1; } }
+@keyframes sb-no { 0% { opacity: 0; translate: 0 0; } 8% { opacity: 1; } 45% { translate: -100% 0; } 53% { translate: calc(-100% + 14px) 0; } 62% { translate: -100% 0; opacity: 1; } 100% { translate: -100% 0; opacity: 0; } }
+@keyframes sb-ok { 0% { opacity: 0; translate: 0 0; } 10% { opacity: 1; } 82% { opacity: 1; translate: 100% 0; } 100% { opacity: 0; translate: 100% 0; } }
+.flow-demo.is-live .is-active .sb-box { animation: sv-pop 0.45s cubic-bezier(0.2, 0.7, 0.2, 1) 0.1s both; }
+.flow-demo.is-live .is-active .sb-beat i { animation: sb-beat 0.9s steps(3, jump-none) 0.5s 4 backwards; }
+.flow-demo.is-live .is-active .sb-beat i:nth-child(2) { animation-delay: 0.8s; }
+.flow-demo.is-live .is-active .sb-beat i:nth-child(3) { animation-delay: 1.1s; }
+.flow-demo.is-live .is-active .sb-lane-no { animation: sb-no 1.3s ease-in-out 0.9s 2; }
+.flow-demo.is-live .is-active .sb-lane-ok { animation: sb-ok 1.2s ease-in-out 1.5s 2; }
+/* 장면 4: 허락한 통로로 나온 요청에 펫이 반응하고 말풍선이 뜬다 */
+.sv-react { gap: 0; align-items: flex-end; padding-bottom: 26px; }
+.rx-box {
+  flex: none; align-self: center; display: inline-flex; align-items: center; gap: 6px;
+  padding: 8px 10px; border: 2px dashed var(--plan); border-radius: 10px; background: var(--plan-bg);
+  font-size: 12.5px; font-weight: 650;
+}
+.rx-path {
+  position: relative; align-self: center; flex: 1 1 40px; min-width: 32px; max-width: 160px; height: 2px; margin: 0 6px;
+  background: repeating-linear-gradient(90deg, var(--plan) 0 5px, transparent 5px 9px);
+}
+.rx-run { position: absolute; inset: -4px 0; opacity: 0; translate: -100% 0; }
+.rx-run i { position: absolute; right: 0; top: 0; width: 10px; height: 10px; border-radius: 2px; background: var(--accent-fill); }
+.rx-pet { position: relative; flex: none; width: 96px; height: 96px; }
+.rx-sprite { display: block; width: 96px; height: 96px; }
+.rx-sprite svg { display: block; width: 100%; height: 100%; }
+.rx-say { position: absolute; right: 18px; bottom: calc(100% + 12px); }
+.rx-bubble {
+  position: relative; display: block; width: max-content; max-width: 12rem; padding: 8px 12px;
+  border-radius: 14px; background: var(--bubble); color: var(--bubble-ink); box-shadow: var(--shadow);
+  font-size: 14px; line-height: 1.45;
+}
+.rx-bubble::after { content: ""; position: absolute; top: 100%; right: 22px; border: 7px solid transparent; border-top-color: var(--bubble); }
+.rx-bubble small { display: block; width: max-content; margin-top: 6px; padding: 1px 10px; border: 1px solid #c9d2da; border-radius: 6px; font-size: 12px; }
+@keyframes rx-run { 0% { opacity: 1; translate: -100% 0; } 85% { opacity: 1; } 100% { opacity: 0; translate: 0 0; } }
+@keyframes sv-bubble { from { opacity: 0; translate: 0 8px; scale: 0.92; } }
+.flow-demo.is-live .is-active .rx-run { animation: rx-run 0.6s cubic-bezier(0.4, 0, 0.2, 1) 0.25s both; }
+.flow-demo.is-live .is-active .rx-bubble { transform-origin: 80% 100%; animation: sv-bubble 0.35s cubic-bezier(0.2, 0.8, 0.3, 1.2) 0.95s both; }
+
+/* ── 들어오는 연결 데모: 터미널 → 내 PC 안 문(127.0.0.1) → 플러그인 → 펫
+   정지 화면(기본)은 마지막 장면(문 열림·토큰 확인·말풍선). 움직일 때(is-live)는 단계 클래스(s-go1·s-door·s-go2·s-plug·s-go3·s-pet·s-say)가
+   붙기 전까지 처음 모습이다. 단계 클래스는 다른 규칙(예: 첫 화면 펫 버튼의 .pet)과 겹치지 않게 s- 접두를 붙인다. ── */
+.ib { margin: 22px 0 0; padding: clamp(16px, 3vw, 28px); border: 1px solid var(--rule); border-radius: var(--radius-m); background: var(--surface); }
+.ib-track {
+  display: grid; align-items: center;
+  grid-template-columns: minmax(0, 1.6fr) 48px minmax(0, 0.9fr) 48px minmax(0, 0.9fr) 48px minmax(0, 1fr);
+}
+.ib-node { display: flex; flex-direction: column; align-items: center; gap: 8px; min-width: 0; text-align: center; }
+.ib-cap { font-size: 12.5px; line-height: 1.35; color: var(--ink-soft); }
+.ib-term { align-items: stretch; text-align: left; }
+.ib-screen { overflow: hidden; border-radius: 9px; background: var(--term); color: var(--term-ink); box-shadow: var(--lift-shadow); }
+.ib-bar { display: flex; gap: 5px; padding: 7px 10px; background: rgba(255, 255, 255, 0.06); }
+.ib-bar i { width: 8px; height: 8px; border-radius: 50%; background: rgba(255, 255, 255, 0.28); }
+.ib-code {
+  display: flex; flex-direction: column; gap: 2px; min-height: 6.4em; padding: 10px 12px 12px;
+  font-family: var(--font-code); font-size: 12.5px; line-height: 1.5; overflow-wrap: anywhere;
+}
+.ib-code .t-dim { color: var(--term-soft); }
+.ib-code .t-in::before { content: "> "; color: var(--term-soft); }
+.ib-term .ib-cap { text-align: center; }
+.ib-door svg { display: block; width: 52px; height: 62px; }
+.ib-door b { font-family: var(--font-code); font-size: 13px; }
+.ib-door-panel { transform-box: fill-box; transform-origin: left center; transform: scaleX(0.28); }
+.ib-token { display: inline-flex; align-items: center; gap: 4px; padding: 1px 9px; border-radius: 999px; background: var(--ok-soft); color: var(--ink); font-size: 12px; font-weight: 600; }
+.ib-token i { font-style: normal; font-weight: 800; color: var(--ok); }
+.ib-plug-box {
+  position: relative; display: inline-flex; align-items: center; gap: 6px; padding: 12px;
+  border: 2px dashed var(--plan); border-radius: 10px; background: var(--plan-bg);
+  font-size: 14px; font-weight: 650; white-space: nowrap;
+}
+.ib-plug-box::after { content: ""; position: absolute; inset: -7px; border: 2px solid var(--plan); border-radius: 15px; opacity: 0; }
+.ib-pet { position: relative; width: 64px; height: 64px; margin-top: 66px; }
+.ib-pet .ib-sprite, .ib-pet .ib-sprite svg { display: block; width: 64px; height: 64px; }
+.ib-say { position: absolute; left: 50%; bottom: calc(100% + 10px); transform: translateX(-50%); }
+.ib-bubble {
+  position: relative; display: block; width: max-content; max-width: 10rem; padding: 7px 12px;
+  border-radius: 13px; background: var(--bubble); color: var(--bubble-ink); box-shadow: var(--shadow);
+  font-size: 13.5px; line-height: 1.45; transform-origin: 50% 100%;
+}
+.ib-bubble::after { content: ""; position: absolute; top: 100%; left: calc(50% - 7px); border: 7px solid transparent; border-top-color: var(--bubble); }
+.ib-link {
+  position: relative; height: 2px; margin: 0 4px;
+  background: repeating-linear-gradient(90deg, var(--ink-soft) 0 5px, transparent 5px 10px);
+}
+.ib-run { --from: -100% 0; position: absolute; inset: -5px 0; opacity: 0; translate: var(--from); }
+.ib-run i { position: absolute; right: -6px; top: 0; width: 12px; height: 12px; border-radius: 3px; background: var(--accent-fill); }
+@keyframes ib-run { 0% { opacity: 1; translate: var(--from); } 85% { opacity: 1; } 100% { opacity: 0; translate: 0 0; } }
+@keyframes ib-ring { from { opacity: 0.9; scale: 0.92; } to { opacity: 0; scale: 1.12; } }
+.ib.is-live .ib-door-panel { transition: transform 0.45s cubic-bezier(0.3, 0.7, 0.3, 1); }
+.ib.is-live .ib-token { transition: opacity 0.3s ease, translate 0.3s ease; }
+.ib.is-live .ib-bubble { transition: opacity 0.3s ease, translate 0.35s cubic-bezier(0.2, 0.8, 0.3, 1.2), scale 0.35s cubic-bezier(0.2, 0.8, 0.3, 1.2); }
+.ib.is-live:not(.s-door) .ib-door-panel { transform: none; }
+.ib.is-live:not(.s-door) .ib-token { opacity: 0; translate: 0 4px; }
+.ib.is-live:not(.s-say) .ib-bubble { opacity: 0; translate: 0 8px; scale: 0.92; }
+.ib.is-live.s-go1 .ib-l1 .ib-run, .ib.is-live.s-go2 .ib-l2 .ib-run, .ib.is-live.s-go3 .ib-l3 .ib-run { animation: ib-run 0.6s cubic-bezier(0.4, 0, 0.2, 1) both; }
+.ib.is-live.s-plug .ib-plug-box::after { animation: ib-ring 0.8s ease-out both; }
+.demo-bar { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px 16px; margin-top: 18px; }
+.demo-bar p { margin: 0; max-width: 46rem; font-size: 15.5px; color: var(--ink-soft); }
+.ib .auto { display: none; flex: none; }
+.ib.is-live .auto { display: inline-flex; }
+
+/* 데모는 화면 밖이거나 탭이 숨으면 그 자리에서 잠깐 멈추고(다시 보이면 이어서), 자동 재생을 끄면 장면의 마지막 모습으로 멈춘다. */
+.flow-demo.is-off *, .flow-demo.is-off *::before, .flow-demo.is-off *::after,
+.ib.is-off *, .ib.is-off *::before, .ib.is-off *::after,
+html.page-hidden .flow-demo *, html.page-hidden .flow-demo *::before, html.page-hidden .flow-demo *::after,
+html.page-hidden .ib *, html.page-hidden .ib *::before, html.page-hidden .ib *::after { animation-play-state: paused !important; }
+.flow-demo.is-paused .scene *, .flow-demo.is-paused .scene *::before, .flow-demo.is-paused .scene *::after { animation: none !important; }
+
+/* 직접 만들기: 세 단계 카드 */
+.make-steps {
+  list-style: none; margin: 22px 0 0; padding: 0; counter-reset: mk;
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); gap: 14px;
+}
+/* 칸(li)은 hover를 받는 바깥 상자이고, 보이는 카드는 안쪽 .mk-card다(카드만 떠오르며 기운다) */
+.make-steps li { counter-increment: mk; }
+.mk-card { padding: 16px 18px; border: 1px solid var(--rule); border-radius: var(--radius-m); background: var(--surface); }
+.mk-card::before {
+  content: counter(mk); display: grid; place-items: center; width: 28px; height: 28px; margin-bottom: 10px;
+  border-radius: 50%; border: 1.5px solid var(--accent); color: var(--accent); font-weight: 700; font-size: 14px;
+}
+.make-steps b { display: block; font-size: 16px; line-height: 1.4; }
+.make-steps span { display: block; margin-top: 4px; font-size: 14.5px; line-height: 1.6; color: var(--ink-soft); }
 
 /* 쓴 기술 */
 .table-wrap { margin-top: 28px; overflow-x: auto; }
@@ -540,6 +1002,37 @@ html.motion .deco .twinkle { animation: twinkle var(--dur, 3.4s) steps(4, jump-n
 .flow li { display: flex; align-items: center; gap: 10px; font-weight: 650; }
 .flow li span { display: inline-block; padding: 6px 14px; border-radius: 8px; border: 1px solid var(--rule); background: var(--surface); }
 .flow li + li::before { content: ""; width: 22px; height: 1.5px; background: var(--ink-soft); }
+/* 숫자 카드: 숫자(dd)를 위에 크게, 이름(dt)을 아래에 — 글 순서는 이름 → 숫자로 읽힌다.
+   카드마다 dt·dd 한 쌍의 dl이고, 그 바깥 div가 hover를 받는 상자다(dl 안의 div와 dt 사이에는 다른 상자를 끼울 수 없어서). */
+.stats { margin: 28px 0 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr)); gap: 14px; }
+.stat {
+  display: flex; flex-direction: column-reverse; justify-content: flex-end; gap: 6px; margin: 0;
+  padding: 18px 20px; border: 1px solid var(--rule); border-radius: var(--radius-m); background: var(--surface);
+}
+.stat dt { font-size: var(--step--1); color: var(--ink-soft); }
+.stat dd { margin: 0; font-family: var(--font-display); font-size: var(--step-3); font-weight: 700; line-height: 1.1; letter-spacing: -0.01em; }
+.stat dd small { margin-left: 2px; font-size: var(--step-0); font-weight: 600; color: var(--ink-soft); }
+/* 숫자를 올리는 동안 자릿수가 바뀌어도 옆 글자가 밀리지 않게, 스크립트가 처음 폭을 min-width로 잡아 둔다 */
+.num { display: inline-block; text-align: end; font-variant-numeric: tabular-nums; }
+.fine-stat { margin: 12px 0 0; font-size: var(--step--1); color: var(--ink-soft); }
+
+/* 배포 안내(공개 설치 파일 준비 중): 첫 화면과 같은 바탕 화면 색으로 페이지를 닫는다 */
+.dl {
+  --focus: var(--desk-ink);
+  display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); gap: 24px 44px; align-items: start;
+  padding: clamp(22px, 4.5vw, 48px); border-radius: 16px;
+  background: var(--desk); color: var(--desk-ink);
+}
+.dl .section-title { color: var(--desk-ink); }
+.dl-ver { margin: 10px 0 0; font-size: var(--step-1); font-weight: 600; }
+.dl-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 20px; }
+.dl-note { margin: 14px 0 0; max-width: 34rem; font-size: var(--step--1); color: var(--desk-soft); }
+.dl-note a { color: var(--desk-ink); }
+.dl-pet { display: block; width: 64px; height: 64px; margin-top: 18px; }
+.dl-pet svg { display: block; width: 100%; height: 100%; }
+.dl-req { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
+.dl-req li { padding: 10px 14px; border: 1px solid var(--desk-line); border-radius: 10px; font-size: 15px; line-height: 1.55; color: var(--desk-soft); }
+.dl-req b { display: block; color: var(--desk-ink); }
 
 /* 바닥글 */
 .foot {
@@ -550,32 +1043,59 @@ html.motion .deco .twinkle { animation: twinkle var(--dur, 3.4s) steps(4, jump-n
 }
 .foot p { margin: 4px 0 0; max-width: 46rem; }
 .foot-name { font-weight: 650; color: var(--ink); }
+.foot-links { list-style: none; margin: 14px 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: 6px 20px; }
+.foot-links a { font-weight: 600; }
 
-/* 바닥의 작은 펫: 첫 화면을 지나면 오른쪽 아래 짧은 길에서 스크롤을 따라 걷고, 멈추면 앉고, 오래 두면 잠든다. */
+/* 바닥의 작은 펫: 첫 화면을 지나면 오른쪽 아래 길에 나타나, 지금 읽는 절의 자리로 걸어가 멈춰 서서 그 절을 말풍선으로 한마디 소개한다.
+   그 뒤 앉고, 오래 두면 잠든다. 펫 길은 절 순서대로 자리가 나뉜다.
+   본문 글·그림을 덮지 않게 펫 길과 말풍선은 본문 열 오른쪽의 빈 여백 안에만 둔다: 본문 열 끝에서 16px 띄운 곳부터 화면 오른쪽 16px 안쪽까지(최대 320px).
+   고정 위치라 100%는 스크롤 막대를 뺀 화면 폭이다. 여백이 좁은 화면(1499px 이하)에서는 숨긴다. */
 .mini-pet {
   position: fixed; right: 16px; bottom: 8px; z-index: 20;
-  width: 240px; height: 64px; pointer-events: none;
+  width: min(320px, calc((100% - var(--wrap)) / 2 + var(--gutter) - 32px)); height: 64px; pointer-events: none;
   opacity: 0; translate: 0 10px; transition: opacity 0.3s ease, translate 0.3s ease;
 }
 .mini-pet.is-on { opacity: 1; translate: none; }
 .mini-walker { position: absolute; left: 0; bottom: 0; width: 64px; height: 64px; }
+.mini-bubble {
+  position: absolute; left: 0; bottom: calc(100% + 10px);
+  width: max-content; max-width: min(230px, 100%); margin: 0; padding: 7px 12px;
+  border-radius: 13px; background: var(--bubble); color: var(--bubble-ink); box-shadow: var(--shadow);
+  font-size: 13.5px; line-height: 1.45;
+  opacity: 0; translate: 0 6px; scale: 0.94; transform-origin: var(--tail, 50%) 100%;
+  transition: opacity 0.25s ease, translate 0.3s cubic-bezier(0.2, 0.8, 0.3, 1.2), scale 0.3s cubic-bezier(0.2, 0.8, 0.3, 1.2);
+}
+.mini-bubble.is-on { opacity: 1; translate: none; scale: none; }
+.mini-bubble::after { content: ""; position: absolute; top: 100%; left: calc(var(--tail, 50%) - 7px); border: 7px solid transparent; border-top-color: var(--bubble); }
 html:not(.motion) .mini-pet { display: none; }
 
 @media (min-width: 900px) {
   .shots { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
-@media (max-width: 999px) {
+@media (max-width: 1499px) {
   .mini-pet { display: none; }
 }
 @media (max-width: 860px) {
   .how-item { grid-template-columns: minmax(0, 1fr); }
   .plan-grid { grid-template-columns: minmax(0, 1fr); }
+  .pt-detail { grid-template-columns: minmax(0, 1fr); }
+  .dl { grid-template-columns: minmax(0, 1fr); }
+}
+/* 좁은 화면: 들어오는 연결 데모는 위에서 아래로, 연결선과 점도 세로로 */
+@media (max-width: 760px) {
+  .ib-track { grid-template-columns: minmax(0, 1fr); justify-items: center; }
+  .ib-term { width: 100%; max-width: 380px; }
+  .ib-link { width: 2px; height: 34px; margin: 6px 0; background: repeating-linear-gradient(180deg, var(--ink-soft) 0 5px, transparent 5px 10px); }
+  .ib-run { --from: 0 -100%; inset: 0 -5px; }
+  .ib-run i { right: auto; top: auto; left: 0; bottom: -6px; }
+  .ib-pet { margin-top: 60px; }
+  .sb { grid-template-columns: minmax(0, 1fr); }
+  .sb-side { flex-direction: row; flex-wrap: wrap; justify-content: center; }
 }
 @media (max-width: 680px) {
   .use { grid-template-columns: minmax(0, 1fr); }
   .usage-fig { grid-template-columns: minmax(0, 1fr); }
   .merge { justify-self: center; transform: rotate(90deg); }
-  .progress { grid-template-columns: minmax(0, 1fr); }
   .arch-apis { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .stack thead th:first-child { width: auto; }
   .stack th, .stack td { padding-right: 12px; }
@@ -589,11 +1109,16 @@ html:not(.motion) .mini-pet { display: none; }
   .mini-screen { margin-bottom: 0; }
   .plane-tag, .c-label { font-size: 10.5px; }
   .over-bubble { font-size: 10.5px; }
+  .nav-right { gap: 12px; }
+  .mt-card { width: 92px; }
+  .od { width: 100%; max-width: 250px; }
+  .scene-vis { padding: 20px 12px; }
 }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  .lift, .navlink { transition: none; }
-  .lift:hover { transform: none; }
+  .lift, .navlink, .tilt { transition: none; }
+  .lift:hover, .tilt-host:hover > .tilt { transform: none; }
+  .lift:hover::after { content: none; } /* 떠오르지 않으니 판정 띠도 두지 않는다 */
   .typed.is-typing::after { animation: none; }
 }
 </style>
@@ -656,18 +1181,54 @@ html:not(.motion) .mini-pet { display: none; }
     <path d="M3 12h18M12 3c2.6 2.6 3.8 5.6 3.8 9s-1.2 6.4-3.8 9c-2.6-2.6-3.8-5.6-3.8-9s1.2-6.4 3.8-9Z" fill="none" stroke="currentColor" stroke-width="1.4"/>
     <path d="M4.5 19.5 19.5 4.5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
   </symbol>
+  <!-- 나가는 연결: 지구본에서 바깥으로 / 들어오는 연결: 집(내 PC) 안으로 -->
+  <symbol id="i-out" viewBox="0 0 24 24">
+    <circle cx="10" cy="13" r="7.5" fill="none" stroke="currentColor" stroke-width="1.6"/>
+    <path d="M2.5 13h15M10 5.5c2.2 2.2 3.2 4.7 3.2 7.5s-1 5.3-3.2 7.5c-2.2-2.2-3.2-4.7-3.2-7.5s1-5.3 3.2-7.5Z" fill="none" stroke="currentColor" stroke-width="1.3"/>
+    <path d="M15 3h6v6M21 3l-6.5 6.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+  </symbol>
+  <symbol id="i-in" viewBox="0 0 24 24">
+    <path d="M3.5 10.5 12 3.5l8.5 7V20.5h-17Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+    <path d="M12 8.5v7.5M8.8 12.8 12 16l3.2-3.2" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+  </symbol>
+  <symbol id="i-zip" viewBox="0 0 16 16">
+    <path d="M3.5 1.5h6l3 3v10h-9Z" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/>
+    <path d="M7 2v1.4M8 3.4v1.4M7 4.8v1.4M8 6.2v1.4" fill="none" stroke="currentColor" stroke-width="1.2"/>
+    <rect x="6.4" y="8" width="2.2" height="2.8" rx="0.5" fill="currentColor"/>
+  </symbol>
+  <!-- 플러그인 조각과 문서: 앱 화면의 그림 글자(이모지) 대신 쓴다(글꼴마다 모양이 달라지거나 네모로 보이지 않게) -->
+  <symbol id="i-puzzle" viewBox="0 0 24 24">
+    <path d="M3.2 5.8H8.1a2.6 2.6 0 1 1 5.2 0H18.2V10.7a2.6 2.6 0 1 1 0 5.2V20.8H3.2Z" fill="currentColor"/>
+  </symbol>
+  <symbol id="i-doc" viewBox="0 0 16 16">
+    <path d="M3.5 1.5h6l3 3v10h-9Z" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/>
+    <path d="M5.5 7.5h5M5.5 10h5M5.5 12.5h3" fill="none" stroke="currentColor" stroke-width="1.1"/>
+  </symbol>
+  <symbol id="i-theme" viewBox="0 0 24 24">
+    <circle cx="12" cy="12" r="8" fill="none" stroke="currentColor" stroke-width="1.8"/>
+    <path d="M12 4a8 8 0 0 1 0 16Z" fill="currentColor"/>
+  </symbol>
+  <!-- 준비 중(시계): 아직 누를 수 없는 안내 자리에 쓴다 -->
+  <symbol id="i-wait" viewBox="0 0 24 24">
+    <circle cx="12" cy="12" r="8.5" fill="none" stroke="currentColor" stroke-width="1.8"/>
+    <path d="M12 7.5V12l3.2 2.2" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+  </symbol>
 </svg>
 
 <nav class="topnav" aria-label="이 페이지의 절">
   <div class="topnav-inner">
-    <a class="brand" href="#top"><svg aria-hidden="true" focusable="false"><use href="#dot-icon"/></svg><span>ClaudeTool</span></a>
-    <ul>
-      <li><a class="navlink" href="#features">기능</a></li>
-      <li><a class="navlink" href="#screens">화면</a></li>
-      <li><a class="navlink" href="#how">동작 방식</a></li>
-      <li><a class="navlink" href="#plugins">플러그인</a></li>
-      <li><a class="navlink" href="#stack">기술</a></li>
-    </ul>
+    <a class="brand" href="#top" aria-label="ClaudeTool 맨 위로"><svg aria-hidden="true" focusable="false"><use href="#dot-icon"/></svg><span>ClaudeTool</span></a>
+    <div class="nav-right">
+      <ul>
+        <li><a class="navlink" href="#features">기능</a></li>
+        <li><a class="navlink" href="#screens">화면</a></li>
+        <li><a class="navlink" href="#how">동작 방식</a></li>
+        <li><a class="navlink" href="#plugins">플러그인</a></li>
+        <li><a class="navlink" href="#stack">기술</a></li>
+        <li><a class="navlink" href="#download">배포 준비 중</a></li>
+      </ul>
+      <button type="button" class="theme-btn" id="theme-btn" aria-pressed="false" aria-label="어두운 화면" title="밝은 화면·어두운 화면 바꾸기"><svg aria-hidden="true" focusable="false"><use href="#i-theme"/></svg></button>
+    </div>
   </div>
 </nav>
 
@@ -686,17 +1247,18 @@ html:not(.motion) .mini-pet { display: none; }
   </div>
 
   <div class="hero">
-    <h1 class="hero-title rise" style="--i:0">ClaudeTool</h1>
-    <p class="hero-lede rise" style="--i:1">화면 위를 돌아다니는 Windows용 Claude 데스크톱 펫</p>
-    <p class="hero-text rise" style="--i:2">펫을 클릭하면 Claude 사용량을, 단축키를 누르면 질문의 답을 말풍선으로 보여 줘요. 캐릭터와 움직임은 설정 창에서 바꿔요.</p>
-    <div class="hero-actions rise" style="--i:3">
+    <a class="hero-new rise" style="--i:0" href="#plugins"><b>새 기능</b>받은 플러그인을 가져와 펫에 기능을 더해요</a>
+    <h1 class="hero-title rise" style="--i:1">ClaudeTool</h1>
+    <p class="hero-lede rise" style="--i:2">화면 위를 걷고 쉬고 잠드는 Windows용 데스크톱 펫</p>
+    <p class="hero-text rise" style="--i:3">펫을 클릭하면 Claude 사용량을, 단축키를 누르면 질문의 답을 말풍선으로 보여 줘요. 펫과 말풍선 밖의 클릭은 아래 창으로 그대로 지나가요. 캐릭터와 움직임은 설정 창에서 바꾸고 받은 플러그인으로 기능을 더해요.</p>
+    <div class="hero-actions rise" style="--i:4">
+      <span class="btn btn-wait"><svg aria-hidden="true" focusable="false"><use href="#i-wait"/></svg>공개 설치 파일은 준비 중이에요</span>
       <a class="btn btn-solid lift" href="#features">기능 살펴보기</a>
-      <a class="btn btn-line lift" href="#screens">화면 보기</a>
     </div>
-    <p class="hero-note rise" style="--i:4">Windows 10·11(x64)용, 현재 버전 0.3.0</p>
+    <p class="hero-note rise" style="--i:5">Windows 10·11(x64) · 현재 버전 <span data-stat="version">0.4.0</span> · 개인이 만든 비공식 프로젝트이며 Anthropic과 관계없어요</p>
   </div>
 
-  <div class="roam rise" id="roam" style="--i:5">
+  <div class="roam rise" id="roam" style="--i:6">
     <span class="roam-tag" aria-hidden="true">이동 범위: 아래쪽 띠</span>
     <div class="walker" id="walker">
       <p class="bubble" id="pet-bubble" role="status">
@@ -720,10 +1282,10 @@ html:not(.motion) .mini-pet { display: none; }
 <section class="section" id="features" aria-labelledby="features-title">
   <h2 class="section-title reveal" id="features-title">주요 기능</h2>
   <p class="section-lede reveal">펫은 늘 다른 창 위에 떠 있어요. 무엇을 하면 어떻게 되는지 모았어요.</p>
-  <dl class="uses">
+  <dl class="uses cv" style="--cis: 760px">
     <div class="use reveal">
       <dt><svg class="ico" aria-hidden="true"><use href="#dot-icon"/></svg>그냥 두면</dt>
-      <dd>정한 범위 안을 걷고, 쉬고, 앉고, 오래 쉬면 잠들어요. 쉬는 중에 나오게 더한 동작(춤추기·점프 같은)도 정한 빈도로 섞여요.</dd>
+      <dd>정한 범위 안을 걷고 쉬고 앉고 오래 쉬면 잠들어요. 쉬는 중에 나오게 더한 동작(춤추기·점프 같은)도 정한 빈도로 섞여요.</dd>
     </div>
     <div class="use reveal">
       <dt><svg class="ico" aria-hidden="true"><use href="#i-mouse-l"/></svg>펫을 클릭하면</dt>
@@ -731,7 +1293,7 @@ html:not(.motion) .mini-pet { display: none; }
     </div>
     <div class="use reveal">
       <dt><svg class="ico" aria-hidden="true"><use href="#i-key"/></svg><span><kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>K</kbd></span></dt>
-      <dd>질문 말풍선이 열려요. 로그인된 Claude Code(구독)가 답하고, 답은 스트리밍되며 쓴 토큰이 아래에 붙어요. <kbd>Esc</kbd>로 취소해요.</dd>
+      <dd>질문 말풍선이 열려요. 로그인된 Claude Code(구독)가 답하고 답은 스트리밍되며 쓴 토큰이 아래에 붙어요. <kbd>Esc</kbd>로 취소해요.</dd>
     </div>
     <div class="use reveal">
       <dt><svg class="ico" aria-hidden="true"><use href="#i-mouse-l"/></svg>펫을 끌면</dt>
@@ -747,25 +1309,61 @@ html:not(.motion) .mini-pet { display: none; }
     </div>
     <div class="use reveal">
       <dt><svg class="ico" aria-hidden="true"><use href="#i-window"/></svg>설정 › 캐릭터</dt>
-      <dd>캐릭터를 고르고 크기(50~200%)·투명도·방향 따라 뒤집기를 정해요. 기본 캐릭터는 이 앱만의 도트 슈크림빵이고, 벡터로 그린 슈크림빵 같은 내장 캐릭터는 카드에 “내장”으로 표시돼요. 캐릭터를 직접 만들고 고치거나 zip으로 가져오고 내보내요.</dd>
+      <dd>캐릭터를 고르고 크기(50~200%)·투명도·방향 따라 뒤집기를 정해요. 기본 캐릭터는 이 앱만의 도트 슈크림빵이고 벡터로 그린 슈크림빵 같은 내장 캐릭터는 카드에 “내장”으로 표시돼요. 캐릭터를 직접 만들고 고치거나 zip으로 가져오고 내보내요. 새 동작은 플러그인이 보내는 신호에 맞춰 나오게도 할 수 있어요.</dd>
     </div>
     <div class="use reveal">
       <dt><svg class="ico" aria-hidden="true"><use href="#i-window"/></svg>설정 › 움직임</dt>
       <dd>속도, 활동성, 잠들기까지 시간, 이동 범위(화면 전체·아래쪽 띠·직접 지정), 모니터를 정해요.</dd>
+    </div>
+    <div class="use reveal">
+      <dt><svg class="ico" aria-hidden="true"><use href="#i-window"/></svg>설정 › 플러그인</dt>
+      <dd>받은 플러그인(.zip)을 가져오면 동의 창이 할 수 있는 일과 접속할 주소를 보여 줘요. 동의하면 앱을 다시 켜지 않아도 바로 돌고 켜기·끄기·설정도 바로 반영돼요. 내장 기능(사용량 4개·질문하기)도 여기서 켜고 꺼요. 자세한 내용은 <a href="#plugins">플러그인</a>에 있어요.</dd>
     </div>
   </dl>
 </section>
 
 <section class="section" id="screens" aria-labelledby="screens-title">
   <h2 class="section-title reveal" id="screens-title">화면</h2>
-  <div class="shots">
+  <p class="section-lede reveal">설정 창은 왼쪽 탭(일반·캐릭터·움직임·플러그인)으로 나뉘어요. 아래는 탭 내용이에요.</p>
+  <div class="shots cv" style="--cis: 1500px">
     <figure class="shot reveal">
-      <img class="lift" src="images/settings-character.png" width="1271" height="936" alt="ClaudeTool 설정 창의 캐릭터 탭 화면. 도트 슈크림빵 카드가 골라져 있다.">
+      <div class="tilt-host"><img class="tilt" src="images/settings-character-tab.png" width="1061" height="700" alt="ClaudeTool 설정 창의 캐릭터 탭. 도트 슈크림빵 카드가 골라져 있고 아래에 크기·투명도 막대와 방향 따라 뒤집기 칸, 사용하기·편집·내보내기·지우기·폴더 열기 버튼이 있다."></div>
       <figcaption>설정 창 › 캐릭터. 카드에서 캐릭터를 고르고(내장 캐릭터는 “내장”으로 표시), 캐릭터마다 크기·투명도·뒤집기를 정해요.</figcaption>
     </figure>
     <figure class="shot reveal">
-      <img class="lift" src="images/settings-movement.png" width="1271" height="936" alt="ClaudeTool 설정 창의 움직임 탭 화면">
+      <div class="tilt-host"><img class="tilt" src="images/settings-movement-tab.png" width="1061" height="700" alt="ClaudeTool 설정 창의 움직임 탭. 속도·활동성 막대, 잠들기까지(분) 칸, 돌아다니는 범위(화면 전체·아래쪽 띠·직접 지정), 모니터 고르기가 있다."></div>
       <figcaption>설정 창 › 움직임. 속도·활동성·잠들기까지 시간과 펫이 다닐 범위를 정해요.</figcaption>
+    </figure>
+    <figure class="shot shot-wide reveal">
+      <div class="tilt-host"><div class="ptab tilt" role="img" aria-label="설정 창 플러그인 탭을 본떠 그린 그림. 위에는 안녕 펫(실행 중), 가져오기(.zip), 내장 기능 다섯 개(사용량 넷과 질문하기, 모두 실행 중) 카드가 있다. 아래 왼쪽에는 고른 안녕 펫의 버전·만든 사람·설명과 할 수 있는 일 세 가지(말풍선을 띄워요, 펫을 움직여요, 따로 뜨는 창을 열어요), 오른쪽에는 켜기, 인사말 설정 칸, 플러그인이 그린 설정 화면(말풍선 보기·창 열기·신호 보내기 버튼), 폴더 열기·내보내기·지우기 버튼이 있다.">
+        <div class="pt-head"><b>플러그인</b><span class="pt-btn"><svg class="doc-ico" aria-hidden="true" focusable="false"><use href="#i-doc"/></svg> 만드는 법(.md) 받기</span></div>
+        <div class="pt-cards">
+          <span class="pt-card pt-sel"><i><svg class="pz" aria-hidden="true" focusable="false"><use href="#i-puzzle"/></svg></i><b>안녕 펫</b><small>v2.0.0</small><small class="pt-badge">실행 중</small></span>
+          <span class="pt-card pt-add"><i>＋</i>가져오기(.zip)</span>
+          <span class="pt-card"><i><svg class="pz" aria-hidden="true" focusable="false"><use href="#i-puzzle"/></svg></i><b>사용량: 이 앱의 API</b><small>내장</small><small class="pt-badge">실행 중</small></span>
+          <span class="pt-card"><i><svg class="pz" aria-hidden="true" focusable="false"><use href="#i-puzzle"/></svg></i><b>사용량: Claude Code</b><small>내장</small><small class="pt-badge">실행 중</small></span>
+          <span class="pt-card"><i><svg class="pz" aria-hidden="true" focusable="false"><use href="#i-puzzle"/></svg></i><b>사용량: 구독 한도</b><small>내장</small><small class="pt-badge">실행 중</small></span>
+          <span class="pt-card"><i><svg class="pz" aria-hidden="true" focusable="false"><use href="#i-puzzle"/></svg></i><b>사용량: Console 조직</b><small>내장</small><small class="pt-badge">실행 중</small></span>
+          <span class="pt-card"><i><svg class="pz" aria-hidden="true" focusable="false"><use href="#i-puzzle"/></svg></i><b>질문하기</b><small>내장</small><small class="pt-badge">실행 중</small></span>
+        </div>
+        <div class="pt-detail">
+          <div class="pt-about">
+            <b class="pt-name">안녕 펫</b>
+            <span class="pt-note">v2.0.0 · 만든 사람: ClaudeTool</span>
+            <span>켜지면 펫이 반응하고 인사말을 말풍선으로 보여 줘요. 플러그인을 만들 때 보는 예제예요.</span>
+            <span class="pt-note">할 수 있는 일</span>
+            <span class="pt-list"><span>말풍선을 띄워요</span><span>펫을 움직여요(동작·전용 그림·이동)</span><span>따로 뜨는 창을 열어요</span></span>
+          </div>
+          <div class="pt-ctl">
+            <span class="pt-check"><i></i>켜기</span>
+            <span class="pt-field">인사말<span class="pt-input">안녕하세요!</span></span>
+            <span class="pt-strip"><svg class="pz" aria-hidden="true" focusable="false"><use href="#i-puzzle"/></svg> 안녕 펫</span>
+            <span class="pt-view">설정 창 안의 플러그인 화면이에요.<span class="pt-vbtns"><span>말풍선 보기</span><span>창 열기</span><span>신호 보내기</span></span></span>
+            <span class="pt-btns"><span>폴더 열기</span><span>내보내기(.zip)</span><span class="pt-danger">지우기</span></span>
+          </div>
+        </div>
+      </div></div>
+      <figcaption>설정 창 › 플러그인(화면을 본떠 그린 그림). 이 프로젝트의 예제 플러그인 “안녕 펫”을 가져와 고른 모습이에요. 안녕 펫은 설치 파일에 들어 있지 않고 따로 받을 수도 없어요. 위는 카드, 아래 왼쪽은 고른 플러그인이 할 수 있는 일, 오른쪽은 켜기·설정 칸·플러그인이 그린 설정 화면이에요. 내장 기능(사용량 4개·질문하기)도 여기서 켜고 꺼요.</figcaption>
     </figure>
   </div>
 </section>
@@ -775,14 +1373,14 @@ html:not(.motion) .mini-pet { display: none; }
   <p class="section-lede reveal">펫이 화면 위에 떠 있는 방법부터 사용량, 질문, 캐릭터, 움직임까지 그림으로 정리했어요.</p>
 
   <div class="how">
-    <article class="how-item reveal" aria-labelledby="how-overlay">
+    <article class="how-item reveal cv" style="--cis: 420px" aria-labelledby="how-overlay">
       <div>
         <h3 id="how-overlay">펫 오버레이</h3>
-        <p>펫과 말풍선은 투명한 창 하나에 그려져요. 이 창은 이동 범위에 말풍선 자리를 더한 만큼만 덮고, 늘 맨 위에 있지만 작업 표시줄은 덮지 않아요.</p>
-        <p>커서가 펫이나 말풍선 위에 있을 때만 클릭을 받고, 빈 자리의 클릭은 아래 창으로 그대로 지나가요. 펫이 떠 있어도 하던 일을 계속할 수 있어요.</p>
+        <p>펫과 말풍선은 투명한 창 하나에 그려져요. 이 창은 이동 범위에 말풍선 자리를 더한 만큼만 덮고 늘 맨 위에 있지만 작업 표시줄은 덮지 않아요.</p>
+        <p>커서가 펫이나 말풍선 위에 있을 때만 클릭을 받고 빈 자리의 클릭은 아래 창으로 그대로 지나가요. 펫이 떠 있어도 하던 일을 계속할 수 있어요.</p>
       </div>
-      <figure class="fig lift">
-        <div class="layers" role="img" aria-label="다른 앱 창 위에 투명한 오버레이 창이 겹쳐 있다. 펫 위를 누르면 펫이 받고, 빈 자리를 누르면 아래 앱 창이 받는다.">
+      <div class="tilt-host"><figure class="fig tilt">
+        <div class="layers" role="img" aria-label="다른 앱 창 위에 투명한 오버레이 창이 겹쳐 있다. 펫 위를 누르면 펫이 받고 빈 자리를 누르면 아래 앱 창이 받는다.">
           <div class="plane plane-app">
             <span class="plane-tag">다른 앱 창</span>
             <span class="ln" style="width:78%"></span>
@@ -804,16 +1402,16 @@ html:not(.motion) .mini-pet { display: none; }
           <li><i class="l-over"></i>투명한 오버레이 창: 펫과 말풍선만 그려져요</li>
           <li><i class="l-app"></i>아래에 있는 다른 앱 창</li>
         </ul>
-      </figure>
+      </figure></div>
     </article>
 
-    <article class="how-item reveal" aria-labelledby="how-usage">
+    <article class="how-item reveal cv" style="--cis: 420px" aria-labelledby="how-usage">
       <div>
         <h3 id="how-usage">사용량</h3>
         <p>펫을 클릭하면 네 곳의 사용량을 한 창에서 봐요. 소스마다 트레이의 "사용량 소스"에서 켜고 꺼요.</p>
-        <p class="fine">구독 한도는 Claude Code의 statusLine과 연결해서 읽고, 시스템에 Node.js가 있어야 해요. 조직 사용량은 Admin API 키가 필요하고 UTC 기준이에요.</p>
+        <p class="fine">구독 한도는 Claude Code의 statusLine과 연결해서 읽고 시스템에 Node.js가 있어야 해요. 조직 사용량은 Admin API 키가 필요하고 UTC 기준이에요.</p>
       </div>
-      <figure class="fig usage-fig lift">
+      <div class="tilt-host"><figure class="fig usage-fig tilt">
         <ul class="src-list" aria-label="사용량 소스">
           <li><strong>이 앱</strong><span>질문에 쓴 토큰·비용(사용 원장)</span></li>
           <li><strong>Claude Code 로컬 로그</strong><span>이 PC의 Claude Code 기록</span></li>
@@ -829,16 +1427,17 @@ html:not(.motion) .mini-pet { display: none; }
           <div class="uw-row">7일<b style="--v:20%"></b></div>
           <div class="uw-row">조직<b style="--v:50%"></b></div>
         </div>
-      </figure>
+      </figure></div>
     </article>
 
-    <article class="how-item reveal" aria-labelledby="how-ask">
+    <article class="how-item reveal cv" style="--cis: 420px" aria-labelledby="how-ask">
       <div>
         <h3 id="how-ask">질문</h3>
         <p>기본은 이 PC에 로그인된 Claude Code를 헤드리스로 실행해(<code>claude -p</code>) 구독으로 답해요. 트레이의 "질문 방식"에서 Anthropic API 키 방식으로 바꿀 수 있어요.</p>
+        <p>질문은 내가 로그인한 Claude Code를 통해 Anthropic으로 가요(API 키 방식이면 Anthropic API로 가요). 비밀번호·키·개인정보·회사 기밀은 적지 마세요.</p>
         <p class="fine">구독 방식은 Claude Code 네이티브 설치(<code>claude.exe</code>)와 로그인이 필요해요. npm으로 설치한 Claude Code(<code>claude.cmd</code>)는 이 앱에서 실행할 수 없어요.</p>
       </div>
-      <figure class="fig lift">
+      <div class="tilt-host"><figure class="fig tilt">
         <ol class="steps">
           <li>
             <div class="step-vis"><kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>K</kbd></div>
@@ -857,17 +1456,17 @@ html:not(.motion) .mini-pet { display: none; }
             <p>답이 말풍선에 스트리밍되고 쓴 토큰이 아래에 붙어요. <kbd>Esc</kbd>로 취소해요.</p>
           </li>
         </ol>
-      </figure>
+      </figure></div>
     </article>
 
-    <article class="how-item reveal" aria-labelledby="how-character">
+    <article class="how-item reveal cv" style="--cis: 420px" aria-labelledby="how-character">
       <div>
         <h3 id="how-character">캐릭터</h3>
         <p>캐릭터는 기본 상태 7개마다 그림을 한 장씩 넣어 만들어요. 오른쪽 재생기는 기본 캐릭터 도트 슈크림빵의 실제 프레임(32×32칸, 모두 23프레임)을 앱처럼 계단식으로 넘겨요. 상태를 누르거나 자동 재생으로 돌려 보세요.</p>
         <ul class="facts">
           <li>그림 형식: GIF, APNG, WebP, PNG, SVG</li>
           <li>그림을 여러 장 끌어다 놓으면 파일 이름으로 자리를 찾아요(<code>walk.gif</code> → 걷기).</li>
-          <li>새 동작은 12개까지: 빈도, 길이, 제자리·걸으며, 계기(쉬는 중·클릭했을 때·오래 쉬면)</li>
+          <li>새 동작은 12개까지: 빈도, 길이, 제자리·걸으며 계기(쉬는 중·클릭했을 때·오래 쉬면·플러그인 신호)</li>
           <li>zip 가져오기·내보내기: 파일당 10MB, 합계 50MB, 200개까지</li>
           <li>데이터 폴더의 <code>packs</code>에 캐릭터 폴더를 넣으면 바로 반영돼요.</li>
         </ul>
@@ -886,30 +1485,30 @@ html:not(.motion) .mini-pet { display: none; }
             <button type="button" class="lift" data-state="sleep" aria-pressed="false">잠자기</button>
             <button type="button" class="lift" data-state="react" aria-pressed="false">반응</button>
             <button type="button" class="lift" data-state="talk" aria-pressed="false">말하기</button>
-            <button type="button" class="lift" data-state="drag" aria-pressed="false">끌기</button>
+            <button type="button" class="lift" data-state="drag" aria-pressed="false">끌려가기</button>
           </div>
           <button type="button" class="auto lift" id="auto-play" aria-pressed="false"><i aria-hidden="true"></i>자동 재생</button>
         </div>
         <div class="note-box">
           <!-- 상태별 설명. 보이지 않게 겹쳐 두어 설명 칸이 가장 긴 설명의 높이를 처음부터 차지한다(스크립트도 여기서 글을 읽는다). -->
-          <p class="note-sizer" data-state="idle" aria-hidden="true">쉬기: 숨 쉬듯 몸이 한 칸씩 줄었다 늘고, 가끔 눈을 깜빡여요. 쉬기 그림만 있어도 캐릭터를 저장할 수 있어요.</p>
+          <p class="note-sizer" data-state="idle" aria-hidden="true">쉬기: 숨 쉬듯 몸이 한 칸씩 줄었다 늘고 가끔 눈을 깜빡여요. 쉬기 그림만 있어도 캐릭터를 저장할 수 있어요.</p>
           <p class="note-sizer" data-state="walk" aria-hidden="true">걷기: 한쪽 발을 들고 기울었다가 두 발로 디디며 통 눌리기를 되풀이해요. 왼쪽으로 걸을 때는 그림이 좌우로 뒤집혀요.</p>
-          <p class="note-sizer" data-state="sit" aria-hidden="true">앉기: 발을 양옆 앞으로 내밀고 앉아서 숨 쉬고, 가끔 눈을 깜빡여요.</p>
-          <p class="note-sizer" data-state="sleep" aria-hidden="true">잠자기: 앉은 채 눈을 감고 느리게 숨 쉬며, z가 작은 것부터 하나씩 떠올라요. 잠자기는 좌우로 뒤집지 않아요.</p>
-          <p class="note-sizer" data-state="react" aria-hidden="true">반응: 웅크렸다가 폴짝 뛰어 크림 방울을 튀기고, 내려앉아 놀란 얼굴로 서요.</p>
+          <p class="note-sizer" data-state="sit" aria-hidden="true">앉기: 발을 양옆 앞으로 내밀고 앉아서 숨 쉬고 가끔 눈을 깜빡여요.</p>
+          <p class="note-sizer" data-state="sleep" aria-hidden="true">잠자기: 앉은 채 눈을 감고 느리게 숨 쉬며 z가 작은 것부터 하나씩 떠올라요. 잠자기는 좌우로 뒤집지 않아요.</p>
+          <p class="note-sizer" data-state="react" aria-hidden="true">반응: 웅크렸다가 폴짝 뛰어 크림 방울을 튀기고 내려앉아 놀란 얼굴로 서요.</p>
           <p class="note-sizer" data-state="talk" aria-hidden="true">말하기: 말풍선이 떠 있는 동안 입을 벌렸다 닫아요.</p>
-          <p class="note-sizer" data-state="drag" aria-hidden="true">끌기: 들어 올리면 길쭉해지고, 걱정스러운 얼굴에 땀방울이 맺히며 발이 대롱대롱 흔들려요.</p>
-          <p class="state-note" id="state-note" aria-live="polite">쉬기: 숨 쉬듯 몸이 한 칸씩 줄었다 늘고, 가끔 눈을 깜빡여요. 쉬기 그림만 있어도 캐릭터를 저장할 수 있어요.</p>
+          <p class="note-sizer" data-state="drag" aria-hidden="true">끌려가기: 들어 올리면 길쭉해지고 걱정스러운 얼굴에 땀방울이 맺히며 발이 대롱대롱 흔들려요.</p>
+          <p class="state-note" id="state-note" aria-live="polite">쉬기: 숨 쉬듯 몸이 한 칸씩 줄었다 늘고 가끔 눈을 깜빡여요. 쉬기 그림만 있어도 캐릭터를 저장할 수 있어요.</p>
         </div>
       </figure>
     </article>
 
-    <article class="how-item reveal" aria-labelledby="how-motion">
+    <article class="how-item reveal cv" style="--cis: 420px" aria-labelledby="how-motion">
       <div>
         <h3 id="how-motion">움직임 설정</h3>
         <p>움직임 탭에서 속도, 활동성, 잠들기까지 시간을 정하고 펫이 다닐 범위를 골라요. 모니터가 여럿이면 어느 모니터에서 다닐지도 골라요.</p>
       </div>
-      <figure class="fig lift">
+      <div class="tilt-host"><figure class="fig tilt">
         <ul class="areas">
           <li>
             <div class="mini-screen" aria-hidden="true"><span class="area area-full"></span><svg class="dot dot-full"><use href="#dot-pet"/></svg></div>
@@ -924,71 +1523,227 @@ html:not(.motion) .mini-pet { display: none; }
             <span>직접 지정<small>화면 위에서 드래그해 정해요</small></span>
           </li>
         </ul>
-      </figure>
+      </figure></div>
     </article>
   </div>
 </section>
 
 <section class="section" id="plugins" aria-labelledby="plugins-title">
   <div class="title-row reveal">
-    <h2 class="section-title" id="plugins-title">플러그인 틀</h2>
-    <span class="status">개발 중</span>
+    <h2 class="section-title" id="plugins-title">플러그인</h2>
+    <span class="status">새 기능</span>
   </div>
-  <p class="section-lede reveal">설치한 플러그인이 펫에 기능을 더하는 틀을 만들고 있어요. 출시본(0.3.0)에는 아직 없고 개발 중이에요. 아래는 설계 내용이라 만들면서 바뀔 수 있어요.</p>
+  <p class="section-lede reveal">받은 플러그인(.zip)을 가져와 펫에 기능을 더해요. 가져올 때 무엇을 할 수 있는지 보여 주고 동의를 받아요. 플러그인마다 보이지 않는 격리된 창에서 따로 돌리고 앱과는 정해 둔 통로로만 이야기하게 했으며 인터넷 요청은 선언하고 동의한 주소로만 보내게 했어요. 다만 격리가 완벽하지는 않아요(<a href="#plugin-limits">알아 둘 점</a>).</p>
 
-  <div class="plan reveal">
+  <!-- 흐름 무대: 스크립트가 움직임을 허락받으면 is-live를 붙여 한 자리에서 차례로 보이고, 아니면 네 장면이 정지 화면으로 나란히 보인다. -->
+  <div class="flow-demo reveal is-off cv" style="--cis: 480px" id="flow-demo" role="group" aria-label="플러그인을 가져와 돌기까지">
+    <div class="flow-ctrl">
+      <ol class="flow-steps" aria-label="장면 고르기">
+        <li><button type="button" class="lift" aria-pressed="true"><b aria-hidden="true">1</b>가져오기</button></li>
+        <li><button type="button" class="lift" aria-pressed="false"><b aria-hidden="true">2</b>동의</button></li>
+        <li><button type="button" class="lift" aria-pressed="false"><b aria-hidden="true">3</b>격리된 창</button></li>
+        <li><button type="button" class="lift" aria-pressed="false"><b aria-hidden="true">4</b>반응</button></li>
+      </ol>
+      <button type="button" class="auto lift" id="flow-auto" aria-pressed="true"><i aria-hidden="true"></i>자동 재생</button>
+    </div>
+    <ol class="flow-scenes">
+      <li class="scene">
+        <div class="scene-vis sv-import" aria-hidden="true">
+          <div class="mt">
+            <span class="mt-title">플러그인</span>
+            <span class="mt-cards">
+              <span class="mt-card mt-add"><span class="mt-plus">＋</span>가져오기(.zip)<svg class="sv-cur sv-cur-1" viewBox="0 0 18 20"><use href="#i-cursor"/></svg></span>
+              <span class="mt-card"><span class="mt-ico"><svg class="pz" aria-hidden="true" focusable="false"><use href="#i-puzzle"/></svg></span>질문하기<small>내장</small></span>
+            </span>
+          </div>
+          <div class="od">
+            <span class="od-bar">열기</span>
+            <span class="od-row"><svg><use href="#i-zip"/></svg>timer.zip</span>
+            <span class="od-row od-sel"><svg><use href="#i-zip"/></svg>hello-pet.zip</span>
+            <span class="od-btns"><span class="od-ok">열기<svg class="sv-cur sv-cur-2" viewBox="0 0 18 20"><use href="#i-cursor"/></svg></span><span>취소</span></span>
+          </div>
+        </div>
+        <p class="scene-cap"><b>① 가져오기</b>믿을 수 있는 사람에게 받았거나 직접 만든 플러그인 .zip을 설정 창 › 플러그인 탭의 “＋ 가져오기(.zip)”로 골라요(그림은 예제 “안녕 펫”을 묶은 zip이에요). 데이터 폴더의 plugins에 폴더째 넣어도 돼요.</p>
+      </li>
+      <li class="scene">
+        <div class="scene-vis sv-consent" aria-hidden="true">
+          <div class="mb">
+            <span class="mb-bar">✕</span>
+            <div class="mb-body">
+              <span class="mb-q">?</span>
+              <div class="mb-text">
+                <b class="mb-msg">"안녕 펫" 2.0.0을 설치할까요?</b>
+                <span>만든 사람(플러그인이 적은 값): ClaudeTool</span>
+                <span>이 플러그인이 할 수 있는 일:</span>
+                <span class="mb-perm" style="--k:0">· 말풍선을 띄워요</span>
+                <span class="mb-perm" style="--k:1">· 펫을 움직여요(동작·전용 그림·이동)</span>
+                <span class="mb-perm" style="--k:2">· 따로 뜨는 창을 열어요</span>
+                <span class="mb-dim">그 밖에 설정 값 읽기·자기 저장 공간·캐릭터 신호 내기는 늘 할 수 있어요.</span>
+              </div>
+            </div>
+            <span class="mb-btns"><span class="mb-ok">설치<svg class="sv-cur sv-cur-3" viewBox="0 0 18 20"><use href="#i-cursor"/></svg></span><span>취소</span></span>
+          </div>
+        </div>
+        <p class="scene-cap"><b>② 동의</b>동의 창이 이 플러그인이 할 수 있는 일(권한)과 접속할 주소를 보여 줘요(이 예제는 접속할 주소가 없어요). 업데이트로 권한이나 주소가 늘면 다시 물어요.</p>
+      </li>
+      <li class="scene">
+        <div class="scene-vis sv-sandbox" aria-hidden="true">
+          <div class="sb">
+            <span class="sb-side">
+              <span class="sb-chip sb-no"><i>✕</i>파일</span>
+              <span class="sb-chip sb-no"><i>✕</i>다른 플러그인</span>
+              <span class="sb-chip sb-no"><i>✕</i>앱 화면 내용</span>
+              <span class="sb-chip sb-no"><i>✕</i>동의 안 한 주소로 요청</span>
+            </span>
+            <span class="sb-box">
+              <span class="sb-label">보이지 않는 격리된 창</span>
+              <span class="sb-plugin"><svg class="pz" aria-hidden="true" focusable="false"><use href="#i-puzzle"/></svg>안녕 펫</span>
+              <span class="sb-beat"><i></i><i></i><i></i>실행 중</span>
+              <span class="sb-lane sb-lane-no"><i></i></span>
+              <span class="sb-lane sb-lane-ok"><i></i></span>
+            </span>
+            <span class="sb-side">
+              <span class="sb-chip sb-ok"><i>→</i>말풍선</span>
+              <span class="sb-chip sb-ok"><i>→</i>펫 동작</span>
+              <span class="sb-chip sb-ok"><i>→</i>따로 뜨는 창</span>
+            </span>
+          </div>
+          <span class="sb-foot">10초 넘게 응답이 없으면 다시 시작하고 10분 안에 세 번 멈추면 꺼 둬요.</span>
+        </div>
+        <p class="scene-cap"><b>③ 격리된 창</b>동의하면 앱을 다시 켜지 않아도 바로 돌아요. 플러그인마다 보이지 않는 창에서 따로 돌리고 파일·다른 플러그인·앱 화면 내용에는 닿지 못하게 만들었어요. 인터넷 요청도 선언하고 동의한 주소로만 보내게 했지만 DNS 이름 조회에 정보를 싣는 틈은 막지 못해요.</p>
+      </li>
+      <li class="scene">
+        <div class="scene-vis sv-react" aria-hidden="true">
+          <span class="rx-box"><svg class="pz" aria-hidden="true" focusable="false"><use href="#i-puzzle"/></svg>안녕 펫</span>
+          <span class="rx-path"><span class="rx-run"><i></i></span></span>
+          <span class="rx-pet">
+            <span class="rx-say"><span class="rx-bubble">안녕하세요!<small>화면 보기</small></span></span>
+            <span class="rx-sprite" id="flow-pet"><svg aria-hidden="true" focusable="false"><use href="#dot-pet"/></svg></span>
+          </span>
+        </div>
+        <p class="scene-cap"><b>④ 반응</b>동의한 권한으로 펫을 움직이고 말풍선을 띄워요. 그림의 예제 “안녕 펫”은 켜지면 펫이 반응한 뒤 인사말을 말풍선으로 보여 줘요.</p>
+      </li>
+    </ol>
+    <p class="sr-only" id="flow-live" aria-live="polite"></p>
+  </div>
+  <p class="flow-note fine reveal">그림 속 “안녕 펫”은 이 프로젝트의 예제 플러그인이에요. 설치 파일에 들어 있지 않고 따로 받을 수도 없으니, 직접 해 보려면 아래 <a href="#make-title">직접 만들기</a>처럼 만드는 법 문서의 타이머 예제를 따라 만들어 가져오세요.</p>
+
+  <h3 class="sub-title reveal" id="lanes-title">플러그인이 쓰는 통로</h3>
+  <p class="sub-lede reveal">플러그인은 Node.js 프로그램이 아니라 보이지 않는 창에서 도는 브라우저용 JavaScript예요. 앱과는 아래 통로로만 이야기하고 동의 창에는 그중 플러그인이 쓰겠다고 적은 권한과 주소가 보여요.</p>
+  <div class="plan reveal cv" style="--cis: 560px">
     <div class="plan-grid">
-      <figure class="arch" role="img" aria-label="플러그인 A와 B가 각각 숨은 샌드박스 창에서 돌고, 관문에서 권한과 한도를 확인받은 뒤 말풍선, 펫 동작, 저장소, 설정 API에 닿는다. 선언하지 않은 주소로는 연결되지 않는다.">
+      <figure class="arch" role="img" aria-label="플러그인 A와 B가 각각 보이지 않는 격리된 창에서 돌고 관문에서 동의한 권한인지와 한도 안인지 확인받은 뒤 말풍선, 펫 동작, 화면 세 곳, 신호, 앱 소식, 저장 공간, 비밀 칸, 설정 값에 닿는다. 나가는 연결에서 앱이 대신 보내는 요청은 선언하고 동의한 주소로만 가고 들어오는 연결은 내 PC 안 127.0.0.1의 전용 포트로 플러그인별 토큰을 든 요청만 받는다.">
         <div class="arch-row">
-          <div class="arch-box"><strong>플러그인 A</strong><span>숨은 샌드박스 창</span></div>
-          <div class="arch-box"><strong>플러그인 B</strong><span>숨은 샌드박스 창</span></div>
+          <div class="arch-box"><strong>플러그인 A</strong><span>보이지 않는 격리된 창</span></div>
+          <div class="arch-box"><strong>플러그인 B</strong><span>보이지 않는 격리된 창</span></div>
         </div>
         <svg class="arch-down" aria-hidden="true"><use href="#i-down"/></svg>
-        <div class="arch-box arch-gate"><strong>관문</strong><span>선언한 권한인지, 한도 안인지 확인</span></div>
+        <div class="arch-box arch-gate"><strong>관문</strong><span>동의한 권한인지, 한도 안인지 확인</span></div>
         <svg class="arch-down" aria-hidden="true"><use href="#i-down"/></svg>
-        <div class="arch-apis"><span>말풍선</span><span>펫 동작</span><span>저장소</span><span>설정</span></div>
-        <div class="arch-net"><svg aria-hidden="true"><use href="#i-blocked"/></svg><span>선언하지 않은 주소에는 연결되지 않아요(막힌 프록시·CSP).</span></div>
+        <div class="arch-apis"><span>말풍선</span><span>펫 동작</span><span>화면 세 곳</span><span>신호</span><span>앱 소식</span><span>저장 공간</span><span>비밀 칸</span><span>설정 값</span></div>
+        <div class="arch-net"><svg aria-hidden="true"><use href="#i-out"/></svg><span>나가는 연결: 앱이 대신 보내는 요청은 선언·동의한 주소로만 가요.</span></div>
+        <div class="arch-net"><svg aria-hidden="true"><use href="#i-in"/></svg><span>들어오는 연결: 내 PC 안 127.0.0.1 전용 포트, 플러그인별 토큰.</span></div>
       </figure>
-      <ul class="points">
-        <li><strong>격리 실행</strong>설치한 플러그인은 플러그인마다 보이지 않는 샌드박스 창에서 따로 돌아요.</li>
-        <li><strong>권한 선언과 동의</strong>할 수 있는 일을 <code>plugin.json</code>에 선언하고, 설치할 때 보여 주고 동의를 받아요.</li>
-        <li><strong>네트워크 잠금</strong>막힌 프록시와 CSP로 선언하지 않은 주소에는 닿지 못하게 해요.</li>
-        <li><strong>API</strong>말풍선, 펫 동작, 저장소, 설정 값을 써요.</li>
-        <li><strong>zip 보관함</strong>zip으로 가져오고, 업데이트하고, 지우고, 내보내요.</li>
-        <li><strong>설정 창 통합</strong>설정 창의 플러그인 탭에서 켜고 끄고 설정해요.</li>
-      </ul>
-    </div>
-
-    <div class="progress">
-      <div><b>설계·계획 완료</b><span>설계 문서와 구현 계획을 마쳤어요.</span></div>
-      <div>
-        <b>구현 15 / 26 태스크</b>
-        <span class="bar" aria-hidden="true" style="--done:15;--all:26"><i></i></span>
-        <span>2026-09-30 기준</span>
-      </div>
-      <div><b>단위 시험 1,600여 개</b><span>개발 중인 코드에서 모두 통과(2026-09-30 기준)</span></div>
+      <dl class="lanes">
+        <div><dt>말풍선</dt><dd>잠깐 떴다 사라지는 알림과 버튼이 있는 카드 말풍선</dd></div>
+        <div><dt>펫 동작</dt><dd>캐릭터의 동작·전용 그림·이동</dd></div>
+        <div><dt>말풍선 안 화면</dt><dd>말풍선 안에 플러그인이 그린 HTML 카드</dd></div>
+        <div><dt>설정 창 안 화면</dt><dd>플러그인 탭 상세 칸에 그리는 화면</dd></div>
+        <div><dt>따로 뜨는 창</dt><dd>선언한 크기의 작은 창, 3개까지</dd></div>
+        <div><dt>신호</dt><dd>플러그인이 신호를 보내면 캐릭터가 정해 둔 동작을 해요(캐릭터 편집기의 “플러그인 신호”)</dd></div>
+        <div><dt>나가는 연결</dt><dd>인터넷 연결(앱이 대신 보내는 요청과 WebSocket)은 선언하고 동의한 주소로만 가요. 모든 주소를 원하는 플러그인은 동의 창에 경고가 붙어요. 다만 DNS 이름 조회에 정보를 싣는 틈은 막지 못해요(<a href="https://github.com/BlackBuddle/claude-tool-page/blob/main/DISCLAIMER.md">면책조항</a> 3.4).</dd></div>
+        <div><dt>들어오는 연결</dt><dd>이 PC의 다른 프로그램이 보내는 이벤트를 내 PC 안 127.0.0.1 전용 포트에서, 플러그인별 토큰을 든 요청만 받아요</dd></div>
+        <div><dt>비밀 칸</dt><dd>API 키·웹훅 주소 같은 값은 Windows 계정으로 암호화해 저장하고 설정 창에는 “저장됨 ●●●●”만 보여요</dd></div>
+      </dl>
     </div>
   </div>
+  <ul class="points points-grid cv" style="--cis: 220px">
+    <li class="reveal"><strong>격리 실행</strong>플러그인마다 보이지 않는 창에서 따로 돌리고 파일·다른 플러그인·앱 화면 내용에는 닿지 못하게 만들었어요. 다만 격리는 위험을 줄이는 장치일 뿐 안전을 보증하지 않아요.</li>
+    <li class="reveal"><strong>동의 창</strong>가져올 때 할 수 있는 일과 접속할 주소를 보여 줘요. 업데이트로 권한·주소가 늘면 다시 물어요.</li>
+    <li class="reveal"><strong>다시 켜지 않아도</strong>켜기·끄기·설정 바꾸기가 바로 반영돼요. 데이터 폴더의 plugins에 폴더를 넣거나 고쳐도 바로 다시 읽어요(처음 켤 때 동의).</li>
+    <li class="reveal"><strong>멈추면 다시 시작</strong>10초 넘게 응답이 없으면 다시 시작하고 10분 안에 세 번 멈추면 꺼 둬요.</li>
+    <li class="reveal" id="plugin-limits"><strong>알아 둘 점</strong>격리는 완벽한 보호가 아니에요. 인터넷 권한이 없는 플러그인도 DNS 이름 조회(DNS 미리 풀기)에 짧은 정보를 실어 밖으로 보낼 수 있고 앱은 이 틈을 막지 못해요. 믿을 수 있는 플러그인만 가져오세요. 켠 플러그인마다 메모리를 약 70MB 더 써요. 자세한 한계는 <a href="https://github.com/BlackBuddle/claude-tool-page/blob/main/DISCLAIMER.md">면책조항</a>의 3.4 “플러그인과 가져온 파일”에 있어요.</li>
+  </ul>
+
+  <h3 class="sub-title reveal" id="inbound-title">들어오는 연결: 빌드가 끝나면 펫이 알려요</h3>
+  <p class="sub-lede reveal">이 PC의 다른 프로그램(빌드 스크립트·자동화 도구 등)이 플러그인에 이벤트를 보낼 수 있어요. 아래는 이 기능을 쓰는 예시 플러그인 “빌드 알림”이에요.</p>
+  <!-- 들어오는 연결 데모: 기본은 마지막 장면. 움직임을 허락받으면 is-live를 붙여 처음 모습에서 단계 클래스로 진행한다. -->
+  <div class="ib reveal is-off cv" style="--cis: 360px" id="ib-demo" role="group" aria-labelledby="inbound-title">
+    <div class="ib-track" aria-hidden="true">
+      <div class="ib-node ib-term">
+        <div class="ib-screen">
+          <div class="ib-bar"><i></i><i></i><i></i></div>
+          <div class="ib-code">
+            <span class="t-dim"># 빌드가 끝나면 알리기</span>
+            <span class="t-in">POST 127.0.0.1 …/events</span>
+            <span class="t-in"><span class="typed" id="ib-typed">{"type":"build-done"}</span></span>
+          </div>
+        </div>
+        <span class="ib-cap">빌드 스크립트(토큰을 들고)</span>
+      </div>
+      <span class="ib-link ib-l1"><span class="ib-run"><i></i></span></span>
+      <div class="ib-node ib-door">
+        <svg viewBox="0 0 22 26" shape-rendering="crispEdges">
+          <rect x="1" y="1" width="20" height="25" style="fill: var(--ink-soft)"/>
+          <rect x="3" y="3" width="16" height="23" fill="#FFE9A8"/>
+          <g class="ib-door-panel">
+            <rect x="3" y="3" width="16" height="23" style="fill: var(--accent-fill)"/>
+            <rect x="5" y="5" width="12" height="7" style="fill: var(--accent)"/>
+            <rect x="5" y="14" width="12" height="9" style="fill: var(--accent)"/>
+            <rect x="15" y="12" width="2" height="2" fill="#3A2416"/>
+          </g>
+        </svg>
+        <b>127.0.0.1</b>
+        <span class="ib-token"><i>✓</i>토큰 확인</span>
+        <span class="ib-cap">내 PC 안 전용 문</span>
+      </div>
+      <span class="ib-link ib-l2"><span class="ib-run"><i></i></span></span>
+      <div class="ib-node ib-plug">
+        <span class="ib-plug-box"><svg class="pz" aria-hidden="true" focusable="false"><use href="#i-puzzle"/></svg>빌드 알림</span>
+        <span class="ib-cap">플러그인(예시)</span>
+      </div>
+      <span class="ib-link ib-l3"><span class="ib-run"><i></i></span></span>
+      <div class="ib-node">
+        <span class="ib-pet">
+          <span class="ib-say"><span class="ib-bubble">빌드가 끝났어요!</span></span>
+          <span class="ib-sprite" id="ib-pet"><svg aria-hidden="true" focusable="false"><use href="#dot-pet"/></svg></span>
+        </span>
+        <span class="ib-cap">펫이 반응하고 말풍선</span>
+      </div>
+    </div>
+    <div class="demo-bar">
+      <p>다른 프로그램이 플러그인별 토큰을 들고 이벤트를 보내면, 그 플러그인이 받아 펫을 움직이고 말풍선을 띄워요. 통로는 이 권한이 있는 플러그인이 켜져 있을 때만 내 PC 안(127.0.0.1) 전용 포트에 열려 PC 밖에서는 닿지 않고 웹 페이지는 보낼 수 없어요. 토큰은 플러그인 탭에서 복사하고 재발급해요.</p>
+      <button type="button" class="auto lift" id="ib-auto" aria-pressed="true"><i aria-hidden="true"></i>자동 재생</button>
+    </div>
+  </div>
+
+  <h3 class="sub-title reveal" id="make-title">직접 만들기</h3>
+  <ol class="make-steps cv" style="--cis: 200px" aria-labelledby="make-title">
+    <li class="reveal tilt-host"><div class="mk-card tilt"><b><svg class="doc-ico" aria-hidden="true" focusable="false"><use href="#i-doc"/></svg> 만드는 법(.md) 받기</b><span>설정 창 › 플러그인 탭 제목 줄의 버튼으로 안내 문서를 저장해요. 이 문서 하나만 AI에게 건네도 만들 수 있게 썼어요.</span></div></li>
+    <li class="reveal tilt-host"><div class="mk-card tilt"><b>AI에게 건네기</b><span>문서를 건네며 “이걸 보고 타이머 플러그인을 만들어 줘”처럼 원하는 기능과 끝났을 때 펫이 할 일을 말하면 돼요.</span></div></li>
+    <li class="reveal tilt-host"><div class="mk-card tilt"><b>.zip으로 묶어 가져오기</b><span>받은 파일을 .zip으로 묶어 가져오고 동의하면 바로 돌아요. 문서에는 처음부터 zip 배포까지 따라 하는 타이머 예제가 들어 있어요.</span></div></li>
+  </ol>
 </section>
 
 <section class="section" id="stack" aria-labelledby="stack-title">
   <h2 class="section-title reveal" id="stack-title">쓴 기술</h2>
-  <div class="table-wrap reveal">
+  <div class="table-wrap reveal cv" style="--cis: 600px">
     <table class="stack">
-      <caption>버전은 0.3.0을 만들 때 쓴 값이에요.</caption>
+      <caption>버전은 <span data-stat="version">0.4.0</span> 기준이에요.</caption>
       <thead>
         <tr><th scope="col">기술과 버전</th><th scope="col">이 프로젝트에서 맡은 일</th></tr>
       </thead>
       <tbody>
-        <tr><th scope="row">Electron<span class="ver">44.4.3</span></th><td>앱 틀: 투명한 오버레이 창, 설정 창, 트레이</td></tr>
+        <tr><th scope="row">Electron<span class="ver">44.4.3</span></th><td>앱 틀: 투명한 오버레이 창, 설정 창, 트레이, 플러그인마다 보이지 않는 격리된 창</td></tr>
+        <tr><th scope="row">Node.js<span class="ver">24.21.0</span></th><td>Electron에 든 런타임: 플러그인의 들어오는 연결(127.0.0.1)과 앱이 대신 보내는 나가는 연결</td></tr>
         <tr><th scope="row">TypeScript<span class="ver">7.0.2</span></th><td>모든 코드(strict 모드)</td></tr>
         <tr><th scope="row">electron-vite<span class="ver">5.0.0</span></th><td>메인·preload·화면 빌드</td></tr>
         <tr><th scope="row">Preact<span class="ver">10.29.8</span></th><td>펫·말풍선 화면과 설정 창 화면</td></tr>
-        <tr><th scope="row">zod<span class="ver">4.6.5</span></th><td>설정·IPC·캐릭터 팩 검증</td></tr>
+        <tr><th scope="row">zod<span class="ver">4.6.5</span></th><td>설정·IPC·캐릭터 팩·플러그인 설명 파일(plugin.json) 검증</td></tr>
         <tr><th scope="row">Vitest<span class="ver">5.0.1</span></th><td>단위 시험, happy-dom으로 화면 시험</td></tr>
         <tr><th scope="row">Playwright<span class="ver">1.63.0</span></th><td>실제 앱을 띄우는 e2e 시험</td></tr>
         <tr><th scope="row">electron-builder<span class="ver">26.15.3</span></th><td>Windows 설치 프로그램(NSIS)</td></tr>
-        <tr><th scope="row">fflate<span class="ver">0.8.3</span></th><td>캐릭터 zip 가져오기·내보내기</td></tr>
+        <tr><th scope="row">fflate<span class="ver">0.8.3</span></th><td>캐릭터·플러그인 zip 가져오기·내보내기</td></tr>
         <tr><th scope="row">Anthropic SDK<span class="ver">0.127.0</span></th><td>API 키 방식 질문</td></tr>
       </tbody>
     </table>
@@ -997,24 +1752,60 @@ html:not(.motion) .mini-pet { display: none; }
 
 <section class="section" id="process" aria-labelledby="process-title">
   <h2 class="section-title reveal" id="process-title">개발 방식</h2>
-  <p class="section-lede reveal">Claude Code로 만들었어요. 기능마다 설계와 계획을 먼저 문서로 쓰고, 계획의 태스크마다 서브에이전트 하나가 구현하면 다른 서브에이전트가 리뷰했어요.</p>
+  <p class="section-lede reveal">Claude Code로 만들었어요. 기능마다 설계와 계획을 먼저 문서로 쓰고 계획의 태스크마다 서브에이전트 하나가 구현하면 다른 서브에이전트가 리뷰했어요.</p>
   <ol class="flow">
     <li class="reveal"><span class="lift">설계</span></li>
     <li class="reveal"><span class="lift">계획</span></li>
     <li class="reveal"><span class="lift">태스크별 구현</span></li>
     <li class="reveal"><span class="lift">다른 에이전트의 리뷰</span></li>
   </ol>
+  <!-- 숫자는 data-stat 이름으로 찾아 바꾼다(tasks·tests·e2e). 화면에 들어오면 스크립트가 0부터 이 값까지 올린다. -->
+  <div class="stats">
+    <div class="reveal tilt-host"><dl class="stat tilt"><dt>플러그인 틀 계획의 태스크</dt><dd><span class="num" data-stat="tasks">26</span><small>개</small></dd></dl></div>
+    <div class="reveal tilt-host"><dl class="stat tilt"><dt>자동 시험(단위·화면)</dt><dd><span class="num" data-stat="tests">1,961</span><small>개</small></dd></dl></div>
+    <div class="reveal tilt-host"><dl class="stat tilt"><dt>e2e 시험(실제 앱을 띄워서)</dt><dd><span class="num" data-stat="e2e">26</span><small>개</small></dd></dl></div>
+  </div>
+  <p class="fine-stat reveal">숫자는 버전 <span data-stat="version">0.4.0</span> 기준이에요.</p>
+</section>
+
+<section class="section" id="download" aria-labelledby="download-title">
+  <div class="dl reveal cv" style="--cis: 460px">
+    <div>
+      <h2 class="section-title" id="download-title">배포 준비 중</h2>
+      <p class="dl-ver">ClaudeTool <span data-stat="version">0.4.0</span> · Windows 10·11(x64)</p>
+      <div class="dl-actions">
+        <span class="btn btn-wait"><svg aria-hidden="true" focusable="false"><use href="#i-wait"/></svg>공개 설치 파일은 준비 중이에요</span>
+      </div>
+      <p class="dl-note">아직 이 저장소에는 설치 파일을 올리지 않았어요. 무엇을 하는 앱인지와 쓰는 법은 이 페이지와 <a href="https://github.com/BlackBuddle/claude-tool-page#readme">사용 설명서</a>에서 먼저 살펴보세요.</p>
+      <span class="dl-pet" id="dl-pet" aria-hidden="true"><svg focusable="false"><use href="#dot-pet"/></svg></span>
+    </div>
+    <ul class="dl-req" aria-label="필요한 것과 알아 둘 것">
+      <li><b>Windows 10·11 64비트</b>펫은 늘 다른 창 위에 떠 있고 작업 표시줄 알림 영역에 아이콘이 생겨요.</li>
+      <li><b>질문하기</b>이 PC에 네이티브로 설치하고 로그인한 Claude Code(구독)로 답해요. 별도 API 키는 필요 없고 원하면 API 키 방식으로 바꿀 수 있어요.</li>
+      <li><b>구독 한도 보기</b>시스템에 Node.js가 있어야 해요.</li>
+      <li><b>데이터</b>설정·캐릭터·플러그인 같은 데이터는 설치 폴더 옆 “설치 폴더-data”에 쌓이고 업데이트하거나 지워도 남아요.</li>
+    </ul>
+  </div>
 </section>
 
 </main>
 
 <footer class="foot">
-  <p class="foot-name">ClaudeTool 0.3.0</p>
-  <p>개인 프로젝트이며 Anthropic의 공식 제품이 아니에요. 기본 캐릭터 도트 슈크림빵과 벡터 슈크림빵, 트레이·프로그램 아이콘은 이 프로젝트를 위해 직접 그린 오리지널 그림이에요.</p>
-  <p>개인 사용자는 무료로 쓸 수 있어요. 업무·영리 목적의 사용과 재배포는 저작권자의 허락이 필요해요. 소스 코드는 공개하지 않아요. 보안사고를 포함한 면책 범위는 <a href="https://github.com/BlackBuddle/claude-tool-page/blob/main/DISCLAIMER.md">면책조항</a>과 <a href="https://github.com/BlackBuddle/claude-tool-page/blob/main/LICENSE">라이선스</a>에 있어요.</p>
+  <p class="foot-name">ClaudeTool <span data-stat="version">0.4.0</span></p>
+  <p>개인이 만든 비공식 프로젝트이며 Anthropic과 제휴·후원·승인 관계가 없고 Anthropic의 공식 제품이 아니에요. “Claude”와 “Anthropic”은 Anthropic PBC의 상표예요. 기본 캐릭터 도트 슈크림빵과 벡터 슈크림빵, 트레이·프로그램 아이콘은 이 프로젝트를 위해 직접 그린 오리지널 그림이에요.</p>
+  <p>개인 사용자는 무료로 쓸 수 있어요. 업무·영리 목적의 사용과 재배포는 저작권자의 허락이 필요해요. 소스 코드는 공개하지 않아요. 가져온 플러그인과 보안사고를 포함한 면책 범위는 면책조항에, 보안 문제 신고 방법은 보안 안내에 있어요.</p>
+  <ul class="foot-links" aria-label="문서">
+    <li><a href="https://github.com/BlackBuddle/claude-tool-page#readme">사용 설명서</a></li>
+    <li><a href="https://github.com/BlackBuddle/claude-tool-page/blob/main/LICENSE">라이선스</a></li>
+    <li><a href="https://github.com/BlackBuddle/claude-tool-page/blob/main/DISCLAIMER.md">면책조항</a></li>
+    <li><a href="https://github.com/BlackBuddle/claude-tool-page/blob/main/SECURITY.md">보안 안내</a></li>
+    <li><a href="https://github.com/BlackBuddle/claude-tool-page/blob/main/PRIVACY.md">개인정보 안내</a></li>
+    <li><a href="https://github.com/BlackBuddle/claude-tool-page/blob/main/THIRD_PARTY_NOTICES.md">제3자 소프트웨어 고지</a></li>
+  </ul>
 </footer>
 
 <div class="mini-pet" id="mini-pet" aria-hidden="true">
+  <p class="mini-bubble" id="mini-bubble"></p>
   <div class="mini-walker" id="mini-walker"><span class="mini-art" id="mini-art"></span></div>
 </div>
 
@@ -1026,7 +1817,7 @@ html:not(.motion) .mini-pet { display: none; }
   let reduce = mq.matches;
   html.classList.toggle('motion', !reduce);
 
-  // 앱의 도트 슈크림빵 팩(packs/choux-dot/choux-dot.js)에서 그대로 뽑은 색·프레임·차례다. 한 프레임은 32×32칸, 차례의 null은 "여기서 멈춤"이다.
+  // 앱의 기본 캐릭터 도트 슈크림빵에서 그대로 뽑은 색·프레임·차례다. 한 프레임은 32×32칸, 차례의 null은 "여기서 멈춤"이다.
   const PALETTE = {"#":"#7A4A22","b":"#E6A955","d":"#C4843A","w":"#FFE9A8","p":"#F4A28C","e":"#3A2416","z":"#7C83DB","s":"#A8DCF5"};
   const ANIMS = {
     idle: { sequence: [[0,700],[1,700],[0,700],[1,700],[0,350],[2,150],[0,350],[1,700]], frames: [
@@ -1120,7 +1911,7 @@ html:not(.motion) .mini-pet { display: none; }
   }, { rootMargin: '60px' });
   function sprite(host, { watch = true, onFrame } = {}) {
     const cache = {};
-    const s = { state: '', groups: [], seq: [], step: 0, due: 0, stopped: true, visible: !watch };
+    const s = { state: '', groups: [], seq: [], step: 0, due: 0, stopped: true, paused: false, visible: !watch };
     const show = (i) => { s.groups.forEach((g, k) => { g.style.display = k === i ? '' : 'none'; }); if (onFrame) onFrame(s.state, i); };
     s.set = (state, restart = false) => {
       if (state === s.state && !restart) return;
@@ -1134,10 +1925,18 @@ html:not(.motion) .mini-pet { display: none; }
         const hold = s.seq.find(([, ms]) => ms === null) || s.seq[0];
         show(hold[0]);
         s.stopped = true;
-      } else wake();
+      } else {
+        show(s.seq[0][0]); // 다음 틱 전에 멈춰도(pause) 프레임이 겹쳐 보이지 않게 첫 프레임을 바로 보인다
+        wake();
+      }
+    };
+    // 데모의 "자동 재생"을 끄면 그 자리 프레임으로 멈춘다. 다시 켜면 곧바로 이어 간다.
+    s.pause = (on) => {
+      s.paused = on;
+      if (!on) { s.due = 0; wake(); }
     };
     tasks.push((now) => {
-      if (s.stopped || !s.visible) return false;
+      if (s.stopped || !s.visible || s.paused) return false;
       if (now >= s.due) {
         const [i, ms] = s.seq[s.step];
         show(i);
@@ -1264,7 +2063,7 @@ html:not(.motion) .mini-pet { display: none; }
 
   // ── 캐릭터 절의 상태 재생기: 상태를 누르면 그 상태의 실제 프레임을 재생하고, 자동 재생은 차례로 돌린다 ──
   const NOTES = Object.fromEntries([...document.querySelectorAll('.note-sizer')].map((p) => [p.dataset.state, p.textContent]));
-  const NAMES = { idle: '쉬기', walk: '걷기', sit: '앉기', sleep: '잠자기', react: '반응', talk: '말하기', drag: '끌기' };
+  const NAMES = { idle: '쉬기', walk: '걷기', sit: '앉기', sleep: '잠자기', react: '반응', talk: '말하기', drag: '끌려가기' };
   const ORDER = Object.keys(NAMES);
   const note = $('#state-note');
   const stageBubble = $('#stage-bubble');
@@ -1300,27 +2099,70 @@ html:not(.motion) .mini-pet { display: none; }
     return true;
   });
 
-  // ── 바닥의 작은 펫: 첫 화면을 지나면 나타나 스크롤을 따라 걷고, 멈추면 앉고, 오래 두면 잠든다 ──
+  // ── 바닥의 작은 펫: 첫 화면을 지나면 나타나, 지금 읽는 절의 자리로 걸어가 멈춰 서서 그 절을 말풍선으로 한마디 소개한다.
+  //    말한 뒤에는 앉고, 오래 두면 잠든다. 펫 길(오른쪽 아래)은 절 순서대로 자리가 나뉜다.
+  //    펫 길은 본문 열 오른쪽 여백 안에만 있고(폭은 CSS가 정한다), 여백이 좁은 화면에서는 CSS가 숨기고 스크립트도 펫을 돌리지 않는다. ──
   const mini = $('#mini-pet');
   const miniWalker = $('#mini-walker');
   const miniArt = $('#mini-art');
+  const miniBubble = $('#mini-bubble');
   const miniPet = sprite(miniArt, { watch: false });
-  const m = { on: false, x: 0, left: false, lastScroll: 0 };
+  const MINI_LINES = {
+    features: '클릭하면 사용량, Ctrl+Alt+K로 질문이에요.',
+    screens: '설정 창은 이렇게 생겼어요.',
+    how: '어떻게 도는지 그림으로 볼까요?',
+    plugins: '플러그인으로 기능을 더해요!',
+    stack: 'Electron과 TypeScript로 만들었어요.',
+    process: '설계 → 계획 → 구현 → 리뷰!',
+    download: 'Windows 10·11에서 돌아요.',
+  };
+  const MINI_SPOTS = Object.keys(MINI_LINES);
+  const m = { on: false, past: false, x: 0, left: false, lastScroll: 0, section: '', said: '', talkUntil: 0 };
+  // 바닥 펫은 오른쪽 여백이 넉넉한 폭에서만 보인다(CSS가 1499px 이하에서 숨기는 것과 같은 기준).
+  // 숨는 폭·움직임 줄이기·첫 화면이 보일 때는 펫 그림과 걷기를 돌리지 않아, 다른 할 일이 없으면 requestAnimationFrame 루프가 쉰다.
+  const miniRoom = window.matchMedia('(min-width: 1500px)');
+  function syncMini() {
+    m.on = m.past && miniRoom.matches && !reduce;
+    mini.classList.toggle('is-on', m.on);
+    miniPet.visible = m.on;
+    if (!m.on) miniBubble.classList.remove('is-on');
+    else if (!miniPet.state || miniPet.stopped) miniPet.set(miniPet.state || 'sit', true); // 움직임 줄이기 동안 멈춰 둔 그림이면 다시 돌린다
+    wake();
+  }
+  miniRoom.addEventListener('change', syncMini);
   window.addEventListener('scroll', () => { m.lastScroll = performance.now(); if (m.on) wake(); }, { passive: true });
+  function miniSay(text) {
+    miniBubble.textContent = text;
+    const w = miniBubble.offsetWidth;
+    const petMid = m.x + miniWalker.offsetWidth / 2;
+    // 말풍선 가운데를 펫 위에 두되 펫 길 양 끝을 넘지 않게 한다(넘으면 본문을 덮는다. 말풍선 최대 폭은 CSS가 펫 길 폭 이하로 둔다). 꼬리는 늘 펫을 가리킨다.
+    const left = Math.min(Math.max(petMid - w / 2, 0), mini.clientWidth - w);
+    miniBubble.style.left = `${Math.round(left)}px`;
+    miniBubble.style.setProperty('--tail', `${Math.round(Math.min(Math.max(petMid - left, 16), w - 16))}px`);
+    miniBubble.classList.add('is-on');
+  }
+  const miniHush = () => miniBubble.classList.remove('is-on');
   tasks.push((now, dt) => {
-    // 좁은 화면에서는 CSS가 숨긴다(고정 위치라 offsetParent로는 알 수 없어 그려진 상자로 본다).
-    if (!m.on || reduce || !mini.getClientRects().length) return false;
+    if (!m.on || reduce) return false; // 숨는 폭이면 syncMini가 m.on을 끈다
     const track = mini.clientWidth - miniWalker.offsetWidth;
-    const room = Math.max(1, html.scrollHeight - window.innerHeight);
-    const to = Math.min(1, Math.max(0, window.scrollY / room)) * track;
-    const d = to - m.x;
-    if (Math.abs(d) > 1.5) {
-      m.x += Math.sign(d) * Math.min(Math.abs(d), 0.16 * dt);
+    const spot = Math.max(0, MINI_SPOTS.indexOf(m.section));
+    const d = (spot / (MINI_SPOTS.length - 1)) * track - m.x;
+    if (Math.abs(d) > 1) {
+      miniHush();
+      m.x += Math.sign(d) * Math.min(Math.abs(d), 0.1 * dt);
       m.left = d < 0;
       miniWalker.style.transform = `translateX(${Math.round(m.x)}px)`;
       miniPet.set('walk');
-    } else if (now - m.lastScroll > 9000) miniPet.set('sleep');
-    else if (now - m.lastScroll > 700) miniPet.set('sit');
+    } else if (MINI_LINES[m.section] && m.said !== m.section) {
+      // 그 절의 자리에 닿았다: 멈춰 서서 말한다(절마다 한 번, 다른 절에 다녀오면 다시)
+      m.said = m.section;
+      m.talkUntil = now + 3400;
+      miniPet.set('talk');
+      miniSay(MINI_LINES[m.section]);
+    } else if (now >= m.talkUntil) {
+      miniHush();
+      miniPet.set(now - m.lastScroll > 9000 ? 'sleep' : 'sit');
+    }
     miniArt.classList.toggle('left', m.left && miniPet.state !== 'sleep');
     return true;
   });
@@ -1329,11 +2171,8 @@ html:not(.motion) .mini-pet { display: none; }
   const desk = $('.desk');
   new IntersectionObserver(([e]) => {
     desk.classList.toggle('is-off', !e.isIntersecting);
-    m.on = !e.isIntersecting && !reduce;
-    mini.classList.toggle('is-on', m.on);
-    miniPet.visible = m.on;
-    if (m.on && !miniPet.state) miniPet.set('sit');
-    wake();
+    m.past = !e.isIntersecting;
+    syncMini();
   }).observe(desk);
 
   // ── 스크롤 등장: 들어오면 한 번 나타나고 그대로 둔다. 같은 부모 안에서는 차례로 ──
@@ -1349,18 +2188,220 @@ html:not(.motion) .mini-pet { display: none; }
   }, { threshold: 0.06 }); // 아래쪽 여백을 두면 페이지 맨 끝 요소가 경계를 못 넘어 영영 안 나타날 수 있어 두지 않는다
   for (const el of revealables) revealer.observe(el);
 
-  // ── 스크롤스파이: 화면 가운데 띠를 지나는 절의 내비게이션 링크를 강조한다(링크가 없는 첫 화면·개발 방식에서는 지운다) ──
+  // ── 스크롤스파이: 화면 가운데 띠를 지나는 절의 내비게이션 링크를 강조한다(링크가 없는 첫 화면·개발 방식에서는 지운다).
+  //    지금 읽는 절은 바닥 펫도 쓴다(그 절의 자리로 걸어가 말한다). ──
   const links = [...document.querySelectorAll('.navlink')];
   const spy = new IntersectionObserver((entries) => {
     for (const e of entries) {
       if (!e.isIntersecting) continue;
+      m.section = e.target.id;
       for (const a of links) {
         if (a.getAttribute('href') === `#${e.target.id}`) a.setAttribute('aria-current', 'true');
         else a.removeAttribute('aria-current');
       }
     }
+    wake();
   }, { rootMargin: '-45% 0px -50% 0px' });
-  for (const id of ['top', 'features', 'screens', 'how', 'plugins', 'stack', 'process']) spy.observe(document.getElementById(id));
+  for (const id of ['top', 'features', 'screens', 'how', 'plugins', 'stack', 'process', 'download']) spy.observe(document.getElementById(id));
+
+  // ── 좁은 화면의 상단 메뉴: 링크가 넘치면 아직 가려진 쪽(start·end)을 data-more로 알려 그 가장자리를 흐리게 한다 ──
+  const navList = $('.topnav ul');
+  function navEdges() {
+    const rest = navList.scrollWidth - navList.clientWidth - navList.scrollLeft;
+    const more = [navList.scrollLeft > 1 ? 'start' : '', rest > 1 ? 'end' : ''].filter(Boolean).join(' ');
+    if (more) navList.dataset.more = more;
+    else delete navList.dataset.more;
+  }
+  navList.addEventListener('scroll', navEdges, { passive: true });
+  new ResizeObserver(navEdges).observe(navList);
+  // 키보드로 메뉴 링크에 오면 그 링크가 흐린 가장자리(36px)에 걸리지 않게 민다. 마우스·터치로 누를 때는 밀지 않는다
+  // (누르는 도중 링크가 움직이면 클릭이 빠진다). 브라우저는 일부만 보이는 링크에 포커스가 가면 밀지 않기도 한다.
+  navList.addEventListener('focusin', (e) => {
+    if (!e.target.matches(':focus-visible')) return;
+    const u = navList.getBoundingClientRect();
+    const a = e.target.getBoundingClientRect();
+    if (a.right > u.right - 36) navList.scrollLeft += a.right - (u.right - 36);
+    else if (a.left < u.left + 36) navList.scrollLeft -= u.left + 36 - a.left;
+  });
+
+  // ── 화면 테마: 버튼으로 밝게·어둡게를 고르면 이 브라우저에 기억하고, 고른 적이 없으면 OS 설정을 따른다.
+  //    색은 :root에 등록한 색 변수가 0.5초 동안 부드럽게 넘어간다(움직임 줄이기면 바로). ──
+  const themeButton = $('#theme-btn');
+  const darkMq = window.matchMedia('(prefers-color-scheme: dark)');
+  const isDark = () => (html.dataset.theme ? html.dataset.theme === 'dark' : darkMq.matches);
+  const syncTheme = () => themeButton.setAttribute('aria-pressed', String(isDark()));
+  themeButton.addEventListener('click', () => {
+    const next = isDark() ? 'light' : 'dark';
+    html.dataset.theme = next;
+    try { localStorage.setItem('ct-theme', next); } catch { /* 저장이 막힌 창이면 이번에만 바꾼다 */ }
+    syncTheme();
+  });
+  darkMq.addEventListener('change', syncTheme);
+
+  // ── 플러그인 흐름 무대: 가져오기 → 동의 → 격리된 창 → 반응을 한 자리에서 차례로 보인다.
+  //    장면 안의 움직임은 CSS가 맡고(is-active가 붙는 순간 처음부터), 여기서는 장면을 넘기고 마지막 장면의 펫을 움직인다.
+  //    "자동 재생"을 끄면 장면을 넘기지 않고 지금 장면의 마지막 모습으로 멈춘다(장면 버튼으로 골라 볼 수 있다). ──
+  const flowEl = $('#flow-demo');
+  const scenes = [...flowEl.querySelectorAll('.scene')];
+  const flowButtons = [...flowEl.querySelectorAll('.flow-steps button')];
+  const flowAutoButton = $('#flow-auto');
+  const flowLive = $('#flow-live');
+  const flowPet = sprite($('#flow-pet'));
+  const FLOW_MS = [3800, 5000, 4400, 4600]; // 장면마다 머무는 시간: 장면 안 움직임이 끝나고 잠깐 더 둔다
+  const flow = { step: 0, t: 0, auto: false, seen: false, started: false, talkAt: 0 };
+  function flowPetFor(i) {
+    flowPet.pause(false);
+    flow.talkAt = 0;
+    if (!flow.auto) { flowPet.set('talk', true); flowPet.pause(true); } // 정지 화면: 말풍선과 함께 말하는 모습 한 장
+    else if (i === scenes.length - 1) { flowPet.set('react', true); flow.talkAt = 950; } // 앱처럼 반응을 보인 뒤 말풍선과 함께 말하기로
+    else flowPet.set('idle');
+  }
+  function flowGo(i, byUser) {
+    flow.step = i;
+    flow.t = 0;
+    const again = scenes[i].classList.contains('is-active');
+    for (const s of scenes) s.classList.remove('is-active');
+    // 같은 장면을 다시 고르면 장면 안 움직임이 처음부터 돌게 스타일을 한 번 계산시킨다.
+    // 새 장면은 클래스가 붙는 순간 처음부터 돌므로 계산시키지 않는다(처음 열 때 화면 밖 절까지 배치하지 않게).
+    if (again) void flowEl.offsetWidth;
+    scenes[i].classList.add('is-active');
+    flowButtons.forEach((b, k) => b.setAttribute('aria-pressed', String(k === i)));
+    flowPetFor(i);
+    if (byUser) flowLive.textContent = scenes[i].querySelector('.scene-cap').textContent;
+    wake();
+  }
+  function flowSetAuto(on) {
+    flow.auto = on && !reduce;
+    flowAutoButton.setAttribute('aria-pressed', String(flow.auto));
+    flowEl.classList.toggle('is-paused', !flow.auto);
+    if (flow.auto) flowGo(flow.step, false); // 다시 켜면 지금 장면을 처음부터
+    else flowPetFor(flow.step);
+  }
+  flowButtons.forEach((b, k) => b.addEventListener('click', () => flowGo(k, true)));
+  flowAutoButton.addEventListener('click', () => flowSetAuto(!flow.auto));
+  tasks.push((now, dt) => {
+    if (reduce || !flow.seen || !flow.auto) return false;
+    flow.t += dt; // 화면 밖·숨은 탭에서는 이 일이 돌지 않아 시간도 흐르지 않는다(CSS 쪽도 is-off로 멈춘다)
+    if (flow.talkAt && flow.t >= flow.talkAt) { flow.talkAt = 0; flowPet.set('talk'); }
+    if (flow.t >= FLOW_MS[flow.step]) flowGo((flow.step + 1) % scenes.length, false);
+    return true;
+  });
+
+  // ── 들어오는 연결 데모: 터미널에 build-done을 쳐서 보내면 → 내 PC 안 문(127.0.0.1)이 열리고 → 플러그인이 받아 → 펫이 반응하고 말풍선.
+  //    단계마다 클래스를 붙이고 모양은 CSS가 맡는다. "자동 재생"을 끄면 마지막 장면으로 멈춘다. ──
+  const ibEl = $('#ib-demo');
+  const ibTyped = $('#ib-typed');
+  const ibAutoButton = $('#ib-auto');
+  const ibPet = sprite($('#ib-pet'));
+  const IB_TEXT = ibTyped.textContent;
+  // 단계 클래스는 s- 접두(첫 화면 펫 버튼의 .pet 같은 기존 규칙과 겹치지 않게)
+  const IB_MARKS = [[1900, 's-go1'], [2500, 's-door'], [2800, 's-go2'], [3400, 's-plug'], [3700, 's-go3'], [4300, 's-pet'], [5100, 's-say']];
+  const IB_TYPE_AT = 450;
+  const IB_CHAR_MS = 62;
+  const IB_LOOP_MS = 9400;
+  const ib = { t: 0, auto: false, seen: false, started: false, shown: -1 };
+  function ibReset() {
+    Object.assign(ib, { t: 0, shown: -1 });
+    ibEl.classList.remove(...IB_MARKS.map(([, mark]) => mark));
+    ibTyped.textContent = '';
+    ibPet.pause(false);
+    ibPet.set('idle');
+  }
+  function ibFinal() {
+    ibEl.classList.add(...IB_MARKS.map(([, mark]) => mark));
+    ibTyped.textContent = IB_TEXT;
+    ibTyped.classList.remove('is-typing');
+    ibPet.pause(false);
+    ibPet.set('talk', true);
+    ibPet.pause(true);
+  }
+  function ibSetAuto(on) {
+    ib.auto = on && !reduce;
+    ibAutoButton.setAttribute('aria-pressed', String(ib.auto));
+    if (ib.auto) ibReset();
+    else ibFinal();
+    wake();
+  }
+  ibAutoButton.addEventListener('click', () => ibSetAuto(!ib.auto));
+  tasks.push((now, dt) => {
+    if (reduce || !ib.seen || !ib.auto) return false;
+    ib.t += dt;
+    if (ib.t >= IB_LOOP_MS) ibReset();
+    const n = Math.max(0, Math.min(IB_TEXT.length, Math.floor((ib.t - IB_TYPE_AT) / IB_CHAR_MS)));
+    if (n !== ib.shown) { ib.shown = n; ibTyped.textContent = IB_TEXT.slice(0, n); }
+    ibTyped.classList.toggle('is-typing', n < IB_TEXT.length); // 치는 동안과 치기 전에는 커서가 깜빡인다
+    for (const [at, mark] of IB_MARKS) {
+      if (ib.t < at || ibEl.classList.contains(mark)) continue;
+      ibEl.classList.add(mark);
+      if (mark === 's-pet') ibPet.set('react', true);
+      if (mark === 's-say') ibPet.set('talk');
+    }
+    return true;
+  });
+
+  // 두 데모는 화면에 들어올 때만 돈다. 처음 들어올 때 첫 장면부터 시작한다.
+  const demoView = new IntersectionObserver((entries) => {
+    for (const e of entries) {
+      e.target.classList.toggle('is-off', !e.isIntersecting);
+      if (e.target === flowEl) {
+        flow.seen = e.isIntersecting;
+        if (flow.seen && !flow.started && flow.auto) { flow.started = true; flowGo(0, false); }
+      } else {
+        ib.seen = e.isIntersecting;
+        if (ib.seen && !ib.started && ib.auto) { ib.started = true; ibReset(); }
+      }
+    }
+    wake();
+  });
+  demoView.observe(flowEl);
+  demoView.observe(ibEl);
+
+  // 배포 안내 칸의 앉아 있는 펫(장식)
+  const dlPet = sprite($('#dl-pet'));
+
+  // ── 숫자 올리기: data-stat 숫자(태스크·시험 수)가 화면에 들어오면 0부터 그 값까지 1.2초 동안 올린다.
+  //    값은 HTML에 적힌 것을 읽기만 하고 끝나면 원래 글자 그대로 둔다(버전처럼 숫자가 아닌 것은 건너뛴다). ──
+  const COUNT_MS = 1200;
+  const counts = [];
+  const countView = new IntersectionObserver((entries) => {
+    for (const e of entries) {
+      if (!e.isIntersecting) continue;
+      countView.unobserve(e.target);
+      if (reduce) continue;
+      const el = e.target;
+      const text = el.textContent.trim();
+      el.style.minWidth = `${el.offsetWidth}px`; // 올리는 동안 자릿수가 줄어도 옆 글자가 밀리지 않게 끝 폭을 잡아 둔다
+      counts.push({ el, text, target: Number(text.replace(/,/g, '')), comma: text.includes(','), t: 0 });
+    }
+    wake();
+  }, { threshold: 0.6 });
+  for (const el of document.querySelectorAll('[data-stat]')) if (/^\d[\d,]*$/.test(el.textContent.trim())) countView.observe(el);
+  function finishCounts() { for (const c of counts.splice(0)) c.el.textContent = c.text; }
+  tasks.push((now, dt) => {
+    if (!counts.length) return false;
+    for (const c of counts) {
+      c.t = Math.min(COUNT_MS, c.t + dt);
+      const n = Math.round(c.target * (1 - (1 - c.t / COUNT_MS) ** 3));
+      c.el.textContent = c.t >= COUNT_MS ? c.text : c.comma ? n.toLocaleString('en-US') : String(n);
+    }
+    for (let i = counts.length - 1; i >= 0; i--) if (counts[i].t >= COUNT_MS) counts.splice(i, 1);
+    return counts.length > 0;
+  });
+
+  // ── 카드 기울이기: 정밀 포인터(마우스)일 때만 포인터 위치를 --rx·--ry로 넘긴다(모양은 CSS의 .tilt-host > .tilt).
+  //    움직이지 않는 바깥 상자(.tilt-host) 기준으로 재서, 카드가 떠오르거나 기울어도 각도가 흔들리지 않는다. ──
+  if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+    const unit = (v) => Math.min(Math.max(v, 0), 1); // 떠오른 카드 위(바깥 상자 밖)를 가리켜도 3도를 넘지 않게
+    for (const el of document.querySelectorAll('.tilt-host')) {
+      el.addEventListener('pointermove', (e) => {
+        if (reduce) return;
+        const r = el.getBoundingClientRect();
+        el.style.setProperty('--ry', `${((unit((e.clientX - r.left) / r.width) - 0.5) * 6).toFixed(2)}deg`);
+        el.style.setProperty('--rx', `${((0.5 - unit((e.clientY - r.top) / r.height)) * 6).toFixed(2)}deg`);
+      });
+      el.addEventListener('pointerleave', () => { el.style.removeProperty('--rx'); el.style.removeProperty('--ry'); });
+    }
+  }
 
   // ── 움직임 줄이기가 바뀌면 곧바로 따른다 ──
   function applyMotion() {
@@ -1370,23 +2411,50 @@ html:not(.motion) .mini-pet { display: none; }
       hush();
       setAuto(false);
       for (const el of revealables) el.classList.add('is-in');
-      mini.classList.remove('is-on');
-      m.on = false;
+      finishCounts();
     }
-    autoButton.disabled = reduce;
-    autoButton.title = reduce ? '움직임 줄이기가 켜져 있어 자동 재생을 껐어요' : '';
+    syncMini(); // 움직임 줄이기면 바닥 펫을 거두고, 풀리면 첫 화면을 지난 넓은 화면에서 다시 내보낸다
+    const offNote = reduce ? '움직임 줄이기가 켜져 있어 자동 재생을 껐어요' : '';
+    for (const b of [autoButton, flowAutoButton, ibAutoButton]) { b.disabled = reduce; b.title = offNote; }
+    // 데모: 움직임 줄이기면 정지 화면(네 장면 나란히·마지막 장면), 아니면 한 자리에서 차례로
+    flowEl.classList.toggle('is-live', !reduce);
+    ibEl.classList.toggle('is-live', !reduce);
+    flowSetAuto(!reduce);
+    ibSetAuto(!reduce);
     pet.set(pet.state || 'idle', true);
     stage.set(stage.state || 'idle', true);
+    dlPet.set('sit', true);
     if (reduce) say('안녕하세요! Ctrl+Alt+K로 무엇이든 물어보세요.');
     wake();
   }
   mq.addEventListener('change', applyMotion);
 
+  // ── 화면 밖 덩어리 미리 그리기: 첫 그림은 가까운 것만 그리고(content-visibility: auto), 페이지를 다 읽은 뒤 쉬는 틈마다
+  //    덩어리(.cv) 하나씩 is-warm을 붙여 미리 그려 둔다. 스크롤해 갈 때 그 자리에서 처음 배치하느라 멈칫하지 않게 한다. ──
+  const idle = window.requestIdleCallback ? (fn) => window.requestIdleCallback(fn, { timeout: 2000 }) : (fn) => setTimeout(fn, 150);
+  const coldBlocks = [...document.querySelectorAll('.cv')];
+  const warmNext = () => {
+    const block = coldBlocks.shift();
+    if (!block) return;
+    block.classList.add('is-warm');
+    idle(warmNext);
+  };
+  window.addEventListener('load', () => idle(warmNext), { once: true });
+
+  syncTheme();
   place(Math.round(maxX() * 0.64));
   pet.set('idle');
   choose('idle', false);
+  dlPet.set('sit');
   if (reduce) applyMotion();
-  else { hush(); setAuto(true); }
+  else {
+    hush();
+    setAuto(true);
+    flowEl.classList.add('is-live');
+    ibEl.classList.add('is-live');
+    flowSetAuto(true);
+    ibSetAuto(true);
+  }
 })();
 </script>
 </body>
