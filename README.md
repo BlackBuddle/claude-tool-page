@@ -1,6 +1,6 @@
 # ClaudeTool
 
-화면 위를 돌아다니는 Windows용 데스크톱 펫이에요. 펫을 누르면 Claude를 얼마나 썼는지 보여 주고 단축키로 질문하면 말풍선으로 답해요. 0.4.0부터는 **플러그인**으로 기능을 더할 수 있고, 0.4.1에서는 Claude Code가 질문하거나 승인을 기다릴 때 펫이 알려 주는 **Claude Code 알림**이 생겼어요.
+화면 위를 돌아다니는 Windows용 데스크톱 펫이에요. 펫을 누르면 Claude를 얼마나 썼는지 보여 주고 단축키로 질문하면 말풍선으로 답해요. 0.4.0부터는 **플러그인**으로 기능을 더할 수 있고 0.4.1에서는 Claude Code가 질문하거나 승인을 기다릴 때 펫이 알려 주는 **Claude Code 알림**이 생겼어요.
 
 <p align="center">
   <img src="images/banner.png" width="100%" alt="어두운 바탕 위에 도트 슈크림빵 펫이 서 있고 머리 위 말풍선에 “안녕하세요! Ctrl+Alt+K로 무엇이든 물어보세요.”라고 적혀 있어요.">
@@ -156,7 +156,7 @@ Claude Code가 질문하거나 승인을 기다리거나 일을 끝내거나 과
 알림 플러그인 `claude-notify`와 알림 캐릭터 `choux-notify`(고전 컴퓨터 화면을 든 슈크림빵)로 이뤄져 있어요. 둘 다 릴리스에 `.zip`으로 올라와 있고 캐릭터는 없어도 알림은 와요. 쓰는 순서는 [Claude Code 알림 쓰기](#claude-code-알림-쓰기)에 있어요.
 
 <p align="center">
-  <img src="images/claude-notify.png" width="640" alt="알림 캐릭터 슈크림빵(알림)의 프레임표. 밝은 바탕과 어두운 바탕에 기본 상태 7개(쉬기·걷기·앉기·잠자기·반응·끌기·컴퓨터 앞에서 말하기)와 알림 동작 4개가 늘어서 있어요. 알림 동작에서는 슈크림빵 옆 고전 컴퓨터 화면에 물음표(질문)·자물쇠(승인)·종(알림)·번개(과부하) 표시가 떠요."><br>
+  <img src="images/claude-notify.png" width="480" alt="알림 캐릭터 슈크림빵(알림)의 알림 동작 네 가지. 슈크림빵 옆 고전 컴퓨터 화면과 그 위에 물음표(질문)·자물쇠(승인 요청)·종(알림)·번개(과부하·오류) 표시가 떠요."><br>
   <sub>알림 캐릭터의 기본 상태와 알림 동작 4가지(질문·승인·알림·과부하)</sub>
 </p>
 
@@ -328,10 +328,10 @@ AI에게 부탁해서 만들 수 있어요. 규칙만 모은 [AI로 만들 때 �
 
 1. **zip 두 개 받기.** 이 저장소의 [릴리스](https://github.com/BlackBuddle/claude-tool-page/releases/latest)에서 두 파일을 받아요.
 
-   | 파일 | 내용 | 크기 | SHA-256 |
-   |---|---|---|---|
-   | `claude-notify-plugin.zip` | 알림 플러그인 | 약 18KB | `fc13c2211407869aefd13bba8e00e8743daa71d43db25d0a83447e68640e1699` |
-   | `choux-notify-pack.zip` | 알림 캐릭터 | 약 47KB | `a0941c338bbc2750cfcedaafba9a8fd40be110dc18eee86cf345a9e7b5d54da7` |
+   - `claude-notify-plugin.zip`(알림 플러그인, 약 18KB)
+     SHA-256 `fc13c2211407869aefd13bba8e00e8743daa71d43db25d0a83447e68640e1699`
+   - `choux-notify-pack.zip`(알림 캐릭터, 약 47KB)
+     SHA-256 `a0941c338bbc2750cfcedaafba9a8fd40be110dc18eee86cf345a9e7b5d54da7`
 
 2. **플러그인 가져오기.** 설정 창 › **🧩 플러그인** › **＋ 가져오기(.zip)**에서 `claude-notify-plugin.zip`을 골라요. 동의 창에 "말풍선을 띄워요", "이 PC의 다른 프로그램이 보내는 신호를 받아요", "Claude Code 세션을 열어요" 세 줄이 보이고 접속할 주소는 없어요. **설치**를 누르면 바로 켜져요.
 3. **캐릭터 가져오기.** 설정 창 › **🐾 캐릭터** › **⤓ 가져오기(.zip)**에서 `choux-notify-pack.zip`을 고르면 바로 그 캐릭터로 바뀌어요.
