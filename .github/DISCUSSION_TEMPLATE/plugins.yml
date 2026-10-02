@@ -1,0 +1,78 @@
+# 플러그인 공유 글 양식 — 토론 카테고리 "Plugins"(주소 이름 plugins)에서 쓰여요.
+title: "[플러그인] "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## 플러그인 공유 글
+        올리기 전에 꼭 읽어 주세요.
+        - 이 공간의 플러그인은 **ClaudeTool을 만든 사람이 검토하거나 보증하지 않아요.** 올린 사람이 누구인지도 확인되지 않아요.
+        - 비밀번호·API 키·토큰·개인정보를 글이나 `.zip` 안에 넣지 마세요. 글과 첨부 파일은 누구나 볼 수 있어요.
+        - 필요한 권한은 가져올 때 동의 창에 보이는 말 그대로 적어 주세요.
+  - type: input
+    id: name
+    attributes:
+      label: 플러그인 이름
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: 플러그인 버전
+      placeholder: "1.0.0"
+    validations:
+      required: true
+  - type: textarea
+    id: about
+    attributes:
+      label: 무엇을 하나요
+      description: "어떤 일을 하는지 짧게 적어 주세요. 화면 그림이 있으면 끌어다 놓아도 돼요."
+    validations:
+      required: true
+  - type: textarea
+    id: permissions
+    attributes:
+      label: 필요한 권한
+      description: "가져올 때 동의 창에 보이는 '할 수 있는 일'과 '접속할 주소'를 그대로 적어 주세요. 접속할 주소가 없으면 '없음'이라고 적어 주세요."
+    validations:
+      required: true
+  - type: input
+    id: tested
+    attributes:
+      label: 시험한 ClaudeTool 버전
+      placeholder: "0.4.0"
+    validations:
+      required: true
+  - type: input
+    id: license
+    attributes:
+      label: 라이선스
+      description: "다른 사람이 이 플러그인을 어떻게 써도 되는지 적어 주세요."
+      placeholder: "예: MIT / 개인 사용만 허락 / 모든 권리 보유"
+    validations:
+      required: true
+  - type: textarea
+    id: zip
+    attributes:
+      label: 플러그인 파일(.zip)
+      description: "이 칸에 .zip 파일을 끌어다 놓으면 첨부돼요(파일당 25MB까지). 압축을 풀면 plugin.json과 main.js가 있어야 해요."
+    validations:
+      required: true
+  - type: input
+    id: sha256
+    attributes:
+      label: SHA-256 (선택)
+      description: "PowerShell에서 Get-FileHash .\\파일이름.zip -Algorithm SHA256 으로 구한 값이에요. 받는 사람이 같은 파일인지 확인할 수 있어요."
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: 확인해 주세요
+      options:
+        - label: "내가 만들었거나 올려도 되는 플러그인이에요(저작권·라이선스)."
+          required: true
+        - label: "적은 권한과 접속할 주소가 .zip의 실제 내용과 같아요."
+          required: true
+        - label: ".zip과 글에 비밀번호·API 키·토큰·개인정보가 없어요."
+          required: true
+        - label: "다른 사람의 PC에 해를 끼치거나 몰래 정보를 보내는 동작이 없어요."
+          required: true

@@ -74,6 +74,7 @@ ClaudeTool(이하 "소프트웨어")은 **개인 사용자에게 무료로, 있�
 - **자원과 자동 꺼짐.** 켠 플러그인마다 보이지 않는 창이 하나씩 열려 메모리를 약 70MB쯤 더 써요(측정값이고 PC와 플러그인에 따라 달라요). 응답이 10초 넘게 없으면 그 플러그인의 창만 끝내고 다시 시작하며, 10분 안에 세 번 멈추면 꺼 두지만, **이것은 편의 기능일 뿐 보장이 아니에요.** 응답은 하면서 CPU·메모리·배터리를 많이 쓰는 플러그인은 막지 못할 수 있어요.
 - **AI가 만든 플러그인.** "만드는 법" 문서를 AI에게 건네 만든 플러그인·캐릭터는 AI가 틀리거나 위험한 코드를 쓸 수 있어요. 만든 사람이 내용(특히 권한과 접속 주소)을 검토하고 책임져야 하고, 남에게 줄 때도 마찬가지예요.
 - **가져온 zip(캐릭터·플러그인).** 가져올 때 형식·파일 종류·크기를 검사하지만(경로 탈출, 압축 폭탄 등), **내용이 안전하다는 것은 보증하지 않아요.**
+- **공유 공간(Discussions)에 올라온 플러그인.** 이 저장소의 Discussions에는 누구나 플러그인을 올릴 수 있어요. 올라온 플러그인은 올린 사람이 만들거나 올린 것이고 **저작권자가 검토하거나 보증하지 않아요.** 올린 사람이 적은 이름·권한 설명·SHA-256도 확인되지 않은 값이에요. 올라온 글과 첨부 파일의 권리와 책임은 올린 사람에게 있고 이를 내려받아 설치하는 것과 그 결과는 사용자의 책임이에요(위의 제3자 플러그인과 같아요).
 - **믿을 수 있는 곳의 것만** 설치하고, 동의 창에 나온 "할 수 있는 일"과 "접속할 주소"를 읽고, 이상하면 바로 끄고 지우세요. 플러그인을 지우면 그 폴더와 저장한 데이터·비밀 값·토큰·동의 기록이 함께 지워져요.
 
 #### 3.5 이렇게 하시길 권해요
@@ -185,6 +186,7 @@ An installable plugin is **program code made by a third party**. The risks and l
 - **Resources and automatic shut-off.** Each plugin that is on opens one invisible window and uses roughly 70 MB more memory (a measured value that varies by PC and plugin). If a plugin does not respond for more than 10 seconds only its window is ended and restarted, and if it stops three times within 10 minutes it is turned off, but **this is a convenience, not a guarantee.** A plugin that keeps responding while using a lot of CPU, memory or battery may not be stopped.
 - **Plugins made with AI.** A plugin or character made by giving the "how to make" document to an AI may contain wrong or dangerous code. The person who made it must review it (especially the permissions and addresses) and is responsible, also when giving it to others.
 - **Imported zips (characters/plugins).** Format, file types and sizes are checked on import (path escape, zip bombs, etc.), but **the content is not guaranteed to be safe.**
+- **Plugins posted in the sharing space (Discussions).** Anyone can post a plugin in this repository's Discussions. A posted plugin was made or uploaded by the person who posted it, and **the Licensor does not review or vouch for it.** The name, permission description and SHA-256 written by the poster are also unverified values. The rights in and responsibility for posts and attachments belong to the person who posted them, and downloading and installing them, and the result, are your responsibility (the same as for the third-party plugins above).
 - **Install only from sources you trust**, read the "what it can do" and "addresses it can connect to" lists in the consent window, and turn off and delete anything suspicious. Deleting a plugin also deletes its folder, saved data, secret values, token and consent record.
 
 #### 3.5 Recommendations

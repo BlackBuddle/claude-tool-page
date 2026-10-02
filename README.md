@@ -157,7 +157,7 @@ Windows 설정의 앱 목록(Windows 10은 앱 및 기능, 11은 설치된 앱)�
 
 플러그인은 펫에 기능을 더하는 작은 프로그램이에요. 예를 들어 타이머가 끝나면 펫이 반응하며 말풍선으로 알려 주거나, 빌드가 끝났다는 신호를 받아 말풍선을 띄울 수 있어요.
 
-- ClaudeTool에는 플러그인을 내려받는 기능이나 마켓이 없어요. 플러그인은 [직접 만들거나](#플러그인-만들기) 믿을 수 있는 사람에게 `.zip` 파일로 받아요.
+- ClaudeTool에는 플러그인을 내려받는 기능이나 마켓이 없어요. 플러그인은 [직접 만들거나](#플러그인-만들기) 믿을 수 있는 사람에게 `.zip` 파일로 받아요. 사람들이 올린 플러그인을 구경하고 올릴 수 있는 [공유 공간](#플러그인-공유-공간)이 있지만 검토된 곳은 아니에요.
 - 받은 플러그인은 **제3자가 만든 코드**예요. ClaudeTool은 플러그인을 보이지 않는 별도 창에서 돌리고 동의한 범위 안에서만 쓰게 막아 두지만 플러그인의 내용을 검토하거나 보증하지는 않아요. 완벽한 보호를 약속하는 것도 아니에요([알아 둘 한계](#알아-둘-한계)).
 
 > **한 줄 요약:** 출처를 아는 플러그인만 설치하고 동의 창을 꼼꼼히 읽고 비밀 칸에는 그 플러그인 전용 키만 넣으세요.
@@ -243,7 +243,7 @@ Windows 설정의 앱 목록(Windows 10은 앱 및 기능, 11은 설치된 앱)�
 
 ### 안전하게 쓰는 법
 
-1. **출처를 아는 플러그인만** 설치하세요. 모르는 사람이 보낸 .zip은 설치하지 마세요. AI가 만들어 준 플러그인도 똑같이 제3자 코드로 보고 확인하세요.
+1. **출처를 아는 플러그인만** 설치하세요. 모르는 사람이 보낸 .zip은 설치하지 마세요(공유 공간에서 받을 때는 [받기 전에 확인할 것](#받기-전에-확인할-것)을 모두 거친 것만 설치하세요). AI가 만들어 준 플러그인도 똑같이 제3자 코드로 보고 확인하세요.
 2. **동의 창을 읽고 필요한 만큼만** 허락하세요. 플러그인이 하는 일에 비해 권한이나 주소가 많으면 설치하지 마세요. 특히 **인터넷의 모든 주소**, **(내부망)**, **이 PC의 다른 프로그램이 보내는 신호** 줄은 한 번 더 생각하세요.
 3. **업데이트나 파일 수정으로 권한·주소가 늘면 다시 물어요.** 그때도 새로 붙은 ［새로］ 줄을 읽고 동의하세요.
 4. **비밀 칸에는 그 플러그인 전용으로 만든 키만** 넣으세요(예: 한 서비스에서 이 용도로만 발급한 키). 다른 곳에 쓰는 비밀번호나 Anthropic API 키·Admin 키는 넣지 마세요. 값은 Windows 계정으로 암호화해 저장되지만 쓰려면 플러그인에 전달돼요. 플러그인이 받은 값을 어디에 적을지는 플러그인에 달려 있어요.
@@ -272,6 +272,29 @@ AI에게 부탁해서 만들 수 있어요. 규칙만 모은 [AI로 만들 때 �
 이 프로젝트의 예제 플러그인 **안녕 펫**은 켜면 펫이 반응하며 인사말을 말풍선으로 보여 주고 인사말은 설정 칸에서 바꿀 수 있어요. 지금은 설치 파일에 들어 있지 않으니, 만드는 법 문서의 타이머 예제(처음부터 .zip으로 묶어 가져오기까지)를 따라 해 보세요.
 
 이 프로젝트의 예제(만드는 법 문서에 든 예제 코드 포함)와 그것을 바탕으로 만든 플러그인은, 출처(저작권자 표기)를 밝히고 영리를 목적으로 하지 않는다면 복사·수정해서 다른 사람에게 나눠 줄 수 있어요. 영리 사용·판매·유료 배포는 저작권자의 허락이 필요해요([LICENSE](LICENSE) 제4조).
+
+### 플러그인 공유 공간
+
+만든 플러그인을 나누거나 다른 사람이 만든 플러그인을 찾아보는 곳이 이 저장소의 [Plugins 토론](https://github.com/BlackBuddle/claude-tool-page/discussions/categories/plugins)이에요. GitHub 계정이 있으면 누구나 글을 올릴 수 있어요.
+
+> **먼저 알아 둘 것:** 올라온 플러그인은 **ClaudeTool을 만든 사람이 검토하거나 보증하지 않아요.** 올린 사람이 누구인지도 확인되지 않아요. 받기 전에 아래 [받기 전에 확인할 것](#받기-전에-확인할-것)을 지켜 주세요.
+
+#### 올리는 법
+
+1. [Plugins 토론](https://github.com/BlackBuddle/claude-tool-page/discussions/categories/plugins)에서 **New discussion**을 눌러 양식을 채워요.
+2. 플러그인 이름·버전·하는 일·**필요한 권한**(가져올 때 동의 창에 보이는 말 그대로)·시험한 ClaudeTool 버전·라이선스를 적어요.
+3. `.zip` 파일을 글 입력칸에 끌어다 놓아 첨부해요(파일당 25MB까지예요). 가능하면 PowerShell의 `Get-FileHash`로 구한 SHA-256 값도 적어 주세요.
+4. 비밀번호·API 키·토큰·개인정보가 `.zip` 안이나 글에 들어 있지 않은지 확인해요. 글과 첨부 파일은 누구나 볼 수 있어요.
+
+#### 받기 전에 확인할 것
+
+- 올린 사람이 적은 **필요한 권한**이 `.zip` 안의 `plugin.json`과 같은지 확인하세요. `.zip`은 압축을 풀어 `plugin.json`과 코드(`main.js` 같은 글자 파일)를 직접 읽어 볼 수 있어요. 읽기 어려우면 AI에게 권한과 하는 일을 요약해 달라고 해 보세요(AI의 요약도 틀릴 수 있어요).
+- 글에 SHA-256 값이 있으면 받은 파일의 값과 같은지 확인하세요.
+- 하는 일에 비해 권한이나 접속할 주소가 많으면(특히 **인터넷의 모든 주소**) 받지 마세요.
+- 가져올 때 동의 창을 꼼꼼히 읽으세요. 자세한 건 [동의 창 읽는 법](#동의-창-읽는-법)과 [안전하게 쓰는 법](#안전하게-쓰는-법)에 있어요.
+- 이상하면 글의 ⋯ 메뉴에서 **Report content**로 신고해 주세요. 보안 문제는 [보안 문제를 발견했다면](#보안-문제를-발견했다면)을 따라 비공개로 알려 주세요.
+
+올라온 플러그인과 첨부 파일의 저작권은 올린 사람에게 있고 올린 사람이 정한 조건을 따라요. 이 저장소의 [LICENSE](LICENSE)는 거기에 적용되지 않아요. 플러그인에 문제가 생기면 그 플러그인을 올린 사람에게 물어봐 주세요. 앱이 이 공간에서 무언가를 스스로 내려받는 일은 없고 `.zip`은 늘 직접 가져와요.
 
 ## AI로 만들 때 쓰는 규칙
 
@@ -758,6 +781,7 @@ ClaudeTool 개인 사용 라이선스 v1.0이에요. 전문은 [LICENSE](LICENSE
 |---|---|
 | [소개 페이지](https://blackbuddle.github.io/claude-tool-page/) | 화면과 기능을 한눈에 보여 주는 페이지(움직임 포함) |
 | [릴리스](https://github.com/BlackBuddle/claude-tool-page/releases) | 설치 파일과 새 판의 변경 내용 |
+| [플러그인 공유 공간](https://github.com/BlackBuddle/claude-tool-page/discussions/categories/plugins) | 사람들이 만든 플러그인을 올리고 찾아보는 곳(검토되지 않음) |
 | [LICENSE](LICENSE) | 라이선스 전문(한국어·영어) |
 | [DISCLAIMER.md](DISCLAIMER.md) | 면책조항 |
 | [PRIVACY.md](PRIVACY.md) | 개인정보와 데이터 |
@@ -771,7 +795,7 @@ ClaudeTool is an unofficial desktop pet for Windows 10/11 that roams your screen
 - **Download:** installers are published in this repository's [Releases](https://github.com/BlackBuddle/claude-tool-page/releases/latest) (Windows 10/11 x64, per-user install, no admin rights needed). Check the SHA-256 value given above before you run it. The installer is not code-signed, so Windows SmartScreen may show a warning.
 - **License:** free for personal, non-commercial use. Business or commercial use and redistribution need the copyright holder's permission (see [LICENSE](LICENSE)). The source code is not published.
 - **Privacy:** no account, no telemetry, no auto-update, and no server run by the author. Your data stays in a `-data` folder next to the install folder ([PRIVACY.md](PRIVACY.md)).
-- **Plugins are third-party code.** They run in hidden, isolated windows behind a permission gate, but this is not a guarantee (for example, DNS lookups can carry short values out). Install only plugins you trust.
+- **Plugins are third-party code.** They run in hidden, isolated windows behind a permission gate, but this is not a guarantee (for example, DNS lookups can carry short values out). Install only plugins you trust. People can share plugins in the repository's [Plugins discussions](https://github.com/BlackBuddle/claude-tool-page/discussions/categories/plugins), but nothing posted there is reviewed or endorsed.
 - **Disclaimer:** provided as is, without warranty, and not affiliated with Anthropic. AI answers can be wrong ([DISCLAIMER.md](DISCLAIMER.md)). Please report security problems privately through the Security tab ([SECURITY.md](SECURITY.md)).
 
 The rest of this README is in Korean.
