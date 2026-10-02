@@ -4,9 +4,9 @@
 >
 > *This document is not legal advice and has not been reviewed by a lawyer. Get professional advice before any business or commercial use or distribution.*
 
-ClaudeTool 0.4.0(2026-10-02 기준) 설치 파일에는 아래의 제3자 소프트웨어가 들어 있어요(이 문서는 설치 파일을 만들 때 들어가는 구성요소를 기준으로 해요). 이 소프트웨어들은 **각자의 라이선스를 따르고**, ClaudeTool의 라이선스([LICENSE](LICENSE))는 그 라이선스를 바꾸지 않아요(LICENSE 제5조). 목록은 설치 파일에 들어가는 구성요소의 `package.json`과 라이선스 파일에서 가져왔고, 새 판에서 바뀔 수 있어요. 설치·제거 프로그램 쪽(3절)은 확인하지 못한 부분이 있어요. 한국어본과 영어본이 함께 있고, 뜻이 다르면 한국어본이 우선해요. 라이선스 전문은 맨 아래 "라이선스 전문" 절에 원문 그대로(영어) 있어요. 함께 읽으면 좋은 문서: [DISCLAIMER.md](DISCLAIMER.md), [PRIVACY.md](PRIVACY.md), [SECURITY.md](SECURITY.md).
+ClaudeTool 0.4.1(2026-10-02 기준) 설치 파일에는 아래의 제3자 소프트웨어가 들어 있어요(이 문서는 설치 파일을 만들 때 들어가는 구성요소를 기준으로 해요). 이 소프트웨어들은 **각자의 라이선스를 따르고**, ClaudeTool의 라이선스([LICENSE](LICENSE))는 그 라이선스를 바꾸지 않아요(LICENSE 제5조). 목록은 설치 파일에 들어가는 구성요소의 `package.json`과 라이선스 파일에서 가져왔고, 새 판에서 바뀔 수 있어요. 설치·제거 프로그램 쪽(3절)은 확인하지 못한 부분이 있어요. 한국어본과 영어본이 함께 있고, 뜻이 다르면 한국어본이 우선해요. 라이선스 전문은 맨 아래 "라이선스 전문" 절에 원문 그대로(영어) 있어요. 함께 읽으면 좋은 문서: [DISCLAIMER.md](DISCLAIMER.md), [PRIVACY.md](PRIVACY.md), [SECURITY.md](SECURITY.md).
 
-*The ClaudeTool 0.4.0 installer (as of 2026-10-02) contains the third-party software listed below (this document is based on the components that go into the installer when it is built). Each item **follows its own license**, and the ClaudeTool license ([LICENSE](LICENSE)) does not change those licenses (LICENSE Section 5). The list was taken from the `package.json` and license files of the components that go into the installer and may change in new versions. Part of the installer/uninstaller side (Section 3) could not be confirmed. A Korean and an English version are provided; if they differ, the Korean version prevails. The license texts are in the "License texts" section at the very bottom, in their original English. See also: [DISCLAIMER.md](DISCLAIMER.md), [PRIVACY.md](PRIVACY.md), [SECURITY.md](SECURITY.md).*
+*The ClaudeTool 0.4.1 installer (as of 2026-10-02) contains the third-party software listed below (this document is based on the components that go into the installer when it is built). Each item **follows its own license**, and the ClaudeTool license ([LICENSE](LICENSE)) does not change those licenses (LICENSE Section 5). The list was taken from the `package.json` and license files of the components that go into the installer and may change in new versions. Part of the installer/uninstaller side (Section 3) could not be confirmed. A Korean and an English version are provided; if they differ, the Korean version prevails. The license texts are in the "License texts" section at the very bottom, in their original English. See also: [DISCLAIMER.md](DISCLAIMER.md), [PRIVACY.md](PRIVACY.md), [SECURITY.md](SECURITY.md).*
 
 ---
 
@@ -18,6 +18,7 @@ ClaudeTool 0.4.0(2026-10-02 기준) 설치 파일에는 아래의 제3자 소프
 - 설치 폴더 바로 아래에 다음 파일이 **함께 설치돼요.**
   - `LICENSE.electron.txt`: Electron의 라이선스와 저작권 고지
   - `LICENSES.chromium.html`: Chromium과 그 안에 든 구성요소(V8, Node.js, FFmpeg, ICU, ANGLE, SwiftShader, Skia, zlib 등)의 라이선스와 저작권 고지
+- 설치 폴더의 `resources\node`에는 Claude Code 연결 스크립트를 돌리는 **Node.js**(MIT 라이선스, Copyright Node.js contributors)의 `node.exe`가 **함께 설치돼요.** 버전은 설치 파일을 만들 때 쓴 판이라 `resources\node\VERSION.txt`를 참고하세요. 라이선스는 같은 폴더의 `LICENSE`에 있어요.
 - 해당 구성요소들은 위 파일에 적힌 라이선스(BSD, MIT, Apache-2.0, LGPL-2.1 등)를 따라요. 예를 들어 FFmpeg는 LGPL 2.1을 따르고 `ffmpeg.dll`이라는 별도 파일로 설치돼요.
 - 그 밖에 Electron과 함께 들어 있는 그래픽·시스템 관련 파일(`d3dcompiler_47.dll`, `dxcompiler.dll`, `dxil.dll`, `vulkan-1.dll`, `vk_swiftshader.dll`, `icudtl.dat` 등)도 각각의 제공자가 정한 라이선스를 따라요.
 
@@ -72,6 +73,7 @@ ClaudeTool 0.4.0(2026-10-02 기준) 설치 파일에는 아래의 제3자 소프
 - The following files are **installed together** directly under the install folder:
   - `LICENSE.electron.txt`: Electron's license and copyright notice
   - `LICENSES.chromium.html`: licenses and copyright notices of Chromium and the components inside it (V8, Node.js, FFmpeg, ICU, ANGLE, SwiftShader, Skia, zlib, etc.)
+- The `resources\node` folder of the install folder also contains **Node.js** (MIT License, Copyright Node.js contributors) as `node.exe`, which runs the Claude Code connection script. The version is the one used when the installer was built; see `resources\node\VERSION.txt`. Its license is in `LICENSE` in the same folder.
 - Those components follow the licenses written in the files above (BSD, MIT, Apache-2.0, LGPL-2.1, etc.). For example, FFmpeg follows LGPL 2.1 and is installed as a separate file, `ffmpeg.dll`.
 - Other graphics- and system-related files that come with Electron (`d3dcompiler_47.dll`, `dxcompiler.dll`, `dxil.dll`, `vulkan-1.dll`, `vk_swiftshader.dll`, `icudtl.dat`, etc.) follow the licenses set by their respective providers.
 

@@ -1,10 +1,14 @@
 # 보안 정책 (Security Policy)
 
-> 이 문서는 법률 자문이 아니고 변호사의 검토를 받은 문서도 아니에요. 회사 업무·영리 목적 등으로 쓰거나 배포하기 전에는 전문가의 검토를 받으세요.
+> 이 문서는 법률 자문이 아니고, 변호사의 검토를 받은 문서도 아니에요. 회사 업무·영리 목적 등으로 쓰거나 배포하기 전에는 전문가의 검토를 받으세요.
 >
 > *This document is not legal advice and has not been reviewed by a lawyer. Get professional advice before any business or commercial use or distribution.*
 
-ClaudeTool은 한 사람이 만드는 개인 프로젝트예요. 취약점을 알려 주시면 고맙게 살펴볼게요. 다만 아래 "약속하지 않는 것"도 함께 읽어 주세요. 한국어본과 영어본이 함께 있고 뜻이 다르면 한국어본이 우선해요. 함께 읽으면 좋은 문서: [DISCLAIMER.md](DISCLAIMER.md)(면책과 알려진 한계), [PRIVACY.md](PRIVACY.md)(개인정보), [LICENSE](LICENSE), [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
+> **이 문서는 소스 저장소에 있는 복사본이에요.** 소스 저장소에는 외부 사람이 접근하지 못하므로, 보안 문제는 아래 2절처럼 **공개 저장소(소개 페이지 저장소 `claude-tool-page`)의 Security 탭**으로 알려 주세요.
+>
+> *This is the copy kept in the source repository. Outsiders cannot access the source repository, so report security problems through the **Security tab of the public repository (the introduction-page repository `claude-tool-page`)**, as described in Section 2.*
+
+ClaudeTool은 한 사람이 만드는 개인 프로젝트예요. 취약점을 알려 주시면 고맙게 살펴볼게요. 다만 아래 "약속하지 않는 것"도 함께 읽어 주세요. 한국어본과 영어본이 함께 있고, 뜻이 다르면 한국어본이 우선해요. 함께 읽으면 좋은 문서: [DISCLAIMER.md](DISCLAIMER.md)(면책과 알려진 한계), [PRIVACY.md](PRIVACY.md)(개인정보), [LICENSE](LICENSE), [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
 
 *ClaudeTool is a personal project made by one person. I am grateful for vulnerability reports and will look into them, but please also read "What is not promised" below. A Korean and an English version are provided; if they differ, the Korean version prevails. See also: [DISCLAIMER.md](DISCLAIMER.md) (disclaimer and known limits), [PRIVACY.md](PRIVACY.md) (privacy), [LICENSE](LICENSE), [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).*
 
@@ -19,9 +23,9 @@ ClaudeTool은 한 사람이 만드는 개인 프로젝트예요. 취약점을 �
 
 ### 2. 보안 문제를 알리는 방법
 
-1. 이 저장소의 **Security 탭 → "Report a vulnerability"** 로 알려 주세요. 바로 가기: <https://github.com/BlackBuddle/claude-tool-page/security/advisories/new> (비공개로 접수돼요. 신고 양식을 열려면 GitHub 계정으로 로그인해야 해요.)
+1. 공개 저장소 `claude-tool-page`의 **Security 탭 → "Report a vulnerability"** 로 알려 주세요. 바로 가기: <https://github.com/BlackBuddle/claude-tool-page/security/advisories/new> (비공개로 접수돼요. 신고 양식을 열려면 GitHub 계정으로 로그인해야 해요.)
 2. **공개 이슈·토론·SNS 등에는 취약점 내용을 올리지 마세요.** 고쳐지기 전에 공개되면 쓰는 사람들이 위험해져요.
-3. 보안과 상관없는 버그나 질문은 이 저장소의 Issues에 올려 주세요.
+3. 보안과 상관없는 버그나 질문은 공개 저장소 `claude-tool-page`의 Issues에 올려 주세요.
 
 **신고에 담으면 좋은 것**
 
@@ -40,6 +44,8 @@ ClaudeTool은 한 사람이 만드는 개인 프로젝트예요. 취약점을 �
 - **앱 본체와 설치 프로그램:** 앱이 파일·설정·키를 다루는 방식(예: 허락 없이 다른 곳의 파일을 쓰거나 덮어쓰는 것, 경로 탈출), 설치·제거 프로그램이 일으키는 문제
 - **플러그인 격리와 동의:** 플러그인이 동의하지 않은 권한·주소를 쓰거나, 자기 폴더 밖의 파일·다른 플러그인·앱 화면의 내용에 닿거나, 격리된 창 밖으로 나오는 것. 동의 창이 실제 권한·주소와 다르게 보이는 것(문구 속임), 가짜 로그인 창처럼 사용자를 속이는 표시. 플러그인이 앱 본체나 다른 플러그인을 멈추게 하는 것
 - **들어오는 연결:** 토큰 없이, 또는 웹 페이지·다른 기기에서 통로에 보낼 수 있는 것, 토큰 검사·횟수 제한을 피하는 것, `127.0.0.1` 밖으로 열리는 것
+- **세션 열기(`session` 권한):** 플러그인이 정하지 못해야 할 주소·명령·폴더·인자를 정하게 되는 것, 들어오는 연결로 받은 적 없는 세션을 여는 것, 버튼 클릭 없이 열리는 것
+- **알림 훅 설치 도우미:** `settings.json`의 다른 설정·훅을 지우거나 바꾸는 것, `<데이터>\claude-notify`의 토큰·백업이 다른 Windows 계정에 읽히게 되는 것
 - **비밀 저장:** `secrets.bin`의 키·토큰·비밀 값이 로그·화면·내보내기 파일·설정 파일로 새는 것
 - **가져오기(zip):** 압축을 푸는 동안의 경로 탈출·압축 폭탄, 허용하지 않는 파일이 들어오는 것
 - **Claude Code 연결:** 연결·해제 흐름이 Claude Code 설정 파일을 의도하지 않게 바꾸는 것
@@ -48,7 +54,7 @@ ClaudeTool은 한 사람이 만드는 개인 프로젝트예요. 취약점을 �
 
 - Anthropic·Claude Code·GitHub 같은 **제3자 서비스**의 취약점 → 그 서비스에 신고해 주세요.
 - **Electron·Chromium·Node.js·Windows** 자체의 취약점 → 그쪽 프로젝트에 신고해 주세요. 다만 ClaudeTool이 그것을 잘못 써서 생긴 문제는 범위 안이에요.
-- **사용자가 동의 창에서 허락한 플러그인의 의도된 동작**(동의한 주소로 데이터를 보내는 것, 허락한 권한으로 말풍선을 띄우거나 펫을 움직이는 것 등)
+- **사용자가 동의 창에서 허락한 플러그인의 의도된 동작**(동의한 주소로 데이터를 보내는 것, 허락한 권한으로 말풍선을 띄우거나 펫을 움직이거나 Claude Code 세션을 여는 것 등)
 - **알려진 한계**로 [DISCLAIMER.md](DISCLAIMER.md)에 적어 둔 것(DNS 조회로 적은 양의 정보가 새는 것, 선언한 이름이 내부망 주소로 풀리는 것, 켠 플러그인마다 메모리를 쓰는 것, 같은 Windows 계정의 다른 프로그램이 `secrets.bin`을 읽을 수 있는 것 등). 이미 알려진 것보다 큰 영향이나 새로운 우회라면 알려 주세요.
 - 플러그인 **자기 창이 CPU·메모리를 많이 쓰는 것**(앱 본체나 다른 플러그인에 닿지 않는 경우)
 - 이 PC에 **직접 접근하거나 관리자 권한이 있어야 하는** 공격, 사용자를 속여 설치하게 하는 사회공학, 코드 서명이 없어서 뜨는 Windows SmartScreen 경고
@@ -59,12 +65,12 @@ ClaudeTool은 한 사람이 만드는 개인 프로젝트예요. 취약점을 �
 - **약속하지 않는 것:** 응답이나 수정 시점·기한, 수정 여부, 보상(현상금 등). 보상은 없어요.
 - 재현이 안 되거나 더 알아야 하면 신고 창에서 되물을 수 있어요.
 - 수정이 나오면 새 판의 안내나 GitHub의 보안 권고(Security advisories)로 알릴 수 있어요.
-- 신고한 분의 정보는 신고를 처리하는 데만 쓰고 원하지 않으면 이름을 밝히지 않아요.
+- 신고한 분의 정보는 신고를 처리하는 데만 쓰고, 원하지 않으면 이름을 밝히지 않아요.
 
 ### 5. 책임 있는 공개(조율된 공개)
 
 - 세부 내용은 **신고한 날부터 90일이 지난 때**와 **수정판이 나오고 쓰는 사람들이 업데이트할 시간을 둔 때** 가운데 더 이른 때부터 공개해 주세요. 그 전에는 공개하지 말아 주세요. 수정에 시간이 더 필요하거나 더 일찍 공개해야 할 사정이 있으면 신고 안에서 기간을 협의해요(협의 가능). 이 90일은 공개를 미뤄 달라는 부탁일 뿐, 그 안에 수정하겠다는 약속이 아니에요.
-- 확인은 **자기 PC·자기 계정·자기 데이터**로만 해 주세요. 다른 사람의 PC·계정·데이터에 접근하거나 서비스를 방해하지 마세요. 확인에 꼭 필요한 만큼만 해 보고 우연히 알게 된 개인 정보는 보관하거나 공개하지 마세요.
+- 확인은 **자기 PC·자기 계정·자기 데이터**로만 해 주세요. 다른 사람의 PC·계정·데이터에 접근하거나 서비스를 방해하지 마세요. 확인에 꼭 필요한 만큼만 해 보고, 우연히 알게 된 개인 정보는 보관하거나 공개하지 마세요.
 
 ### 6. 사용자가 사고를 의심한다면
 
@@ -83,9 +89,9 @@ ClaudeTool은 한 사람이 만드는 개인 프로젝트예요. 취약점을 �
 
 ### 2. How to report a security problem
 
-1. Use this repository's **Security tab → "Report a vulnerability"**. Direct link: <https://github.com/BlackBuddle/claude-tool-page/security/advisories/new> (it is received privately; you must be signed in to GitHub to open the form).
+1. Use the **Security tab → "Report a vulnerability"** of the public repository `claude-tool-page`. Direct link: <https://github.com/BlackBuddle/claude-tool-page/security/advisories/new> (it is received privately; you must be signed in to GitHub to open the form).
 2. **Do not post vulnerability details in public issues, discussions or social media.** If details are published before a fix, the people using the software are put at risk.
-3. For bugs or questions unrelated to security, please use this repository's Issues.
+3. For bugs or questions unrelated to security, please use the Issues of the public repository `claude-tool-page`.
 
 **What is helpful to include**
 
@@ -104,6 +110,8 @@ ClaudeTool은 한 사람이 만드는 개인 프로젝트예요. 취약점을 �
 - **The app itself and its installer:** how it handles files, settings and keys (for example, writing or overwriting files elsewhere without permission, path escape), and problems caused by the installer or uninstaller
 - **Plugin isolation and consent:** a plugin using permissions or addresses you did not consent to, reaching files outside its own folder, other plugins or the content of app screens, or breaking out of its isolated window; a consent window that shows something different from the real permissions or addresses (wording tricks), or displays that deceive users such as a fake login window; a plugin stopping the app itself or other plugins
 - **Incoming connections:** being able to send to the channel without a token or from a web page or another device, bypassing the token check or rate limit, the channel opening beyond `127.0.0.1`
+- **Opening sessions (`session` permission):** a plugin getting to choose the address, command, folder or arguments that it must not choose, opening a session it never received through incoming connections, or opening one without a button click
+- **The notification-hook setup helper:** deleting or changing other settings or hooks in `settings.json`, or the token and backups in `<data>\claude-notify` becoming readable by another Windows account
 - **Secret storage:** keys, tokens or secret values in `secrets.bin` leaking into logs, screens, exported files or the settings file
 - **Importing (zip):** path escape or zip bombs while extracting, files that should not be allowed getting in
 - **Connecting Claude Code:** the connect/disconnect flow changing the Claude Code settings file in unintended ways
@@ -112,7 +120,7 @@ ClaudeTool은 한 사람이 만드는 개인 프로젝트예요. 취약점을 �
 
 - Vulnerabilities in **third-party services** such as Anthropic, Claude Code and GitHub → please report them to that service.
 - Vulnerabilities in **Electron, Chromium, Node.js or Windows** themselves → please report them to those projects. Problems caused by ClaudeTool using them incorrectly are in scope.
-- **Intended behavior of a plugin you allowed in the consent window** (sending data to the addresses you consented to, showing speech bubbles or moving the pet with the permissions you granted, etc.)
+- **Intended behavior of a plugin you allowed in the consent window** (sending data to the addresses you consented to, showing speech bubbles, moving the pet or opening Claude Code sessions with the permissions you granted, etc.)
 - **Known limits** listed in [DISCLAIMER.md](DISCLAIMER.md) (a small amount of information leaking through DNS lookups, declared names resolving to internal-network addresses, memory used by each plugin that is on, other programs under the same Windows account being able to read `secrets.bin`, etc.). If you find a bigger impact than already known, or a new bypass, please report it.
 - A plugin's **own window using a lot of CPU or memory** (when it does not reach the app itself or other plugins)
 - Attacks that require **physical access to this PC or administrator rights**, social engineering that tricks you into installing, and the Windows SmartScreen warning shown because the installer is not code-signed

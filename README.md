@@ -1,39 +1,41 @@
 # ClaudeTool
 
-화면 위를 돌아다니는 Windows용 데스크톱 펫이에요. 펫을 누르면 Claude를 얼마나 썼는지 보여 주고 단축키로 질문하면 말풍선으로 답해요. 0.4.0부터는 **플러그인**으로 기능을 더할 수도 있어요.
+화면 위를 돌아다니는 Windows용 데스크톱 펫이에요. 펫을 누르면 Claude를 얼마나 썼는지 보여 주고 단축키로 질문하면 말풍선으로 답해요. 0.4.0부터는 **플러그인**으로 기능을 더할 수 있고, 0.4.1에서는 Claude Code가 질문하거나 승인을 기다릴 때 펫이 알려 주는 **Claude Code 알림**이 생겼어요.
 
 <p align="center">
   <img src="images/banner.png" width="100%" alt="어두운 바탕 위에 도트 슈크림빵 펫이 서 있고 머리 위 말풍선에 “안녕하세요! Ctrl+Alt+K로 무엇이든 물어보세요.”라고 적혀 있어요.">
 </p>
 
-**[설치 파일 내려받기(0.4.0)](https://github.com/BlackBuddle/claude-tool-page/releases/latest)** · [소개 페이지](https://blackbuddle.github.io/claude-tool-page/) · [릴리스](https://github.com/BlackBuddle/claude-tool-page/releases)
+**[설치 파일 내려받기(0.4.1)](https://github.com/BlackBuddle/claude-tool-page/releases/latest)** · [소개 페이지](https://blackbuddle.github.io/claude-tool-page/) · [릴리스](https://github.com/BlackBuddle/claude-tool-page/releases)
 
 ClaudeTool은 개인 프로젝트이며 Anthropic과 관계없는 **비공식** 프로그램이에요.
 
 ## 한눈에 보기
 
-- **하는 일:** 사용량 보기 · 질문하기 · 캐릭터 꾸미기와 만들기 · 움직임 정하기 · 플러그인으로 기능 더하기
-- **필요한 것:** Windows 10·11(64비트). 질문하기는 이 PC에 로그인된 Claude Code가 있어야 해요(Anthropic API 키로 바꿔 쓸 수도 있어요). 펫·캐릭터·플러그인은 Claude Code가 없어도 돼요.
-- **설치:** 이 저장소의 [릴리스](https://github.com/BlackBuddle/claude-tool-page/releases/latest)에서 설치 파일(약 102MB)을 받아 실행해요. 사용자별 설치라 관리자 권한은 필요 없어요.
+- **하는 일:** 사용량 보기 · 질문하기 · 캐릭터 꾸미기와 만들기 · 움직임 정하기 · 플러그인으로 기능 더하기 · Claude Code 알림 받기
+- **필요한 것:** Windows 10·11(64비트). 질문하기는 이 PC에 로그인된 Claude Code가 있어야 해요(Anthropic API 키로 바꿔 쓸 수도 있어요). 펫·캐릭터·플러그인은 Claude Code가 없어도 돼요. Node.js는 설치 파일에 들어 있어서 따로 깔지 않아도 돼요.
+- **설치:** 이 저장소의 [릴리스](https://github.com/BlackBuddle/claude-tool-page/releases/latest)에서 설치 파일(약 124MB)을 받아 실행해요. 사용자별 설치라 관리자 권한은 필요 없어요.
 - **가격:** 개인 사용은 무료예요. 업무·영리 목적의 사용과 재배포는 저작권자의 허락이 필요해요([라이선스](#라이선스)).
 - **내 데이터:** 설치 폴더 바로 옆의 `<설치 폴더 이름>-data`에만 쌓여요. 가입·로그인·사용 통계 전송이 없어요([개인정보와 데이터](#개인정보와-데이터)).
 - **소스 코드:** 공개하지 않아요. 이 저장소에는 사용 설명서·소개 페이지·법적 문서가 있고 설치 파일은 릴리스에 있어요.
 
-바로 가기: [내려받기와 설치](#내려받기와-설치) · [이런 걸 해요](#이런-걸-해요) · [플러그인 쓰기](#플러그인-쓰기) · [AI로 만들 때 쓰는 규칙](#ai로-만들-때-쓰는-규칙) · [자주 묻는 질문과 문제 해결](#자주-묻는-질문과-문제-해결) · [개인정보와 데이터](#개인정보와-데이터) · [라이선스와 면책](#라이선스와-면책) · [문서](#문서)
+바로 가기: [내려받기와 설치](#내려받기와-설치) · [이런 걸 해요](#이런-걸-해요) · [플러그인 쓰기](#플러그인-쓰기) · [Claude Code 알림 쓰기](#claude-code-알림-쓰기) · [AI로 만들 때 쓰는 규칙](#ai로-만들-때-쓰는-규칙) · [자주 묻는 질문과 문제 해결](#자주-묻는-질문과-문제-해결) · [개인정보와 데이터](#개인정보와-데이터) · [라이선스와 면책](#라이선스와-면책) · [문서](#문서)
 
 ## 내려받기와 설치
 
-설치 파일은 이 저장소의 [릴리스](https://github.com/BlackBuddle/claude-tool-page/releases/latest)에서 받아요. 최신 판은 **0.4.0**이고 파일 이름은 `ClaudeTool-Setup-0.4.0.exe`예요(약 102MB).
+설치 파일은 이 저장소의 [릴리스](https://github.com/BlackBuddle/claude-tool-page/releases/latest)에서 받아요. 최신 판은 **0.4.1**이고 파일 이름은 `ClaudeTool-Setup-0.4.1.exe`예요(약 124MB).
+
+0.4.0을 쓰고 있다면 같은 위치에 덮어 설치하면 돼요. 데이터 폴더는 그대로 남아요.
 
 ### 내려받는 곳과 확인
 
 - **이 저장소의 릴리스에서만** 받으세요. 같은 이름으로 다른 곳에서 받은 파일은 위조일 수 있으니 실행하지 마세요.
-- 받은 파일이 맞는지 SHA-256 값으로 확인할 수 있어요. 0.4.0의 값은 `8f6bff4abc20097b1f6db7573bbbc20b3d245a6ac533ce8eb65716ccfbe17b76`이고 PowerShell에서 `Get-FileHash .\ClaudeTool-Setup-0.4.0.exe -Algorithm SHA256`로 구해 비교해요.
+- 받은 파일이 맞는지 SHA-256 값으로 확인할 수 있어요. 0.4.1의 값은 `1c5c05efa8cd04f86458f50c1d74c5bb4efd528e991efb6bbf3b1fcfc9753646`이고 PowerShell에서 `Get-FileHash .\ClaudeTool-Setup-0.4.1.exe -Algorithm SHA256`로 구해 비교해요.
 - 설치 파일에는 코드 서명이 없어서 처음 실행할 때 Windows SmartScreen 경고가 뜰 수 있어요. 위 확인을 마쳤다면 **추가 정보 → 실행**을 누르세요.
 
 ### 설치 순서
 
-1. 받은 `ClaudeTool-Setup-0.4.0.exe`를 실행해요.
+1. 받은 `ClaudeTool-Setup-0.4.1.exe`를 실행해요.
 2. 라이선스 화면에서 내용을 읽고 동의해요.
 3. 설치 위치를 정해요. 기본은 `D:\Programs\ClaudeTool`이에요(D 드라이브가 없으면 Windows의 기본 위치예요). 사용자별 설치라 관리자 권한은 필요 없어요.
 4. 설치가 끝나면 시작 메뉴의 **ClaudeTool**을 실행해요. 바탕화면 바로가기는 만들지 않아요.
@@ -42,7 +44,7 @@ ClaudeTool은 개인 프로젝트이며 Anthropic과 관계없는 **비공식** 
 
 - Windows 10 또는 11(64비트).
 - **질문하기**를 쓰려면 이 PC에 **Claude Code**(네이티브 설치, `claude.exe`)가 설치되어 있고 로그인되어 있어야 해요. 별도 API 키는 필요 없어요. (원하면 Claude Code 대신 Anthropic API 키로 쓰는 방식도 고를 수 있어요.)
-- 구독 한도 표시를 쓰려면 **Node.js**도 있어야 해요.
+- 구독 한도 표시와 Claude Code 알림에 쓰는 **Node.js**는 설치 파일에 들어 있어요(`<설치 폴더>\resources\node`). 따로 설치하지 않아도 돼요.
 
 펫·캐릭터·플러그인은 Claude Code가 없어도 쓸 수 있어요.
 
@@ -68,7 +70,7 @@ ClaudeTool은 개인 프로젝트이며 Anthropic과 관계없는 **비공식** 
 
 Windows 설정의 앱 목록(Windows 10은 앱 및 기능, 11은 설치된 앱)에서 ClaudeTool을 제거하세요. 설치 폴더의 `Uninstall ClaudeTool.exe`를 실행해도 돼요. 제거해도 **데이터 폴더는 남아요.** 흔적까지 모두 지우려면 제거한 뒤 `…-data` 폴더를 직접 지우세요. 설정·캐릭터·플러그인·키가 모두 사라지니 필요하면 먼저 백업하세요.
 
-사용량 창에서 **Claude Code 연결**을 해 두었다면, 제거하기 전에 같은 자리의 **연결 해제**를 눌러 주세요. 그렇지 않으면 Claude Code 설정에 이 앱의 상태 줄 명령이 남아요.
+사용량 창에서 **Claude Code 연결**을 해 두었다면, 제거하기 전에 같은 자리의 **연결 해제**를 눌러 주세요. 그렇지 않으면 Claude Code 설정에 이 앱의 상태 줄 명령이 남아요. [Claude Code 알림](#claude-code-알림-쓰기)의 훅을 연결했다면 제거하기 전에 `--remove` 명령으로 훅도 빼 주세요.
 
 ## 이런 걸 해요
 
@@ -120,9 +122,10 @@ Windows 설정의 앱 목록(Windows 10은 앱 및 기능, 11은 설치된 앱)�
 </p>
 
 - **만들기:** 쉬기·걷기·앉기·잠자기·반응·말하기·끌려가기 7가지 모습에 그림(GIF·APNG·WebP·PNG·SVG)을 넣어요. 쉬기 그림만 있어도 저장돼요.
-- **새 동작:** 춤추기·점프 같은 동작을 12개까지 더해요. 동작마다 얼마나 자주(드물게·가끔·자주), 얼마나 오래, 제자리에서 할지 걸으며 할지, 그리고 **언제** 할지(쉬는 중 무작위·클릭했을 때·오래 쉬면·플러그인 신호)를 정해요.
+- **새 동작:** 춤추기·점프 같은 동작을 더해요. 처음에는 12개까지이고 편집기의 **동작 한도** 칸에서 60개까지 늘릴 수 있어요. 동작마다 얼마나 자주(드물게·가끔·자주), 얼마나 오래, 제자리에서 할지 걸으며 할지, 그리고 **언제** 할지(쉬는 중 무작위·클릭했을 때·오래 쉬면·플러그인 신호)를 정해요.
+- **플러그인 신호 동작:** **＋ 플러그인 신호 동작…**에서 플러그인을 고르면 그 플러그인의 신호마다 동작이 한 번에 더해져요. 동작마다 그림을 넣어 마무리해요.
 - **주고받기:** 만든 캐릭터는 .zip으로 내보내고 가져와요. 플러그인 신호를 연결한 캐릭터는 0.3.0 이하 앱에서는 열 수 없어요.
-- **AI에게 부탁하기:** 캐릭터 탭 제목 줄의 **📄 만드는 법(.md) 받기**를 AI에게 건네면 캐릭터를 만들어 줘요. 규칙만 모은 [AI로 만들 때 쓰는 규칙](#ai로-만들-때-쓰는-규칙)을 건네도 돼요.
+- **AI에게 부탁하기:** 캐릭터 탭 제목 줄의 **📄 만드는 법(.md) 받기**로 받은 문서를 AI에게 건네면 캐릭터를 만들어 줘요. 설치한 플러그인이 있으면 그 신호 목록이 문서 끝에 붙어요. 규칙만 모은 [AI로 만들 때 쓰는 규칙](#ai로-만들-때-쓰는-규칙)을 건네도 돼요.
 
 <p align="center">
   <img src="images/settings-character-tab.png" alt="ClaudeTool 설정 창의 캐릭터 탭. 슈크림빵(도트)이 골라져 있고 슈크림빵(벡터) 카드와 만들기·가져오기(.zip) 카드, 크기·투명도 막대, 방향 따라 뒤집기 칸, 사용하기·편집·내보내기·지우기·폴더 열기 버튼이 보여요."><br>
@@ -145,6 +148,17 @@ Windows 설정의 앱 목록(Windows 10은 앱 및 기능, 11은 설치된 앱)�
 ### 플러그인(0.4.0 새 기능)
 
 받은 .zip을 가져와서 펫에 기능을 더해요. 가져올 때 동의 창이 플러그인이 할 수 있는 일과 접속할 주소를 보여 줘요. 자세한 건 [플러그인 쓰기](#플러그인-쓰기)에 있어요.
+
+### Claude Code 알림
+
+Claude Code가 질문하거나 승인을 기다리거나 일을 끝내거나 과부하로 멈추면 펫이 몸짓과 말풍선으로 알려 줘요. 알림 목록의 버튼을 누르면 그 세션이 열려요. Claude 앱에서 만든 세션은 앱의 그 화면으로 가고 터미널 세션은 새 창에서 `claude --resume`으로 이어져요.
+
+알림 플러그인 `claude-notify`와 알림 캐릭터 `choux-notify`(고전 컴퓨터 화면을 든 슈크림빵)로 이뤄져 있어요. 둘 다 릴리스에 `.zip`으로 올라와 있고 캐릭터는 없어도 알림은 와요. 쓰는 순서는 [Claude Code 알림 쓰기](#claude-code-알림-쓰기)에 있어요.
+
+<p align="center">
+  <img src="images/claude-notify.png" width="640" alt="알림 캐릭터 슈크림빵(알림)의 프레임표. 밝은 바탕과 어두운 바탕에 기본 상태 7개(쉬기·걷기·앉기·잠자기·반응·끌기·컴퓨터 앞에서 말하기)와 알림 동작 4개가 늘어서 있어요. 알림 동작에서는 슈크림빵 옆 고전 컴퓨터 화면에 물음표(질문)·자물쇠(승인)·종(알림)·번개(과부하) 표시가 떠요."><br>
+  <sub>알림 캐릭터의 기본 상태와 알림 동작 4가지(질문·승인·알림·과부하)</sub>
+</p>
 
 ### 메뉴
 
@@ -173,17 +187,17 @@ Windows 설정의 앱 목록(Windows 10은 앱 및 기능, 11은 설치된 앱)�
   <img src="images/plugin-isolation.png" width="420" alt="플러그인 격리 구조를 그린 그림. 플러그인 A와 B는 각자 보이지 않는 격리된 창에서 돌고, 관문이 동의한 권한인지와 한도 안인지 확인한 뒤 말풍선·펫 동작·화면 세 곳·신호·앱 소식·저장 공간·비밀 칸·설정 값에만 닿게 해요. 나가는 연결은 선언하고 동의한 주소로만 가고, 들어오는 연결은 내 PC 안 127.0.0.1 전용 포트와 플러그인별 토큰으로만 와요.">
 </p>
 
-- **할 수 있는 일:** 말풍선 띄우기, 펫 움직이기, 캐릭터에 신호 보내기, 자기 화면 그리기(말풍선 안·설정 창 안·따로 뜨는 창), 설정 칸에 넣은 값 읽기(비밀 칸 포함)와 자기 저장 공간 쓰기, 동의한 주소로 인터넷 요청 보내기, 이 PC의 다른 프로그램이 보내는 신호 받기.
-- **막아 둔 것(보증은 아니에요):** 자기 폴더 밖의 파일 읽고 쓰기, 프로그램 실행, 다른 플러그인이나 앱 화면 내용 보기, 카메라·마이크·화면 캡처, 클립보드 **읽기**, 전역 단축키, 동의하지 않은 주소로 접속하기. 다만 클립보드를 **바꾸는** 것과 DNS 이름 조회로 정보를 내보내는 것은 막지 못했어요([알아 둘 한계](#알아-둘-한계)).
+- **할 수 있는 일:** 말풍선 띄우기, 펫 움직이기, 캐릭터에 신호 보내기, 자기 화면 그리기(말풍선 안·설정 창 안·따로 뜨는 창), 설정 칸에 넣은 값 읽기(비밀 칸 포함)와 자기 저장 공간 쓰기, 동의한 주소로 인터넷 요청 보내기, 이 PC의 다른 프로그램이 보내는 신호 받기, 화면의 버튼을 눌렀을 때 Claude Code 세션 열기(`session` 권한).
+- **막아 둔 것(보증은 아니에요):** 자기 폴더 밖의 파일 읽고 쓰기, 프로그램 실행(예외는 `session` 권한 하나예요. 앱이 정한 Claude 앱 주소를 열거나 `claude --resume`을 실행하고 플러그인은 세션 번호만 넘겨요), 다른 플러그인이나 앱 화면 내용 보기, 카메라·마이크·화면 캡처, 클립보드 **읽기**, 전역 단축키, 동의하지 않은 주소로 접속하기. 다만 클립보드를 **바꾸는** 것과 DNS 이름 조회로 정보를 내보내는 것은 막지 못했어요([알아 둘 한계](#알아-둘-한계)).
 
 ### 가져오기
 
 1. 설정 창을 열어요. 펫 우클릭 › **설정…**(또는 트레이 아이콘 우클릭 › **설정…**).
 2. 왼쪽의 **🧩 플러그인** 탭에서 **＋ 가져오기(.zip)** 카드를 눌러 받은 `.zip` 파일을 골라요.
 3. **동의 창**이 떠요. 아래 [동의 창 읽는 법](#동의-창-읽는-법)대로 읽고 괜찮으면 **설치**를 눌러요. 마음에 걸리면 **취소**를 눌러요. 취소하면 아무것도 바뀌지 않아요.
-4. 설치하면 카드가 **실행 중**으로 바뀌고 앱을 다시 켜지 않아도 바로 돌아요.
+4. 설치하면 바로 켜져서 카드가 **실행 중**으로 바뀌어요. 앱을 다시 켜지 않아도 돼요.
 
-같은 플러그인을 다시 가져오면 **업데이트**예요. 새 버전에서 권한이나 주소가 늘었으면 동의 창이 늘어난 줄 앞에 ［새로］ 표시를 붙여 다시 물어요. 가져오기가 실패하면 이유 목록만 보이고 아무것도 바뀌지 않아요.
+같은 플러그인을 다시 가져오면 **업데이트**예요. 동의하면 업데이트한 뒤에도 켜진 상태로 돌아요. 새 버전에서 권한이나 주소가 늘었으면 동의 창이 늘어난 줄 앞에 ［새로］ 표시를 붙여 다시 물어요. 가져오기가 실패하면 이유 목록만 보이고 아무것도 바뀌지 않아요.
 
 ### 동의 창 읽는 법
 
@@ -209,6 +223,8 @@ Windows 설정의 앱 목록(Windows 10은 앱 및 기능, 11은 설치된 앱)�
 | 따로 뜨는 창을 열어요 | 플러그인이 만든 작은 창을 띄울 수 있어요. 창 제목은 "플러그인: 이름"으로 고정돼요. |
 | 펫 클릭·질문 답변 같은 앱 소식을 받아요 | 펫을 눌렀다는 것, 질문에 답이 왔다는 것을 알 수 있어요(답 내용은 받지 못해요). |
 | 이 PC의 다른 프로그램이 보내는 신호를 받아요 | 아래 [들어오는 연결](#들어오는-연결)을 열어요. 이 PC 안의 프로그램이 플러그인에 이벤트를 보낼 수 있게 돼요. |
+| Claude Code 세션을 열어요(Claude 앱 화면을 바꾸거나 새 창에서 claude 명령을 실행해요) | 플러그인 화면의 버튼을 눌렀을 때 들어오는 연결로 받은 Claude Code 세션을 열어요. 여는 주소와 명령은 앱이 정하고 플러그인은 바꾸지 못해요. 들어오는 연결 권한과 함께만 쓰여요. |
+| 이 앱 판에서는 아직 못 쓰는 권한: … | 이 앱보다 새 판에서 생긴 권한이에요. 설치는 되지만 그 권한이 필요한 기능만 동작하지 않아요. 아래 [앱이 모르는 권한](#앱이-모르는-권한)을 보세요. |
 | 접속할 주소 | 플러그인이 그 주소로 인터넷 요청을 보낼 수 있어요. 앱이 대신 보내는 요청은 목록에 없는 주소로 나가지 않아요(다만 [알아 둘 한계](#알아-둘-한계)의 DNS 이름 조회는 예외예요). |
 | 주소 뒤의 **(이 PC 안)** | 이 PC에서 돌고 있는 프로그램에 접속해요. |
 | 주소 뒤의 **(내부망)** | 집이나 회사 네트워크 안의 기기(공유기·NAS 등)에 접속해요. |
@@ -223,6 +239,14 @@ Windows 설정의 앱 목록(Windows 10은 앱 및 기능, 11은 설치된 앱)�
 - 플러그인이 정한 **설정 칸**(글·숫자·켜기/끄기·비밀 칸)이 자동으로 폼으로 나타나요. 바꾸면 바로 반영돼요. 비밀 칸은 **바꾸기**를 눌러 가려진 입력칸에 넣고 **저장**해요. 저장한 값은 화면에 다시 보이지 않고 ●●●●만 보여요.
 - **폴더 열기**는 그 플러그인의 폴더를 열고 **내보내기(.zip)** 버튼은 플러그인을 .zip으로 묶어 저장해요(비밀 칸 값은 들어가지 않아요). **지우기**는 플러그인 폴더와 그 플러그인이 저장한 데이터·비밀 값·토큰을 함께 지워요(확인 창이 먼저 떠요).
 - 앱에 들어 있는 기능(사용량 4개·질문하기)도 **내장** 카드로 보여서 여기서 켜고 끌 수 있어요. 예를 들어 질문하기 카드에서 **질문 단축키**를 바꿔요.
+
+### 앱이 모르는 권한
+
+플러그인이 지금 앱보다 새 판에서 생긴 권한을 적었어도 설치는 돼요. 동의 창에 "이 앱 판에서는 아직 못 쓰는 권한" 줄로 보이고 그 권한이 필요한 기능만 동작하지 않아요. 이 권한은 동의 기록에도 남지 않아요.
+
+앱을 그 권한을 아는 새 판으로 올리면 플러그인은 꺼지지 않고 계속 돌아요. 상세 칸에 ［새로］ 줄과 **새 권한 허락하기** 버튼이 나오니 읽어 보고 괜찮을 때 누르세요. 그 권한만 한 번 물어요.
+
+플러그인에 필요한 권한이 앱에 아직 없다면 제작자에게 요청해 주세요. 새로 만들어야 하는 권한은 차후 업데이트로 반영할 예정이에요.
 
 ### 폴더에 바로 넣기
 
@@ -264,10 +288,12 @@ Windows 설정의 앱 목록(Windows 10은 앱 및 기능, 11은 설치된 앱)�
 
 AI에게 부탁해서 만들 수 있어요. 규칙만 모은 [AI로 만들 때 쓰는 규칙](#ai로-만들-때-쓰는-규칙)을 건네도 돼요.
 
-1. 설정 창 › **🧩 플러그인** 탭 제목 줄의 **📄 만드는 법(.md) 받기**를 눌러 안내 문서를 저장해요(기본 파일 이름은 `ClaudeTool-플러그인-만들기.md`). 이 문서 하나에 만드는 법이 다 들어 있어요.
+1. 설정 창 › **🧩 플러그인** 탭 제목 줄의 **📄 만드는 법(.md) 받기**를 눌러 안내 문서를 저장해요(기본 파일 이름은 `ClaudeTool-플러그인-만들기.md`). 이 문서 하나에 만드는 법이 다 들어 있어요. 문서 맨 앞에는 앱 판 번호와 "표에 있는 권한만 쓰고 없는 권한을 지어내지 말 것" 같은 규칙 머리말이 붙어요.
 2. 그 문서를 통째로 AI에게 건네고 만들고 싶은 걸 말해요. 예: "이 문서대로 ClaudeTool 기능 플러그인을 만들어 줘. 25분 타이머이고 끝나면 펫이 반응하고 말풍선으로 알려 줘. 폴더 구조와 모든 파일 내용을 보여 줘."
 3. AI가 알려 준 대로 폴더와 파일을 만들고 `.zip`으로 묶어요(문서에 PowerShell 명령도 들어 있어요).
 4. 위의 [가져오기](#가져오기)로 설치해요. **AI가 만든 플러그인도 동의 창을 꼭 읽으세요.** 부탁한 일에 비해 권한이나 주소가 많으면 AI에게 줄여 달라고 하세요. AI가 만든 코드는 틀리거나 위험할 수 있어서 만든 사람이 직접 검토해야 하고 설치하고 쓰는 책임은 사용자에게 있어요.
+
+이미 만든 플러그인을 새 판에 맞춰 고칠 때는 같은 제목 줄의 **📄 엔진 패치 내역(.md) 받기**로 판마다 바뀐 점을 모은 문서를 받아 AI에게 함께 건네세요.
 
 이 프로젝트의 예제 플러그인 **안녕 펫**은 켜면 펫이 반응하며 인사말을 말풍선으로 보여 주고 인사말은 설정 칸에서 바꿀 수 있어요. 지금은 설치 파일에 들어 있지 않으니, 만드는 법 문서의 타이머 예제(처음부터 .zip으로 묶어 가져오기까지)를 따라 해 보세요.
 
@@ -296,9 +322,42 @@ AI에게 부탁해서 만들 수 있어요. 규칙만 모은 [AI로 만들 때 �
 
 올라온 플러그인과 첨부 파일의 저작권은 올린 사람에게 있고 올린 사람이 정한 조건을 따라요. 이 저장소의 [LICENSE](LICENSE)는 거기에 적용되지 않아요. 플러그인에 문제가 생기면 그 플러그인을 올린 사람에게 물어봐 주세요. 앱이 이 공간에서 무언가를 스스로 내려받는 일은 없고 `.zip`은 늘 직접 가져와요.
 
+## Claude Code 알림 쓰기
+
+[Claude Code 알림](#claude-code-알림)은 플러그인 zip과 캐릭터 zip을 가져온 뒤 Claude Code에 훅을 연결해서 써요. 앱 안에는 아직 연결 버튼이 없어서 훅 연결은 PowerShell 명령으로 해요. 아래 명령의 `D:\Programs\ClaudeTool`은 기본 설치 위치예요. 설치 위치를 바꿨다면 그 경로로 바꿔 쓰세요.
+
+1. **zip 두 개 받기.** 이 저장소의 [릴리스](https://github.com/BlackBuddle/claude-tool-page/releases/latest)에서 두 파일을 받아요.
+
+   | 파일 | 내용 | 크기 | SHA-256 |
+   |---|---|---|---|
+   | `claude-notify-plugin.zip` | 알림 플러그인 | 약 18KB | `fc13c2211407869aefd13bba8e00e8743daa71d43db25d0a83447e68640e1699` |
+   | `choux-notify-pack.zip` | 알림 캐릭터 | 약 47KB | `a0941c338bbc2750cfcedaafba9a8fd40be110dc18eee86cf345a9e7b5d54da7` |
+
+2. **플러그인 가져오기.** 설정 창 › **🧩 플러그인** › **＋ 가져오기(.zip)**에서 `claude-notify-plugin.zip`을 골라요. 동의 창에 "말풍선을 띄워요", "이 PC의 다른 프로그램이 보내는 신호를 받아요", "Claude Code 세션을 열어요" 세 줄이 보이고 접속할 주소는 없어요. **설치**를 누르면 바로 켜져요.
+3. **캐릭터 가져오기.** 설정 창 › **🐾 캐릭터** › **⤓ 가져오기(.zip)**에서 `choux-notify-pack.zip`을 고르면 바로 그 캐릭터로 바뀌어요.
+4. **훅 연결.** 플러그인 탭의 `claude-notify` 카드에서 **토큰 복사**를 누른 뒤 다른 것을 복사하지 말고 PowerShell을 열어요. 먼저 미리보기를 봐요. 아무것도 쓰지 않고 바뀔 내용만 보여 줘요.
+
+   ```powershell
+   & "D:\Programs\ClaudeTool\resources\node\node.exe" "D:\Programs\ClaudeTool\resources\app\bridge\claude-notify-setup.mjs"
+   ```
+
+   괜찮으면 같은 명령 끝에 `--apply`를 붙여 실행해요. 클립보드의 토큰을 읽어 저장하고 Claude Code 설정(`settings.json`)에 알림 훅 6개를 넣어요.
+
+   ```powershell
+   & "D:\Programs\ClaudeTool\resources\node\node.exe" "D:\Programs\ClaudeTool\resources\app\bridge\claude-notify-setup.mjs" --apply
+   ```
+
+   새 Claude Code 세션을 열고 승인이 필요한 일을 시켜 펫이 반응하는지 봐요. 열려 있던 세션에는 바로 적용되지 않을 수 있어요.
+5. **끄기.** 같은 명령 끝에 `--remove`를 붙이면 넣었던 훅만 빼고 다른 훅과 설정은 그대로 둬요. 앱을 제거하기 전에도 먼저 실행해 주세요.
+
+- **백업:** `settings.json`을 바꾸기 전에 원래 파일을 데이터 폴더의 `claude-notify\backup`에 남겨요. 이 백업에는 `settings.json` 전체가 들어 있으니 필요 없으면 직접 지우세요.
+- **보내는 곳:** 훅은 이 PC 안(`127.0.0.1`)으로만 소식을 보내요. 인터넷이나 다른 기기로는 나가지 않아요. 무엇을 보내는지는 [PRIVACY.md](PRIVACY.md)에 있어요.
+- **다시 할 때:** 토큰을 재발급했거나 설치 위치를 옮겼다면 **토큰 복사** 뒤 `--apply`를 다시 실행해요.
+- **알림이 안 오면:** 앱과 `claude-notify` 플러그인이 켜져 있는지, 훅을 넣은 뒤 새로 연 세션인지 확인하세요. Claude Code에서 `/hooks`로 훅이 들어갔는지 볼 수 있어요. 앱이 꺼져 있던 사이의 소식은 사라져요.
+
 ## AI로 만들 때 쓰는 규칙
 
-캐릭터나 플러그인을 AI에게 부탁할 때는 아래 규칙을 펼쳐서 복사해 건네세요. 앱이 실제로 받아들이는 형식과 한도만 적었어요. 예제 코드와 오류 문구까지 든 전체 안내는 설정 창 캐릭터 탭·플러그인 탭 제목 줄의 **📄 만드는 법(.md) 받기**로 받아요.
+캐릭터나 플러그인을 AI에게 부탁할 때는 아래 규칙을 펼쳐서 복사해 건네세요. 앱이 실제로 받아들이는 형식과 한도만 적었어요. 예제 코드와 오류 문구까지 든 전체 안내는 설정 창 캐릭터 탭·플러그인 탭 제목 줄의 **📄 만드는 법(.md) 받기**로 받아요. 이 규칙은 0.4.1 기준이에요. 이미 만든 플러그인을 고칠 때는 플러그인 탭의 **📄 엔진 패치 내역(.md) 받기**도 함께 건네세요.
 
 ### 캐릭터 규칙
 
@@ -350,7 +409,7 @@ AI에게 부탁해서 만들 수 있어요. 규칙만 모은 [AI로 만들 때 �
 | `size` | `{ "w", "h" }` 각각 정수 1~1024(편집기는 16~256) | 96×96 |
 | `anchor` | `{ "x", "y" }` 각각 0~1. `x`는 말풍선 꼬리의 가로 위치예요. | 0.5, 1 |
 | `facing` | `"right"` 또는 `"left"`. 그림 속 캐릭터가 보는 방향이에요. | `"right"` |
-| `actions` | 동작 id → 설정, 12개까지 | `{}` |
+| `actions` | 동작 id → 설정, 60개까지(설정 창 편집기는 처음 12개까지이고 **동작 한도** 칸에서 60까지 늘려요). 13개 이상이면 0.4.0 이하 앱에서 열리지 않아요. | `{}` |
 | `states` | 그림을 직접 지정하는 고급 칸이에요. 꼭 필요할 때만 써요. | 파일 이름으로 찾음 |
 
 **동작(`actions`)**
@@ -368,7 +427,7 @@ AI에게 부탁해서 만들 수 있어요. 규칙만 모은 [AI로 만들 때 �
 | `speed` | `"slow"` · `"normal"` · `"fast"`. 선택이고 `"walk"`일 때만 써요. |
 | `signal` | `"플러그인id:신호id"`. `trigger`가 `"signal"`이면 필수예요. |
 
-값은 대소문자까지 정확히 써요(`longIdle`의 `I`만 대문자예요). 신호 계기를 쓴 캐릭터는 0.3.0 이하 앱에서 열리지 않아요.
+값은 대소문자까지 정확히 써요(`longIdle`의 `I`만 대문자예요). 신호 계기를 쓴 캐릭터는 0.3.0 이하 앱에서 열리지 않아요. 설정 창 편집기에서는 **＋ 플러그인 신호 동작…**으로 한 플러그인의 신호 동작을 한 번에 더할 수 있어요.
 
 **.zip**
 
@@ -389,7 +448,7 @@ AI에게 부탁해서 만들 수 있어요. 규칙만 모은 [AI로 만들 때 �
 - [ ] 움직이는 그림은 무한 반복이고 배경이 투명해요.
 - [ ] 파일당 10MB·합계 50MB·200개 이하예요.
 - [ ] `pack.json`이 표준 JSON이에요(주석·끝 쉼표 없음).
-- [ ] 동작은 12개 이하이고 동작마다 필수 칸과 그림이 있어요.
+- [ ] 동작은 60개 이하(특별한 이유가 없으면 12개 이하)이고 동작마다 필수 칸과 그림이 있어요.
 
 **예시**
 
@@ -455,7 +514,7 @@ my-timer/
 | `version` | 필수. `"1.0.0"`처럼 숫자 셋, 20자까지 |
 | `apiVersion` | 필수. `2` |
 | `author` · `description` | 선택. 한 줄 글 1~40자 · 1~200자 |
-| `permissions` | 선택. `bubble` `pet` `windows` `events` `inbound` 중에서 같은 것을 두 번 쓰지 않아요. |
+| `permissions` | 선택. `bubble` `pet` `windows` `events` `inbound` `session` 중에서 같은 것을 두 번 쓰지 않아요. `session`은 `inbound`와 함께 적어요. |
 | `network` | 선택. 주소 20개까지(아래 규칙) |
 | `signals` | 선택. `[{ "id", "name" }]` 20개까지. id는 영문 소문자로 시작하고 소문자·숫자·`-`, 40자까지 |
 | `settings` | 선택. 키 → 칸 정의, 20칸까지. 키는 영문 소문자로 시작하고 영문·숫자·`_`만, 40자까지 |
@@ -477,7 +536,11 @@ my-timer/
 | `windows` | 따로 뜨는 창을 열어요 | `windows.open` `windows.close` |
 | `events` | 펫 클릭·질문 답변 같은 앱 소식을 받아요 | `events.on` |
 | `inbound` | 이 PC의 다른 프로그램이 보내는 신호를 받아요 | `inbound.on` |
+| `session` | Claude Code 세션을 열어요(Claude 앱 화면을 바꾸거나 새 창에서 claude 명령을 실행해요) | `session.open` |
 
+- **이 표에 있는 권한만 이 앱에서 동작해요. 표에 없는 권한을 새로 만들어 넣지 마세요.** 플러그인만으로는 새 기능을 만들 수 없어요. 앱이 모르는 권한을 적어도 설치는 되지만 동의 창에 "이 앱 판에서는 아직 못 쓰는 권한" 줄로 보이고 그 기능은 동작하지 않아요. 앱 새 판이 그 권한을 알게 되면 플러그인은 계속 돌고 사용자가 `새 권한 허락하기`로 그 권한만 허락해요.
+- 앱에 없는 기능이 필요하면 사용자가 직접 설치한 도우미 프로그램이 그 일을 하고 플러그인은 `network`(`http://127.0.0.1:포트`를 콕 집어 선언)나 `inbound`로 주고받게 해요. 아니면 그 기능이 들어간 앱 새 판을 기다려요(제작자에게 요청할 수 있어요).
+- 더 새 판의 권한을 쓰는 API는 `if (claudetool.session) { … }`처럼 있는지 먼저 확인하고 호출은 try/catch로 감싸요.
 - 권한 없이 되는 것은 설정 값 읽기, 자기 저장 공간, 선언한 캐릭터 신호 내기, 로그, 로직↔화면 메시지, 브라우저 타이머예요.
 - `network` 항목은 `"https://example.com"`처럼 스킴과 호스트(와 포트)만 쓴 주소거나 `"*"`예요. 경로·쿼리는 못 써요. 스킴은 `http` `https`(`net.fetch`용)와 `ws` `wss`(WebSocket용)예요.
 - `"*"`는 `net.fetch`(HTTP)에만 쓰이고 **인터넷의 공용 주소만** 열어요. 이 PC와 내부망은 주소를 콕 집어 선언해요. 이 PC는 `127.0.0.1`로 적고 `localhost`는 쓰지 않아요. `"*"`를 쓰면 동의 창에 경고가 붙어요.
@@ -502,6 +565,7 @@ my-timer/
 | `send(message)` · `onMessage(cb)` | 없음 | 로직↔화면, JSON으로 64KB까지 |
 | `net.fetch(url, init)` | 없음 | `network`에 맞는 주소만. `method` `GET` `POST` `PUT` `PATCH` `DELETE` `HEAD`, 헤더 30개(값 8KB, ASCII), 본문 1MB, 응답 5MB, 30초, 재지정 5번, 동시 요청 4개 |
 | `inbound.on(cb)` | `inbound` | 아래 "들어오는 연결" |
+| `session.open(id)` | `session` | 아래 "세션 열기". 결과는 `{ via: 'desktop' \| 'terminal' }` |
 
 - 모든 메서드는 Promise이고 거절하면 한국어 이유가 담긴 `Error`예요. `on…` 등록 함수는 구독을 끊는 함수를 돌려줘요. `events.on`·`inbound.on`은 권한이 없으면 그 자리에서 던져요.
 - 함수·`Symbol`·`window`는 보낼 수 없어요. DOM 요소와 `Event`는 거의 빈 객체로 바뀌어 넘어가니 필요한 값만 꺼내 넘겨요. 값 하나가 약 2MB를 넘거나 호출이 1초에 100번을 넘으면 앱으로 보내기 전에 거절해요.
@@ -531,6 +595,7 @@ my-timer/
 | 펫 동작 · 신호 | 분당 20 · 분당 30 |
 | 창 열기 | 분당 10, 동시에 3개 |
 | 인터넷 요청 | 분당 60 |
+| 세션 열기 | 분당 6 |
 | 로그 | 분당 60줄, 한 줄 2000자 |
 | 메시지(`send`) | 한 번에 64KB |
 | 보내는 값 | 값 하나 약 2MB, 1초에 호출 100번·크기 합 약 4MB |
@@ -545,6 +610,13 @@ my-timer/
 - 받은 `type`과 `data`는 믿지 않아요. 검증해서 쓰고 주소를 만들거나 `innerHTML`에 넣지 않아요. `type`으로 처리기를 고를 때는 `Map`이나 `switch`를 써요.
 - `inbound.on`은 `main.js` 맨 위에서 걸어요. 응답 200은 통로가 받았다는 뜻일 뿐이라 켠 직후에 온 요청은 사라질 수 있어요.
 
+**세션 열기(`session` 권한)**
+
+- `inbound` 권한과 함께 적어야 해요. 열 수 있는 것은 이 플러그인이 `inbound`로 받은 세션뿐이고 `id`는 받은 `data.claudeSession.id`(소문자 UUID)예요. 기록은 앱 메모리에만 있어서 24시간이 지나거나 앱을 다시 켜면 사라져요.
+- 화면(`ui/*.html`)의 버튼 클릭 처리기 안에서만 불러요. 클릭·키 입력 뒤 약 5초가 지났거나 `main.js`에서 부르면 거절해요.
+- 어디서 열리는지는 세션이 만들어진 곳이 정해요. Claude 앱에서 만든 세션은 앱의 그 화면으로 가고 터미널 세션은 새 창에서 `claude --resume <id>`를 실행해요. 열린 터미널 창을 찾아 주지는 않아요.
+- 플러그인이 정할 수 있는 것은 세션 id뿐이에요. 주소·명령·폴더·인자는 앱이 정해요.
+
 **비밀과 배포**
 
 - 비밀 값(`secret` 칸)은 요청에 쓰고 끝내요. `storage`·`log`·플러그인 파일에는 남기지 않아요(남기면 평문 파일이나 내보내기 zip에 들어가요).
@@ -557,7 +629,7 @@ my-timer/
 
 - [ ] `plugin.json`에 `id` `name` `version` `apiVersion: 2`가 있고 `main.js`가 있어요.
 - [ ] `id`·`signals`·`settings`·`ui.windows` 이름이 규칙에 맞아요.
-- [ ] 쓰는 API의 권한이 모두 `permissions`에 있고 `network`는 필요한 주소만 적었어요.
+- [ ] 쓰는 API의 권한이 모두 `permissions`에 있고 `network`는 필요한 주소만 적었어요. 위 표에 없는 권한을 지어내지 않았어요.
 - [ ] 파일 확장자가 허용 목록 안이고 이름에 `:`·`%`·장치 이름이 없어요. 폴더에 `README.md` 같은 파일이 없어요.
 - [ ] 화면에 인터넷 주소의 스크립트·글꼴·그림이 없고 `eval`을 쓰지 않아요.
 - [ ] `main.js`에 10초 넘게 도는 코드가 없고 반복 호출이 한도(초당 50·분당 10 등)를 넘지 않아요.
@@ -625,7 +697,7 @@ API 키 방식에서 키가 없다고 하거나 올바르지 않다고 하면 �
 
 - 트레이 › **사용량 소스**에서 보고 싶은 항목이 켜져 있는지 확인하세요.
 - **Claude Code**: 이 PC에 Claude Code를 쓴 기록이 있어야 해요. 한 번도 안 썼으면 비어 있어요.
-- **구독 한도**: 사용량 창의 **Claude Code 연결**을 눌러 바뀔 내용을 확인하고 **적용**해야 하고 시스템에 Node.js가 있어야 해요. 연결한 뒤에는 다음에 Claude Code를 쓸 때 값이 채워져요. Claude Code가 한도 정보를 보내 줄 때만 값이 생겨요. 설치 위치를 바꿔 다시 설치했다면 **연결 해제**를 한 뒤 다시 연결해 보세요.
+- **구독 한도**: 사용량 창의 **Claude Code 연결**을 눌러 바뀔 내용을 확인하고 **적용**해야 해요(Node.js는 설치 파일에 들어 있는 것을 써요). 연결한 뒤에는 다음에 Claude Code를 쓸 때 값이 채워져요. Claude Code가 한도 정보를 보내 줄 때만 값이 생겨요. 설치 위치를 바꿔 다시 설치했다면 **연결 해제**를 한 뒤 다시 연결해 보세요.
 - **Console 조직**: 조직의 Admin API 키가 필요하고 기본은 꺼져 있어요. 켜면 사용량 창에서 키를 넣어요.
 
 </details>
@@ -634,6 +706,15 @@ API 키 방식에서 키가 없다고 하거나 올바르지 않다고 하면 �
 <summary><b>말풍선이 저절로 사라져요</b></summary>
 
 질문·사용량 같은 말풍선은 가만히 두면 자동으로 닫혀요(기본 1분). 포커스가 있거나 마우스를 올려 두었거나 답이 나오는 중에는 닫히지 않아요. 트레이의 **말풍선 자동 닫힘**에서 30초·1분·3분·5분·끄지 않음 중에 고를 수 있어요.
+
+반대로 바로 닫고 싶으면 메시지창을 한 번 누른 뒤 `Esc`를 누르세요. 플러그인이 그린 화면 안에서도 `Esc`로 닫혀요.
+
+</details>
+
+<details>
+<summary><b>Claude Code 연결에 Node.js가 필요한가요?</b></summary>
+
+아니요. 0.4.1부터 설치 파일에 Node.js(`node.exe`)가 들어 있어요(`<설치 폴더>\resources\node`). 구독 한도 표시와 [Claude Code 알림](#claude-code-알림-쓰기)의 훅 연결 모두 이것을 써서 따로 설치하지 않아도 돼요.
 
 </details>
 
@@ -712,6 +793,7 @@ ClaudeTool이 무엇을 저장하고 무엇을 읽고 무엇을 밖으로 보내
 | `usage\` | 사용 기록: 이 앱이 한 질문의 모델 이름·토큰 수 같은 숫자, 구독 한도 값, 캐시 |
 | `logs\` | `app.log`(앱 동작 기록)와 `plugins.log`(플러그인이 남긴 글·오류) |
 | `backup\` | Claude Code 설정(`settings.json`)을 고치기 전에 만든 백업 |
+| `claude-notify\` | 알림 훅 설치 도우미를 쓴 경우에만 생겨요. 훅이 쓰는 토큰(`token`)과 훅을 넣거나 빼기 전 Claude Code `settings.json`의 백업(`backup\`). 암호화하지 않고 폴더를 현재 사용자만 접근하도록 좁혀 둬요. |
 | `claude-code-cwd\` | Claude Code로 질문할 때 쓰는 빈 작업 폴더 |
 | `electron\` | 화면을 그리는 엔진(Chromium)의 내부 저장 공간(캐시 등). 이 폴더를 지우면 `secrets.bin`을 풀 수 없게 돼서 키를 다시 넣어야 해요. |
 | `pricing.json` | 비용 계산에 쓰는 모델 단가표 |
@@ -725,6 +807,7 @@ ClaudeTool이 무엇을 저장하고 무엇을 읽고 무엇을 밖으로 보내
 
 - 사용량을 보여 주려고 Claude Code가 이 PC에 남긴 기록 파일(Claude Code 폴더의 `projects`, 보통 사용자 폴더 아래 `.claude\projects`)을 읽어요. 여기서 모델 이름·시각·토큰 수만 뽑고 질문과 답의 내용은 가져오지 않아요.
 - Claude Code 설정 파일(`settings.json`)은 사용량 창에서 **Claude Code 연결**·**연결 해제**를 누를 때만 읽고 고쳐요. 고치기 전에 바뀔 내용을 보여 주고 **적용**을 눌러야 바꾸며 원래 파일은 데이터 폴더의 `backup`에 남겨요. 연결하면 Claude Code의 상태 줄(statusLine)에 이 앱의 작은 스크립트가 등록되고 이 스크립트는 한도 정보만 데이터 폴더에 적어요. 원래 쓰던 상태 줄 명령이 있었다면 그것도 이어서 실행해요.
+- 알림 훅 설치 도우미는 앱과 별개로 내가 직접 실행하는 스크립트예요. `--apply`를 실행할 때 클립보드를 한 번 읽어 토큰 모양일 때만 저장하고 Claude Code `settings.json`을 백업한 뒤 훅을 넣어요. 앱 자체는 클립보드를 읽지 않아요(**토큰 복사**로 쓰기만 해요).
 - 설치한 플러그인의 파일(데이터 폴더의 `plugins`)을 읽어서 실행해요.
 
 ### 밖으로 나가는 것
@@ -736,6 +819,8 @@ ClaudeTool이 무엇을 저장하고 무엇을 읽고 무엇을 밖으로 보내
 | 조직 사용량(선택, 기본은 꺼짐) | ClaudeTool → `api.anthropic.com` | Admin 키로 조직 사용량을 조회하는 요청 |
 | 플러그인 | 플러그인이 선언하고 내가 동의한 주소. 알려진 한계: DNS 이름 조회로는 동의하지 않은 곳에도 닿을 수 있어요([알아 둘 한계](#알아-둘-한계)). | 플러그인이 보내기로 한 내용. DNS 이름 조회에는 토큰이나 설정 값 같은 짧은 값을 실을 수 있어요. ClaudeTool은 그 내용을 검열하거나 보증하지 않아요. |
 | 말풍선 속 답의 링크를 누를 때 | 기본 브라우저(`https` 주소만) | 누른 링크 |
+| Claude Code 알림 훅(연결했을 때) | 이 PC 안의 `127.0.0.1`(들어오는 연결 통로)만. 인터넷이나 다른 기기로는 나가지 않아요. | 알림 종류, 세션 번호, 작업 폴더 경로, 짧은 한 줄 글(비밀처럼 보이는 모양은 `***`로 가려요). 프롬프트 내용과 대화 기록 파일 경로는 보내지 않아요. |
+| 세션 열기(`session` 권한, 버튼을 눌렀을 때) | 앱이 Claude 앱 주소를 열거나 새 창에서 `claude --resume`을 실행 | 앱이 따로 내보내는 데이터는 없어요. 새로 뜬 Claude Code의 통신은 Claude Code의 몫이에요. |
 
 - ClaudeTool을 만든 사람이 운영하는 서버는 없어요. 질문·설정·사용 기록·키를 만든 사람이 받는 일은 없어요.
 - ClaudeTool에는 사용 통계·분석·원격 오류 보고·자동 업데이트 확인이 없어요. 새 버전은 직접 내려받아 설치해요.
@@ -769,6 +854,7 @@ ClaudeTool 개인 사용 라이선스 v1.0이에요. 전문은 [LICENSE](LICENSE
 - ClaudeTool은 **있는 그대로, 보증 없이** 제공돼요. 쓰다가 생기는 데이터 손실·설정 손상·사용량 초과 같은 손해에 대한 책임의 범위와 한계는 면책조항에 정해 두었어요. 중요한 데이터는 백업해 두세요.
 - **보안사고**(API 키 유출, 악성 프로그램, 무단 접근 등)와 그 손해에 대한 책임의 범위, 그리고 권하는 보안 수칙은 면책조항에 있어요. 격리·동의 창·자동 꺼짐은 도움이 되는 장치일 뿐 안전을 보장하지 않아요.
 - 플러그인은 **제3자 코드**예요. 설치하고 동의하는 것과 그 결과는 사용자의 책임이고 AI가 만들어 준 플러그인도 마찬가지예요.
+- **Claude Code 알림 훅**을 연결하면 Claude Code의 `settings.json`이 바뀌어요. 미리보기를 보여 주고 백업을 남긴 뒤 바꿔요. 토큰과 백업은 같은 Windows 계정의 다른 프로그램이 읽을 수 있으니 필요 없으면 지우고, 앱을 제거하기 전에는 `--remove`로 훅을 빼세요.
 - **AI의 답은 틀릴 수 있어요.** 질문하기는 내가 로그인한 Claude Code를 통해 Anthropic 서비스로 가고 그 서비스의 약관·요금·사용량 한도는 나와 Anthropic 사이의 일이에요.
 
 ### 보안 문제를 발견했다면
@@ -792,7 +878,9 @@ ClaudeTool 개인 사용 라이선스 v1.0이에요. 전문은 [LICENSE](LICENSE
 
 ClaudeTool is an unofficial desktop pet for Windows 10/11 that roams your screen. Click it to see your Claude usage, or press `Ctrl+Alt+K` to ask a question and read the answer in a speech bubble (through a logged-in Claude Code, or optionally an Anthropic API key). You can design your own characters, tune how the pet moves, and add features with sandboxed plugins imported as `.zip` files.
 
-- **Download:** installers are published in this repository's [Releases](https://github.com/BlackBuddle/claude-tool-page/releases/latest) (Windows 10/11 x64, per-user install, no admin rights needed). Check the SHA-256 value given above before you run it. The installer is not code-signed, so Windows SmartScreen may show a warning.
+- **Download:** the latest version is 0.4.1 (`ClaudeTool-Setup-0.4.1.exe`, about 124 MB) in this repository's [Releases](https://github.com/BlackBuddle/claude-tool-page/releases/latest) (Windows 10/11 x64, per-user install, no admin rights needed). Check the SHA-256 value given above before you run it. The installer is not code-signed, so Windows SmartScreen may show a warning. If you use 0.4.0, install over it in the same folder; your data folder is kept. Node.js is bundled, so you do not need to install it.
+- **Claude Code notifications (new in 0.4.1):** the `claude-notify` plugin and the `choux-notify` character make the pet tell you when Claude Code asks a question, waits for approval, finishes, or stops on overload, and a button opens that session. Import both `.zip` files from the release, press `토큰 복사` (Copy token) on the plugin card, then run the setup helper shown above in PowerShell (preview first, then `--apply`; `--remove` undoes it). It backs up Claude Code's `settings.json` before changing it, and the hooks send only to `127.0.0.1` on this PC.
+- **Plugin rules:** only the permissions listed in the rules work in this version; do not invent new ones. A plugin with a permission this app does not know still installs, but that feature stays off until a newer app asks for it with `새 권한 허락하기` (allow the new permission). The new `session` permission (only together with `inbound`) lets a button open a Claude Code session. The plugin tab also offers an engine change log (.md) for updating existing plugins, and the character editor allows up to 60 actions (12 by default) and adds a plugin's signal actions in one step. Message windows close with `Esc`.
 - **License:** free for personal, non-commercial use. Business or commercial use and redistribution need the copyright holder's permission (see [LICENSE](LICENSE)). The source code is not published.
 - **Privacy:** no account, no telemetry, no auto-update, and no server run by the author. Your data stays in a `-data` folder next to the install folder ([PRIVACY.md](PRIVACY.md)).
 - **Plugins are third-party code.** They run in hidden, isolated windows behind a permission gate, but this is not a guarantee (for example, DNS lookups can carry short values out). Install only plugins you trust. People can share plugins in the repository's [Plugins discussions](https://github.com/BlackBuddle/claude-tool-page/discussions/categories/plugins), but nothing posted there is reviewed or endorsed.
