@@ -123,7 +123,7 @@ ClaudeTool 0.4.0(2026-10-02 기준)이 이 PC에 무엇을 저장하고 무엇�
 
 - 소개 페이지는 GitHub Pages가 제공하는 정적 페이지예요. 접속 기록은 GitHub가 자신의 개인정보 처리방침에 따라 다뤄요. 소개 페이지에는 외부 스크립트·분석·글꼴·그림이 없어요.
 - 소개 페이지의 테마(밝게·어둡게) 버튼은 고른 값을 방문자 브라우저의 localStorage(`ct-theme`)에만 저장하고 서버로 보내지 않아요. 브라우저의 사이트 데이터를 지우면 사라져요.
-- 공개 설치 파일은 아직 준비 중이라, 소개 페이지 저장소(`claude-tool-page`)에서 내려받을 수 있는 설치 파일은 없어요.
+- 설치 파일은 소개 페이지 저장소(`claude-tool-page`)의 릴리스에서 내려받아요. 내려받을 때의 접속 기록은 GitHub가 자신의 개인정보 처리방침에 따라 다뤄요. 앱은 설치 파일이나 업데이트를 스스로 내려받지 않아요(자동 업데이트가 없어요).
 
 ### 9. 문의와 변경
 
@@ -247,7 +247,7 @@ An installable plugin is web code running in its own invisible window.
 
 - The introduction page is a static page served by GitHub Pages. Access logs are handled by GitHub under its own privacy policy. The introduction page contains no external scripts, analytics, fonts or images.
 - The theme (light/dark) button on the introduction page stores your choice only in your own browser's localStorage (`ct-theme`) and does not send it to any server. It disappears when you clear the browser's site data.
-- The public installer is still in preparation, so there is no installer to download from the introduction-page repository (`claude-tool-page`).
+- The installer is downloaded from the Releases of the introduction-page repository (`claude-tool-page`). GitHub handles the access records of downloads under its own privacy policy. The app never downloads installers or updates by itself (there is no auto-update).
 
 ### 9. Questions and changes
 

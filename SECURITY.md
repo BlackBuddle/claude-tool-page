@@ -14,7 +14,7 @@ ClaudeTool은 한 사람이 만드는 개인 프로젝트예요. 취약점을 �
 
 ### 1. 지원하는 버전
 
-- 보안 수정은 **가장 최근에 배포한 판**에만 해요. 이전 판은 지원하지 않아요. 공개 설치 파일은 아직 준비 중이에요. 새 설치 파일을 받으면 덮어 설치해 최신으로 쓰세요.
+- 보안 수정은 **가장 최근에 배포한 판**에만 해요. 이전 판은 지원하지 않아요. 새 설치 파일은 공개 저장소(`claude-tool-page`)의 릴리스에서 받아 덮어 설치해 최신으로 쓰세요.
 - 쓰고 있는 판은 설정 창 › 일반의 "버전"이나 설치 파일 이름(`ClaudeTool-Setup-<버전>.exe`)에서 알 수 있어요.
 
 ### 2. 보안 문제를 알리는 방법
@@ -78,7 +78,7 @@ ClaudeTool은 한 사람이 만드는 개인 프로젝트예요. 취약점을 �
 
 ### 1. Supported versions
 
-- Security fixes are made **only for the most recently distributed version**. Older versions are not supported. The public installer is still in preparation. When you get a new installer, install it over the old one to stay current.
+- Security fixes are made **only for the most recently distributed version**. Older versions are not supported. When you get a new installer from the Releases of the public repository (`claude-tool-page`), install it over the old one to stay current.
 - You can see your version in Settings › General ("Version") or in the installer file name (`ClaudeTool-Setup-<version>.exe`).
 
 ### 2. How to report a security problem

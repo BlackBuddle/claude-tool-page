@@ -83,7 +83,7 @@ ClaudeTool(이하 "소프트웨어")은 **개인 사용자에게 무료로, 있�
 - 들어오는 연결 토큰은 남에게 주지 말고, 명령줄에 직접 적거나 클립보드에 오래 두지 마세요. 필요하면 재발급하세요.
 - 데이터 폴더를 남과 공유하거나 온라인에 올리지 마세요(키·설정·사용 기록이 들어 있어요).
 - 믿을 수 없는 zip·플러그인은 가져오지 마세요.
-- 공개 설치 파일은 아직 준비 중이에요. 공개 저장소(`claude-tool-page`)의 소개 페이지나 README가 받는 곳을 알리기 전에는, 저작권자가 직접 건네준 것이 아닌 설치 파일은 쓰지 마세요. 설치 파일에는 코드 서명이 없어서 Windows SmartScreen 경고가 뜰 수 있고, 같은 이름으로 다른 곳에서 받은 파일은 위조일 수 있어요.
+- 설치 파일은 공개 저장소(`claude-tool-page`)의 릴리스에서만 받으세요. 저작권자가 직접 건네준 것이 아니거나 다른 곳에서 받은 설치 파일은 쓰지 마세요. 설치 파일에는 코드 서명이 없어서 Windows SmartScreen 경고가 뜰 수 있고, 같은 이름으로 다른 곳에서 받은 파일은 위조일 수 있어요.
 - Claude Code 연결을 했다면, 앱을 제거하기 전에 사용량 창에서 "연결 해제"를 먼저 누르세요(3.1).
 - 사고가 의심되면: (의심 가는 플러그인을 끄고) 앱 종료 → 키 폐기와 재발급 → 계정 비밀번호 변경 → 데이터 폴더의 `logs` 확인 순서로 하세요.
 
@@ -194,7 +194,7 @@ An installable plugin is **program code made by a third party**. The risks and l
 - Do not give incoming-connection tokens to others, and do not type them directly on the command line or leave them in the clipboard for long. Reissue if needed.
 - Do not share or upload the data folder (it contains keys, settings and usage history).
 - Do not import untrusted zips or plugins.
-- The public installer is still in preparation. Until the introduction page or README of the public repository (`claude-tool-page`) says where to get it, do not use any installer that the Licensor did not hand to you directly. The installer is not code-signed, so Windows SmartScreen may show a warning, and a file with the same name from anywhere else may be forged.
+- Get the installer only from the Releases of the public repository (`claude-tool-page`). Do not use any installer that the Licensor did not hand to you directly or that you got from anywhere else. The installer is not code-signed, so Windows SmartScreen may show a warning, and a file with the same name from anywhere else may be forged.
 - If you connected Claude Code, press "Disconnect" in the usage window before you uninstall the app (3.1).
 - If you suspect an incident: (turn off the suspicious plugin and) quit the app → revoke and reissue keys → change account passwords → check the `logs` folder in the data folder.
 

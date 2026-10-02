@@ -353,12 +353,6 @@ html.motion .theme-btn svg { transition: rotate 0.45s cubic-bezier(0.2, 0.7, 0.2
 .btn-solid:hover { background: var(--hero-btn-hover); }
 .btn-line { border-color: var(--desk-soft); color: var(--desk-ink); }
 .btn-line:hover { border-color: var(--desk-ink); }
-/* 준비 중 안내: 공개 설치 파일이 아직 없어서 내려받기 자리에 누를 수 없는 안내를 둔다(옅은 바탕·시계 그림, hover·포커스 없음) */
-.btn-wait {
-  gap: 9px; padding-block: 6px; text-align: center; line-height: 1.45; cursor: default;
-  background: rgba(255, 255, 255, 0.07); border-color: var(--desk-line); color: var(--desk-ink);
-}
-.btn-wait svg { flex: none; width: 18px; height: 18px; color: var(--desk-soft); }
 .hero-note { margin: 14px 0 0; font-size: var(--step--1); color: var(--desk-soft); }
 
 /* 배경의 도트 장식(크림 방울·반짝이). 아주 옅게, 계단식으로만 움직인다. */
@@ -1016,7 +1010,7 @@ html.page-hidden .ib *, html.page-hidden .ib *::before, html.page-hidden .ib *::
 .num { display: inline-block; text-align: end; font-variant-numeric: tabular-nums; }
 .fine-stat { margin: 12px 0 0; font-size: var(--step--1); color: var(--ink-soft); }
 
-/* 배포 안내(공개 설치 파일 준비 중): 첫 화면과 같은 바탕 화면 색으로 페이지를 닫는다 */
+/* 내려받기: 첫 화면과 같은 바탕 화면 색으로 페이지를 닫는다 */
 .dl {
   --focus: var(--desk-ink);
   display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); gap: 24px 44px; align-items: start;
@@ -1028,6 +1022,8 @@ html.page-hidden .ib *, html.page-hidden .ib *::before, html.page-hidden .ib *::
 .dl-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 20px; }
 .dl-note { margin: 14px 0 0; max-width: 34rem; font-size: var(--step--1); color: var(--desk-soft); }
 .dl-note a { color: var(--desk-ink); }
+.dl-hash { margin: 12px 0 0; max-width: 34rem; font-size: var(--step--1); color: var(--desk-soft); }
+.dl-hash code { display: block; margin-top: 4px; padding: 8px 10px; border: 1px solid var(--desk-line); border-radius: 8px; color: var(--desk-ink); font: 13px/1.5 ui-monospace, SFMono-Regular, Consolas, monospace; overflow-wrap: anywhere; word-break: break-all; user-select: all; }
 .dl-pet { display: block; width: 64px; height: 64px; margin-top: 18px; }
 .dl-pet svg { display: block; width: 100%; height: 100%; }
 .dl-req { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
@@ -1208,11 +1204,6 @@ html:not(.motion) .mini-pet { display: none; }
     <circle cx="12" cy="12" r="8" fill="none" stroke="currentColor" stroke-width="1.8"/>
     <path d="M12 4a8 8 0 0 1 0 16Z" fill="currentColor"/>
   </symbol>
-  <!-- 준비 중(시계): 아직 누를 수 없는 안내 자리에 쓴다 -->
-  <symbol id="i-wait" viewBox="0 0 24 24">
-    <circle cx="12" cy="12" r="8.5" fill="none" stroke="currentColor" stroke-width="1.8"/>
-    <path d="M12 7.5V12l3.2 2.2" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-  </symbol>
 </svg>
 
 <nav class="topnav" aria-label="이 페이지의 절">
@@ -1225,7 +1216,7 @@ html:not(.motion) .mini-pet { display: none; }
         <li><a class="navlink" href="#how">동작 방식</a></li>
         <li><a class="navlink" href="#plugins">플러그인</a></li>
         <li><a class="navlink" href="#stack">기술</a></li>
-        <li><a class="navlink" href="#download">배포 준비 중</a></li>
+        <li><a class="navlink" href="#download">내려받기</a></li>
       </ul>
       <button type="button" class="theme-btn" id="theme-btn" aria-pressed="false" aria-label="어두운 화면" title="밝은 화면·어두운 화면 바꾸기"><svg aria-hidden="true" focusable="false"><use href="#i-theme"/></svg></button>
     </div>
@@ -1252,8 +1243,8 @@ html:not(.motion) .mini-pet { display: none; }
     <p class="hero-lede rise" style="--i:2">화면 위를 걷고 쉬고 잠드는 Windows용 데스크톱 펫</p>
     <p class="hero-text rise" style="--i:3">펫을 클릭하면 Claude 사용량을, 단축키를 누르면 질문의 답을 말풍선으로 보여 줘요. 펫과 말풍선 밖의 클릭은 아래 창으로 그대로 지나가요. 캐릭터와 움직임은 설정 창에서 바꾸고 받은 플러그인으로 기능을 더해요.</p>
     <div class="hero-actions rise" style="--i:4">
-      <span class="btn btn-wait"><svg aria-hidden="true" focusable="false"><use href="#i-wait"/></svg>공개 설치 파일은 준비 중이에요</span>
-      <a class="btn btn-solid lift" href="#features">기능 살펴보기</a>
+      <a class="btn btn-solid lift" href="#download">설치 파일 내려받기</a>
+      <a class="btn btn-line lift" href="#features">기능 살펴보기</a>
     </div>
     <p class="hero-note rise" style="--i:5">Windows 10·11(x64) · 현재 버전 <span data-stat="version">0.4.0</span> · 개인이 만든 비공식 프로젝트이며 Anthropic과 관계없어요</p>
   </div>
@@ -1771,12 +1762,14 @@ html:not(.motion) .mini-pet { display: none; }
 <section class="section" id="download" aria-labelledby="download-title">
   <div class="dl reveal cv" style="--cis: 460px">
     <div>
-      <h2 class="section-title" id="download-title">배포 준비 중</h2>
+      <h2 class="section-title" id="download-title">내려받기</h2>
       <p class="dl-ver">ClaudeTool <span data-stat="version">0.4.0</span> · Windows 10·11(x64)</p>
       <div class="dl-actions">
-        <span class="btn btn-wait"><svg aria-hidden="true" focusable="false"><use href="#i-wait"/></svg>공개 설치 파일은 준비 중이에요</span>
+        <a class="btn btn-solid lift" href="https://github.com/BlackBuddle/claude-tool-page/releases/download/v0.4.0/ClaudeTool-Setup-0.4.0.exe">ClaudeTool-Setup-0.4.0.exe 내려받기(약 102MB)</a>
+        <a class="btn btn-line lift" href="https://github.com/BlackBuddle/claude-tool-page/releases/latest">릴리스 보기</a>
       </div>
-      <p class="dl-note">아직 이 저장소에는 설치 파일을 올리지 않았어요. 무엇을 하는 앱인지와 쓰는 법은 이 페이지와 <a href="https://github.com/BlackBuddle/claude-tool-page#readme">사용 설명서</a>에서 먼저 살펴보세요.</p>
+      <p class="dl-note">이 저장소의 릴리스에서만 받으세요. 같은 이름으로 다른 곳에서 받은 파일은 위조일 수 있어요. 설치 파일에는 코드 서명이 없어서 처음 실행할 때 Windows SmartScreen 경고가 뜰 수 있어요. 받은 파일의 SHA-256 값을 아래와 비교한 뒤 <b>추가 정보 → 실행</b>을 누르세요. 쓰는 법은 <a href="https://github.com/BlackBuddle/claude-tool-page#readme">사용 설명서</a>에 있어요.</p>
+      <p class="dl-hash">SHA-256 <code>8f6bff4abc20097b1f6db7573bbbc20b3d245a6ac533ce8eb65716ccfbe17b76</code></p>
       <span class="dl-pet" id="dl-pet" aria-hidden="true"><svg focusable="false"><use href="#dot-pet"/></svg></span>
     </div>
     <ul class="dl-req" aria-label="필요한 것과 알아 둘 것">

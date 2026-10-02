@@ -6,7 +6,7 @@
 
 [![ClaudeTool 설정 창의 캐릭터 탭. 슈크림빵(도트)이 골라져 있고 슈크림빵(벡터) 카드와 만들기·가져오기(.zip) 카드, 크기·투명도 막대, 방향 따라 뒤집기 칸, 사용하기·편집·내보내기·지우기·폴더 열기 버튼이 보여요.](images/settings-character-tab.png)](https://blackbuddle.github.io/claude-tool-page/)
 
-**공개 설치 파일은 준비 중이에요.** · [소개 페이지](https://blackbuddle.github.io/claude-tool-page/)
+**[설치 파일 내려받기(0.4.0)](https://github.com/BlackBuddle/claude-tool-page/releases/latest)** · [소개 페이지](https://blackbuddle.github.io/claude-tool-page/)
 
 ClaudeTool은 개인 프로젝트이며 Anthropic과 관계없는 **비공식** 프로그램이에요.
 
@@ -14,7 +14,20 @@ ClaudeTool은 개인 프로젝트이며 Anthropic과 관계없는 **비공식** 
 
 ## 내려받기와 설치
 
-> **공개 설치 파일은 준비 중이에요.** 지금은 이 저장소에서 내려받을 설치 파일이 없어요. 내려받는 곳과 설치 순서·설치 옵션 같은 자세한 안내는 공개 배포 때 이 안내에 다시 적을게요. 출처를 확신할 수 없는 설치 파일은 실행하지 마세요.
+설치 파일은 이 저장소의 [릴리스](https://github.com/BlackBuddle/claude-tool-page/releases/latest)에서 받아요. 최신 판은 **0.4.0**이고 파일 이름은 `ClaudeTool-Setup-0.4.0.exe`예요(약 102MB).
+
+### 내려받는 곳과 확인
+
+- **이 저장소의 릴리스에서만** 받으세요. 같은 이름으로 다른 곳에서 받은 파일은 위조일 수 있으니 실행하지 마세요.
+- 받은 파일이 맞는지 SHA-256 값으로 확인할 수 있어요. 0.4.0의 값은 `8f6bff4abc20097b1f6db7573bbbc20b3d245a6ac533ce8eb65716ccfbe17b76`이고 PowerShell에서 `Get-FileHash .\ClaudeTool-Setup-0.4.0.exe -Algorithm SHA256`로 구해 비교해요.
+- 설치 파일에는 코드 서명이 없어서 처음 실행할 때 Windows SmartScreen 경고가 뜰 수 있어요. 위 확인을 마쳤다면 **추가 정보 → 실행**을 누르세요.
+
+### 설치 순서
+
+1. 받은 `ClaudeTool-Setup-0.4.0.exe`를 실행해요.
+2. 라이선스 화면에서 내용을 읽고 동의해요.
+3. 설치 위치를 정해요. 기본은 `D:\Programs\ClaudeTool`이에요(D 드라이브가 없으면 Windows의 기본 위치예요). 사용자별 설치라 관리자 권한은 필요 없어요.
+4. 설치가 끝나면 시작 메뉴의 **ClaudeTool**을 실행해요. 바탕화면 바로가기는 만들지 않아요.
 
 ### 필요한 것
 
@@ -40,7 +53,7 @@ ClaudeTool은 개인 프로젝트이며 Anthropic과 관계없는 **비공식** 
 
 ### 업데이트
 
-자동 업데이트는 없어요. 새 버전이 나오면 새 설치 파일을 실행해 덮어 설치하세요(받는 곳은 공개 설치 파일이 준비되면 이 안내에 적을게요). 켜져 있는 ClaudeTool은 먼저 종료하세요(트레이 아이콘 우클릭 › 종료). 설정·캐릭터·플러그인은 데이터 폴더에 있어서 그대로 남아요.
+자동 업데이트는 없어요. 새 버전이 나오면 [릴리스](https://github.com/BlackBuddle/claude-tool-page/releases/latest)에서 새 설치 파일을 받아 실행해 덮어 설치하세요. 켜져 있는 ClaudeTool은 먼저 종료하세요(트레이 아이콘 우클릭 › 종료). 설정·캐릭터·플러그인은 데이터 폴더에 있어서 그대로 남아요.
 
 ### 제거
 
@@ -528,7 +541,7 @@ API 키 방식에서 키가 없다고 하거나 올바르지 않다고 하면 �
 <details>
 <summary><b>설치가 막혀요</b></summary>
 
-- **공개 설치 파일은 준비 중이에요.** 설치 위치·권한 같은 자세한 안내는 공개 배포 때 이 안내에 다시 적을게요.
+- **설치 위치가 궁금해요.** 기본은 `D:\Programs\ClaudeTool`(D 드라이브가 없으면 Windows의 기본 위치)이고 설치 화면에서 바꿀 수 있어요. 사용자별 설치라 관리자 권한은 필요 없어요.
 - **Windows 경고가 떠요.** 설치 파일에는 코드 서명이 없어서 SmartScreen이 경고를 띄울 수 있어요. 출처를 확신할 수 없는 파일은 실행하지 마세요.
 - **이미 켜져 있다고 해요.** 켜져 있는 ClaudeTool을 먼저 종료하세요(트레이 아이콘 우클릭 › 종료).
 
