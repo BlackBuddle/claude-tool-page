@@ -1246,7 +1246,7 @@ html:not(.motion) .mini-pet { display: none; }
       <a class="btn btn-solid lift" href="#download">설치 파일 내려받기</a>
       <a class="btn btn-line lift" href="#features">기능 살펴보기</a>
     </div>
-    <p class="hero-note rise" style="--i:5">Windows 10·11(x64) · 현재 버전 <span data-stat="version">0.4.1</span> · 개인이 만든 비공식 프로젝트이며 Anthropic과 관계없어요</p>
+    <p class="hero-note rise" style="--i:5">Windows 10·11(x64) · 현재 버전 <span data-stat="version">0.4.2</span> · 개인이 만든 비공식 프로젝트이며 Anthropic과 관계없어요</p>
   </div>
 
   <div class="roam rise" id="roam" style="--i:6">
@@ -1296,7 +1296,7 @@ html:not(.motion) .mini-pet { display: none; }
     </div>
     <div class="use reveal">
       <dt><svg class="ico" aria-hidden="true"><use href="#i-tray"/></svg>트레이 아이콘</dt>
-      <dd>작업 표시줄 알림 영역의 도트 슈크림빵 아이콘을 우클릭하면 펫 보이기, 일시정지, 사용량 소스, 말풍선 자동 닫힘, 질문 방식, 질문 모델, API 키 설정…, 설정…, 종료 메뉴가 떠요.</dd>
+      <dd>작업 표시줄 알림 영역의 도트 슈크림빵 아이콘을 우클릭하면 펫 보이기, 일시정지, 사용량 소스, 말풍선 자동 닫힘, 질문 방식, 질문 모델, API 키 설정…, Windows 시작 시 실행, 설정…, 종료 메뉴가 떠요. 새 판이 있으면 새 판 받기도 보여요.</dd>
     </div>
     <div class="use reveal">
       <dt><svg class="ico" aria-hidden="true"><use href="#i-window"/></svg>설정 › 캐릭터</dt>
@@ -1519,11 +1519,11 @@ html:not(.motion) .mini-pet { display: none; }
 
     <article class="how-item reveal cv" style="--cis: 420px" aria-labelledby="how-notify">
       <div>
-        <h3 id="how-notify">Claude Code 알림 <small class="fine">0.4.1 새 기능</small></h3>
+        <h3 id="how-notify">Claude Code 알림 <small class="fine">0.4.1 새 기능 · 0.4.2 연결 버튼</small></h3>
         <p>Claude Code가 질문하거나 승인을 기다리거나 일을 끝내거나 과부하로 멈추면 펫이 몸짓과 말풍선으로 알려 줘요. 알림 목록의 버튼을 누르면 그 세션이 열려요. Claude 앱 세션은 앱의 그 화면으로, 터미널 세션은 새 창에서 <code>claude --resume</code>으로 이어져요.</p>
-        <p>알림 플러그인 <code>claude-notify</code>와 알림 캐릭터 <code>choux-notify</code>(고전 컴퓨터 화면을 든 슈크림빵)를 릴리스에서 받아 가져온 뒤, 플러그인 카드의 <b>토큰 복사</b>를 누르고 설치 도우미 명령으로 Claude Code에 훅을 연결해요.</p>
+        <p>알림 플러그인 <code>claude-notify</code>와 알림 캐릭터 <code>choux-notify</code>(고전 컴퓨터 화면을 든 슈크림빵)를 릴리스에서 받아 가져온 뒤, 설정 창의 <b>연결</b> 버튼을 누르면 앱이 Claude Code에 훅을 연결해요. 명령을 치거나 토큰을 복사할 일이 없어요.</p>
         <ul class="facts fine">
-          <li>설치 도우미는 미리보기를 먼저 보여 주고 Claude Code 설정(<code>settings.json</code>)을 바꾸기 전에 백업을 남겨요.</li>
+          <li>다른 프로그램의 설정을 고치는 권한이라 동의 창이 “주의가 필요한 권한”으로 따로 보여 주고 <b>연결</b>을 눌렀을 때만 훅을 넣어요. Claude Code 설정(<code>settings.json</code>)은 바꾸기 전에 백업을 남겨요.</li>
           <li>훅은 이 PC 안(<code>127.0.0.1</code>)으로만 소식을 보내요.</li>
           <li>Node.js는 설치 파일에 들어 있어서 따로 깔지 않아도 돼요. 쓰는 순서는 <a href="https://github.com/BlackBuddle/claude-tool-page#claude-code-알림-쓰기">사용 설명서</a>에 있어요.</li>
         </ul>
@@ -1661,12 +1661,13 @@ html:not(.motion) .mini-pet { display: none; }
         <div><dt>나가는 연결</dt><dd>인터넷 연결(앱이 대신 보내는 요청과 WebSocket)은 선언하고 동의한 주소로만 가요. 모든 주소를 원하는 플러그인은 동의 창에 경고가 붙어요. 다만 DNS 이름 조회에 정보를 싣는 틈은 막지 못해요(<a href="https://github.com/BlackBuddle/claude-tool-page/blob/main/DISCLAIMER.md">면책조항</a> 3.4).</dd></div>
         <div><dt>들어오는 연결</dt><dd>이 PC의 다른 프로그램이 보내는 이벤트를 내 PC 안 127.0.0.1 전용 포트에서, 플러그인별 토큰을 든 요청만 받아요</dd></div>
         <div><dt>비밀 칸</dt><dd>API 키·웹훅 주소 같은 값은 Windows 계정으로 암호화해 저장하고 설정 창에는 “저장됨 ●●●●”만 보여요</dd></div>
+        <div><dt>알림·링크·클립보드·비밀·훅</dt><dd>허락받으면 Windows 알림, 눌러서 여는 링크, 클립보드 쓰기, 코드가 받은 토큰의 암호화 보관, Claude Code 훅 연결(“주의” 권한)을 쓸 수 있어요</dd></div>
       </dl>
     </div>
   </div>
   <ul class="points points-grid cv" style="--cis: 220px">
     <li class="reveal"><strong>격리 실행</strong>플러그인마다 보이지 않는 창에서 따로 돌리고 파일·다른 플러그인·앱 화면 내용에는 닿지 못하게 만들었어요. 다만 격리는 위험을 줄이는 장치일 뿐 안전을 보증하지 않아요.</li>
-    <li class="reveal"><strong>동의 창</strong>가져올 때 할 수 있는 일과 접속할 주소를 보여 줘요. 업데이트로 권한·주소가 늘면 다시 물어요.</li>
+    <li class="reveal"><strong>동의 창</strong>가져올 때 할 수 있는 일과 접속할 주소를 보여 줘요. 다른 프로그램의 설정을 고치는 권한은 “주의”로 따로 묶어 보여 줘요. 업데이트로 권한·주소가 늘면 다시 물어요.</li>
     <li class="reveal"><strong>다시 켜지 않아도</strong>켜기·끄기·설정 바꾸기가 바로 반영돼요. 데이터 폴더의 plugins에 폴더를 넣거나 고쳐도 바로 다시 읽어요(처음 켤 때 동의).</li>
     <li class="reveal"><strong>멈추면 다시 시작</strong>10초 넘게 응답이 없으면 다시 시작하고 10분 안에 세 번 멈추면 꺼 둬요.</li>
     <li class="reveal" id="plugin-limits"><strong>알아 둘 점</strong>격리는 완벽한 보호가 아니에요. 인터넷 권한이 없는 플러그인도 DNS 이름 조회(DNS 미리 풀기)에 짧은 정보를 실어 밖으로 보낼 수 있고 앱은 이 틈을 막지 못해요. 믿을 수 있는 플러그인만 가져오세요. 켠 플러그인마다 메모리를 약 70MB 더 써요. 자세한 한계는 <a href="https://github.com/BlackBuddle/claude-tool-page/blob/main/DISCLAIMER.md">면책조항</a>의 3.4 “플러그인과 가져온 파일”에 있어요.</li>
@@ -1736,7 +1737,7 @@ html:not(.motion) .mini-pet { display: none; }
   <h2 class="section-title reveal" id="stack-title">쓴 기술</h2>
   <div class="table-wrap reveal cv" style="--cis: 600px">
     <table class="stack">
-      <caption>버전은 <span data-stat="version">0.4.1</span> 기준이에요.</caption>
+      <caption>버전은 <span data-stat="version">0.4.2</span> 기준이에요.</caption>
       <thead>
         <tr><th scope="col">기술과 버전</th><th scope="col">이 프로젝트에서 맡은 일</th></tr>
       </thead>
@@ -1750,6 +1751,7 @@ html:not(.motion) .mini-pet { display: none; }
         <tr><th scope="row">Vitest<span class="ver">5.0.1</span></th><td>단위 시험, happy-dom으로 화면 시험</td></tr>
         <tr><th scope="row">Playwright<span class="ver">1.63.0</span></th><td>실제 앱을 띄우는 e2e 시험</td></tr>
         <tr><th scope="row">electron-builder<span class="ver">26.15.3</span></th><td>Windows 설치 프로그램(NSIS)</td></tr>
+        <tr><th scope="row">electron-updater<span class="ver">6.8.10</span></th><td>새 판 확인과 업데이트(내려받은 설치 파일의 해시 확인)</td></tr>
         <tr><th scope="row">fflate<span class="ver">0.8.3</span></th><td>캐릭터·플러그인 zip 가져오기·내보내기</td></tr>
         <tr><th scope="row">Anthropic SDK<span class="ver">0.127.0</span></th><td>API 키 방식 질문</td></tr>
       </tbody>
@@ -1769,29 +1771,31 @@ html:not(.motion) .mini-pet { display: none; }
   <!-- 숫자는 data-stat 이름으로 찾아 바꾼다(tasks·tests·e2e). 화면에 들어오면 스크립트가 0부터 이 값까지 올린다. -->
   <div class="stats">
     <div class="reveal tilt-host"><dl class="stat tilt"><dt>플러그인 틀 계획의 태스크</dt><dd><span class="num" data-stat="tasks">26</span><small>개</small></dd></dl></div>
-    <div class="reveal tilt-host"><dl class="stat tilt"><dt>자동 시험(단위·화면)</dt><dd><span class="num" data-stat="tests">2,330</span><small>개</small></dd></dl></div>
-    <div class="reveal tilt-host"><dl class="stat tilt"><dt>e2e 시험(실제 앱을 띄워서)</dt><dd><span class="num" data-stat="e2e">30</span><small>개</small></dd></dl></div>
+    <div class="reveal tilt-host"><dl class="stat tilt"><dt>자동 시험(단위·화면)</dt><dd><span class="num" data-stat="tests">2,980</span><small>개</small></dd></dl></div>
+    <div class="reveal tilt-host"><dl class="stat tilt"><dt>e2e 시험(실제 앱을 띄워서)</dt><dd><span class="num" data-stat="e2e">32</span><small>개</small></dd></dl></div>
   </div>
-  <p class="fine-stat reveal">숫자는 버전 <span data-stat="version">0.4.1</span> 기준이에요.</p>
+  <p class="fine-stat reveal">숫자는 버전 <span data-stat="version">0.4.2</span> 기준이에요.</p>
 </section>
 
 <section class="section" id="download" aria-labelledby="download-title">
   <div class="dl reveal cv" style="--cis: 460px">
     <div>
       <h2 class="section-title" id="download-title">내려받기</h2>
-      <p class="dl-ver">ClaudeTool <span data-stat="version">0.4.1</span> · Windows 10·11(x64)</p>
+      <p class="dl-ver">ClaudeTool <span data-stat="version">0.4.2</span> · Windows 10·11(x64)</p>
       <div class="dl-actions">
-        <a class="btn btn-solid lift" href="https://github.com/BlackBuddle/claude-tool-page/releases/download/v0.4.1/ClaudeTool-Setup-0.4.1.exe">ClaudeTool-Setup-0.4.1.exe 내려받기(약 124MB)</a>
+        <a class="btn btn-solid lift" href="https://github.com/BlackBuddle/claude-tool-page/releases/download/v0.4.2/ClaudeTool-Setup-0.4.2.exe">ClaudeTool-Setup-0.4.2.exe 내려받기(약 125MB)</a>
         <a class="btn btn-line lift" href="https://github.com/BlackBuddle/claude-tool-page/releases/latest">릴리스 보기</a>
       </div>
       <p class="dl-note">이 저장소의 릴리스에서만 받으세요. 같은 이름으로 다른 곳에서 받은 파일은 위조일 수 있어요. 설치 파일에는 코드 서명이 없어서 처음 실행할 때 Windows SmartScreen 경고가 뜰 수 있어요. 받은 파일의 SHA-256 값을 아래와 비교한 뒤 <b>추가 정보 → 실행</b>을 누르세요. 쓰는 법은 <a href="https://github.com/BlackBuddle/claude-tool-page#readme">사용 설명서</a>에 있어요.</p>
-      <p class="dl-hash">SHA-256 <code>b7bd6b06541252f2646d6ac10ea84ac9b32c552849fcb0865ceee5f67cbeba2a</code></p>
+      <p class="dl-hash">SHA-256 <code>SHA256-자리-0.4.2</code></p>
       <span class="dl-pet" id="dl-pet" aria-hidden="true"><svg focusable="false"><use href="#dot-pet"/></svg></span>
     </div>
     <ul class="dl-req" aria-label="필요한 것과 알아 둘 것">
       <li><b>Windows 10·11 64비트</b>펫은 늘 다른 창 위에 떠 있고 작업 표시줄 알림 영역에 아이콘이 생겨요.</li>
       <li><b>질문하기</b>이 PC에 네이티브로 설치하고 로그인한 Claude Code(구독)로 답해요. 별도 API 키는 필요 없고 원하면 API 키 방식으로 바꿀 수 있어요.</li>
       <li><b>구독 한도 보기·Claude Code 알림</b>필요한 Node.js가 설치 파일에 들어 있어서 따로 깔지 않아도 돼요.</li>
+      <li><b>새 판 알림</b>0.4.2부터 앱이 새 판을 알려 줘요. 처음에는 확인하기 전에 안내하고 설정 창에서 끌 수 있어요. 내려받기와 설치는 누를 때만 해요. 0.4.1 이하는 이번 한 번만 직접 덮어 설치하세요.</li>
+      <li><b>시작 시 실행</b>Windows에 로그인할 때 자동으로 켜지게 할 수 있어요. 기본은 꺼져 있어요.</li>
       <li><b>데이터</b>설정·캐릭터·플러그인 같은 데이터는 설치 폴더 옆 “설치 폴더-data”에 쌓이고 업데이트하거나 지워도 남아요.</li>
     </ul>
   </div>
@@ -1800,7 +1804,7 @@ html:not(.motion) .mini-pet { display: none; }
 </main>
 
 <footer class="foot">
-  <p class="foot-name">ClaudeTool <span data-stat="version">0.4.1</span></p>
+  <p class="foot-name">ClaudeTool <span data-stat="version">0.4.2</span></p>
   <p>개인이 만든 비공식 프로젝트이며 Anthropic과 제휴·후원·승인 관계가 없고 Anthropic의 공식 제품이 아니에요. “Claude”와 “Anthropic”은 Anthropic PBC의 상표예요. 기본 캐릭터 도트 슈크림빵과 벡터 슈크림빵, 트레이·프로그램 아이콘은 이 프로젝트를 위해 직접 그린 오리지널 그림이에요.</p>
   <p>개인 사용자는 무료로 쓸 수 있어요. 업무·영리 목적의 사용과 재배포는 저작권자의 허락이 필요해요. 소스 코드는 공개하지 않아요. 가져온 플러그인과 보안사고를 포함한 면책 범위는 면책조항에, 보안 문제 신고 방법은 보안 안내에 있어요.</p>
   <ul class="foot-links" aria-label="문서">

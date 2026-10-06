@@ -4,9 +4,9 @@
 >
 > *This document is not legal advice and has not been reviewed by a lawyer. Get professional advice before any business or commercial use or distribution.*
 
-ClaudeTool 0.4.1(2026-10-02 기준) 설치 파일에는 아래의 제3자 소프트웨어가 들어 있어요(이 문서는 설치 파일을 만들 때 들어가는 구성요소를 기준으로 해요). 이 소프트웨어들은 **각자의 라이선스를 따르고**, ClaudeTool의 라이선스([LICENSE](LICENSE))는 그 라이선스를 바꾸지 않아요(LICENSE 제5조). 목록은 설치 파일에 들어가는 구성요소의 `package.json`과 라이선스 파일에서 가져왔고, 새 판에서 바뀔 수 있어요. 설치·제거 프로그램 쪽(3절)은 확인하지 못한 부분이 있어요. 한국어본과 영어본이 함께 있고, 뜻이 다르면 한국어본이 우선해요. 라이선스 전문은 맨 아래 "라이선스 전문" 절에 원문 그대로(영어) 있어요. 함께 읽으면 좋은 문서: [DISCLAIMER.md](DISCLAIMER.md), [PRIVACY.md](PRIVACY.md), [SECURITY.md](SECURITY.md).
+ClaudeTool 0.4.2(2026-10-06 기준) 설치 파일에는 아래의 제3자 소프트웨어가 들어 있어요(이 문서는 설치 파일을 만들 때 들어가는 구성요소를 기준으로 해요). 이 소프트웨어들은 **각자의 라이선스를 따르고**, ClaudeTool의 라이선스([LICENSE](LICENSE))는 그 라이선스를 바꾸지 않아요(LICENSE 제5조). 목록은 설치 파일에 들어가는 구성요소의 `package.json`과 라이선스 파일에서 가져왔고, 새 판에서 바뀔 수 있어요. 설치·제거 프로그램 쪽(3절)은 확인하지 못한 부분이 있어요. 한국어본과 영어본이 함께 있고, 뜻이 다르면 한국어본이 우선해요. 라이선스 전문은 맨 아래 "라이선스 전문" 절에 원문 그대로(영어) 있어요. 함께 읽으면 좋은 문서: [DISCLAIMER.md](DISCLAIMER.md), [PRIVACY.md](PRIVACY.md), [SECURITY.md](SECURITY.md).
 
-*The ClaudeTool 0.4.1 installer (as of 2026-10-02) contains the third-party software listed below (this document is based on the components that go into the installer when it is built). Each item **follows its own license**, and the ClaudeTool license ([LICENSE](LICENSE)) does not change those licenses (LICENSE Section 5). The list was taken from the `package.json` and license files of the components that go into the installer and may change in new versions. Part of the installer/uninstaller side (Section 3) could not be confirmed. A Korean and an English version are provided; if they differ, the Korean version prevails. The license texts are in the "License texts" section at the very bottom, in their original English. See also: [DISCLAIMER.md](DISCLAIMER.md), [PRIVACY.md](PRIVACY.md), [SECURITY.md](SECURITY.md).*
+*The ClaudeTool 0.4.2 installer (as of 2026-10-06) contains the third-party software listed below (this document is based on the components that go into the installer when it is built). Each item **follows its own license**, and the ClaudeTool license ([LICENSE](LICENSE)) does not change those licenses (LICENSE Section 5). The list was taken from the `package.json` and license files of the components that go into the installer and may change in new versions. Part of the installer/uninstaller side (Section 3) could not be confirmed. A Korean and an English version are provided; if they differ, the Korean version prevails. The license texts are in the "License texts" section at the very bottom, in their original English. See also: [DISCLAIMER.md](DISCLAIMER.md), [PRIVACY.md](PRIVACY.md), [SECURITY.md](SECURITY.md).*
 
 ---
 
@@ -24,19 +24,35 @@ ClaudeTool 0.4.1(2026-10-02 기준) 설치 파일에는 아래의 제3자 소프
 
 ### 2. 앱에 들어 있는 npm 패키지
 
-설치 폴더의 `node_modules`와 화면 코드에 들어가는 패키지예요. Anthropic SDK가 끌고 들어오는 하위 패키지도 모두 적었어요. 각 패키지의 라이선스 파일(`LICENSE`)은 설치 폴더의 `resources\app\node_modules\<패키지 이름>` 안에도 들어 있어요(`standardwebhooks`는 라이선스 파일이 없어요).
+설치 폴더의 `node_modules`와 화면 코드에 들어가는 패키지예요. Anthropic SDK와 새 판 확인(`electron-updater`)이 끌고 들어오는 하위 패키지도 모두 적었어요. 각 패키지의 라이선스 파일(`LICENSE`)은 설치 폴더의 `resources\app\node_modules\<패키지 이름>` 안에도 들어 있어요(`standardwebhooks`와 `lazy-val`은 라이선스 파일이 없어요).
 
 | 패키지 | 버전 | 라이선스 | 저작권 | 쓰임 |
 |---|---|---|---|---|
 | `@anthropic-ai/sdk` | 0.127.0 | MIT (일부 코드는 BSD-3-Clause, 아래 "라이선스 전문") | Copyright 2023 Anthropic, PBC. | 질문하기의 API 키 방식 |
 | `@babel/runtime` | 7.29.7 | MIT | Copyright (c) 2014-present Sebastian McKenzie and other contributors | `json-schema-to-ts`의 하위 패키지 |
 | `@stablelib/base64` | 1.0.1 | MIT | Copyright (C) 2016 Dmitry Chestnykh | `standardwebhooks`의 하위 패키지 |
+| `argparse` | 2.0.1 | Python-2.0 | PSF 라이선스 전문 아래 "라이선스 전문"에 있어요(전문 안에 "Copyright (c) 2001, 2002, 2003, 2004, 2005, 2006 Python Software Foundation" 표기가 있어요) | `js-yaml`의 하위 패키지 |
+| `builder-util-runtime` | 9.7.0 | MIT | Copyright (c) 2015 Loopline Systems | `electron-updater`의 하위 패키지 |
+| `debug` | 4.4.3 | MIT | Copyright (c) 2014-2017 TJ Holowaychuk, (c) 2018-2021 Josh Junon | `builder-util-runtime`의 하위 패키지 |
+| `electron-updater` | 6.8.10 | MIT | Copyright (c) 2015 Loopline Systems | 새 판 확인과 업데이트 |
 | `fast-sha256` | 1.3.0 | Unlicense(퍼블릭 도메인) | 저작권을 주장하지 않아요(퍼블릭 도메인으로 공개됨) | `standardwebhooks`의 하위 패키지 |
 | `fflate` | 0.8.3 | MIT | Copyright (c) 2026 Arjun Barrett | zip 가져오기·내보내기 |
+| `fs-extra` | 10.1.0 | MIT | Copyright (c) 2011-2017 JP Richardson | `electron-updater`의 하위 패키지 |
+| `graceful-fs` | 4.2.11 | ISC | Copyright (c) 2011-2022 Isaac Z. Schlueter, Ben Noordhuis, and Contributors | `fs-extra`의 하위 패키지 |
+| `js-yaml` | 4.3.2 | MIT | Copyright (C) 2011-2015 by Vitaly Puzrin | `electron-updater`의 하위 패키지(업데이트 정보 `latest.yml` 읽기) |
 | `json-schema-to-ts` | 3.1.1 | MIT | Copyright (c) 2020 Thomas Aribart | Anthropic SDK의 하위 패키지 |
+| `jsonfile` | 6.2.1 | MIT | Copyright (c) 2012-2015, JP Richardson | `fs-extra`의 하위 패키지 |
+| `lazy-val` | 1.0.5 | MIT(패키지 정보에 적힌 값) | 패키지에 라이선스 파일이 들어 있지 않아 저작권 줄을 확인하지 못했어요 | `electron-updater`의 하위 패키지 |
+| `lodash.escaperegexp` | 4.1.2 | MIT | Copyright jQuery Foundation and other contributors | `electron-updater`의 하위 패키지 |
+| `lodash.isequal` | 4.5.0 | MIT | Copyright JS Foundation and other contributors | `electron-updater`의 하위 패키지 |
+| `ms` | 2.1.3 | MIT | Copyright (c) 2020 Vercel, Inc. | `debug`의 하위 패키지 |
 | `preact` | 10.29.8 | MIT | Copyright (c) 2015-present Jason Miller | 화면(펫·말풍선·설정 창) |
+| `sax` | 1.6.1 | BlueOak-1.0.0 | 라이선스 전문(아래 "라이선스 전문")에 저작권 줄이 없어요. 만든 사람: Isaac Z. Schlueter(패키지 정보) | `builder-util-runtime`의 하위 패키지 |
+| `semver` | 7.7.4 | ISC | Copyright (c) Isaac Z. Schlueter and Contributors | `electron-updater`의 하위 패키지(판 번호 비교) |
 | `standardwebhooks` | 1.1.1 | MIT(패키지 정보에 적힌 값) | 패키지에 라이선스 파일이 들어 있지 않아 저작권 줄을 확인하지 못했어요. 만든 곳: Standard Webhooks | Anthropic SDK의 하위 패키지 |
+| `tiny-typed-emitter` | 2.1.0 | MIT | Copyright (c) 2020 Zurab Benashvili (binier) | `electron-updater`의 하위 패키지 |
 | `ts-algebra` | 2.0.0 | MIT | Copyright (c) 2020 Thomas Aribart | `json-schema-to-ts`의 하위 패키지 |
+| `universalify` | 2.0.1 | MIT | Copyright (c) 2017, Ryan Zimmerman | `fs-extra`·`jsonfile`의 하위 패키지 |
 | `zod` | 4.6.5 | MIT | Copyright (c) 2025 Colin McDonnell | 설정·입력값 검사 |
 
 ### 3. 설치 프로그램(NSIS)
@@ -79,19 +95,35 @@ ClaudeTool 0.4.1(2026-10-02 기준) 설치 파일에는 아래의 제3자 소프
 
 ### 2. npm packages in the app
 
-These are the packages in the install folder's `node_modules` and in the screen code, including every sub-package the Anthropic SDK pulls in. Each package's license file (`LICENSE`) is also included in the install folder under `resources\app\node_modules\<package name>` (`standardwebhooks` ships none).
+These are the packages in the install folder's `node_modules` and in the screen code, including every sub-package that the Anthropic SDK and the new-version check (`electron-updater`) pull in. Each package's license file (`LICENSE`) is also included in the install folder under `resources\app\node_modules\<package name>` (`standardwebhooks` and `lazy-val` ship none).
 
 | Package | Version | License | Copyright | Used for |
 |---|---|---|---|---|
 | `@anthropic-ai/sdk` | 0.127.0 | MIT (some code is BSD-3-Clause, see "License texts" below) | Copyright 2023 Anthropic, PBC. | The API-key method of asking questions |
 | `@babel/runtime` | 7.29.7 | MIT | Copyright (c) 2014-present Sebastian McKenzie and other contributors | Sub-package of `json-schema-to-ts` |
 | `@stablelib/base64` | 1.0.1 | MIT | Copyright (C) 2016 Dmitry Chestnykh | Sub-package of `standardwebhooks` |
+| `argparse` | 2.0.1 | Python-2.0 | The PSF license text is under "License texts" below (it carries "Copyright (c) 2001, 2002, 2003, 2004, 2005, 2006 Python Software Foundation") | Sub-package of `js-yaml` |
+| `builder-util-runtime` | 9.7.0 | MIT | Copyright (c) 2015 Loopline Systems | Sub-package of `electron-updater` |
+| `debug` | 4.4.3 | MIT | Copyright (c) 2014-2017 TJ Holowaychuk, (c) 2018-2021 Josh Junon | Sub-package of `builder-util-runtime` |
+| `electron-updater` | 6.8.10 | MIT | Copyright (c) 2015 Loopline Systems | Checking for new versions and updating |
 | `fast-sha256` | 1.3.0 | Unlicense (public domain) | No copyright is claimed (released into the public domain) | Sub-package of `standardwebhooks` |
 | `fflate` | 0.8.3 | MIT | Copyright (c) 2026 Arjun Barrett | Importing/exporting zip files |
+| `fs-extra` | 10.1.0 | MIT | Copyright (c) 2011-2017 JP Richardson | Sub-package of `electron-updater` |
+| `graceful-fs` | 4.2.11 | ISC | Copyright (c) 2011-2022 Isaac Z. Schlueter, Ben Noordhuis, and Contributors | Sub-package of `fs-extra` |
+| `js-yaml` | 4.3.2 | MIT | Copyright (C) 2011-2015 by Vitaly Puzrin | Sub-package of `electron-updater` (reading the update information `latest.yml`) |
 | `json-schema-to-ts` | 3.1.1 | MIT | Copyright (c) 2020 Thomas Aribart | Sub-package of the Anthropic SDK |
+| `jsonfile` | 6.2.1 | MIT | Copyright (c) 2012-2015, JP Richardson | Sub-package of `fs-extra` |
+| `lazy-val` | 1.0.5 | MIT(패키지 정보에 적힌 값) | The package ships no license file, so the copyright line could not be confirmed | Sub-package of `electron-updater` |
+| `lodash.escaperegexp` | 4.1.2 | MIT | Copyright jQuery Foundation and other contributors | Sub-package of `electron-updater` |
+| `lodash.isequal` | 4.5.0 | MIT | Copyright JS Foundation and other contributors | Sub-package of `electron-updater` |
+| `ms` | 2.1.3 | MIT | Copyright (c) 2020 Vercel, Inc. | Sub-package of `debug` |
 | `preact` | 10.29.8 | MIT | Copyright (c) 2015-present Jason Miller | The screens (pet, speech bubbles, settings window) |
+| `sax` | 1.6.1 | BlueOak-1.0.0 | The license text (under "License texts" below) has no copyright line. Author: Isaac Z. Schlueter (per the package metadata) | Sub-package of `builder-util-runtime` |
+| `semver` | 7.7.4 | ISC | Copyright (c) Isaac Z. Schlueter and Contributors | Sub-package of `electron-updater` (comparing version numbers) |
 | `standardwebhooks` | 1.1.1 | MIT (as stated in the package metadata) | The package ships no license file, so the copyright line could not be confirmed. Made by: Standard Webhooks | Sub-package of the Anthropic SDK |
+| `tiny-typed-emitter` | 2.1.0 | MIT | Copyright (c) 2020 Zurab Benashvili (binier) | Sub-package of `electron-updater` |
 | `ts-algebra` | 2.0.0 | MIT | Copyright (c) 2020 Thomas Aribart | Sub-package of `json-schema-to-ts` |
+| `universalify` | 2.0.1 | MIT | Copyright (c) 2017, Ryan Zimmerman | Sub-package of `fs-extra` and `jsonfile` |
 | `zod` | 4.6.5 | MIT | Copyright (c) 2025 Colin McDonnell | Validating settings and inputs |
 
 ### 3. The installer (NSIS)
@@ -122,9 +154,9 @@ Product and company names in this document are trademarks of their respective ow
 
 원문 그대로(영어)예요. 한국어본·영어본 모두에 적용돼요. *Original English texts; they apply to both the Korean and the English parts above.*
 
-**MIT License:** `@anthropic-ai/sdk`, `@babel/runtime`, `@stablelib/base64`, `fflate`, `json-schema-to-ts`, `preact`, `standardwebhooks`, `ts-algebra`, `zod`, Electron, electron-builder의 NSIS 템플릿. 저작권 표시는 위 표의 "저작권" 칸(Electron은 `LICENSE.electron.txt`, electron-builder의 NSIS 템플릿은 3절)을 보세요. *Copyright notices: see the "Copyright" column of the table above (for Electron, `LICENSE.electron.txt`; for electron-builder's NSIS templates, Section 3).*
+**MIT License:** `@anthropic-ai/sdk`, `@babel/runtime`, `@stablelib/base64`, `builder-util-runtime`, `debug`, `electron-updater`, `fflate`, `fs-extra`, `js-yaml`, `json-schema-to-ts`, `jsonfile`, `lazy-val`, `lodash.escaperegexp`, `lodash.isequal`, `ms`, `preact`, `standardwebhooks`, `tiny-typed-emitter`, `ts-algebra`, `universalify`, `zod`, Electron, electron-builder의 NSIS 템플릿. 저작권 표시는 위 표의 "저작권" 칸(Electron은 `LICENSE.electron.txt`, electron-builder의 NSIS 템플릿은 3절)을 보세요. *Copyright notices: see the "Copyright" column of the table above (for Electron, `LICENSE.electron.txt`; for electron-builder's NSIS templates, Section 3).*
 
-**The Unlicense:** `fast-sha256`. **BSD 3-Clause:** `@anthropic-ai/sdk` 안의 쿼리 문자열 처리 코드 *(query-string code inside `@anthropic-ai/sdk`)*.
+**The Unlicense:** `fast-sha256`. **BSD 3-Clause:** `@anthropic-ai/sdk` 안의 쿼리 문자열 처리 코드 *(query-string code inside `@anthropic-ai/sdk`)*. **ISC License:** `graceful-fs`, `semver`. **Blue Oak Model License 1.0.0:** `sax`. **Python Software Foundation License(Python-2.0):** `argparse`.
 
 ### MIT License
 
@@ -197,4 +229,343 @@ Redistribution and use in source and binary forms, with or without modification,
 3. Neither the name of the copyright holder nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission.
 
 THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+```
+
+### ISC License (`graceful-fs`, `semver`)
+
+```text
+ISC License
+
+Copyright (c) <copyright holder of each package; see the "Copyright" column of the table above>
+
+Permission to use, copy, modify, and/or distribute this software for any
+purpose with or without fee is hereby granted, provided that the above
+copyright notice and this permission notice appear in all copies.
+
+THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES
+WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF
+MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR
+ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES
+WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN
+ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF OR
+IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
+```
+
+### Blue Oak Model License 1.0.0 (`sax`)
+
+```text
+# Blue Oak Model License
+
+Version 1.0.0
+
+## Purpose
+
+This license gives everyone as much permission to work with
+this software as possible, while protecting contributors
+from liability.
+
+## Acceptance
+
+In order to receive this license, you must agree to its
+rules.  The rules of this license are both obligations
+under that agreement and conditions to your license.
+You must not do anything with this software that triggers
+a rule that you cannot or will not follow.
+
+## Copyright
+
+Each contributor licenses you to do everything with this
+software that would otherwise infringe that contributor's
+copyright in it.
+
+## Notices
+
+You must ensure that everyone who gets a copy of
+any part of this software from you, with or without
+changes, also gets the text of this license or a link to
+<https://blueoakcouncil.org/license/1.0.0>.
+
+## Excuse
+
+If anyone notifies you in writing that you have not
+complied with [Notices](#notices), you can keep your
+license by taking all practical steps to comply within 30
+days after the notice.  If you do not do so, your license
+ends immediately.
+
+## Patent
+
+Each contributor licenses you to do everything with this
+software that would otherwise infringe any patent claims
+they can license or become able to license.
+
+## Reliability
+
+No contributor can revoke this license.
+
+## No Liability
+
+***As far as the law allows, this software comes as is,
+without any warranty or condition, and no contributor
+will be liable to anyone for any damages related to this
+software or this license, under any kind of legal claim.***
+```
+
+### Python Software Foundation License (Python-2.0) (`argparse`)
+
+```text
+A. HISTORY OF THE SOFTWARE
+==========================
+
+Python was created in the early 1990s by Guido van Rossum at Stichting
+Mathematisch Centrum (CWI, see http://www.cwi.nl) in the Netherlands
+as a successor of a language called ABC.  Guido remains Python's
+principal author, although it includes many contributions from others.
+
+In 1995, Guido continued his work on Python at the Corporation for
+National Research Initiatives (CNRI, see http://www.cnri.reston.va.us)
+in Reston, Virginia where he released several versions of the
+software.
+
+In May 2000, Guido and the Python core development team moved to
+BeOpen.com to form the BeOpen PythonLabs team.  In October of the same
+year, the PythonLabs team moved to Digital Creations, which became
+Zope Corporation.  In 2001, the Python Software Foundation (PSF, see
+https://www.python.org/psf/) was formed, a non-profit organization
+created specifically to own Python-related Intellectual Property.
+Zope Corporation was a sponsoring member of the PSF.
+
+All Python releases are Open Source (see http://www.opensource.org for
+the Open Source Definition).  Historically, most, but not all, Python
+releases have also been GPL-compatible; the table below summarizes
+the various releases.
+
+    Release         Derived     Year        Owner       GPL-
+                    from                                compatible? (1)
+
+    0.9.0 thru 1.2              1991-1995   CWI         yes
+    1.3 thru 1.5.2  1.2         1995-1999   CNRI        yes
+    1.6             1.5.2       2000        CNRI        no
+    2.0             1.6         2000        BeOpen.com  no
+    1.6.1           1.6         2001        CNRI        yes (2)
+    2.1             2.0+1.6.1   2001        PSF         no
+    2.0.1           2.0+1.6.1   2001        PSF         yes
+    2.1.1           2.1+2.0.1   2001        PSF         yes
+    2.1.2           2.1.1       2002        PSF         yes
+    2.1.3           2.1.2       2002        PSF         yes
+    2.2 and above   2.1.1       2001-now    PSF         yes
+
+Footnotes:
+
+(1) GPL-compatible doesn't mean that we're distributing Python under
+    the GPL.  All Python licenses, unlike the GPL, let you distribute
+    a modified version without making your changes open source.  The
+    GPL-compatible licenses make it possible to combine Python with
+    other software that is released under the GPL; the others don't.
+
+(2) According to Richard Stallman, 1.6.1 is not GPL-compatible,
+    because its license has a choice of law clause.  According to
+    CNRI, however, Stallman's lawyer has told CNRI's lawyer that 1.6.1
+    is "not incompatible" with the GPL.
+
+Thanks to the many outside volunteers who have worked under Guido's
+direction to make these releases possible.
+
+
+B. TERMS AND CONDITIONS FOR ACCESSING OR OTHERWISE USING PYTHON
+===============================================================
+
+PYTHON SOFTWARE FOUNDATION LICENSE VERSION 2
+--------------------------------------------
+
+1. This LICENSE AGREEMENT is between the Python Software Foundation
+("PSF"), and the Individual or Organization ("Licensee") accessing and
+otherwise using this software ("Python") in source or binary form and
+its associated documentation.
+
+2. Subject to the terms and conditions of this License Agreement, PSF hereby
+grants Licensee a nonexclusive, royalty-free, world-wide license to reproduce,
+analyze, test, perform and/or display publicly, prepare derivative works,
+distribute, and otherwise use Python alone or in any derivative version,
+provided, however, that PSF's License Agreement and PSF's notice of copyright,
+i.e., "Copyright (c) 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010,
+2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020 Python Software Foundation;
+All Rights Reserved" are retained in Python alone or in any derivative version
+prepared by Licensee.
+
+3. In the event Licensee prepares a derivative work that is based on
+or incorporates Python or any part thereof, and wants to make
+the derivative work available to others as provided herein, then
+Licensee hereby agrees to include in any such work a brief summary of
+the changes made to Python.
+
+4. PSF is making Python available to Licensee on an "AS IS"
+basis.  PSF MAKES NO REPRESENTATIONS OR WARRANTIES, EXPRESS OR
+IMPLIED.  BY WAY OF EXAMPLE, BUT NOT LIMITATION, PSF MAKES NO AND
+DISCLAIMS ANY REPRESENTATION OR WARRANTY OF MERCHANTABILITY OR FITNESS
+FOR ANY PARTICULAR PURPOSE OR THAT THE USE OF PYTHON WILL NOT
+INFRINGE ANY THIRD PARTY RIGHTS.
+
+5. PSF SHALL NOT BE LIABLE TO LICENSEE OR ANY OTHER USERS OF PYTHON
+FOR ANY INCIDENTAL, SPECIAL, OR CONSEQUENTIAL DAMAGES OR LOSS AS
+A RESULT OF MODIFYING, DISTRIBUTING, OR OTHERWISE USING PYTHON,
+OR ANY DERIVATIVE THEREOF, EVEN IF ADVISED OF THE POSSIBILITY THEREOF.
+
+6. This License Agreement will automatically terminate upon a material
+breach of its terms and conditions.
+
+7. Nothing in this License Agreement shall be deemed to create any
+relationship of agency, partnership, or joint venture between PSF and
+Licensee.  This License Agreement does not grant permission to use PSF
+trademarks or trade name in a trademark sense to endorse or promote
+products or services of Licensee, or any third party.
+
+8. By copying, installing or otherwise using Python, Licensee
+agrees to be bound by the terms and conditions of this License
+Agreement.
+
+
+BEOPEN.COM LICENSE AGREEMENT FOR PYTHON 2.0
+-------------------------------------------
+
+BEOPEN PYTHON OPEN SOURCE LICENSE AGREEMENT VERSION 1
+
+1. This LICENSE AGREEMENT is between BeOpen.com ("BeOpen"), having an
+office at 160 Saratoga Avenue, Santa Clara, CA 95051, and the
+Individual or Organization ("Licensee") accessing and otherwise using
+this software in source or binary form and its associated
+documentation ("the Software").
+
+2. Subject to the terms and conditions of this BeOpen Python License
+Agreement, BeOpen hereby grants Licensee a non-exclusive,
+royalty-free, world-wide license to reproduce, analyze, test, perform
+and/or display publicly, prepare derivative works, distribute, and
+otherwise use the Software alone or in any derivative version,
+provided, however, that the BeOpen Python License is retained in the
+Software, alone or in any derivative version prepared by Licensee.
+
+3. BeOpen is making the Software available to Licensee on an "AS IS"
+basis.  BEOPEN MAKES NO REPRESENTATIONS OR WARRANTIES, EXPRESS OR
+IMPLIED.  BY WAY OF EXAMPLE, BUT NOT LIMITATION, BEOPEN MAKES NO AND
+DISCLAIMS ANY REPRESENTATION OR WARRANTY OF MERCHANTABILITY OR FITNESS
+FOR ANY PARTICULAR PURPOSE OR THAT THE USE OF THE SOFTWARE WILL NOT
+INFRINGE ANY THIRD PARTY RIGHTS.
+
+4. BEOPEN SHALL NOT BE LIABLE TO LICENSEE OR ANY OTHER USERS OF THE
+SOFTWARE FOR ANY INCIDENTAL, SPECIAL, OR CONSEQUENTIAL DAMAGES OR LOSS
+AS A RESULT OF USING, MODIFYING OR DISTRIBUTING THE SOFTWARE, OR ANY
+DERIVATIVE THEREOF, EVEN IF ADVISED OF THE POSSIBILITY THEREOF.
+
+5. This License Agreement will automatically terminate upon a material
+breach of its terms and conditions.
+
+6. This License Agreement shall be governed by and interpreted in all
+respects by the law of the State of California, excluding conflict of
+law provisions.  Nothing in this License Agreement shall be deemed to
+create any relationship of agency, partnership, or joint venture
+between BeOpen and Licensee.  This License Agreement does not grant
+permission to use BeOpen trademarks or trade names in a trademark
+sense to endorse or promote products or services of Licensee, or any
+third party.  As an exception, the "BeOpen Python" logos available at
+http://www.pythonlabs.com/logos.html may be used according to the
+permissions granted on that web page.
+
+7. By copying, installing or otherwise using the software, Licensee
+agrees to be bound by the terms and conditions of this License
+Agreement.
+
+
+CNRI LICENSE AGREEMENT FOR PYTHON 1.6.1
+---------------------------------------
+
+1. This LICENSE AGREEMENT is between the Corporation for National
+Research Initiatives, having an office at 1895 Preston White Drive,
+Reston, VA 20191 ("CNRI"), and the Individual or Organization
+("Licensee") accessing and otherwise using Python 1.6.1 software in
+source or binary form and its associated documentation.
+
+2. Subject to the terms and conditions of this License Agreement, CNRI
+hereby grants Licensee a nonexclusive, royalty-free, world-wide
+license to reproduce, analyze, test, perform and/or display publicly,
+prepare derivative works, distribute, and otherwise use Python 1.6.1
+alone or in any derivative version, provided, however, that CNRI's
+License Agreement and CNRI's notice of copyright, i.e., "Copyright (c)
+1995-2001 Corporation for National Research Initiatives; All Rights
+Reserved" are retained in Python 1.6.1 alone or in any derivative
+version prepared by Licensee.  Alternately, in lieu of CNRI's License
+Agreement, Licensee may substitute the following text (omitting the
+quotes): "Python 1.6.1 is made available subject to the terms and
+conditions in CNRI's License Agreement.  This Agreement together with
+Python 1.6.1 may be located on the Internet using the following
+unique, persistent identifier (known as a handle): 1895.22/1013.  This
+Agreement may also be obtained from a proxy server on the Internet
+using the following URL: http://hdl.handle.net/1895.22/1013".
+
+3. In the event Licensee prepares a derivative work that is based on
+or incorporates Python 1.6.1 or any part thereof, and wants to make
+the derivative work available to others as provided herein, then
+Licensee hereby agrees to include in any such work a brief summary of
+the changes made to Python 1.6.1.
+
+4. CNRI is making Python 1.6.1 available to Licensee on an "AS IS"
+basis.  CNRI MAKES NO REPRESENTATIONS OR WARRANTIES, EXPRESS OR
+IMPLIED.  BY WAY OF EXAMPLE, BUT NOT LIMITATION, CNRI MAKES NO AND
+DISCLAIMS ANY REPRESENTATION OR WARRANTY OF MERCHANTABILITY OR FITNESS
+FOR ANY PARTICULAR PURPOSE OR THAT THE USE OF PYTHON 1.6.1 WILL NOT
+INFRINGE ANY THIRD PARTY RIGHTS.
+
+5. CNRI SHALL NOT BE LIABLE TO LICENSEE OR ANY OTHER USERS OF PYTHON
+1.6.1 FOR ANY INCIDENTAL, SPECIAL, OR CONSEQUENTIAL DAMAGES OR LOSS AS
+A RESULT OF MODIFYING, DISTRIBUTING, OR OTHERWISE USING PYTHON 1.6.1,
+OR ANY DERIVATIVE THEREOF, EVEN IF ADVISED OF THE POSSIBILITY THEREOF.
+
+6. This License Agreement will automatically terminate upon a material
+breach of its terms and conditions.
+
+7. This License Agreement shall be governed by the federal
+intellectual property law of the United States, including without
+limitation the federal copyright law, and, to the extent such
+U.S. federal law does not apply, by the law of the Commonwealth of
+Virginia, excluding Virginia's conflict of law provisions.
+Notwithstanding the foregoing, with regard to derivative works based
+on Python 1.6.1 that incorporate non-separable material that was
+previously distributed under the GNU General Public License (GPL), the
+law of the Commonwealth of Virginia shall govern this License
+Agreement only as to issues arising under or with respect to
+Paragraphs 4, 5, and 7 of this License Agreement.  Nothing in this
+License Agreement shall be deemed to create any relationship of
+agency, partnership, or joint venture between CNRI and Licensee.  This
+License Agreement does not grant permission to use CNRI trademarks or
+trade name in a trademark sense to endorse or promote products or
+services of Licensee, or any third party.
+
+8. By clicking on the "ACCEPT" button where indicated, or by copying,
+installing or otherwise using Python 1.6.1, Licensee agrees to be
+bound by the terms and conditions of this License Agreement.
+
+        ACCEPT
+
+
+CWI LICENSE AGREEMENT FOR PYTHON 0.9.0 THROUGH 1.2
+--------------------------------------------------
+
+Copyright (c) 1991 - 1995, Stichting Mathematisch Centrum Amsterdam,
+The Netherlands.  All rights reserved.
+
+Permission to use, copy, modify, and distribute this software and its
+documentation for any purpose and without fee is hereby granted,
+provided that the above copyright notice appear in all copies and that
+both that copyright notice and this permission notice appear in
+supporting documentation, and that the name of Stichting Mathematisch
+Centrum or CWI not be used in advertising or publicity pertaining to
+distribution of the software without specific, written prior
+permission.
+
+STICHTING MATHEMATISCH CENTRUM DISCLAIMS ALL WARRANTIES WITH REGARD TO
+THIS SOFTWARE, INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY AND
+FITNESS, IN NO EVENT SHALL STICHTING MATHEMATISCH CENTRUM BE LIABLE
+FOR ANY SPECIAL, INDIRECT OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES
+WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN
+ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT
+OF OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
 ```

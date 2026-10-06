@@ -18,7 +18,8 @@ ClaudeTool은 한 사람이 만드는 개인 프로젝트예요. 취약점을 �
 
 ### 1. 지원하는 버전
 
-- 보안 수정은 **가장 최근에 배포한 판**에만 해요. 이전 판은 지원하지 않아요. 새 설치 파일은 공개 저장소(`claude-tool-page`)의 릴리스에서 받아 덮어 설치해 최신으로 쓰세요.
+- 보안 수정은 **가장 최근에 배포한 판**에만 해요. 이전 판은 지원하지 않아요. 새 설치 파일은 공개 저장소(`claude-tool-page`)의 릴리스에서 받아 덮어 설치해 최신으로 쓰세요. 0.4.2부터는 앱이 새 판을 알려 줘요(설정 › 일반, 자동 확인은 끌 수 있어요). 0.4.1 이하는 새 판을 알리지 못하니 0.4.2는 한 번 직접 설치해 주세요.
+- 앱 안 업데이트는 공개 저장소의 HTTPS 주소에서만 설치 파일을 받아 `latest.yml`에 기록된 해시(sha512)와 맞을 때만 설치해요. 설치 파일에는 코드 서명이 없어서 이 해시는 전송 중 손상·변조를 막을 뿐 저장소 자체가 침해된 경우까지는 막지 못해요([DISCLAIMER.md](DISCLAIMER.md)의 3.1). 업데이트 주소는 빌드 때 정해지고 앱 화면·플러그인·설정 파일로 바꿀 수 없어요. 내려받기와 설치는 사용자가 [받기]와 [다시 시작해서 설치]를 눌러야 해요.
 - 쓰고 있는 판은 설정 창 › 일반의 "버전"이나 설치 파일 이름(`ClaudeTool-Setup-<버전>.exe`)에서 알 수 있어요.
 
 ### 2. 보안 문제를 알리는 방법
@@ -46,6 +47,9 @@ ClaudeTool은 한 사람이 만드는 개인 프로젝트예요. 취약점을 �
 - **들어오는 연결:** 토큰 없이, 또는 웹 페이지·다른 기기에서 통로에 보낼 수 있는 것, 토큰 검사·횟수 제한을 피하는 것, `127.0.0.1` 밖으로 열리는 것
 - **세션 열기(`session` 권한):** 플러그인이 정하지 못해야 할 주소·명령·폴더·인자를 정하게 되는 것, 들어오는 연결로 받은 적 없는 세션을 여는 것, 버튼 클릭 없이 열리는 것
 - **알림 훅 설치 도우미:** `settings.json`의 다른 설정·훅을 지우거나 바꾸는 것, `<데이터>\claude-notify`의 토큰·백업이 다른 Windows 계정에 읽히게 되는 것
+- **훅 연결(`hooks` 권한):** 플러그인 코드가 Claude Code 설정 파일에 직접 닿거나 훅의 내용·넣을 곳을 정하게 되는 것, 사용자가 [연결]을 누르기 전에 훅이 들어가는 것, 다른 훅·설정이나 다른 플러그인의 훅이 지워지거나 바뀌는 것, 토큰 없이 또는 웹 페이지·다른 기기에서 훅 통로(`/v1/hooks/<플러그인 id>`)에 보낼 수 있는 것, 선언하지 않은 이벤트가 플러그인에 전달되는 것, `<데이터>\hooks\<플러그인 id>`의 토큰·백업이 다른 Windows 계정에 읽히게 되는 것(토큰은 평문 파일이고 같은 계정의 다른 프로그램이 읽는 것은 알려진 한계예요)
+- **앱 안 업데이트:** 해시 검사를 건너뛰거나 속일 수 있는 것, 업데이트 주소나 공급자를 앱 화면·플러그인·설정 파일로 바꿀 수 있는 것, 사용자가 누르지 않았는데 내려받기·설치가 일어나는 것, 로그에 서명된 임시 주소가 남는 것
+- **보통 권한과 시작 시 실행:** `open-link`가 사용자의 클릭 없이 열리거나 https가 아닌 주소를 여는 것, `secrets`의 값이 다른 플러그인·로그·내보내기 파일로 새는 것, `notify`·`clipboard-write`가 한도와 길이 제한을 넘는 것, 허락 없이 레지스트리 `Run` 항목이 써지는 것
 - **비밀 저장:** `secrets.bin`의 키·토큰·비밀 값이 로그·화면·내보내기 파일·설정 파일로 새는 것
 - **가져오기(zip):** 압축을 푸는 동안의 경로 탈출·압축 폭탄, 허용하지 않는 파일이 들어오는 것
 - **Claude Code 연결:** 연결·해제 흐름이 Claude Code 설정 파일을 의도하지 않게 바꾸는 것
@@ -54,7 +58,7 @@ ClaudeTool은 한 사람이 만드는 개인 프로젝트예요. 취약점을 �
 
 - Anthropic·Claude Code·GitHub 같은 **제3자 서비스**의 취약점 → 그 서비스에 신고해 주세요.
 - **Electron·Chromium·Node.js·Windows** 자체의 취약점 → 그쪽 프로젝트에 신고해 주세요. 다만 ClaudeTool이 그것을 잘못 써서 생긴 문제는 범위 안이에요.
-- **사용자가 동의 창에서 허락한 플러그인의 의도된 동작**(동의한 주소로 데이터를 보내는 것, 허락한 권한으로 말풍선을 띄우거나 펫을 움직이거나 Claude Code 세션을 여는 것 등)
+- **사용자가 동의 창에서 허락한 플러그인의 의도된 동작**(동의한 주소로 데이터를 보내는 것, 허락한 권한으로 말풍선을 띄우거나 펫을 움직이거나 Claude Code 세션을 열거나 알림·링크·클립보드·훅을 쓰는 것 등)
 - **알려진 한계**로 [DISCLAIMER.md](DISCLAIMER.md)에 적어 둔 것(DNS 조회로 적은 양의 정보가 새는 것, 선언한 이름이 내부망 주소로 풀리는 것, 켠 플러그인마다 메모리를 쓰는 것, 같은 Windows 계정의 다른 프로그램이 `secrets.bin`을 읽을 수 있는 것 등). 이미 알려진 것보다 큰 영향이나 새로운 우회라면 알려 주세요.
 - 플러그인 **자기 창이 CPU·메모리를 많이 쓰는 것**(앱 본체나 다른 플러그인에 닿지 않는 경우)
 - 이 PC에 **직접 접근하거나 관리자 권한이 있어야 하는** 공격, 사용자를 속여 설치하게 하는 사회공학, 코드 서명이 없어서 뜨는 Windows SmartScreen 경고
@@ -84,7 +88,8 @@ ClaudeTool은 한 사람이 만드는 개인 프로젝트예요. 취약점을 �
 
 ### 1. Supported versions
 
-- Security fixes are made **only for the most recently distributed version**. Older versions are not supported. When you get a new installer from the Releases of the public repository (`claude-tool-page`), install it over the old one to stay current.
+- Security fixes are made **only for the most recently distributed version**. Older versions are not supported. When you get a new installer from the Releases of the public repository (`claude-tool-page`), install it over the old one to stay current. From 0.4.2 the app tells you about a new version (Settings › General; the automatic check can be turned off). Versions 0.4.1 and older cannot announce new versions, so please install 0.4.2 yourself once.
+- The in-app update downloads the installer only from an HTTPS address of the public repository and installs it only if it matches the hash (sha512) recorded in `latest.yml`. The installer has no code signature, so this hash only guards against damage or tampering in transit and does not protect against a compromise of the repository itself (3.1 of [DISCLAIMER.md](DISCLAIMER.md)). The update address is fixed at build time and cannot be changed from an app screen, a plugin or a settings file, and downloading and installing require you to press [Download] and [Restart and install].
 - You can see your version in Settings › General ("Version") or in the installer file name (`ClaudeTool-Setup-<version>.exe`).
 
 ### 2. How to report a security problem
@@ -112,6 +117,9 @@ ClaudeTool은 한 사람이 만드는 개인 프로젝트예요. 취약점을 �
 - **Incoming connections:** being able to send to the channel without a token or from a web page or another device, bypassing the token check or rate limit, the channel opening beyond `127.0.0.1`
 - **Opening sessions (`session` permission):** a plugin getting to choose the address, command, folder or arguments that it must not choose, opening a session it never received through incoming connections, or opening one without a button click
 - **The notification-hook setup helper:** deleting or changing other settings or hooks in `settings.json`, or the token and backups in `<data>\claude-notify` becoming readable by another Windows account
+- **Hook connection (`hooks` permission):** plugin code reaching the Claude Code settings file directly or choosing what the hooks contain or where they go, hooks being put in before you press [Connect], other hooks or settings or another plugin's hooks being deleted or changed, being able to send to the hook channel (`/v1/hooks/<plugin id>`) without a token or from a web page or another device, an undeclared event being delivered to a plugin, the token and backups in `<data>\hooks\<plugin id>` becoming readable by another Windows account (the token is a plain file, and other programs under the same account being able to read it is a known limit)
+- **In-app update:** being able to skip or fool the hash check, being able to change the update address or provider from an app screen, a plugin or a settings file, a download or installation happening without your pressing, a signed temporary address being left in the log
+- **Ordinary permissions and starting with Windows:** `open-link` opening without your click or opening a non-https address, a value of `secrets` leaking into another plugin, the log or an exported file, `notify` or `clipboard-write` exceeding their rate or length limits, a registry `Run` entry being written without your permission
 - **Secret storage:** keys, tokens or secret values in `secrets.bin` leaking into logs, screens, exported files or the settings file
 - **Importing (zip):** path escape or zip bombs while extracting, files that should not be allowed getting in
 - **Connecting Claude Code:** the connect/disconnect flow changing the Claude Code settings file in unintended ways
@@ -120,7 +128,7 @@ ClaudeTool은 한 사람이 만드는 개인 프로젝트예요. 취약점을 �
 
 - Vulnerabilities in **third-party services** such as Anthropic, Claude Code and GitHub → please report them to that service.
 - Vulnerabilities in **Electron, Chromium, Node.js or Windows** themselves → please report them to those projects. Problems caused by ClaudeTool using them incorrectly are in scope.
-- **Intended behavior of a plugin you allowed in the consent window** (sending data to the addresses you consented to, showing speech bubbles, moving the pet or opening Claude Code sessions with the permissions you granted, etc.)
+- **Intended behavior of a plugin you allowed in the consent window** (sending data to the addresses you consented to, showing speech bubbles, moving the pet, opening Claude Code sessions or using notifications, links, the clipboard or hooks with the permissions you granted, etc.)
 - **Known limits** listed in [DISCLAIMER.md](DISCLAIMER.md) (a small amount of information leaking through DNS lookups, declared names resolving to internal-network addresses, memory used by each plugin that is on, other programs under the same Windows account being able to read `secrets.bin`, etc.). If you find a bigger impact than already known, or a new bypass, please report it.
 - A plugin's **own window using a lot of CPU or memory** (when it does not reach the app itself or other plugins)
 - Attacks that require **physical access to this PC or administrator rights**, social engineering that tricks you into installing, and the Windows SmartScreen warning shown because the installer is not code-signed
