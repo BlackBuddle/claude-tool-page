@@ -113,7 +113,7 @@ These are the packages in the install folder's `node_modules` and in the screen 
 | `js-yaml` | 4.3.2 | MIT | Copyright (C) 2011-2015 by Vitaly Puzrin | Sub-package of `electron-updater` (reading the update information `latest.yml`) |
 | `json-schema-to-ts` | 3.1.1 | MIT | Copyright (c) 2020 Thomas Aribart | Sub-package of the Anthropic SDK |
 | `jsonfile` | 6.2.1 | MIT | Copyright (c) 2012-2015, JP Richardson | Sub-package of `fs-extra` |
-| `lazy-val` | 1.0.5 | MIT(패키지 정보에 적힌 값) | The package ships no license file, so the copyright line could not be confirmed | Sub-package of `electron-updater` |
+| `lazy-val` | 1.0.5 | MIT (as stated in the package metadata) | The package ships no license file, so the copyright line could not be confirmed | Sub-package of `electron-updater` |
 | `lodash.escaperegexp` | 4.1.2 | MIT | Copyright jQuery Foundation and other contributors | Sub-package of `electron-updater` |
 | `lodash.isequal` | 4.5.0 | MIT | Copyright JS Foundation and other contributors | Sub-package of `electron-updater` |
 | `ms` | 2.1.3 | MIT | Copyright (c) 2020 Vercel, Inc. | Sub-package of `debug` |

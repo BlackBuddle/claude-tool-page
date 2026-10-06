@@ -71,7 +71,7 @@ ClaudeTool은 개인 프로젝트이며 Anthropic과 관계없는 **비공식** 
 - **새 판이 있으면:** 말풍선과 설정 창 › ⚙ 일반과 트레이 메뉴로 알려 줘요. **받기**를 눌러야 설치 파일(약 125MB)을 내려받고 **다시 시작해서 설치**를 눌러야 설치해요(저장하지 않은 설정 편집이 있으면 먼저 물어요). 말풍선의 **바뀐 점 보기**는 릴리스 안내 페이지를 브라우저로 열어요.
 - **설치하는 동안:** 앱이 종료되고 설치가 끝날 때까지 1분쯤 보이지 않아요. 끝나면 새 판이 자동으로 다시 켜져요. 설치가 실패하면 영어 오류 상자가 뜰 수 있어요(`Failed to uninstall old application files` 같은 글). **확인**을 누르고 시작 메뉴에서 앱을 다시 켜세요. 옛 판은 그대로 남아요. 계속 안 되면 이 저장소의 [릴리스](https://github.com/BlackBuddle/claude-tool-page/releases/latest)에서 설치 파일을 받아 덮어 설치하세요. 데이터 폴더는 지워지지 않아요.
 - **바로 확인하기:** 설정 창 › ⚙ 일반의 **새 판 확인**을 누르면 바로 확인해요. 자동 확인은 같은 곳의 체크로 끄고 켜요. 끈 동안은 **새 판 확인**을 누를 때만 접속해요.
-- **믿을 수 있나요:** 앱은 이 저장소 릴리스의 설치 파일을 받아 `latest.yml`에 적힌 해시(sha512)와 맞을 때만 설치해요. 설치 파일에는 코드 서명이 없어서 만든 곳을 확인하지는 못해요. 해시는 전송 중 손상·변조를 막을 뿐 저장소 자체가 침해된 경우까지는 막지 못해요([면책](#면책)). 받은 설치 파일은 데이터 폴더의 `updater-cache`에 남아요.
+- **믿을 수 있나요:** 앱은 이 저장소 릴리스의 설치 파일을 받아 `latest.yml`에 적힌 해시(sha512)와 맞을 때만 설치해요. 설치 파일에는 코드 서명이 없어서 만든 곳을 확인하지는 못해요. 해시는 전송 중 손상·변조를 막을 뿐 저장소 자체가 침해된 경우까지는 막지 못해요([면책](#면책)). 받은 설치 파일은 기본적으로 데이터 폴더의 `updater-cache`에 남아요.
 
 업데이트를 쓰지 않으려면 자동 확인을 끄고 새 설치 파일을 이 저장소의 [릴리스](https://github.com/BlackBuddle/claude-tool-page/releases/latest)에서 직접 받아 덮어 설치하세요. 켜져 있는 ClaudeTool은 먼저 종료하세요(트레이 아이콘 우클릭 › 종료). 설정·캐릭터·플러그인은 데이터 폴더에 있어서 그대로 남아요.
 
@@ -304,7 +304,7 @@ Windows에 로그인할 때 ClaudeTool이 자동으로 켜지게 할 수 있어�
 - **언제 연결하나요:** 플러그인을 설치하거나 켠 직후에 "Claude Code에 연결할까요?"를 한 번 물어요. **연결**을 누르거나 나중에 상세 칸의 **Claude Code 연결(훅)**에서 **연결**을 눌러요. **나중에**를 누르면 아무것도 바뀌지 않아요. Claude Code를 한 번도 실행하지 않아 설정 폴더가 없으면 묻지 않아요.
 - **앱이 하는 일:** 먼저 Claude Code의 `settings.json`을 데이터 폴더의 `hooks\<플러그인 id>\backup`에 백업하고 그 플러그인의 훅만 넣어요. 사용자의 다른 훅과 설정은 그대로 두고 다른 플러그인의 훅도 건드리지 않아요. 읽은 뒤에 파일이 바뀌었으면 쓰지 않고 멈춰요. 플러그인 코드는 이 설정 파일에 닿지 못해요.
 - **상태:** 상세 칸이 **연결됨 · 훅 6개** / **연결 안 됨** / **다시 연결이 필요해요**(일부만 있거나 옛 방식이에요) 가운데 하나를 보여 줘요. 다시 연결이 필요하면 **다시 연결**을 눌러요.
-- **끊기·끄기·지우기:** 상세 칸의 **끊기**를 누르거나 플러그인을 끄거나 지우면 앱이 그 플러그인의 훅만 빼요. 빼지 못하면 말풍선으로 알리고 끄기·지우기는 그대로 끝나요. 남은 훅은 아무 일도 하지 않아요. 상세 칸에서 다시 끊거나 [Claude Code 알림 쓰기](#claude-code-알림-쓰기)의 "앱 없이 지우기"로 빼요.
+- **끊기·끄기·지우기:** 상세 칸의 **끊기**를 누르거나 플러그인을 끄거나 지우면 앱이 그 플러그인의 훅만 빼요. 빼지 못하면 말풍선으로 알리고 끄기·지우기는 그대로 끝나요. 남은 훅은 아무 일도 하지 않아요. 상세 칸에서 다시 끊거나 [훅이 남았을 때 지우기](#훅이-남았을-때-지우기)로 빼요.
 - **훅이 보내는 곳:** 이 PC 안(`127.0.0.1`)뿐이에요. 인터넷이나 다른 기기로는 나가지 않아요([개인정보와 데이터](#개인정보와-데이터)).
 - **주의:** 훅 토큰과 백업은 암호화하지 않은 파일이에요. 폴더를 현재 사용자만 접근하도록 좁혀 두지만 같은 Windows 계정의 다른 프로그램은 읽을 수 있고 백업에는 `settings.json` 전체가 들어 있어요. 믿을 수 있는 플러그인에만 허락하세요.
 
@@ -390,15 +390,17 @@ AI에게 부탁해서 만들 수 있어요. 규칙만 모은 [AI로 만들 때 �
 - **알림이 안 오면:** 앱과 `claude-notify` 플러그인이 켜져 있는지, 상세 칸이 **연결됨 · 훅 6개**인지, 훅을 넣은 뒤 새로 연 세션인지 확인하세요. 앱이 꺼져 있던 사이의 소식은 사라져요.
 - **0.4.1에서 손으로 연결했다면:** 0.4.1의 설치 도우미로 넣은 훅은 0.4.2에서도 계속 동작해요. 앱 연결로 옮기려면 상세 칸에서 **다시 연결**을 눌러요. 앱이 옛 훅을 새 훅으로 바꿔 넣어서 같은 알림이 두 번 오지 않아요.
 
-### 앱 없이 훅 지우기
+### 훅이 남았을 때 지우기
 
-앱이 이미 지워졌거나 앱이 훅을 빼지 못했다면 PowerShell에서 설치 도우미로 지울 수 있어요. 아래 명령의 `D:\Programs\ClaudeTool`은 기본 설치 위치예요. 설치 위치를 바꿨다면 그 경로로 바꿔 쓰세요.
+**앱이 설치된 채** 앱이 훅을 빼지 못했다면 PowerShell에서 설치 도우미로 지울 수 있어요. 아래 명령의 `D:\Programs\ClaudeTool`은 기본 설치 위치예요. 설치 위치를 바꿨다면 그 경로로 바꿔 쓰세요.
 
 ```powershell
 & "D:\Programs\ClaudeTool\resources\node\node.exe" "D:\Programs\ClaudeTool\resources\app\bridge\claude-notify-setup.mjs" --remove --plugin claude-notify
 ```
 
-넣었던 훅만 빼고 다른 훅과 설정은 그대로 둬요. 0.4.1의 설치 도우미로 넣은 훅을 지울 때는 `--plugin claude-notify` 없이 `--remove`만 붙여요. 남은 훅은 앱이 소식을 받지 않아 아무 일도 하지 않지만 Claude Code 설정에는 남아 있으니 이 명령이나 `settings.json`의 `hooks`에서 `claude-notify-hook.mjs`가 든 항목을 지워 주세요.
+넣었던 훅만 빼고 다른 훅과 설정은 그대로 둬요. 0.4.1의 설치 도우미로 넣은 훅을 지울 때는 `--plugin claude-notify` 없이 `--remove`만 붙여요.
+
+**앱을 지운 뒤에는** 이 도우미도 설치 폴더와 함께 지워져서 쓸 수 없어요. `settings.json`의 `hooks`에서 `claude-notify-hook.mjs`가 든 항목을 직접 지우거나 데이터 폴더에 남아 있는 백업(`hooks\claude-notify\backup`, 0.4.1의 도우미로 넣었다면 `claude-notify\backup`)으로 되돌리세요. 남은 훅은 앱이 소식을 받지 않아 아무 일도 하지 않지만 없어진 스크립트를 가리켜요.
 
 ## AI로 만들 때 쓰는 규칙
 
@@ -881,7 +883,7 @@ ClaudeTool이 무엇을 저장하고 무엇을 읽고 무엇을 밖으로 보내
 | `backup\` | Claude Code 설정(`settings.json`)을 고치기 전에 만든 백업 |
 | `hooks\<플러그인 id>\` | 앱의 훅 연결을 쓴 경우에만 생겨요. 훅이 쓰는 토큰(`token`)과 훅을 넣거나 빼기 전 Claude Code `settings.json`의 백업(`backup\`). 암호화하지 않고 폴더를 현재 사용자만 접근하도록 좁혀 둬요. 훅을 끊어도 `backup\`은 남아요. |
 | `claude-notify\` | 0.4.1의 알림 훅 설치 도우미(손으로 연결)를 쓴 경우에만 생겨요. 위와 같은 `token`과 `backup\`이에요. |
-| `updater-cache\` | **받기**를 눌렀을 때 내려받은 새 판 설치 파일(약 125MB)과 그 정보. 이미 설치한 판의 파일은 새 판이 시작될 때 앱이 지워요. |
+| `updater-cache\` | **받기**를 눌렀을 때 내려받은 새 판 설치 파일(약 125MB)과 그 정보. 이미 설치한 판의 파일은 새 판이 시작될 때 앱이 지워요. 이 폴더로 옮기지 못하면 Windows 기본 캐시 위치(`%LOCALAPPDATA%\claude-tool-updater\pending\`)에 생겨요. |
 | `claude-code-cwd\` | Claude Code로 질문할 때 쓰는 빈 작업 폴더 |
 | `electron\` | 화면을 그리는 엔진(Chromium)의 내부 저장 공간(캐시 등)과 새 판 확인에 쓰는 임의의 번호 파일(`.updaterId`). 이 폴더를 지우면 `secrets.bin`을 풀 수 없게 돼서 키를 다시 넣어야 해요. |
 | `pricing.json` | 비용 계산에 쓰는 모델 단가표 |
@@ -924,10 +926,10 @@ ClaudeTool이 무엇을 저장하고 무엇을 읽고 무엇을 밖으로 보내
 ### 지우는 법
 
 - **플러그인 하나:** 플러그인 탭의 **지우기**(플러그인 폴더와 저장 데이터·비밀 값·코드가 맡긴 비밀·토큰이 함께 지워지고 앱이 넣은 훅도 빠져요).
-- **훅 연결:** 상세 칸의 **끊기**나 플러그인 끄기·지우기. 앱 없이는 [앱 없이 훅 지우기](#앱-없이-훅-지우기)를 보세요. `hooks\<플러그인 id>\backup`의 백업은 남으니 직접 지우세요.
+- **훅 연결:** 상세 칸의 **끊기**나 플러그인 끄기·지우기. 앱이 훅을 빼지 못했거나 앱을 지운 뒤에는 [훅이 남았을 때 지우기](#훅이-남았을-때-지우기)를 보세요. `hooks\<플러그인 id>\backup`의 백업은 남으니 직접 지우세요.
 - **키와 비밀 칸 값 전부:** ClaudeTool을 종료하고 데이터 폴더의 `secrets.bin`을 지우세요.
 - **사용 기록:** ClaudeTool을 종료하고 데이터 폴더의 `usage` 폴더를 지우세요.
-- **내려받은 새 판 설치 파일:** ClaudeTool을 종료하고 데이터 폴더의 `updater-cache` 폴더를 지우세요. 새 판 확인은 설정 창 › ⚙ 일반의 체크로 꺼요.
+- **내려받은 새 판 설치 파일:** ClaudeTool을 종료하고 데이터 폴더의 `updater-cache` 폴더를 지우세요(그 폴더로 옮기지 못했다면 `%LOCALAPPDATA%\claude-tool-updater\pending`). 새 판 확인은 설정 창 › ⚙ 일반의 체크로 꺼요.
 - **시작 시 실행:** 설정 창 › ⚙ 일반의 체크나 트레이 메뉴, 또는 Windows 설정의 **시작 앱**에서 꺼요.
 - **전부:** [제거](#제거)한 뒤 데이터 폴더를 지우세요.
 
@@ -950,7 +952,7 @@ ClaudeTool 개인 사용 라이선스 v1.0이에요. 전문은 [LICENSE](LICENSE
 - ClaudeTool은 **있는 그대로, 보증 없이** 제공돼요. 쓰다가 생기는 데이터 손실·설정 손상·사용량 초과 같은 손해에 대한 책임의 범위와 한계는 면책조항에 정해 두었어요. 중요한 데이터는 백업해 두세요.
 - **보안사고**(API 키 유출, 악성 프로그램, 무단 접근 등)와 그 손해에 대한 책임의 범위, 그리고 권하는 보안 수칙은 면책조항에 있어요. 격리·동의 창·자동 꺼짐은 도움이 되는 장치일 뿐 안전을 보장하지 않아요.
 - 플러그인은 **제3자 코드**예요. 설치하고 동의하는 것과 그 결과는 사용자의 책임이고 AI가 만들어 준 플러그인도 마찬가지예요.
-- **Claude Code 알림 훅**을 연결하면 Claude Code의 `settings.json`이 바뀌어요. 앱이 백업을 남긴 뒤 그 플러그인의 훅만 넣어요. 토큰과 백업은 같은 Windows 계정의 다른 프로그램이 읽을 수 있으니 필요 없으면 지우고 앱을 제거하기 전에는 **끊기**로 훅을 빼세요. 훅이 남았다면 [앱 없이 훅 지우기](#앱-없이-훅-지우기)를 보세요.
+- **Claude Code 알림 훅**을 연결하면 Claude Code의 `settings.json`이 바뀌어요. 앱이 백업을 남긴 뒤 그 플러그인의 훅만 넣어요. 토큰과 백업은 같은 Windows 계정의 다른 프로그램이 읽을 수 있으니 필요 없으면 지우고 앱을 제거하기 전에는 **끊기**로 훅을 빼세요. 훅이 남았다면 [훅이 남았을 때 지우기](#훅이-남았을-때-지우기)를 보세요.
 - **업데이트는 소프트웨어를 설치하는 기능이에요.** 설치 파일에는 코드 서명이 없어서 만든 곳을 확인하지 못하고 해시는 전송 중 손상·변조를 막을 뿐이에요. 설치가 실패하면 영어 오류 상자가 뜰 수 있고 옛 판은 그대로 남아요. 새 판으로 올릴지 언제 설치할지는 사용자가 정해요.
 - **시작 시 실행**을 켜면 레지스트리 `Run` 항목 하나가 써져요. 앱을 제거하기 전에 먼저 끄세요.
 - **AI의 답은 틀릴 수 있어요.** 질문하기는 내가 로그인한 Claude Code를 통해 Anthropic 서비스로 가고 그 서비스의 약관·요금·사용량 한도는 나와 Anthropic 사이의 일이에요.
@@ -979,7 +981,7 @@ ClaudeTool is an unofficial desktop pet for Windows 10/11 that roams your screen
 - **Download:** the latest version is 0.4.2 (`ClaudeTool-Setup-0.4.2.exe`, about 125 MB) in this repository's [Releases](https://github.com/BlackBuddle/claude-tool-page/releases/latest) (Windows 10/11 x64, per-user install, no admin rights needed). Check the SHA-256 value given above before you run it. The installer is not code-signed, so Windows SmartScreen may show a warning. If you use 0.4.1 or older, install 0.4.2 over it yourself once in the same folder (your data folder is kept); from 0.4.2 on, the app announces new versions. Node.js is bundled, so you do not need to install it.
 - **New-version check (new in 0.4.2):** in an app installed with the installer, a speech bubble first tells you about the check, and if you accept it the app checks `github.com` for the latest release once a day. Downloading (about 125 MB) and installing happen only when you press **받기** (Download) and **다시 시작해서 설치** (Restart and install), and the installer is installed only if it matches the sha512 hash in `latest.yml`. It is not code-signed, so the hash only guards against damage or tampering in transit. Installing takes about a minute during which the app is not visible; if it fails, an English error box may appear and the old version stays. You can turn the check off in Settings › General.
 - **Start with Windows (new in 0.4.2):** off by default; Settings › General or the tray menu writes one registry `Run` entry for the current user. Turn it off before uninstalling.
-- **Claude Code notifications (0.4.1, one-button connection in 0.4.2):** the `claude-notify` plugin and the `choux-notify` character make the pet tell you when Claude Code asks a question, waits for approval, finishes, or stops on overload, and a button opens that session. Import both `.zip` files from the release and press **연결** (Connect) on the plugin card, or answer the question that appears right after installing; the app backs up Claude Code's `settings.json` and then adds only that plugin's hooks, and the hooks send only to `127.0.0.1` on this PC. Disconnect with **끊기** or by turning off or deleting the plugin; a command for removing leftover hooks without the app is described under "앱 없이 훅 지우기".
+- **Claude Code notifications (0.4.1, one-button connection in 0.4.2):** the `claude-notify` plugin and the `choux-notify` character make the pet tell you when Claude Code asks a question, waits for approval, finishes, or stops on overload, and a button opens that session. Import both `.zip` files from the release and press **연결** (Connect) on the plugin card, or answer the question that appears right after installing; the app backs up Claude Code's `settings.json` and then adds only that plugin's hooks, and the hooks send only to `127.0.0.1` on this PC. Disconnect with **끊기** or by turning off or deleting the plugin; how to remove leftover hooks (with the setup helper while the app is installed, or by editing `settings.json` by hand after the app is deleted) is described under "훅이 남았을 때 지우기".
 - **Plugin rules:** only the permissions listed in the rules work in this version; do not invent new ones. A plugin with a permission this app does not know still installs, but that feature stays off until a newer app asks for it with `새 권한 허락하기` (allow the new permission). The `session` permission (only together with `inbound`) lets a button open a Claude Code session. New in 0.4.2: `secrets` (keep tokens encrypted), `notify` (Windows notifications), `open-link` (open a link you pressed), `clipboard-write` (copy text) and `hooks` (the app puts the plugin's hooks into Claude Code's settings after you press Connect; the consent window groups it as a caution permission). The plugin tab also offers an engine change log (.md) for updating existing plugins, and the character editor allows up to 60 actions (12 by default) and adds a plugin's signal actions in one step. Message windows close with `Esc`.
 - **License:** free for personal, non-commercial use. Business or commercial use and redistribution need the copyright holder's permission (see [LICENSE](LICENSE)). The source code is not published.
 - **Privacy:** no account, no telemetry, and no server run by the author. With default settings, the only connection the app makes on its own is the new-version check to GitHub (request headers carry a tool name, the app language and a random UUID; you can turn it off). Your data stays in a `-data` folder next to the install folder ([PRIVACY.md](PRIVACY.md)).
