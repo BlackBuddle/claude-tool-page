@@ -30,7 +30,7 @@ ClaudeTool은 개인 프로젝트이며 Anthropic과 관계없는 **비공식** 
 ### 내려받는 곳과 확인
 
 - **이 저장소의 릴리스에서만** 받으세요. 같은 이름으로 다른 곳에서 받은 파일은 위조일 수 있으니 실행하지 마세요.
-- 받은 파일이 맞는지 SHA-256 값으로 확인할 수 있어요. 0.4.2의 값은 `SHA256-자리-0.4.2`이고 PowerShell에서 `Get-FileHash .\ClaudeTool-Setup-0.4.2.exe -Algorithm SHA256`로 구해 비교해요.
+- 받은 파일이 맞는지 SHA-256 값으로 확인할 수 있어요. 0.4.2의 값은 `0d369f5d01fec69c8962416447b87e636893eb2131062cd758c8e307344b0e9b`이고 PowerShell에서 `Get-FileHash .\ClaudeTool-Setup-0.4.2.exe -Algorithm SHA256`로 구해 비교해요.
 - 설치 파일에는 코드 서명이 없어서 처음 실행할 때 Windows SmartScreen 경고가 뜰 수 있어요. 위 확인을 마쳤다면 **추가 정보 → 실행**을 누르세요.
 
 ### 설치 순서
@@ -374,9 +374,9 @@ AI에게 부탁해서 만들 수 있어요. 규칙만 모은 [AI로 만들 때 �
 1. **zip 두 개 받기.** 이 저장소의 [릴리스](https://github.com/BlackBuddle/claude-tool-page/releases/latest)에서 두 파일을 받아요.
 
    - `claude-notify-plugin.zip`(알림 플러그인, 약 18KB)
-     SHA-256 `SHA256-자리-플러그인zip`
+     SHA-256 `cbdcba315547f9a2636568fff161926ac6206155a9f9fb7a0df0e8860acd8237`
    - `choux-notify-pack.zip`(알림 캐릭터, 약 47KB)
-     SHA-256 `SHA256-자리-캐릭터zip`
+     SHA-256 `a0941c338bbc2750cfcedaafba9a8fd40be110dc18eee86cf345a9e7b5d54da7`
 
 2. **플러그인 가져오기.** 설정 창 › **🧩 플러그인** › **＋ 가져오기(.zip)**에서 `claude-notify-plugin.zip`을 골라요. 동의 창에 "말풍선을 띄워요", "이 PC의 다른 프로그램이 보내는 신호를 받아요", "Claude Code 세션을 열어요" 세 줄이 보여요. 그 아래 **⚠ 주의가 필요한 권한** 묶음에 "Claude Code 설정(settings.json)에 알림 훅을 넣어요(먼저 백업하고, 끄면 빼요): claude"가 따로 보이고 접속할 주소는 없어요. 읽고 괜찮으면 **주의를 읽고 설치**를 눌러요. 바로 켜져요.
 3. **연결.** 설치한 직후 "Claude Code에 연결할까요?"가 떠요. **연결**을 누르면 끝이에요. **나중에**를 눌렀다면 설정 창 › 플러그인에서 `claude-notify` 카드를 고르고 상세 칸의 **Claude Code 연결(훅)**에서 **연결**을 눌러요. 상태 줄이 **연결됨 · 훅 6개**가 되면 연결된 거예요.
