@@ -18,7 +18,7 @@ ClaudeTool은 한 사람이 만드는 개인 프로젝트예요. 취약점을 �
 
 ### 1. 지원하는 버전
 
-- 보안 수정은 **가장 최근에 배포한 판**에만 해요. 이전 판은 지원하지 않아요. 새 설치 파일은 공개 저장소(`claude-tool-page`)의 릴리스에서 받아 덮어 설치해 최신으로 쓰세요. 0.4.2부터는 앱이 새 판을 알려 줘요(설정 › 일반, 자동 확인은 끌 수 있어요). 0.4.1 이하는 새 판을 알리지 못하니 0.4.2는 한 번 직접 설치해 주세요.
+- 보안 수정은 **가장 최근에 배포한 판**에만 해요. 이전 판은 지원하지 않아요. 새 설치 파일은 공개 저장소(`claude-tool-page`)의 릴리스에서 받아 덮어 설치해 최신으로 쓰세요. 0.4.2부터는 앱이 새 판을 알려 줘요(설정 › 일반, 자동 확인은 끌 수 있어요). 0.4.1 이하는 새 판을 알리지 못하니 이번 한 번은 직접 설치해 주세요.
 - 앱 안 업데이트는 공개 저장소의 HTTPS 주소에서만 설치 파일을 받아 `latest.yml`에 기록된 해시(sha512)와 맞을 때만 설치해요. 설치 파일에는 코드 서명이 없어서 이 해시는 전송 중 손상·변조를 막을 뿐 저장소 자체가 침해된 경우까지는 막지 못해요([DISCLAIMER.md](DISCLAIMER.md)의 3.1). 업데이트 주소는 빌드 때 정해지고 앱 화면·플러그인·설정 파일로 바꿀 수 없어요. 내려받기와 설치는 사용자가 [받기]와 [다시 시작해서 설치]를 눌러야 해요.
 - 쓰고 있는 판은 설정 창 › 일반의 "버전"이나 설치 파일 이름(`ClaudeTool-Setup-<버전>.exe`)에서 알 수 있어요.
 
@@ -104,7 +104,7 @@ ClaudeTool은 한 사람이 만드는 개인 프로젝트예요. 취약점을 �
 
 ### 1. Supported versions
 
-- Security fixes are made **only for the most recently distributed version**. Older versions are not supported. When you get a new installer from the Releases of the public repository (`claude-tool-page`), install it over the old one to stay current. From 0.4.2 the app tells you about a new version (Settings › General; the automatic check can be turned off). Versions 0.4.1 and older cannot announce new versions, so please install 0.4.2 yourself once.
+- Security fixes are made **only for the most recently distributed version**. Older versions are not supported. When you get a new installer from the Releases of the public repository (`claude-tool-page`), install it over the old one to stay current. From 0.4.2 the app tells you about a new version (Settings › General; the automatic check can be turned off). Versions 0.4.1 and older cannot announce new versions, so please install the new version yourself once.
 - The in-app update downloads the installer only from an HTTPS address of the public repository and installs it only if it matches the hash (sha512) recorded in `latest.yml`. The installer has no code signature, so this hash only guards against damage or tampering in transit and does not protect against a compromise of the repository itself (3.1 of [DISCLAIMER.md](DISCLAIMER.md)). The update address is fixed at build time and cannot be changed from an app screen, a plugin or a settings file, and downloading and installing require you to press [Download] and [Restart and install].
 - You can see your version in Settings › General ("Version") or in the installer file name (`ClaudeTool-Setup-<version>.exe`).
 

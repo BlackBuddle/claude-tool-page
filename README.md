@@ -6,7 +6,7 @@
   <img src="images/banner.png" width="100%" alt="어두운 바탕 위에 도트 슈크림빵 펫이 서 있고 머리 위 말풍선에 “안녕하세요! Ctrl+Alt+K로 무엇이든 물어보세요.”라고 적혀 있어요.">
 </p>
 
-**[설치 파일 내려받기(0.4.2)](https://github.com/BlackBuddle/claude-tool-page/releases/latest)** · [소개 페이지](https://blackbuddle.github.io/claude-tool-page/) · [릴리스](https://github.com/BlackBuddle/claude-tool-page/releases)
+**[설치 파일 내려받기(0.4.3)](https://github.com/BlackBuddle/claude-tool-page/releases/latest)** · [소개 페이지](https://blackbuddle.github.io/claude-tool-page/) · [릴리스](https://github.com/BlackBuddle/claude-tool-page/releases)
 
 ClaudeTool은 개인 프로젝트이며 Anthropic과 관계없는 **비공식** 프로그램이에요.
 
@@ -23,19 +23,19 @@ ClaudeTool은 개인 프로젝트이며 Anthropic과 관계없는 **비공식** 
 
 ## 내려받기와 설치
 
-설치 파일은 이 저장소의 [릴리스](https://github.com/BlackBuddle/claude-tool-page/releases/latest)에서 받아요. 최신 판은 **0.4.2**이고 파일 이름은 `ClaudeTool-Setup-0.4.2.exe`예요(약 125MB).
+설치 파일은 이 저장소의 [릴리스](https://github.com/BlackBuddle/claude-tool-page/releases/latest)에서 받아요. 최신 판은 **0.4.3**이고 파일 이름은 `ClaudeTool-Setup-0.4.3.exe`예요(약 125MB).
 
-0.4.1 이하를 쓰고 있다면 0.4.2는 **이번 한 번만 직접** 받아 같은 위치에 덮어 설치하세요. 0.4.2부터는 앱이 새 판을 알려 줘요([업데이트](#업데이트)). 데이터 폴더는 그대로 남아요.
+0.4.2를 쓰고 있다면 앱이 새 판을 알려 줘요. **받기**와 **다시 시작해서 설치**만 누르면 돼요([업데이트](#업데이트)). 0.4.1 이하는 업데이트 기능이 없어서 **이번 한 번만 직접** 받아 같은 위치에 덮어 설치하세요. 데이터 폴더는 그대로 남아요.
 
 ### 내려받는 곳과 확인
 
 - **이 저장소의 릴리스에서만** 받으세요. 같은 이름으로 다른 곳에서 받은 파일은 위조일 수 있으니 실행하지 마세요.
-- 받은 파일이 맞는지 SHA-256 값으로 확인할 수 있어요. 0.4.2의 값은 `0d369f5d01fec69c8962416447b87e636893eb2131062cd758c8e307344b0e9b`이고 PowerShell에서 `Get-FileHash .\ClaudeTool-Setup-0.4.2.exe -Algorithm SHA256`로 구해 비교해요.
+- 받은 파일이 맞는지 SHA-256 값으로 확인할 수 있어요. 0.4.3의 값은 `SHA256-자리-0.4.3`이고 PowerShell에서 `Get-FileHash .\ClaudeTool-Setup-0.4.3.exe -Algorithm SHA256`로 구해 비교해요.
 - 설치 파일에는 코드 서명이 없어서 처음 실행할 때 Windows SmartScreen 경고가 뜰 수 있어요. 위 확인을 마쳤다면 **추가 정보 → 실행**을 누르세요.
 
 ### 설치 순서
 
-1. 받은 `ClaudeTool-Setup-0.4.2.exe`를 실행해요.
+1. 받은 `ClaudeTool-Setup-0.4.3.exe`를 실행해요.
 2. 라이선스 화면에서 내용을 읽고 동의해요.
 3. 설치 위치를 정해요. 기본은 `D:\Programs\ClaudeTool`이에요(D 드라이브가 없으면 Windows의 기본 위치예요). 사용자별 설치라 관리자 권한은 필요 없어요.
 4. 설치가 끝나면 시작 메뉴의 **ClaudeTool**을 실행해요. 바탕화면 바로가기는 만들지 않아요.
@@ -452,7 +452,7 @@ AI에게 부탁해서 만들 수 있어요. 규칙만 모은 [AI로 만들 때 �
 
 ## AI로 만들 때 쓰는 규칙
 
-캐릭터나 플러그인을 AI에게 부탁할 때는 아래 규칙을 펼쳐서 복사해 건네세요. 앱이 실제로 받아들이는 형식과 한도만 적었어요. 예제 코드와 오류 문구까지 든 전체 안내는 설정 창 캐릭터 탭·플러그인 탭 제목 줄의 **📄 만드는 법(.md) 받기**로 받아요. 이 규칙은 0.4.1 기준이에요. 이미 만든 플러그인을 고칠 때는 플러그인 탭의 **📄 엔진 패치 내역(.md) 받기**도 함께 건네세요.
+캐릭터나 플러그인을 AI에게 부탁할 때는 아래 규칙을 펼쳐서 복사해 건네세요. 앱이 실제로 받아들이는 형식과 한도만 적었어요. 예제 코드와 오류 문구까지 든 전체 안내는 설정 창 캐릭터 탭·플러그인 탭 제목 줄의 **📄 만드는 법(.md) 받기**로 받아요. 캐릭터 규칙은 0.4.1 기준이고 플러그인 규칙은 0.4.3 기준이에요. 이미 만든 플러그인을 고칠 때는 플러그인 탭의 **📄 엔진 패치 내역(.md) 받기**도 함께 건네세요.
 
 ### 캐릭터 규칙
 
@@ -580,7 +580,7 @@ mochi/
 **성격**
 
 - 플러그인은 보이지 않는 창에서 도는 **브라우저용 JavaScript(ES 모듈)**예요. `require`·`fs`·`process`는 없고 Node 프로그램이 아니에요.
-- 앱과는 전역 `claudetool`로만 이야기해요. 파일 시스템·다른 플러그인·앱 화면 내용에는 닿지 못해요.
+- 앱과는 전역 `claudetool`로만 이야기해요. 파일 시스템·다른 플러그인·앱 화면 내용에는 닿지 못해요. 다만 사용자가 허락한 `files`(고른 폴더 안의 파일)·`run`(허락한 프로그램)·`open-app`(파일·앱 열기) 권한은 앱을 거쳐 닿아요.
 - 켠 플러그인마다 메모리를 약 70MB 더 써요.
 
 **폴더와 파일**
@@ -609,9 +609,11 @@ my-timer/
 | `version` | 필수. `"1.0.0"`처럼 숫자 셋, 20자까지 |
 | `apiVersion` | 필수. `2` |
 | `author` · `description` | 선택. 한 줄 글 1~40자 · 1~200자 |
-| `permissions` | 선택. `bubble` `pet` `windows` `events` `inbound` `session` `secrets` `notify` `open-link` `clipboard-write` `hooks` 중에서 같은 것을 두 번 쓰지 않아요. `session`은 `inbound`와 함께 적어요. `hooks`는 아래 `hooks` 칸과 함께 적어요. |
+| `permissions` | 선택. `bubble` `pet` `windows` `events` `inbound` `session` `secrets` `notify` `open-link` `clipboard-write` `hooks` `ai` `run` `files` `open-app` 중에서 같은 것을 두 번 쓰지 않아요. `session`은 `inbound`와 함께 적어요. `hooks`·`run`·`files`는 아래 같은 이름의 칸과 함께 적어요. |
 | `network` | 선택. 주소 20개까지(아래 규칙) |
-| `hooks` | 선택. `{ "claude": ["Stop", "Notification"] }`처럼 받을 Claude Code 이벤트를 적어요. 이벤트는 `PreToolUse:AskUserQuestion` `PermissionRequest` `Notification` `Stop` `StopFailure` `UserPromptSubmit` 6종에서 1~6개를 중복 없이 골라요. 모르는 대상은 버려요. `permissions`의 `hooks`와 이 칸은 둘 다 적거나 둘 다 빼요. |
+| `hooks` | 선택. `{ "claude": ["Stop", "Notification"] }`처럼 받을 이벤트를 대상별로 적어요. 대상은 `claude`(Claude Code)와 `codex`(Codex CLI)이고 하나 이상 적어요. `claude`의 이벤트는 `PreToolUse:AskUserQuestion` `PermissionRequest` `Notification` `Stop` `StopFailure` `UserPromptSubmit` 6종에서 1~6개를 중복 없이 골라요. `codex`는 `["agent-turn-complete"]` 하나만 돼요. 모르는 대상은 버려요. `permissions`의 `hooks`와 이 칸은 둘 다 적거나 둘 다 빼요. |
+| `run` | 선택. 프로그램 **이름** 배열(`["git", "npm"]`, 1~10개, 영문 소문자로 시작하고 소문자·숫자·`.`·`+`·`_`·`-` 32자까지, 경로는 안 돼요) 또는 `"shell"`. `permissions`의 `run`과 이 칸은 둘 다 적거나 둘 다 빼요. |
+| `files` | 선택. 폴더 선언 `{ "key", "why", "write"?, "watch"? }`의 배열, 1~5개. `key`는 영문 소문자로 시작하고 소문자·숫자·`-` 40자까지(중복 불가), `why`는 한 줄 글 1~100자(동의 창에 그대로 보여요), `write`·`watch`는 기본 `false`예요. 폴더 경로는 적지 않고 사용자가 설정 창에서 골라요. `permissions`의 `files`와 이 칸은 둘 다 적거나 둘 다 빼요. |
 | `signals` | 선택. `[{ "id", "name" }]` 20개까지. id는 영문 소문자로 시작하고 소문자·숫자·`-`, 40자까지 |
 | `settings` | 선택. 키 → 칸 정의, 20칸까지. 키는 영문 소문자로 시작하고 영문·숫자·`_`만, 40자까지 |
 | `ui.panel` | 선택. `.html` 경로 |
@@ -637,10 +639,14 @@ my-timer/
 | `notify` | Windows 알림을 띄워요 | `notify.show` `notify.on` |
 | `open-link` | 사용자가 누른 링크를 브라우저로 열어요 | `actions` 카드 버튼의 `openUrl`(`bubble`과 함께 적어요) |
 | `clipboard-write` | 글을 클립보드에 복사해요 | `clipboard.writeText` |
-| `hooks` | Claude Code 설정(settings.json)에 알림 훅을 넣어요(먼저 백업하고, 끄면 빼요): claude | `hooks.on` |
+| `hooks` | Claude Code 설정(settings.json)에 알림 훅을 넣어요(먼저 백업하고, 끄면 빼요): claude. `codex`를 선언하면 줄이 하나 더 보여요: Codex CLI 설정(config.toml)에 알림 명령을 넣어요(먼저 백업하고, 끄면 빼요) | `hooks.on` |
+| `ai` | 앱에 연결한 AI 모델을 써요(사용량·예산은 설정 창에서 봐요) | `ai.chat` `ai.cancel` `ai.on` |
+| `run` | 이 PC에서 프로그램을 실행해요: git, npm(`"shell"`이면 이 PC에서 명령(PowerShell·cmd)을 실행해요) | `run.exec` |
+| `files` | 사용자가 고른 폴더를 읽어요(쓰기 키가 하나라도 있으면 사용자가 고른 폴더를 읽고 써요) | `files.read` `files.list` `files.stat` `files.write` `files.watch` |
+| `open-app` | 파일·앱을 기본 프로그램으로 열어요 | `openApp.open` |
 
 - **이 표에 있는 권한만 이 앱에서 동작해요. 표에 없는 권한을 새로 만들어 넣지 마세요.** 플러그인만으로는 새 기능을 만들 수 없어요. 앱이 모르는 권한을 적어도 설치는 되지만 동의 창에 "이 앱 판에서는 아직 못 쓰는 권한" 줄로 보이고 그 기능은 동작하지 않아요. 앱 새 판이 그 권한을 알게 되면 플러그인은 계속 돌고 사용자가 `새 권한 허락하기`로 그 권한만 허락해요.
-- 앱에 없는 기능이 필요하면 사용자가 직접 설치한 도우미 프로그램이 그 일을 하고 플러그인은 `network`(`http://127.0.0.1:포트`를 콕 집어 선언)나 `inbound`로 주고받게 해요. 아니면 그 기능이 들어간 앱 새 판을 기다려요(제작자에게 요청할 수 있어요).
+- 앱에 없는 기능이 필요하면 `run` 권한으로 허락받은 프로그램에 맡기거나(실행할 때마다 승인 카드가 떠요) 사용자가 직접 설치한 도우미 프로그램이 그 일을 하고 플러그인은 `network`(`http://127.0.0.1:포트`를 콕 집어 선언)나 `inbound`로 주고받게 해요. 아니면 그 기능이 들어간 앱 새 판을 기다려요(제작자에게 요청할 수 있어요).
 - 더 새 판의 권한을 쓰는 API는 `if (claudetool.session) { … }`처럼 있는지 먼저 확인하고 호출은 try/catch로 감싸요.
 - 권한 없이 되는 것은 설정 값 읽기, 자기 저장 공간, 선언한 캐릭터 신호 내기, 로그, 로직↔화면 메시지, 브라우저 타이머예요.
 - `network` 항목은 `"https://example.com"`처럼 스킴과 호스트(와 포트)만 쓴 주소거나 `"*"`예요. 경로·쿼리는 못 써요. 스킴은 `http` `https`(`net.fetch`용)와 `ws` `wss`(WebSocket용)예요.
@@ -672,6 +678,10 @@ my-timer/
 | 카드 버튼의 `openUrl` | `open-link` | `https` 주소만, 2048자까지. 사용자가 누를 때만 열려요 |
 | `clipboard.writeText(text)` | `clipboard-write` | 글 1~10000자. 읽는 API는 없어요 |
 | `hooks.on(cb)` | `hooks` | 아래 "새 권한 5개". 권한이 없으면 그 자리에서 던져요 |
+| `ai.chat(req)` · `ai.cancel({ streamId })` · `ai.on(cb)` | `ai` | 아래 "AI와 행동 권한 4개". `chat`은 `{ text, toolCalls, usage, stop }`을 줘요. `on`은 권한이 없으면 그 자리에서 던져요 |
+| `run.exec({ program, args, command, shell, input, cwd, timeoutMs })` | `run` | 아래 "AI와 행동 권한 4개". 결과는 `{ code, stdout, stderr, timedOut, truncated }` |
+| `files.read` `list` `stat` `write` `watch` | `files` | 아래 "AI와 행동 권한 4개". `plugin.json`의 폴더 키로 가리키는, 사용자가 고른 폴더 안만 다뤄요 |
+| `openApp.open({ path })` | `open-app` | 아래 "AI와 행동 권한 4개". 성공하면 값이 없어요 |
 
 - 모든 메서드는 Promise이고 거절하면 한국어 이유가 담긴 `Error`예요. `on…` 등록 함수는 구독을 끊는 함수를 돌려줘요. `events.on`·`inbound.on`은 권한이 없으면 그 자리에서 던져요.
 - 함수·`Symbol`·`window`는 보낼 수 없어요. DOM 요소와 `Event`는 거의 빈 객체로 바뀌어 넘어가니 필요한 값만 꺼내 넘겨요. 값 하나가 약 2MB를 넘거나 호출이 1초에 100번을 넘으면 앱으로 보내기 전에 거절해요.
@@ -706,6 +716,10 @@ my-timer/
 | 알림 | 분당 6 |
 | 링크 열기 | 분당 10(버튼을 눌렀을 때 세요) |
 | 클립보드 쓰기 | 분당 10 |
+| AI 호출(`ai.chat`) | 분당 20·동시에 4개·한 호출 10분(로컬 서버는 첫 응답까지 30초) |
+| 프로그램 실행(`run.exec`) | 분당 20·동시에 2개·출력 각 1MB |
+| 파일 읽기(읽기·목록·정보·감시 시작) · 파일 쓰기 | 분당 120 · 분당 30(동시에 4개) |
+| 앱 열기(`openApp.open`) | 분당 10(거절·실패한 호출도 세요) |
 | 훅 소식 | 분당 60(`inbound`와 따로 세요), 64KB |
 | 로그 | 분당 60줄, 한 줄 2000자 |
 | 메시지(`send`) | 한 번에 64KB |
@@ -738,6 +752,18 @@ my-timer/
 - **`clipboard-write`:** `await claudetool.clipboard.writeText('복사할 글')`. 사용자의 클릭 없이도 클립보드를 바꿀 수 있으니 비밀·개인정보를 넣지 않아요. 사용자가 요청했을 때(버튼을 눌렀을 때 등)만 쓰고 복사했다고 알려요.
 - **`hooks`:** `permissions`의 `hooks`와 `hooks` 칸(`{ "claude": ["Stop", "Notification"] }`)을 함께 적어요. 사용자가 연결을 허락하면 앱이 Claude Code 설정에 훅을 넣고 선언한 이벤트의 소식만 전달해요. 플러그인 코드는 설정 파일에 닿지 못해요. 다른 프로그램의 설정을 고치는 권한이라 동의 창이 따로 묶어 "주의"로 보여요. `main.js` 맨 위에서 `claudetool.hooks.on((message) => …)`로 받아요. `message`는 `{ type, data }`이고 `type`은 `ask` `permission` `notification` `stop` `stop-failure` `prompt` 중 하나, `data`는 `{ v: 1, event, reason?, title, text, toolUseId?, claudeSession? }`예요. 받은 글(`text`)에는 비밀이 들 수 있으니 로그·저장·알림에 그대로 남기지 않아요. 전달은 보장하지 않아요. `session` 권한은 여전히 `inbound`와 함께 적어요.
 
+**AI와 행동 권한 4개(0.4.3부터)**
+
+쓰려면 `permissions`에 그 권한을 더하고 업데이트 때 동의 창이 다시 물어요. 네 권한 모두 동의 창의 "주의" 묶음에 보여요. 0.4.2 이하 앱은 이 권한을 모르는 권한으로 두고 그 기능만 동작하지 않으니 `if (claudetool.ai) { … }`처럼 있는지 먼저 확인해요.
+
+- **`ai`:** `await claudetool.ai.chat({ messages, tools, maxTokens, temperature, streamId })`는 설정 창에서 사용자가 고른 AI(Claude Code·Anthropic API 키·OpenAI 호환 서버)에 글을 보내고 `{ text, toolCalls, usage, stop }`을 줘요. 어느 서버로 가는지는 플러그인이 정하지 않아요. `messages`는 1~100개이고 `role`은 `system` `user` `assistant` `tool`이며 글만 돼요. 한 메시지 64KB·합계 256KB까지예요. `tools`는 20개까지이고 이름은 `^[a-z][a-z0-9_]{0,63}$`·설명 500자·입력 스키마는 `type`이 `"object"`인 JSON 스키마 8KB까지예요. `maxTokens`는 1~4096·`temperature`는 0~1·`streamId`는 소문자·숫자·`-` 1~40자예요. `stop`은 `end` `tool_calls` `max_tokens` `cancelled` 중 하나예요. 도구 호출이 오면(`stop: 'tool_calls'`) 도구를 실행해 `{ role: 'tool', toolCallId, content }`로 대화에 이어 붙이고 다시 `chat`을 불러요. 도구 호출은 API 키 방식과 OpenAI 호환 방식만 되고 Claude Code 방식에 `tools`를 보내면 거절해요. 월 토큰 예산은 API 방식만 보고 사용자가 정하지 않았으면 거절해요. `system` 글은 짧게 써요(Claude Code 방식은 명령줄로 넘겨서 긴 글은 실패할 수 있어요). `ai.on(({ streamId, text }) => …)`은 `streamId`를 준 호출의 글 조각을 화면에 바로 보여 주는 용도이고 `ai.cancel({ streamId })`는 그 호출을 멈춰요. 비밀(토큰·키·개인 정보)은 AI 메시지에 넣지 않아요. 보내는 글은 사용자가 고른 서버로 가요.
+- **`run`:** `permissions`의 `run`과 `run` 칸(`["git", "npm"]` 또는 `"shell"`)을 함께 적어요. `await claudetool.run.exec({ program: 'git', args: ['status'] })`처럼 선언한 프로그램만 돌려요. `"shell"`을 선언했으면 `{ command, shell: 'powershell' }`(또는 `'cmd'`)도 돼요. `args`는 64개까지·하나에 4096자까지이고 셸을 거치지 않아 그대로 넘어가요. `npm` 같은 `.cmd` 프로그램은 인자에 `"`·`%`·줄바꿈이 있으면 거절해요. `input`(표준 입력)은 64KB까지이고 `cwd`는 `'data'`(기본 이 플러그인 전용 작업 폴더)나 `'picked:<키>'`(`files`로 사용자가 고른 폴더)이며 `timeoutMs`는 1000~600000(기본 60000)이에요. `stdout`·`stderr`는 각 1MB까지이고 넘으면 자르고 `truncated: true`예요. 환경 변수는 사용자 환경 그대로이고 앱 내부 값만 빠져요. 내 계정 권한으로 프로그램을 돌리는 권한이에요.
+- **`files`:** `permissions`의 `files`와 `files` 칸을 함께 적어요. 폴더는 설치한 뒤 사용자가 설정 창 플러그인 카드의 **폴더 고르기**로 키마다 골라요. 고르기 전에는 그 키의 API가 거절해요. `files.read({ key, path })`는 글 1MB까지(`encoding: 'base64'`도 돼요)·`files.list({ key, path, depth })`는 깊이 1~3에 2000개까지·`files.stat({ key, path })`·`files.write({ key, path, text })`는 `write: true` 키만 1MB까지예요. `await claudetool.files.watch({ key }, ({ path, change }) => …)`는 `watch: true` 키만 되고 끊는 함수를 줘요. 소식(`change` `rename` `many`)은 유실될 수 있는 힌트라 바뀌었다는 것만 믿고 내용은 다시 읽어요. `path`는 고른 폴더 기준 상대 경로이고 폴더 밖(`..`·절대 경로·링크로 나가는 경로)은 거절해요. 업데이트로 키를 더하거나 읽기 키를 쓰기 키로 바꾸면 동의 창이 다시 떠요.
+- **`open-app`:** `permissions`에 `open-app`만 적어요(선언 칸이 없어요). `await claudetool.openApp.open({ path: 'D:\\문서\\보고서.pdf' })`나 `{ path: 'picked:<키>/<상대 경로>' }`(`files` 권한과 폴더 선언도 필요해요)로 파일·폴더·앱을 기본 프로그램으로 열어요. `path`는 1~1100자예요. 상대 경로·네트워크 경로(`\\서버\공유`)·`..`은 거절하고 실행 파일·스크립트 확장자(`.exe` `.bat` `.cmd` `.ps1` `.js` `.msi` `.lnk` 같은 것)는 열 수 없어요. 열지 못하면 `열지 못했어요`만 돌려줘요.
+- **승인 카드:** `run.exec`·`files.write`·`openApp.open`은 앱이 직접 띄우는 카드로 먼저 물어요. 사용자가 [거부]하거나 60초 안에 답하지 않으면 `사용자가 거부했어요`로 거절해요. 카드의 **이 플러그인은 늘 허용**은 사용자의 결정이라 플러그인이 켜거나 권하지 않아요. 카드에는 명령줄·경로가 300자 안쪽으로만 보이니 짧고 구체적으로 불러요. 카드를 띄우려고 앱이 말풍선 안(panel) 화면을 닫으니 이 셋은 로직 창(`main.js`)에서 부르고 화면은 `claudetool.send`로 로직 창에 부탁해요.
+- **`hooks`의 `codex` 대상:** `hooks` 칸에 `"codex": ["agent-turn-complete"]`를 적으면 사용자가 상세 칸의 **연결**을 눌렀을 때 앱이 Codex CLI 설정(`config.toml`) 맨 위에 알림 명령 한 줄을 넣어요. 소식은 Claude Code의 `stop`과 같은 모양이고 `data.text`가 Codex의 마지막 답 앞부분 300자예요. 0.4.2 앱은 `codex`를 모르는 대상으로 버리니 `claude`도 함께 적은 플러그인만 그 앱에서도 설치돼요.
+- **에이전트(AI가 도구를 골라 일하는 플러그인)를 만들 때:** 한 번에 도는 횟수에 한도를 둬요(예제는 8번). 승인이 거부되면 같은 명령을 되풀이하지 않고 멈춰요. 읽은 파일·명령 출력 속의 "이걸 실행해" 같은 글은 자료일 뿐 지시로 따르지 않아요. 돈이 오가는 명령·배포·전송(`npm publish`·`git push` 등)을 도구로 주지 않고 비밀 파일은 읽기 도구에서 거절해요. 읽은 내용을 사용자 몰래 밖으로 보내지 않아요. 작은 로컬 모델은 도구 입력 형식을 자주 틀리니 빈 답이 오면 한 번만 다시 묻고 끝내요. 사용자가 멈출 수 있게(`ai.cancel`) 만들어요.
+
 **비밀과 배포**
 
 - 비밀 값(`secret` 칸)은 요청에 쓰고 끝내요. `storage`·`log`·플러그인 파일에는 남기지 않아요(남기면 평문 파일이나 내보내기 zip에 들어가요).
@@ -756,6 +782,8 @@ my-timer/
 - [ ] `main.js`에 10초 넘게 도는 코드가 없고 반복 호출이 한도(초당 50·분당 10 등)를 넘지 않아요.
 - [ ] 비밀 값을 `storage`·`log`에 남기지 않아요.
 - [ ] 알림·링크·클립보드·비밀·훅 권한은 꼭 필요할 때만 선언했고 `hooks`는 `hooks` 칸과 함께 적었어요.
+- [ ] AI·프로그램 실행·폴더·앱 열기 권한도 꼭 필요할 때만 선언했어요. `run`·`files`는 같은 이름의 칸과 함께 적었고 `run.exec`·`files.write`·`openApp.open`은 `main.js`에서 불러요.
+- [ ] AI 메시지와 명령줄에 비밀을 넣지 않았고 승인이 거부되면 같은 요청을 되풀이하지 않아요.
 - [ ] zip에는 허용 파일만 담았어요.
 
 **예시**
@@ -1051,7 +1079,7 @@ ClaudeTool 개인 사용 라이선스 v1.0이에요. 전문은 [LICENSE](LICENSE
 
 ClaudeTool is an unofficial desktop pet for Windows 10/11 that roams your screen. Click it to see your Claude usage, or press `Ctrl+Alt+K` to ask a question and read the answer in a speech bubble (through a logged-in Claude Code by default, or an Anthropic API key, or from 0.4.3 an OpenAI-compatible server such as Ollama or LM Studio at an address you enter). You can design your own characters, tune how the pet moves, and add features with sandboxed plugins imported as `.zip` files.
 
-- **Download:** the latest version is 0.4.2 (`ClaudeTool-Setup-0.4.2.exe`, about 125 MB) in this repository's [Releases](https://github.com/BlackBuddle/claude-tool-page/releases/latest) (Windows 10/11 x64, per-user install, no admin rights needed). Check the SHA-256 value given above before you run it. The installer is not code-signed, so Windows SmartScreen may show a warning. If you use 0.4.1 or older, install 0.4.2 over it yourself once in the same folder (your data folder is kept); from 0.4.2 on, the app announces new versions. Node.js is bundled, so you do not need to install it.
+- **Download:** the latest version is 0.4.3 (`ClaudeTool-Setup-0.4.3.exe`, about 125 MB) in this repository's [Releases](https://github.com/BlackBuddle/claude-tool-page/releases/latest) (Windows 10/11 x64, per-user install, no admin rights needed). Check the SHA-256 value given above before you run it. The installer is not code-signed, so Windows SmartScreen may show a warning. If you use 0.4.2, the app announces the new version and you only press **받기** (Download) and **다시 시작해서 설치** (Restart and install); 0.4.1 or older has no update feature, so install 0.4.3 over it yourself once in the same folder (your data folder is kept). Node.js is bundled, so you do not need to install it.
 - **New-version check (new in 0.4.2):** in an app installed with the installer, a speech bubble first tells you about the check, and if you accept it the app checks `github.com` for the latest release one minute after each start and every 24 hours while it stays open. Downloading (about 125 MB) and installing happen only when you press **받기** (Download) and **다시 시작해서 설치** (Restart and install), and the installer is installed only if it matches the sha512 hash in `latest.yml`. It is not code-signed, so the hash only guards against damage or tampering in transit. Installing takes about a minute during which the app is not visible; if it fails, an English error box may appear and the old version stays. You can turn the check off in Settings › General.
 - **Start with Windows (new in 0.4.2):** off by default; Settings › General or the tray menu writes one registry `Run` entry for the current user. Turn it off before uninstalling.
 - **Claude Code notifications (0.4.1, one-button connection in 0.4.2):** the `claude-notify` plugin and the `choux-notify` character make the pet tell you when Claude Code asks a question, waits for approval, finishes, or stops on overload, and a button opens that session. Import both `.zip` files from the release and press **연결** (Connect) on the plugin card, or answer the question that appears right after installing; the app backs up Claude Code's `settings.json` and then adds only that plugin's hooks, and the hooks send only to `127.0.0.1` on this PC. Disconnect with **끊기** or by turning off or deleting the plugin; how to remove leftover hooks (with the setup helper while the app is installed, or by editing `settings.json` by hand after the app is deleted) is described under "훅이 남았을 때 지우기".
