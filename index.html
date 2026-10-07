@@ -981,6 +981,27 @@ html.page-hidden .ib *, html.page-hidden .ib *::before, html.page-hidden .ib *::
 .make-steps b { display: block; font-size: 16px; line-height: 1.4; }
 .make-steps span { display: block; margin-top: 4px; font-size: 14.5px; line-height: 1.6; color: var(--ink-soft); }
 
+/* 예제 플러그인 묶음: 카드마다 캐릭터 choux-desk의 몸짓 한 칸을 보인다. images/plugin-pack.png는 240×192 칸(칸당 6px) 4×2 투명 스프라이트이고,
+   한 칸을 120×96(앱의 실제 펫 크기)으로 잘라 그린다. --c·--r은 스프라이트의 열·행이다. 도트가 흐려지지 않게 pixelated로 그린다. */
+.pack-grid {
+  list-style: none; margin: 28px 0 0; padding: 0;
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 240px), 1fr)); gap: 14px;
+}
+.pack-card { padding: 14px 16px 16px; border: 1px solid var(--rule); border-radius: var(--radius-m); background: var(--surface); }
+.pack-art { display: grid; place-items: center; height: 112px; margin-bottom: 12px; border-radius: 8px; background: var(--bg); }
+.pack-art::before {
+  content: ""; width: 120px; height: 96px;
+  background: url("images/plugin-pack.png") no-repeat calc(var(--c) * -120px) calc(var(--r) * -96px) / 480px 192px;
+  image-rendering: pixelated;
+}
+.pack-card b { display: block; font-size: 16px; line-height: 1.4; }
+.pack-card b code { font-weight: 400; white-space: nowrap; }
+.pack-card p { margin: 4px 0 0; font-size: 14.5px; line-height: 1.6; }
+.pack-card .pack-need { margin-top: 10px; padding-top: 8px; border-top: 1px dashed var(--rule); color: var(--ink-soft); }
+.pack-need strong { color: var(--ink); font-weight: 650; }
+.pack-get { margin-top: 28px; }
+.pack-get h3 { margin: 0; font-size: var(--step-2); line-height: 1.25; }
+
 /* 쓴 기술 */
 .table-wrap { margin-top: 28px; overflow-x: auto; }
 .stack { width: 100%; border-collapse: collapse; font-size: 15.5px; }
@@ -1215,6 +1236,7 @@ html:not(.motion) .mini-pet { display: none; }
         <li><a class="navlink" href="#screens">화면</a></li>
         <li><a class="navlink" href="#how">동작 방식</a></li>
         <li><a class="navlink" href="#plugins">플러그인</a></li>
+        <li><a class="navlink" href="#pack">예제 묶음</a></li>
         <li><a class="navlink" href="#stack">기술</a></li>
         <li><a class="navlink" href="#download">내려받기</a></li>
       </ul>
@@ -1738,6 +1760,82 @@ html:not(.motion) .mini-pet { display: none; }
   </ol>
 </section>
 
+<section class="section" id="pack" aria-labelledby="pack-title">
+  <div class="title-row reveal">
+    <h2 class="section-title" id="pack-title">예제 플러그인 묶음</h2>
+    <span class="status">2026-10</span>
+  </div>
+  <p class="section-lede reveal">캘린더·날씨·유튜브·GitHub·Steam·VS Code·메일·SNS 소식을 펫이 말풍선과 Windows 알림으로 알려 주는 예제 플러그인 8개이고 서로 따로 돌아서 필요한 것만 가져오면 돼요. 카드의 그림은 함께 받는 캐릭터 <code>choux-desk</code>가 그 소식에 하는 몸짓이에요.</p>
+  <!-- 카드 그림은 images/plugin-pack.png 스프라이트의 한 칸(--c 열, --r 행). 스프라이트의 칸 순서는 이 카드 순서와 같다. -->
+  <ul class="pack-grid cv" style="--cis: 700px">
+    <li class="reveal tilt-host"><div class="pack-card tilt">
+      <span class="pack-art" style="--c:0;--r:0" role="img" aria-label="choux-desk의 곧 일정 몸짓. 컴퓨터 화면과 주황 배지에 시계가 뜨고 슈크림빵이 놀란 얼굴을 해요."></span>
+      <b>캘린더 알림 <code>cal-notify</code></b>
+      <p>일정이 곧 시작할 때와 시작할 때, 그리고 아침마다 오늘 일정을 알려요.</p>
+      <p class="pack-need"><strong>필요한 것</strong> 구글·아웃룩 캘린더의 iCal 비공개 주소</p>
+    </div></li>
+    <li class="reveal tilt-host"><div class="pack-card tilt">
+      <span class="pack-art" style="--c:1;--r:0" role="img" aria-label="choux-desk의 비 소식 몸짓. 화면과 하늘색 배지에 우산이 뜨고 슈크림빵이 땀을 흘리며 걱정해요."></span>
+      <b>날씨 알림 <code>weather-notify</code></b>
+      <p>비·초미세먼지·더위·추위를 알리고 아침마다 날씨를 요약해요.</p>
+      <p class="pack-need"><strong>필요한 것</strong> 도시 이름 하나(계정·키 없이 Open-Meteo 날씨를 써요)</p>
+    </div></li>
+    <li class="reveal tilt-host"><div class="pack-card tilt">
+      <span class="pack-art" style="--c:2;--r:0" role="img" aria-label="choux-desk의 영상 찾음 몸짓. 화면과 빨간 배지에 재생 표시가 뜨고 슈크림빵이 놀란 얼굴을 해요."></span>
+      <b>유튜브 검색·새 영상 <code>yt-search</code></b>
+      <p>펫에게 유튜브 검색을 시키고 구독 채널에 새 영상이 올라오면 알려요.</p>
+      <p class="pack-need"><strong>필요한 것</strong> 검색에 쓰는 YouTube Data API 키(무료)</p>
+    </div></li>
+    <li class="reveal tilt-host"><div class="pack-card tilt">
+      <span class="pack-art" style="--c:3;--r:0" role="img" aria-label="choux-desk의 CI 실패 몸짓. 화면이 빨갛게 바뀌고 배지에 X 표시와 연기가 뜨며 슈크림빵이 땀을 흘리며 걱정해요."></span>
+      <b>GitHub 알림 <code>github-notify</code></b>
+      <p>리뷰 요청·멘션·CI 실패·PR 병합을 알리고 말풍선 버튼으로 그 페이지를 열어요.</p>
+      <p class="pack-need"><strong>필요한 것</strong> GitHub 개인 액세스 토큰(classic)</p>
+    </div></li>
+    <li class="reveal tilt-host"><div class="pack-card tilt">
+      <span class="pack-art" style="--c:0;--r:1" role="img" aria-label="choux-desk의 세일 몸짓. 화면과 파란 배지에 퍼센트 표시가 뜨고 슈크림빵이 놀란 얼굴을 해요."></span>
+      <b>Steam 알림 <code>steam-notify</code></b>
+      <p>친구가 접속하거나 게임을 시작할 때, 위시리스트 게임이 할인할 때 알려요.</p>
+      <p class="pack-need"><strong>필요한 것</strong> Steam Web API 키, SteamID64, 친구 목록·위시리스트 공개</p>
+    </div></li>
+    <li class="reveal tilt-host"><div class="pack-card tilt">
+      <span class="pack-art" style="--c:1;--r:1" role="img" aria-label="choux-desk의 오류 참견 몸짓. 화면과 빨간 배지에 벌레가 뜨고 슈크림빵이 땀을 흘리며 걱정해요."></span>
+      <b>IDE 코딩 참견 <code>ide-buddy</code></b>
+      <p>VS Code에서 저장·오류·테스트·오래 쉼에 한 줄씩 참견해요. 인터넷으로는 아무것도 보내지 않아요.</p>
+      <p class="pack-need"><strong>필요한 것</strong> VS Code 1.90 이상과 함께 받는 확장(.vsix)</p>
+    </div></li>
+    <li class="reveal tilt-host"><div class="pack-card tilt">
+      <span class="pack-art" style="--c:2;--r:1" role="img" aria-label="choux-desk의 중요 메일 몸짓. 화면이 빨갛게 바뀌고 화면과 배지에 느낌표가 뜨며 슈크림빵이 놀란 얼굴을 해요."></span>
+      <b>메일 알림 <code>mail-notify</code></b>
+      <p>Gmail·Outlook에 새로 온 안 읽은 메일과 중요 메일을 알리고 하루 한 번 요약해요. 본문은 읽지 않아요.</p>
+      <p class="pack-need"><strong>필요한 것</strong> Gmail 또는 Outlook 연결 준비(순서는 안내서에 있어요)</p>
+    </div></li>
+    <li class="reveal tilt-host"><div class="pack-card tilt">
+      <span class="pack-art" style="--c:3;--r:1" role="img" aria-label="choux-desk의 좋아요 몸짓. 화면과 분홍 배지에 하트가 뜨고 슈크림빵이 놀란 얼굴을 해요."></span>
+      <b>SNS 알림 <code>sns-notify</code></b>
+      <p>Instagram·Threads의 좋아요·댓글·새 팔로워·DM·언급을 알려요.</p>
+      <p class="pack-need"><strong>필요한 것</strong> 안드로이드 폰과 MacroDroid(폰 알림을 ntfy로 넘겨요), 또는 프로 계정과 Meta 개발자 앱 토큰</p>
+    </div></li>
+  </ul>
+
+  <div class="dl pack-get reveal cv" style="--cis: 380px">
+    <div>
+      <h3 id="pack-get-title">받기</h3>
+      <p class="dl-ver">플러그인 8개와 캐릭터 하나 · ClaudeTool 0.4.2 이상</p>
+      <div class="dl-actions">
+        <a class="btn btn-solid lift" href="https://github.com/BlackBuddle/claude-tool-page/releases/tag/plugins-2026-10">플러그인 묶음 받기</a>
+        <a class="btn btn-line lift" href="https://github.com/BlackBuddle/claude-tool-page/blob/main/plugins/README.md">설치 안내서</a>
+      </div>
+      <p class="dl-note">릴리스에서 쓸 플러그인의 zip과 캐릭터 zip(choux-desk-pack.zip)을 받아 설치할 때 동의 창에 보이는 권한과 접속 주소가 안내서의 목록과 같은지 확인하고 목록에 없는 주소나 권한이 보이면 설치하지 마세요.</p>
+    </div>
+    <ul class="dl-req" aria-label="가져오기와 알아 둘 것">
+      <li><b>가져오기</b>플러그인 zip은 설정 창 › 플러그인의 “＋ 가져오기(.zip)”로, 캐릭터 zip은 설정 창 › 캐릭터의 “가져오기(.zip)”로 가져와요. 카드가 “실행 중”이 되면 상세 칸에 키·토큰·주소를 넣어요.</li>
+      <li><b>캐릭터 choux-desk</b>책상 앞 슈크림빵이 신호 동작 36개로 소식마다 다른 몸짓을 해요. 한 번 가져오면 8개 플러그인이 함께 쓰고 다른 캐릭터를 써도 말풍선과 Windows 알림은 그대로 와요(몸짓만 빠져요).</li>
+      <li><b>키와 토큰</b>저장한 뒤에는 다시 보이지 않고 앱의 안전 저장소에만 둬요. 연결이 실패해도 주소에 든 값을 앱 로그에 남기지 않는 보호는 ClaudeTool 0.4.3부터라서 0.4.2에서는 그 값이 로그에 남을 수 있어요.</li>
+    </ul>
+  </div>
+</section>
+
 <section class="section" id="stack" aria-labelledby="stack-title">
   <h2 class="section-title reveal" id="stack-title">쓴 기술</h2>
   <div class="table-wrap reveal cv" style="--cis: 600px">
@@ -2130,6 +2228,7 @@ html:not(.motion) .mini-pet { display: none; }
     screens: '설정 창은 이렇게 생겼어요.',
     how: '어떻게 도는지 그림으로 볼까요?',
     plugins: '플러그인으로 기능을 더해요!',
+    pack: '일정·날씨·메일 소식도 알려 줘요.',
     stack: 'Electron과 TypeScript로 만들었어요.',
     process: '설계 → 계획 → 구현 → 리뷰!',
     download: 'Windows 10·11에서 돌아요.',
@@ -2220,7 +2319,7 @@ html:not(.motion) .mini-pet { display: none; }
     }
     wake();
   }, { rootMargin: '-45% 0px -50% 0px' });
-  for (const id of ['top', 'features', 'screens', 'how', 'plugins', 'stack', 'process', 'download']) spy.observe(document.getElementById(id));
+  for (const id of ['top', 'features', 'screens', 'how', 'plugins', 'pack', 'stack', 'process', 'download']) spy.observe(document.getElementById(id));
 
   // ── 좁은 화면의 상단 메뉴: 링크가 넘치면 아직 가려진 쪽(start·end)을 data-more로 알려 그 가장자리를 흐리게 한다 ──
   const navList = $('.topnav ul');
