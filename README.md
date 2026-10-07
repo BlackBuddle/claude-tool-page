@@ -207,6 +207,23 @@ Claude Code가 질문하거나 승인을 기다리거나 일을 끝내거나 과
   <sub>알림 캐릭터의 기본 상태와 알림 동작 4가지(질문·승인·알림·과부하)</sub>
 </p>
 
+### 플러그인 묶음(2026-10)
+
+캘린더·날씨·유튜브·GitHub·Steam·VS Code·메일·SNS 소식을 펫이 말풍선과 Windows 알림으로 알려 주는 예제 플러그인 8개와 소식마다 다른 몸짓을 보여 주는 캐릭터 `choux-desk`예요. 플러그인은 서로 독립이라 필요한 것만 가져오면 되고 캐릭터는 없어도 알림은 와요. 필요한 판은 **ClaudeTool 0.4.2 이상**이에요. `sns-notify`가 연결 실패 때 로그에 남는 토픽을 가려 주는 보호는 0.4.3부터예요. 서비스마다 키·토큰·주소는 직접 발급해서 설정 창 칸에 넣어요.
+
+- `cal-notify`: 구글·아웃룩 캘린더의 일정이 곧 시작할 때·시작할 때·아침마다 알려요. 캘린더의 iCal 비공개 주소가 필요해요.
+- `weather-notify`: 비·초미세먼지·더위·추위와 아침 날씨 요약을 알려요. 도시 이름만 있으면 되고 계정이나 키는 없어요.
+- `yt-search`: 펫에게 유튜브 검색을 시키고 구독 채널의 새 영상을 알려요. 검색에는 YouTube Data API 키가 필요해요.
+- `github-notify`: 리뷰 요청·멘션·CI 실패·병합을 알려요. GitHub 토큰(classic)이 필요해요.
+- `steam-notify`: 친구 접속·게임 시작과 위시리스트 할인을 알려요. Steam Web API 키와 SteamID64가 필요해요.
+- `ide-buddy`: VS Code에서 저장·오류·테스트·오래 쉼에 펫이 한 줄 참견해요. VS Code 1.90 이상과 확장(`.vsix`)이 필요하고 인터넷으로는 아무것도 나가지 않아요.
+- `mail-notify`: 새 메일·중요 메일·하루 요약을 알려요. Gmail이나 Outlook 연결을 직접 준비해야 해요.
+- `sns-notify`: Instagram·Threads의 좋아요·댓글·팔로워·DM·언급을 알려요. 안드로이드 폰과 MacroDroid로 알림 글을 ntfy에 보내거나(iPhone은 안 돼요), Meta 개발자 앱에서 직접 발급한 토큰이 필요해요.
+
+캐릭터 `choux-desk`는 슈크림빵 책상판이고 이 플러그인들의 알림마다 다른 몸짓 36개가 들어 있어요. VS Code 확장 `ide-buddy-vscode-1.0.0.vsix`는 `ide-buddy`와 함께 써요.
+
+받는 곳은 [플러그인 묶음 릴리스](https://github.com/BlackBuddle/claude-tool-page/releases/tag/plugins-2026-10)예요. 플러그인 zip 8개와 캐릭터 zip, VS Code 확장이 올라와 있어요. 받은 파일은 릴리스 노트의 SHA-256 값과 비교하고 설정 창 › 🧩 플러그인 › **＋ 가져오기(.zip)**로 가져올 때 동의 창의 권한과 주소가 안내서의 목록과 같은지 확인하세요([동의 창 읽는 법](#동의-창-읽는-법)). 서비스별 준비물과 설정, 문제 해결은 [플러그인 묶음 안내서](plugins/README.md)에 있어요.
+
 ### Windows 시작 시 실행
 
 Windows에 로그인할 때 ClaudeTool이 자동으로 켜지게 할 수 있어요. 기본은 **꺼져 있어요.**
@@ -1072,6 +1089,7 @@ ClaudeTool 개인 사용 라이선스 v1.0이에요. 전문은 [LICENSE](LICENSE
 |---|---|
 | [소개 페이지](https://blackbuddle.github.io/claude-tool-page/) | 화면과 기능을 한눈에 보여 주는 페이지(움직임 포함) |
 | [릴리스](https://github.com/BlackBuddle/claude-tool-page/releases) | 설치 파일과 새 판의 변경 내용 |
+| [플러그인 묶음 안내서](plugins/README.md) | 예제 플러그인 8개와 캐릭터 choux-desk의 설치·설정·문제 해결 |
 | [플러그인 공유 공간](https://github.com/BlackBuddle/claude-tool-page/discussions/categories/plugins) | 사람들이 만든 플러그인을 올리고 찾아보는 곳(검토되지 않음) |
 | [LICENSE](LICENSE) | 라이선스 전문(한국어·영어) |
 | [DISCLAIMER.md](DISCLAIMER.md) | 면책조항 |
@@ -1087,6 +1105,7 @@ ClaudeTool is an unofficial desktop pet for Windows 10/11 that roams your screen
 - **New-version check (new in 0.4.2):** in an app installed with the installer, a speech bubble first tells you about the check, and if you accept it the app checks `github.com` for the latest release one minute after each start and every 24 hours while it stays open. Downloading (about 125 MB) and installing happen only when you press **받기** (Download) and **다시 시작해서 설치** (Restart and install), and the installer is installed only if it matches the sha512 hash in `latest.yml`. It is not code-signed, so the hash only guards against damage or tampering in transit. Installing takes about a minute during which the app is not visible; if it fails, an English error box may appear and the old version stays. You can turn the check off in Settings › General.
 - **Start with Windows (new in 0.4.2):** off by default; Settings › General or the tray menu writes one registry `Run` entry for the current user. Turn it off before uninstalling.
 - **Claude Code notifications (0.4.1, one-button connection in 0.4.2):** the `claude-notify` plugin and the `choux-notify` character make the pet tell you when Claude Code asks a question, waits for approval, finishes, or stops on overload, and a button opens that session. Import both `.zip` files from the release and press **연결** (Connect) on the plugin card, or answer the question that appears right after installing; the app backs up Claude Code's `settings.json` and then adds only that plugin's hooks, and the hooks send only to `127.0.0.1` on this PC. Disconnect with **끊기** or by turning off or deleting the plugin; how to remove leftover hooks (with the setup helper while the app is installed, or by editing `settings.json` by hand after the app is deleted) is described under "훅이 남았을 때 지우기".
+- **Example plugin pack (2026-10):** eight example plugins (calendar, weather, YouTube search and new videos, GitHub, Steam, VS Code through a `.vsix` extension, mail, and Instagram/Threads notifications through an Android phone or the Meta API) and the `choux-desk` character are in the [plugin pack release](https://github.com/BlackBuddle/claude-tool-page/releases/tag/plugins-2026-10). They need ClaudeTool 0.4.2 or later (the log protection for `sns-notify` topics needs 0.4.3). You create the keys and tokens yourself and enter them in the settings window. Guides (Korean): [plugins/README.md](plugins/README.md).
 - **AI connection (new in 0.4.3):** Settings › General › "AI connection" (or the tray's question method) lets you choose where questions are answered: a logged-in Claude Code (the default), an Anthropic API key, or an OpenAI-compatible server such as Ollama or LM Studio at an address you enter. With `127.0.0.1` or `localhost` your questions do not leave this PC. With an address outside this PC the content of your questions goes to that server and a warning line says so. A key you enter is kept in encrypted storage.
 - **Agent plugins (new in 0.4.3):** plugins can use four new permissions: `ai` (send text to the AI you chose), `run` (run programs you allowed with your own account's rights), `files` (read and write inside a folder you chose) and `open-app` (open a file or app with its default program). The consent window groups them as caution permissions. `run`, writing with `files` and `open-app` ask first with an approval card that the app shows itself (denied after 60 seconds), and only the kinds you set to "Always allow this plugin" run without a card. The card is a means of confirmation, not a safety guarantee, and the app cannot block or undo what an allowed program does. AI answers can be wrong, and local models differ in how well they call tools.
 - **Plugin rules:** only the permissions listed in the rules work in this version; do not invent new ones. A plugin with a permission this app does not know still installs, but that feature stays off until a newer app asks for it with `새 권한 허락하기` (allow the new permission). The `session` permission (only together with `inbound`) lets a button open a Claude Code session. New in 0.4.2: `secrets` (keep tokens encrypted), `notify` (Windows notifications), `open-link` (open a link you pressed), `clipboard-write` (copy text) and `hooks` (the app puts the plugin's hooks into Claude Code's settings after you press Connect; the consent window groups it as a caution permission). New in 0.4.3: `ai`, `run`, `files` and `open-app` (also caution permissions, described above). The plugin tab also offers an engine change log (.md) for updating existing plugins, and the character editor allows up to 60 actions (12 by default) and adds a plugin's signal actions in one step. Message windows close with `Esc`.
