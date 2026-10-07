@@ -1284,7 +1284,7 @@ html:not(.motion) .mini-pet { display: none; }
     </div>
     <div class="use reveal">
       <dt><svg class="ico" aria-hidden="true"><use href="#i-key"/></svg><span><kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>K</kbd></span></dt>
-      <dd>질문 말풍선이 열려요. 로그인된 Claude Code(구독)가 답하고 답은 스트리밍되며 쓴 토큰이 아래에 붙어요. <kbd>Esc</kbd>로 취소해요.</dd>
+      <dd>질문 말풍선이 열려요. 로그인된 Claude Code(구독)가 답하고 답은 스트리밍되며 쓴 토큰이 아래에 붙어요. <kbd>Esc</kbd>로 취소해요. 원하면 API 키나 Ollama·LM Studio 같은 로컬 AI(OpenAI 호환 서버)로 답하게 바꿀 수 있어요.</dd>
     </div>
     <div class="use reveal">
       <dt><svg class="ico" aria-hidden="true"><use href="#i-mouse-l"/></svg>펫을 끌면</dt>
@@ -1305,6 +1305,10 @@ html:not(.motion) .mini-pet { display: none; }
     <div class="use reveal">
       <dt><svg class="ico" aria-hidden="true"><use href="#i-window"/></svg>설정 › 움직임</dt>
       <dd>속도, 활동성, 잠들기까지 시간, 이동 범위(화면 전체·아래쪽 띠·직접 지정), 모니터를 정해요.</dd>
+    </div>
+    <div class="use reveal">
+      <dt><svg class="ico" aria-hidden="true"><use href="#i-window"/></svg>설정 › 일반 › AI 연결</dt>
+      <dd>0.4.3부터 질문에 답하는 곳을 Claude Code·Anthropic API 키·OpenAI 호환 서버(Ollama·LM Studio 같은 로컬 AI) 가운데서 골라요. 서버 주소가 이 PC 밖이면 질문 내용이 그 서버로 간다는 줄이 늘 보여요.</dd>
     </div>
     <div class="use reveal">
       <dt><svg class="ico" aria-hidden="true"><use href="#i-window"/></svg>설정 › 플러그인</dt>
@@ -1540,7 +1544,7 @@ html:not(.motion) .mini-pet { display: none; }
     <h2 class="section-title" id="plugins-title">플러그인</h2>
     <span class="status">새 기능</span>
   </div>
-  <p class="section-lede reveal">받은 플러그인(.zip)을 가져와 펫에 기능을 더해요. 가져올 때 무엇을 할 수 있는지 보여 주고 동의를 받아요. 플러그인마다 보이지 않는 격리된 창에서 따로 돌리고 앱과는 정해 둔 통로로만 이야기하게 했으며 인터넷 요청은 선언하고 동의한 주소로만 보내게 했어요. 다만 격리가 완벽하지는 않아요(<a href="#plugin-limits">알아 둘 점</a>).</p>
+  <p class="section-lede reveal">받은 플러그인(.zip)을 가져와 펫에 기능을 더해요. 가져올 때 무엇을 할 수 있는지 보여 주고 동의를 받아요. 플러그인마다 보이지 않는 격리된 창에서 따로 돌리고 앱과는 정해 둔 통로로만 이야기하게 했으며 인터넷 요청은 선언하고 동의한 주소로만 보내게 했어요. 다만 격리가 완벽하지는 않아요(<a href="#plugin-limits">알아 둘 점</a>). 0.4.3부터는 AI에게 일을 시키고 승인 카드를 거쳐 이 PC에서 프로그램을 실행하거나 고른 폴더의 파일을 쓰는 에이전트 플러그인도 만들 수 있어요.</p>
 
   <!-- 흐름 무대: 스크립트가 움직임을 허락받으면 is-live를 붙여 한 자리에서 차례로 보이고, 아니면 네 장면이 정지 화면으로 나란히 보인다. -->
   <div class="flow-demo reveal is-off cv" style="--cis: 480px" id="flow-demo" role="group" aria-label="플러그인을 가져와 돌기까지">
@@ -1792,7 +1796,7 @@ html:not(.motion) .mini-pet { display: none; }
     </div>
     <ul class="dl-req" aria-label="필요한 것과 알아 둘 것">
       <li><b>Windows 10·11 64비트</b>펫은 늘 다른 창 위에 떠 있고 작업 표시줄 알림 영역에 아이콘이 생겨요.</li>
-      <li><b>질문하기</b>이 PC에 네이티브로 설치하고 로그인한 Claude Code(구독)로 답해요. 별도 API 키는 필요 없고 원하면 API 키 방식으로 바꿀 수 있어요.</li>
+      <li><b>질문하기</b>이 PC에 네이티브로 설치하고 로그인한 Claude Code(구독)로 답해요. 별도 API 키는 필요 없고 원하면 API 키 방식이나 Ollama·LM Studio 같은 로컬 AI(OpenAI 호환 서버)로 바꿀 수 있어요.</li>
       <li><b>구독 한도 보기·Claude Code 알림</b>필요한 Node.js가 설치 파일에 들어 있어서 따로 깔지 않아도 돼요.</li>
       <li><b>새 판 알림</b>0.4.2부터 앱이 새 판을 알려 줘요. 처음에는 확인하기 전에 안내하고 설정 창에서 끌 수 있어요. 내려받기와 설치는 누를 때만 해요. 0.4.1 이하는 이번 한 번만 직접 덮어 설치하세요.</li>
       <li><b>시작 시 실행</b>Windows에 로그인할 때 자동으로 켜지게 할 수 있어요. 기본은 꺼져 있어요.</li>
