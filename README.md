@@ -71,7 +71,7 @@ ClaudeTool은 개인 프로젝트이며 Anthropic과 관계없는 **비공식** 
 - **새 판이 있으면:** 말풍선과 설정 창 › ⚙ 일반과 트레이 메뉴로 알려 줘요. **받기**를 눌러야 설치 파일을 내려받고 **다시 시작해서 설치**를 눌러야 설치해요(저장하지 않은 설정 편집이 있으면 먼저 물어요). 말풍선의 **바뀐 점 보기**는 릴리스 안내 페이지를 브라우저로 열어요.
 - **설치하는 동안:** 앱이 종료되고 설치가 끝날 때까지 1분쯤 보이지 않아요. 끝나면 새 판이 자동으로 다시 켜져요. 설치가 실패하면 영어 오류 상자가 뜰 수 있어요(`Failed to uninstall old application files` 같은 글). **확인**을 누르고 시작 메뉴에서 앱을 다시 켜세요. 옛 판은 그대로 남아요. 계속 안 되면 이 저장소의 [릴리스](https://github.com/BlackBuddle/claude-tool-page/releases/latest)에서 설치 파일을 받아 덮어 설치하세요. 데이터 폴더는 지워지지 않아요.
 - **바로 확인하기:** 설정 창 › ⚙ 일반의 **새 판 확인**을 누르면 바로 확인해요. 자동 확인은 같은 곳의 체크로 끄고 켜요. 끈 동안은 **새 판 확인**을 누를 때만 접속해요.
-- **믿을 수 있나요:** 앱은 이 저장소 릴리스의 설치 파일을 받아 `latest.yml`에 적힌 해시(sha512)와 맞을 때만 설치해요. 설치 파일에는 코드 서명이 없어서 만든 곳을 확인하지는 못해요. 해시는 전송 중 손상·변조를 막을 뿐 저장소 자체가 침해된 경우까지는 막지 못해요([면책](#면책)). 받은 설치 파일은 Windows 기본 캐시 위치(`%LOCALAPPDATA%\claude-tool-updater\pending`)에 남아요. 0.4.3부터는 옛 판과 견줘 바뀐 부분만 받아요(견줄 수 없거나 0.4.2에서 올라오는 첫 업데이트는 전체를 받아요).
+- **믿을 수 있나요:** 앱은 이 저장소 릴리스의 설치 파일을 받아 `latest.yml`에 적힌 해시(sha512)와 맞을 때만 설치해요. 설치 파일에는 코드 서명이 없어서 만든 곳을 확인하지는 못해요. 해시는 전송 중 손상·변조를 막을 뿐 저장소 자체가 침해된 경우까지는 막지 못해요([면책](#면책)). 받은 설치 파일은 Windows 기본 캐시 위치(`%LOCALAPPDATA%\claude-tool-updater\pending`)에 남아요. 0.4.3부터는 옛 판과 견줘 바뀐 부분만 받을 수 있어요(견줄 수 없거나 0.4.2에서 올라오는 첫 업데이트는 전체를 받아요).
 
 업데이트를 쓰지 않으려면 자동 확인을 끄고 새 설치 파일을 이 저장소의 [릴리스](https://github.com/BlackBuddle/claude-tool-page/releases/latest)에서 직접 받아 덮어 설치하세요. 켜져 있는 ClaudeTool은 먼저 종료하세요(트레이 아이콘 우클릭 › 종료). 설정·캐릭터·플러그인은 데이터 폴더에 있어서 그대로 남아요.
 
@@ -178,7 +178,7 @@ Windows 설정의 앱 목록(Windows 10은 앱 및 기능, 11은 설치된 앱)�
 
 ### 에이전트 플러그인
 
-0.4.3부터 플러그인이 **AI에게 일을 시키고 승인을 받아 이 PC에서 행동**할 수 있어요. 예를 들어 "테스트를 돌리고 실패한 것만 한 줄로 알려 줘" 같은 일을 AI가 명령을 골라 해내요. 이런 플러그인이 쓰는 권한이 새로 네 가지 생겼어요.
+0.4.3부터 플러그인이 **AI에게 일을 시키고 승인을 받아 이 PC에서 행동**할 수 있어요. 예를 들어 "테스트를 돌리고 실패한 것만 한 줄로 알려 줘" 같은 일을 AI가 명령을 골라 해 볼 수 있어요. AI는 틀리거나 엉뚱한 명령을 낼 수 있어서 명령은 승인 카드로 확인해요. 이런 플러그인이 쓰는 권한이 새로 네 가지 생겼어요.
 
 | 권한 | 하는 일 | 앱이 하는 일 |
 |---|---|---|
@@ -371,7 +371,7 @@ Windows에 로그인할 때 ClaudeTool이 자동으로 켜지게 할 수 있어�
 - 플러그인이 그린 화면(말풍선 안·설정 창 안·따로 뜨는 창)은 내가 그 화면을 조작한 직후 브라우저의 복사 기능으로 **클립보드의 내용을 바꿀 수 있어요.** 클립보드를 읽는 것은 막아 뒀지만 쓰는 길은 막지 못했어요. `clipboard-write`를 허락한 플러그인은 화면 없이도 클립보드를 바꿀 수 있어요. 플러그인을 쓴 뒤 붙여 넣을 때는 붙여 넣는 내용이 내가 복사한 것이 맞는지 확인하세요.
 - 허락한 주소의 이름이 DNS 설정에 따라 내부망 주소를 가리키면 그곳에 닿을 수 있어요. 동의 창은 이름만 보여 줘요.
 - 비밀 칸 값은 Windows 계정으로 암호화해 저장하지만 같은 Windows 계정으로 도는 다른 프로그램은 읽을 수 있어요.
-- 승인 카드는 확인 수단이지 안전 장치가 아니에요. 허락한 프로그램이 하는 일(다른 프로그램을 부르는 것·파일을 지우거나 덮어쓰는 것·인터넷으로 보내는 것)은 앱이 막지 못하고 되돌릴 수도 없어요. 카드의 요약은 300자에서 잘리고 비밀로 가려 주는 모양은 세 가지뿐이며 경로 표시는 Windows 짧은 이름이나 비슷한 글자를 가려내지 못해요. `files` 읽기에는 카드가 없고 읽은 내용은 플러그인이 동의받은 주소나 AI 서버로 보낼 수 있어요.
+- 승인 카드는 확인 수단이지 안전 장치가 아니에요. 허락한 프로그램이 하는 일(다른 프로그램을 부르는 것·파일을 지우거나 덮어쓰는 것·인터넷으로 보내는 것)은 앱이 막지 못하고 되돌릴 수도 없어요. 카드의 요약은 300자 안쪽에서 잘리고(셸 명령은 앞 200자만 보여요) 비밀로 가려 주는 모양은 세 가지뿐이며 경로 표시는 Windows 짧은 이름이나 비슷한 글자를 가려내지 못해요. `files` 읽기에는 카드가 없고 읽은 내용은 플러그인이 동의받은 주소나 AI 서버로 보낼 수 있어요.
 
 ### 플러그인 만들기
 
@@ -826,7 +826,7 @@ API 키 방식에서 키가 없다고 하거나 올바르지 않다고 하면 �
 | "이 모델은 도구 호출을 지원하지 않아요" | 에이전트 플러그인이 AI에게 도구를 쓰게 하는데 그 모델이 도구를 지원하지 않아요. 도구를 쓸 수 있는 모델로 바꾸세요. |
 | "지금 질문 방식(Claude Code)은 도구 호출을 지원하지 않아요" | 에이전트 플러그인에는 **AI 연결**에서 API 키나 OpenAI 호환 서버 방식을 골라야 해요. |
 | "이 플러그인의 월 AI 예산이 정해지지 않았어요" | API 키 방식에서는 플러그인 상세 칸에서 월 예산(토큰)을 정해야 해요. |
-| 승인 카드가 안 뜨고 거부돼요 | 펫이 숨겨져 있으면 카드를 띄우지 못하고 거부해요. 펫을 보이게 하세요. 카드는 60초 안에 답하지 않아도 거부돼요. |
+| 승인 카드가 안 뜨고 거부돼요 | 펫이 숨겨져 있으면 카드를 띄우지 못하고 거부해요. 펫을 보이게 하세요. 사용량 창이나 업데이트 안내 같은 앱의 말풍선 창이 떠 있어도 카드가 뜨지 못하고 60초 뒤에 거부될 수 있어요. 그 창을 닫고 다시 시켜 보세요. 카드는 60초 안에 답하지 않아도 거부돼요. |
 
 
 </details>
@@ -1028,7 +1028,7 @@ ClaudeTool 개인 사용 라이선스 v1.0이에요. 전문은 [LICENSE](LICENSE
 - **Claude Code 알림 훅**을 연결하면 Claude Code의 `settings.json`이 바뀌어요. 앱이 백업을 남긴 뒤 그 플러그인의 훅만 넣어요. 토큰과 백업은 같은 Windows 계정의 다른 프로그램이 읽을 수 있으니 필요 없으면 지우고 앱을 제거하기 전에는 **끊기**로 훅을 빼세요. 훅이 남았다면 [훅이 남았을 때 지우기](#훅이-남았을-때-지우기)를 보세요.
 - **업데이트는 소프트웨어를 설치하는 기능이에요.** 설치 파일에는 코드 서명이 없어서 만든 곳을 확인하지 못하고 해시는 전송 중 손상·변조를 막을 뿐이에요. 설치가 실패하면 영어 오류 상자가 뜰 수 있고 옛 판은 그대로 남아요. 새 판으로 올릴지 언제 설치할지는 사용자가 정해요.
 - **시작 시 실행**을 켜면 레지스트리 `Run` 항목 하나가 써져요. 앱을 제거하기 전에 먼저 끄세요.
-- **AI의 답은 틀릴 수 있어요.** 질문하기는 내가 로그인한 Claude Code를 통해 Anthropic 서비스로 가고 그 서비스의 약관·요금·사용량 한도는 나와 Anthropic 사이의 일이에요.
+- **AI의 답은 틀릴 수 있어요.** 질문하기는 기본으로 내가 로그인한 Claude Code를 통해 Anthropic 서비스로 가요(API 키 방식도 Anthropic으로 가고 OpenAI 호환 서버 방식은 내가 적은 주소로 가요). 그 서비스의 약관·요금·사용량 한도는 나와 그 서비스 사이의 일이에요.
 
 ### 보안 문제를 발견했다면
 
@@ -1049,16 +1049,18 @@ ClaudeTool 개인 사용 라이선스 v1.0이에요. 전문은 [LICENSE](LICENSE
 
 ## English summary
 
-ClaudeTool is an unofficial desktop pet for Windows 10/11 that roams your screen. Click it to see your Claude usage, or press `Ctrl+Alt+K` to ask a question and read the answer in a speech bubble (through a logged-in Claude Code, or optionally an Anthropic API key). You can design your own characters, tune how the pet moves, and add features with sandboxed plugins imported as `.zip` files.
+ClaudeTool is an unofficial desktop pet for Windows 10/11 that roams your screen. Click it to see your Claude usage, or press `Ctrl+Alt+K` to ask a question and read the answer in a speech bubble (through a logged-in Claude Code by default, or an Anthropic API key, or from 0.4.3 an OpenAI-compatible server such as Ollama or LM Studio at an address you enter). You can design your own characters, tune how the pet moves, and add features with sandboxed plugins imported as `.zip` files.
 
 - **Download:** the latest version is 0.4.2 (`ClaudeTool-Setup-0.4.2.exe`, about 125 MB) in this repository's [Releases](https://github.com/BlackBuddle/claude-tool-page/releases/latest) (Windows 10/11 x64, per-user install, no admin rights needed). Check the SHA-256 value given above before you run it. The installer is not code-signed, so Windows SmartScreen may show a warning. If you use 0.4.1 or older, install 0.4.2 over it yourself once in the same folder (your data folder is kept); from 0.4.2 on, the app announces new versions. Node.js is bundled, so you do not need to install it.
 - **New-version check (new in 0.4.2):** in an app installed with the installer, a speech bubble first tells you about the check, and if you accept it the app checks `github.com` for the latest release one minute after each start and every 24 hours while it stays open. Downloading (about 125 MB) and installing happen only when you press **받기** (Download) and **다시 시작해서 설치** (Restart and install), and the installer is installed only if it matches the sha512 hash in `latest.yml`. It is not code-signed, so the hash only guards against damage or tampering in transit. Installing takes about a minute during which the app is not visible; if it fails, an English error box may appear and the old version stays. You can turn the check off in Settings › General.
 - **Start with Windows (new in 0.4.2):** off by default; Settings › General or the tray menu writes one registry `Run` entry for the current user. Turn it off before uninstalling.
 - **Claude Code notifications (0.4.1, one-button connection in 0.4.2):** the `claude-notify` plugin and the `choux-notify` character make the pet tell you when Claude Code asks a question, waits for approval, finishes, or stops on overload, and a button opens that session. Import both `.zip` files from the release and press **연결** (Connect) on the plugin card, or answer the question that appears right after installing; the app backs up Claude Code's `settings.json` and then adds only that plugin's hooks, and the hooks send only to `127.0.0.1` on this PC. Disconnect with **끊기** or by turning off or deleting the plugin; how to remove leftover hooks (with the setup helper while the app is installed, or by editing `settings.json` by hand after the app is deleted) is described under "훅이 남았을 때 지우기".
-- **Plugin rules:** only the permissions listed in the rules work in this version; do not invent new ones. A plugin with a permission this app does not know still installs, but that feature stays off until a newer app asks for it with `새 권한 허락하기` (allow the new permission). The `session` permission (only together with `inbound`) lets a button open a Claude Code session. New in 0.4.2: `secrets` (keep tokens encrypted), `notify` (Windows notifications), `open-link` (open a link you pressed), `clipboard-write` (copy text) and `hooks` (the app puts the plugin's hooks into Claude Code's settings after you press Connect; the consent window groups it as a caution permission). The plugin tab also offers an engine change log (.md) for updating existing plugins, and the character editor allows up to 60 actions (12 by default) and adds a plugin's signal actions in one step. Message windows close with `Esc`.
+- **AI connection (new in 0.4.3):** Settings › General › "AI connection" (or the tray's question method) lets you choose where questions are answered: a logged-in Claude Code (the default), an Anthropic API key, or an OpenAI-compatible server such as Ollama or LM Studio at an address you enter. With `127.0.0.1` or `localhost` your questions do not leave this PC. With an address outside this PC the content of your questions goes to that server and a warning line says so. A key you enter is kept in encrypted storage.
+- **Agent plugins (new in 0.4.3):** plugins can use four new permissions: `ai` (send text to the AI you chose), `run` (run programs you allowed with your own account's rights), `files` (read and write inside a folder you chose) and `open-app` (open a file or app with its default program). The consent window groups them as caution permissions. `run`, writing with `files` and `open-app` ask first with an approval card that the app shows itself (denied after 60 seconds), and only the kinds you set to "Always allow this plugin" run without a card. The card is a means of confirmation, not a safety guarantee, and the app cannot block or undo what an allowed program does. AI answers can be wrong, and local models differ in how well they call tools.
+- **Plugin rules:** only the permissions listed in the rules work in this version; do not invent new ones. A plugin with a permission this app does not know still installs, but that feature stays off until a newer app asks for it with `새 권한 허락하기` (allow the new permission). The `session` permission (only together with `inbound`) lets a button open a Claude Code session. New in 0.4.2: `secrets` (keep tokens encrypted), `notify` (Windows notifications), `open-link` (open a link you pressed), `clipboard-write` (copy text) and `hooks` (the app puts the plugin's hooks into Claude Code's settings after you press Connect; the consent window groups it as a caution permission). New in 0.4.3: `ai`, `run`, `files` and `open-app` (also caution permissions, described above). The plugin tab also offers an engine change log (.md) for updating existing plugins, and the character editor allows up to 60 actions (12 by default) and adds a plugin's signal actions in one step. Message windows close with `Esc`.
 - **License:** free for personal, non-commercial use. Business or commercial use and redistribution need the copyright holder's permission (see [LICENSE](LICENSE)). The source code is not published.
 - **Privacy:** no account, no telemetry, and no server run by the author. With default settings, the only connection the app makes on its own is the new-version check to GitHub (request headers carry a tool name, the app language and a random UUID; you can turn it off). Your data stays in a `-data` folder next to the install folder ([PRIVACY.md](PRIVACY.md)).
-- **Plugins are third-party code.** They run in hidden, isolated windows behind a permission gate, but this is not a guarantee (for example, DNS lookups can carry short values out). Install only plugins you trust. People can share plugins in the repository's [Plugins discussions](https://github.com/BlackBuddle/claude-tool-page/discussions/categories/plugins), but nothing posted there is reviewed or endorsed.
+- **Plugins are third-party code.** They run in hidden, isolated windows behind a permission gate, but this is not a guarantee (for example, DNS lookups can carry short values out), and a plugin you give `run`, `files` or `open-app` can act on this PC through the app. Install only plugins you trust. People can share plugins in the repository's [Plugins discussions](https://github.com/BlackBuddle/claude-tool-page/discussions/categories/plugins), but nothing posted there is reviewed or endorsed.
 - **Disclaimer:** provided as is, without warranty, and not affiliated with Anthropic. AI answers can be wrong ([DISCLAIMER.md](DISCLAIMER.md)). Please report security problems privately through the Security tab ([SECURITY.md](SECURITY.md)).
 
 The rest of this README is in Korean.

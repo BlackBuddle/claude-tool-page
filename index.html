@@ -1621,7 +1621,7 @@ html:not(.motion) .mini-pet { display: none; }
           </div>
           <span class="sb-foot">10초 넘게 응답이 없으면 다시 시작하고 10분 안에 세 번 멈추면 꺼 둬요.</span>
         </div>
-        <p class="scene-cap"><b>③ 격리된 창</b>동의하면 앱을 다시 켜지 않아도 바로 돌아요. 플러그인마다 보이지 않는 창에서 따로 돌리고 파일·다른 플러그인·앱 화면 내용에는 닿지 못하게 만들었어요. 인터넷 요청도 선언하고 동의한 주소로만 보내게 했지만 DNS 이름 조회에 정보를 싣는 틈은 막지 못해요.</p>
+        <p class="scene-cap"><b>③ 격리된 창</b>동의하면 앱을 다시 켜지 않아도 바로 돌아요. 플러그인마다 보이지 않는 창에서 따로 돌리고 파일·다른 플러그인·앱 화면 내용에는 닿지 못하게 만들었어요(<code>files</code>·<code>run</code>·<code>open-app</code> 권한을 허락한 플러그인은 앱을 거쳐 고른 폴더의 파일과 허락한 프로그램에 닿아요). 인터넷 요청도 선언하고 동의한 주소로만 보내게 했지만 DNS 이름 조회에 정보를 싣는 틈은 막지 못해요.</p>
       </li>
       <li class="scene">
         <div class="scene-vis sv-react" aria-hidden="true">
@@ -1666,12 +1666,13 @@ html:not(.motion) .mini-pet { display: none; }
         <div><dt>들어오는 연결</dt><dd>이 PC의 다른 프로그램이 보내는 이벤트를 내 PC 안 127.0.0.1 전용 포트에서, 플러그인별 토큰을 든 요청만 받아요</dd></div>
         <div><dt>비밀 칸</dt><dd>API 키·웹훅 주소 같은 값은 Windows 계정으로 암호화해 저장하고 설정 창에는 “저장됨 ●●●●”만 보여요</dd></div>
         <div><dt>알림·링크·클립보드·비밀·훅</dt><dd>허락받으면 Windows 알림, 눌러서 여는 링크, 클립보드 쓰기, 코드가 받은 토큰의 암호화 보관, Claude Code 훅 연결(“주의” 권한)을 쓸 수 있어요</dd></div>
+        <div><dt>AI·실행·파일·앱 열기</dt><dd>허락받으면 내가 고른 AI에게 글 보내기, 허락한 프로그램 실행, 고른 폴더 안 파일 읽기·쓰기, 파일·앱 열기를 할 수 있어요(모두 “주의” 권한이고 실행·쓰기·열기는 승인 카드를 거쳐요)</dd></div>
       </dl>
     </div>
   </div>
   <ul class="points points-grid cv" style="--cis: 220px">
-    <li class="reveal"><strong>격리 실행</strong>플러그인마다 보이지 않는 창에서 따로 돌리고 파일·다른 플러그인·앱 화면 내용에는 닿지 못하게 만들었어요. 다만 격리는 위험을 줄이는 장치일 뿐 안전을 보증하지 않아요.</li>
-    <li class="reveal"><strong>동의 창</strong>가져올 때 할 수 있는 일과 접속할 주소를 보여 줘요. 다른 프로그램의 설정을 고치는 권한은 “주의”로 따로 묶어 보여 줘요. 업데이트로 권한·주소가 늘면 다시 물어요.</li>
+    <li class="reveal"><strong>격리 실행</strong>플러그인마다 보이지 않는 창에서 따로 돌리고 파일·다른 플러그인·앱 화면 내용에는 닿지 못하게 만들었어요(<code>files</code>·<code>run</code>·<code>open-app</code> 권한을 허락한 플러그인은 앱을 거쳐 고른 폴더의 파일과 허락한 프로그램에 닿아요). 다만 격리는 위험을 줄이는 장치일 뿐 안전을 보증하지 않아요.</li>
+    <li class="reveal"><strong>동의 창</strong>가져올 때 할 수 있는 일과 접속할 주소를 보여 줘요. 다른 프로그램의 설정을 고치거나 이 PC에서 프로그램·파일을 다루거나 AI에게 글을 보내는 권한은 “주의”로 따로 묶어 보여 줘요. 업데이트로 권한·주소가 늘면 다시 물어요.</li>
     <li class="reveal"><strong>다시 켜지 않아도</strong>켜기·끄기·설정 바꾸기가 바로 반영돼요. 데이터 폴더의 plugins에 폴더를 넣거나 고쳐도 바로 다시 읽어요(처음 켤 때 동의).</li>
     <li class="reveal"><strong>멈추면 다시 시작</strong>10초 넘게 응답이 없으면 다시 시작하고 10분 안에 세 번 멈추면 꺼 둬요.</li>
     <li class="reveal" id="plugin-limits"><strong>알아 둘 점</strong>격리는 완벽한 보호가 아니에요. 인터넷 권한이 없는 플러그인도 DNS 이름 조회(DNS 미리 풀기)에 짧은 정보를 실어 밖으로 보낼 수 있고 앱은 이 틈을 막지 못해요. 믿을 수 있는 플러그인만 가져오세요. 켠 플러그인마다 메모리를 약 70MB 더 써요. 자세한 한계는 <a href="https://github.com/BlackBuddle/claude-tool-page/blob/main/DISCLAIMER.md">면책조항</a>의 3.4 “플러그인과 가져온 파일”에 있어요.</li>
