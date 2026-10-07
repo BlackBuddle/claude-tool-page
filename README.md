@@ -30,7 +30,7 @@ ClaudeTool은 개인 프로젝트이며 Anthropic과 관계없는 **비공식** 
 ### 내려받는 곳과 확인
 
 - **이 저장소의 릴리스에서만** 받으세요. 같은 이름으로 다른 곳에서 받은 파일은 위조일 수 있으니 실행하지 마세요.
-- 받은 파일이 맞는지 SHA-256 값으로 확인할 수 있어요. 0.4.3의 값은 `16d03a63f41d5d6c4c637e4723c8e561a8279548243c0b7e5aefcba887ca26ec`이고 PowerShell에서 `Get-FileHash .\ClaudeTool-Setup-0.4.3.exe -Algorithm SHA256`로 구해 비교해요.
+- 받은 파일이 맞는지 SHA-256 값으로 확인할 수 있어요. 0.4.3의 값은 `6016fe612d1b607bbf6c261256de84d3654d667d9a2b9d55928273b7f38921f4`이고 PowerShell에서 `Get-FileHash .\ClaudeTool-Setup-0.4.3.exe -Algorithm SHA256`로 구해 비교해요.
 - 설치 파일에는 코드 서명이 없어서 처음 실행할 때 Windows SmartScreen 경고가 뜰 수 있어요. 위 확인을 마쳤다면 **추가 정보 → 실행**을 누르세요.
 
 ### 설치 순서
