@@ -6,7 +6,7 @@
   <img src="images/banner.png" width="100%" alt="어두운 바탕 위에 도트 슈크림빵 펫이 서 있고 머리 위 말풍선에 “안녕하세요! Ctrl+Alt+K로 무엇이든 물어보세요.”라고 적혀 있어요.">
 </p>
 
-**[설치 파일 내려받기(0.4.3)](https://github.com/BlackBuddle/claude-tool-page/releases/latest)** · [소개 페이지](https://blackbuddle.github.io/claude-tool-page/) · [릴리스](https://github.com/BlackBuddle/claude-tool-page/releases)
+**[설치 파일 내려받기(0.4.4)](https://github.com/BlackBuddle/claude-tool-page/releases/latest)** · [소개 페이지](https://blackbuddle.github.io/claude-tool-page/) · [릴리스](https://github.com/BlackBuddle/claude-tool-page/releases)
 
 ClaudeTool은 개인 프로젝트이며 Anthropic과 관계없는 **비공식** 프로그램이에요.
 
@@ -23,19 +23,19 @@ ClaudeTool은 개인 프로젝트이며 Anthropic과 관계없는 **비공식** 
 
 ## 내려받기와 설치
 
-설치 파일은 이 저장소의 [릴리스](https://github.com/BlackBuddle/claude-tool-page/releases/latest)에서 받아요. 최신 판은 **0.4.3**이고 파일 이름은 `ClaudeTool-Setup-0.4.3.exe`예요(약 125MB).
+설치 파일은 이 저장소의 [릴리스](https://github.com/BlackBuddle/claude-tool-page/releases/latest)에서 받아요. 최신 판은 **0.4.4**이고 파일 이름은 `ClaudeTool-Setup-0.4.4.exe`예요(약 125MB).
 
 0.4.2를 쓰고 있다면 앱이 새 판을 알려 줘요. **받기**와 **다시 시작해서 설치**만 누르면 돼요([업데이트](#업데이트)). 0.4.1 이하는 업데이트 기능이 없어서 **이번 한 번만 직접** 받아 같은 위치에 덮어 설치하세요. 데이터 폴더는 그대로 남아요.
 
 ### 내려받는 곳과 확인
 
 - **이 저장소의 릴리스에서만** 받으세요. 같은 이름으로 다른 곳에서 받은 파일은 위조일 수 있으니 실행하지 마세요.
-- 받은 파일이 맞는지 SHA-256 값으로 확인할 수 있어요. 0.4.3의 값은 `6016fe612d1b607bbf6c261256de84d3654d667d9a2b9d55928273b7f38921f4`이고 PowerShell에서 `Get-FileHash .\ClaudeTool-Setup-0.4.3.exe -Algorithm SHA256`로 구해 비교해요.
+- 받은 파일이 맞는지 SHA-256 값으로 확인할 수 있어요. 0.4.4의 값은 `dd97d7fc2ca3def946f8d256c2f217ac5354a613f12ebdd8273d8faea66bb295`이고 PowerShell에서 `Get-FileHash .\ClaudeTool-Setup-0.4.4.exe -Algorithm SHA256`로 구해 비교해요.
 - 설치 파일에는 코드 서명이 없어서 처음 실행할 때 Windows SmartScreen 경고가 뜰 수 있어요. 위 확인을 마쳤다면 **추가 정보 → 실행**을 누르세요.
 
 ### 설치 순서
 
-1. 받은 `ClaudeTool-Setup-0.4.3.exe`를 실행해요.
+1. 받은 `ClaudeTool-Setup-0.4.4.exe`를 실행해요.
 2. 라이선스 화면에서 내용을 읽고 동의해요.
 3. 설치 위치를 정해요. 기본은 `D:\Programs\ClaudeTool`이에요(D 드라이브가 없으면 Windows의 기본 위치예요). 사용자별 설치라 관리자 권한은 필요 없어요.
 4. 설치가 끝나면 시작 메뉴의 **ClaudeTool**을 실행해요. 바탕화면 바로가기는 만들지 않아요.
@@ -1131,7 +1131,7 @@ ClaudeTool 개인 사용 라이선스 v1.0이에요. 전문은 [LICENSE](LICENSE
 
 ClaudeTool is an unofficial desktop pet for Windows 10/11 that roams your screen. Click it to see your Claude usage, or press `Ctrl+Alt+K` to ask a question and read the answer in a speech bubble (through a logged-in Claude Code by default, or an Anthropic API key, or from 0.4.3 an OpenAI-compatible server such as Ollama or LM Studio at an address you enter). You can design your own characters, tune how the pet moves, and add features with sandboxed plugins imported as `.zip` files.
 
-- **Download:** the latest version is 0.4.3 (`ClaudeTool-Setup-0.4.3.exe`, about 125 MB) in this repository's [Releases](https://github.com/BlackBuddle/claude-tool-page/releases/latest) (Windows 10/11 x64, per-user install, no admin rights needed). Check the SHA-256 value given above before you run it. The installer is not code-signed, so Windows SmartScreen may show a warning. If you use 0.4.2, the app announces the new version and you only press **받기** (Download) and **다시 시작해서 설치** (Restart and install); 0.4.1 or older has no update feature, so install 0.4.3 over it yourself once in the same folder (your data folder is kept). Node.js is bundled, so you do not need to install it.
+- **Download:** the latest version is 0.4.4 (`ClaudeTool-Setup-0.4.4.exe`, about 125 MB) in this repository's [Releases](https://github.com/BlackBuddle/claude-tool-page/releases/latest) (Windows 10/11 x64, per-user install, no admin rights needed). Check the SHA-256 value given above before you run it. The installer is not code-signed, so Windows SmartScreen may show a warning. If you use 0.4.2, the app announces the new version and you only press **받기** (Download) and **다시 시작해서 설치** (Restart and install); 0.4.1 or older has no update feature, so install 0.4.3 over it yourself once in the same folder (your data folder is kept). Node.js is bundled, so you do not need to install it.
 - **New-version check (new in 0.4.2):** in an app installed with the installer, a speech bubble first tells you about the check, and if you accept it the app checks `github.com` for the latest release one minute after each start and every 24 hours while it stays open. Downloading (about 125 MB) and installing happen only when you press **받기** (Download) and **다시 시작해서 설치** (Restart and install), and the installer is installed only if it matches the sha512 hash in `latest.yml`. It is not code-signed, so the hash only guards against damage or tampering in transit. Installing takes about a minute during which the app is not visible; if it fails, an English error box may appear and the old version stays. You can turn the check off in Settings › General.
 - **Start with Windows (new in 0.4.2):** off by default; Settings › General or the tray menu writes one registry `Run` entry for the current user. Turn it off before uninstalling.
 - **Claude Code notifications (0.4.1, one-button connection in 0.4.2):** the `claude-notify` plugin and the `choux-notify` character make the pet tell you when Claude Code asks a question, waits for approval, finishes, or stops on overload, and a button opens that session. Import both `.zip` files from the release and press **연결** (Connect) on the plugin card, or answer the question that appears right after installing; the app backs up Claude Code's `settings.json` and then adds only that plugin's hooks, and the hooks send only to `127.0.0.1` on this PC. Disconnect with **끊기** or by turning off or deleting the plugin; how to remove leftover hooks (with the setup helper while the app is installed, or by editing `settings.json` by hand after the app is deleted) is described under "훅이 남았을 때 지우기".
