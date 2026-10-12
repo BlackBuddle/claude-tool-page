@@ -447,54 +447,6 @@ html.motion .deco .twinkle { animation: twinkle var(--dur, 3.4s) steps(4, jump-n
   border: 1px solid var(--rule); border-radius: 10px; background: var(--surface);
 }
 .shot figcaption { margin-top: 10px; font-size: var(--step--1); color: var(--ink-soft); max-width: var(--measure); }
-.shot-wide { grid-column: 1 / -1; }
-
-/* 플러그인 탭 모형: 앱 설정 창의 플러그인 탭(카드 → 고른 카드의 상세 두 칸)을 본떠 HTML로 그린 그림. 글자는 페이지 글꼴이다. */
-.ptab {
-  padding: clamp(14px, 2.6vw, 28px);
-  border: 1px solid var(--rule); border-radius: 10px; background: var(--surface);
-  font-size: 14px; line-height: 1.45; color: var(--ink);
-}
-.pt-head { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px 12px; margin-bottom: 14px; }
-.pt-head b { font-family: var(--font-display); font-size: 20px; }
-.pt-btn, .pt-btns > span, .pt-vbtns > span {
-  display: inline-block; padding: 2px 11px; white-space: nowrap;
-  border: 1px solid var(--rule); border-radius: 7px; background: var(--surface); font-size: 13px;
-}
-.pt-cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(116px, 1fr)); gap: 10px; }
-.pt-card {
-  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1px;
-  min-height: 112px; padding: 8px 6px; text-align: center;
-  border: 1px solid var(--rule); border-radius: 9px;
-}
-.pt-card i { font-style: normal; font-size: 22px; line-height: 1; margin-bottom: 6px; }
-.pt-card b { font-size: 13.5px; line-height: 1.3; }
-.pt-card small { font-size: 12px; color: var(--ink-soft); }
-.pt-card .pt-badge { margin-top: 3px; padding: 0 8px; border-radius: 999px; background: var(--accent-soft); color: var(--ink); }
-.pt-sel { background: var(--accent-soft); border-color: var(--accent-fill); box-shadow: inset 0 0 0 1px var(--accent-fill); }
-.pt-add { border-style: dashed; color: var(--ink-soft); }
-.pt-detail {
-  display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.3fr); gap: 18px 28px;
-  margin-top: 18px; padding-top: 16px; border-top: 1px solid var(--rule);
-}
-.pt-about, .pt-ctl { display: flex; flex-direction: column; align-items: flex-start; gap: 6px; min-width: 0; }
-.pt-name { font-size: 17px; }
-.pt-note { font-size: 12.5px; color: var(--ink-soft); }
-.pt-list { display: flex; flex-direction: column; gap: 2px; padding-left: 18px; font-size: 13px; }
-.pt-list > span { display: list-item; }
-.pt-check { display: inline-flex; align-items: center; gap: 8px; font-weight: 600; }
-.pt-check i { position: relative; width: 16px; height: 16px; border-radius: 4px; background: var(--accent-fill); }
-.pt-check i::after {
-  content: ""; position: absolute; left: 5px; top: 2px; width: 4px; height: 8px;
-  border: solid #ffffff; border-width: 0 2px 2px 0; transform: rotate(45deg);
-}
-.pt-field { display: flex; flex-direction: column; gap: 3px; width: 100%; font-size: 13px; }
-.pt-input { display: block; width: 100%; padding: 3px 9px; border: 1px solid var(--rule); border-radius: 6px; background: var(--bg); }
-.pt-strip { margin-top: 4px; font-size: 11.5px; color: var(--ink-soft); }
-.pt-view { display: flex; flex-direction: column; gap: 6px; width: 100%; padding: 10px 12px; border: 1px dashed var(--rule); border-radius: 8px; font-size: 13px; }
-.pt-vbtns, .pt-btns { display: flex; flex-wrap: wrap; gap: 6px; }
-.pt-btns { margin-top: 4px; }
-.pt-btns > .pt-danger { color: var(--no); border-color: var(--no); }
 
 /* 동작 방식 */
 .how { margin-top: 24px; }
@@ -787,7 +739,7 @@ html.motion .deco .twinkle { animation: twinkle var(--dur, 3.4s) steps(4, jump-n
 @keyframes sv-press { 0% { background-color: transparent; border-color: var(--rule); } 40% { scale: 0.95; } }
 @keyframes sv-sel { from { background-color: transparent; } }
 @keyframes sv-sweep { from { transform: scaleX(0); } }
-/* 장면 1: 플러그인 탭의 "＋ 가져오기(.zip)"를 눌러 열기 창에서 zip을 고른다 */
+/* 장면 1: 플러그인 탭의 "가져오기(.zip)"를 눌러 열기 창에서 zip을 고른다 */
 .sv-import { flex-wrap: wrap; align-content: center; }
 .mt { padding: 12px 14px; border: 1px solid var(--rule); border-radius: 10px; background: var(--surface); }
 .mt-title { display: block; margin-bottom: 8px; font-weight: 700; font-size: 15px; }
@@ -1095,7 +1047,6 @@ html:not(.motion) .mini-pet { display: none; }
 @media (max-width: 860px) {
   .how-item { grid-template-columns: minmax(0, 1fr); }
   .plan-grid { grid-template-columns: minmax(0, 1fr); }
-  .pt-detail { grid-template-columns: minmax(0, 1fr); }
   .dl { grid-template-columns: minmax(0, 1fr); }
 }
 /* 좁은 화면: 들어오는 연결 데모는 위에서 아래로, 연결선과 점도 세로로 */
@@ -1260,15 +1211,15 @@ html:not(.motion) .mini-pet { display: none; }
   </div>
 
   <div class="hero">
-    <a class="hero-new rise" style="--i:0" href="#plugins"><b>새 기능</b>받은 플러그인을 가져와 펫에 기능을 더해요</a>
+    <a class="hero-new rise" style="--i:0" href="#plugins"><b>새 기능</b>새 설정 창에서 예제 플러그인을 골라 설치해요</a>
     <h1 class="hero-title rise" style="--i:1">ClaudeTool</h1>
     <p class="hero-lede rise" style="--i:2">화면 위를 걷고 쉬고 잠드는 Windows용 데스크톱 펫</p>
-    <p class="hero-text rise" style="--i:3">펫을 클릭하면 Claude 사용량을, 단축키를 누르면 질문의 답을 말풍선으로 보여 줘요. 펫과 말풍선 밖의 클릭은 아래 창으로 그대로 지나가요. 캐릭터와 움직임은 설정 창에서 바꾸고 받은 플러그인으로 기능을 더해요.</p>
+    <p class="hero-text rise" style="--i:3">펫을 클릭하면 Claude 사용량을, 단축키를 누르면 질문의 답을 말풍선으로 보여 줘요. 펫과 말풍선 밖의 클릭은 아래 창으로 그대로 지나가요. 캐릭터·움직임·AI 연결·사용량은 설정 창에서 바꾸고 플러그인으로 기능을 더해요.</p>
     <div class="hero-actions rise" style="--i:4">
       <a class="btn btn-solid lift" href="#download">설치 파일 내려받기</a>
       <a class="btn btn-line lift" href="#features">기능 살펴보기</a>
     </div>
-    <p class="hero-note rise" style="--i:5">Windows 10·11(x64) · 현재 버전 <span data-stat="version">0.4.4</span> · 개인이 만든 비공식 프로젝트이며 Anthropic과 관계없어요</p>
+    <p class="hero-note rise" style="--i:5">Windows 10·11(x64) · 현재 버전 <span data-stat="version">0.4.5</span> · 개인이 만든 비공식 프로젝트이며 Anthropic과 관계없어요</p>
   </div>
 
   <div class="roam rise" id="roam" style="--i:6">
@@ -1306,7 +1257,7 @@ html:not(.motion) .mini-pet { display: none; }
     </div>
     <div class="use reveal">
       <dt><svg class="ico" aria-hidden="true"><use href="#i-key"/></svg><span><kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>K</kbd></span></dt>
-      <dd>질문 말풍선이 열려요. 로그인된 Claude Code(구독)가 답하고 답은 스트리밍되며 쓴 토큰이 아래에 붙어요. <kbd>Esc</kbd>로 취소해요. 원하면 API 키나 Ollama·LM Studio 같은 로컬 AI(OpenAI 호환 서버)로 답하게 바꿀 수 있어요. 0.4.4부터는 API 키나 OpenAI 호환 서버로 답하게 했다면 AI가 사용량 보기·펫 동작 같은 앱 기능과 켜 둔 플러그인의 도구를 불러 쓸 수 있어요. 설정을 바꾸는 일은 매번 승인 카드로 물어요.</dd>
+      <dd>질문 말풍선이 열려요. 로그인된 Claude Code(구독)가 답하고 답은 스트리밍되며 쓴 토큰이 아래에 붙어요. <kbd>Esc</kbd>로 취소해요. 원하면 API 키나 Ollama·LM Studio 같은 로컬 AI(OpenAI 호환 서버)로 답하게 바꿀 수 있어요. 0.4.4부터는 API 키나 OpenAI 호환 서버로 답하게 했다면 AI가 사용량 보기·펫 동작 같은 앱 기능과 켜 둔 플러그인의 도구를 불러 쓸 수 있어요. 설정을 바꾸는 일은 매번 승인 카드로 물어요. 질문 방식·API 키·질문 단축키는 설정 창 › AI 연결에서 정해요.</dd>
     </div>
     <div class="use reveal">
       <dt><svg class="ico" aria-hidden="true"><use href="#i-mouse-l"/></svg>펫을 끌면</dt>
@@ -1321,6 +1272,10 @@ html:not(.motion) .mini-pet { display: none; }
       <dd>작업 표시줄 알림 영역의 도트 슈크림빵 아이콘을 우클릭하면 펫 보이기, 일시정지, 사용량 소스, 말풍선 자동 닫힘, 질문 방식, 질문 모델, API 키 설정…, Windows 시작 시 실행, 설정…, 종료 메뉴가 떠요. 새 판이 있으면 새 판 받기도 보여요.</dd>
     </div>
     <div class="use reveal">
+      <dt><svg class="ico" aria-hidden="true"><use href="#i-window"/></svg>설정 › 일반</dt>
+      <dd>Windows 시작 시 실행, 새 판 확인과 자동 확인, 말풍선 자동으로 닫기를 정하고 로그 폴더와 데이터 폴더를 열어요. 정보에서는 개인정보 안내·라이선스·오픈소스 사용 고지를 열어요.</dd>
+    </div>
+    <div class="use reveal">
       <dt><svg class="ico" aria-hidden="true"><use href="#i-window"/></svg>설정 › 캐릭터</dt>
       <dd>캐릭터를 고르고 크기(50~200%)·투명도·방향 따라 뒤집기를 정해요. 기본 캐릭터는 이 앱만의 도트 슈크림빵이고 벡터로 그린 슈크림빵 같은 내장 캐릭터는 카드에 “내장”으로 표시돼요. 캐릭터를 직접 만들고 고치거나 zip으로 가져오고 내보내요. 새 동작은 플러그인이 보내는 신호에 맞춰 나오게도 할 수 있어요.</dd>
     </div>
@@ -1329,58 +1284,39 @@ html:not(.motion) .mini-pet { display: none; }
       <dd>속도, 활동성, 잠들기까지 시간, 이동 범위(화면 전체·아래쪽 띠·직접 지정), 모니터를 정해요.</dd>
     </div>
     <div class="use reveal">
-      <dt><svg class="ico" aria-hidden="true"><use href="#i-window"/></svg>설정 › 일반 › AI 연결</dt>
-      <dd>0.4.3부터 질문에 답하는 곳을 Claude Code·Anthropic API 키·OpenAI 호환 서버(Ollama·LM Studio 같은 로컬 AI) 가운데서 골라요. 서버 주소가 이 PC 밖이면 질문 내용이 그 서버로 간다는 줄이 늘 보여요.</dd>
+      <dt><svg class="ico" aria-hidden="true"><use href="#i-window"/></svg>설정 › AI 연결</dt>
+      <dd>0.4.3부터 질문에 답하는 곳을 Claude Code·Anthropic API 키·OpenAI 호환 서버(Ollama·LM Studio 같은 로컬 AI) 가운데서 골라요. API 키도 여기서 넣고 답 길이·생각 강도와 질문 단축키·시스템 프롬프트·도구 호출 횟수도 정해요. 서버 주소가 이 PC 밖이면 질문 내용이 그 서버로 간다는 줄이 늘 보여요.</dd>
+    </div>
+    <div class="use reveal">
+      <dt><svg class="ico" aria-hidden="true"><use href="#i-window"/></svg>설정 › 사용량</dt>
+      <dd>사용량 소스 네 개를 스위치 하나씩으로 켜고 꺼요. 구독 한도를 읽으려면 Claude Code 연결을 하고 조직 사용량을 읽으려면 Admin 키를 넣어요.</dd>
     </div>
     <div class="use reveal">
       <dt><svg class="ico" aria-hidden="true"><use href="#i-window"/></svg>설정 › 플러그인</dt>
-      <dd>받은 플러그인(.zip)을 가져오면 동의 창이 할 수 있는 일과 접속할 주소를 보여 줘요. 동의하면 앱을 다시 켜지 않아도 바로 돌고 켜기·끄기·설정도 바로 반영돼요. 내장 기능(사용량 4개·질문하기)도 여기서 켜고 꺼요. 자세한 내용은 <a href="#plugins">플러그인</a>에 있어요.</dd>
+      <dd>받은 플러그인(.zip)을 가져오면 동의 창이 할 수 있는 일과 접속할 주소를 보여 줘요. 동의하면 앱을 다시 켜지 않아도 바로 돌고 켜기·끄기·설정도 바로 반영돼요. 설치한 플러그인만 목록에 보이고 폴더 열기·내보내기·지우기는 상세 맨 아래에 있어요. 0.4.5부터는 예제 둘러보기에서 앱에 들어 있는 예제를 골라 설치해요. 자세한 내용은 <a href="#plugins">플러그인</a>에 있어요.</dd>
     </div>
   </dl>
 </section>
 
 <section class="section" id="screens" aria-labelledby="screens-title">
   <h2 class="section-title reveal" id="screens-title">화면</h2>
-  <p class="section-lede reveal">설정 창은 왼쪽 탭(일반·캐릭터·움직임·플러그인)으로 나뉘어요. 아래는 탭 내용이에요.</p>
+  <p class="section-lede reveal">0.4.5부터 설정 창은 맨 위의 캐릭터 카드와 왼쪽 탭 여섯 개(일반·캐릭터·움직임·AI 연결·사용량·플러그인)로 이뤄져요. 아래는 실제 화면이에요.</p>
   <div class="shots cv" style="--cis: 1500px">
     <figure class="shot reveal">
-      <div class="tilt-host"><img class="tilt" src="images/settings-character-tab.png" width="1061" height="700" alt="ClaudeTool 설정 창의 캐릭터 탭. 도트 슈크림빵 카드가 골라져 있고 아래에 크기·투명도 막대와 방향 따라 뒤집기 칸, 사용하기·편집·내보내기·지우기·폴더 열기 버튼이 있다."></div>
-      <figcaption>설정 창 › 캐릭터. 카드에서 캐릭터를 고르고(내장 캐릭터는 “내장”으로 표시), 캐릭터마다 크기·투명도·뒤집기를 정해요.</figcaption>
+      <div class="tilt-host"><img class="tilt" src="images/settings-character-tab.png" width="1269" height="936" alt="ClaudeTool 설정 창의 캐릭터 탭. 왼쪽 위에 지금 캐릭터 카드가 있고 그 아래에 일반·캐릭터·움직임·AI 연결·사용량·플러그인 탭이 있다. 오른쪽에는 도트 슈크림빵이 사용 중인 캐릭터 카드와 만들기·가져오기(.zip) 카드, 고른 캐릭터의 사용하기·편집·내보내기·지우기·폴더 열기 버튼, 크기·투명도 막대가 있다."></div>
+      <figcaption>설정 창 › 캐릭터. 카드에서 캐릭터를 고르고(내장 캐릭터는 “내장”으로 표시) 캐릭터마다 크기·투명도·뒤집기를 정해요.</figcaption>
     </figure>
     <figure class="shot reveal">
-      <div class="tilt-host"><img class="tilt" src="images/settings-movement-tab.png" width="1061" height="700" alt="ClaudeTool 설정 창의 움직임 탭. 속도·활동성 막대, 잠들기까지(분) 칸, 돌아다니는 범위(화면 전체·아래쪽 띠·직접 지정), 모니터 고르기가 있다."></div>
+      <div class="tilt-host"><img class="tilt" src="images/settings-movement-tab.png" width="1269" height="936" alt="ClaudeTool 설정 창의 움직임 탭. 걸음 묶음의 속도·활동성 막대와 잠들기까지(분) 칸, 돌아다니는 범위 묶음의 범위(화면 전체·아래쪽 띠·직접 지정)·모니터 고르기·영역 그리기 버튼이 있다."></div>
       <figcaption>설정 창 › 움직임. 속도·활동성·잠들기까지 시간과 펫이 다닐 범위를 정해요.</figcaption>
     </figure>
-    <figure class="shot shot-wide reveal">
-      <div class="tilt-host"><div class="ptab tilt" role="img" aria-label="설정 창 플러그인 탭을 본떠 그린 그림. 위에는 안녕 펫(실행 중), 가져오기(.zip), 내장 기능 다섯 개(사용량 넷과 질문하기, 모두 실행 중) 카드가 있다. 아래 왼쪽에는 고른 안녕 펫의 버전·만든 사람·설명과 할 수 있는 일 세 가지(말풍선을 띄워요, 펫을 움직여요, 따로 뜨는 창을 열어요), 오른쪽에는 켜기, 인사말 설정 칸, 플러그인이 그린 설정 화면(말풍선 보기·창 열기·신호 보내기 버튼), 폴더 열기·내보내기·지우기 버튼이 있다.">
-        <div class="pt-head"><b>플러그인</b><span class="pt-btn"><svg class="doc-ico" aria-hidden="true" focusable="false"><use href="#i-doc"/></svg> 만드는 법(.md) 받기</span></div>
-        <div class="pt-cards">
-          <span class="pt-card pt-sel"><i><svg class="pz" aria-hidden="true" focusable="false"><use href="#i-puzzle"/></svg></i><b>안녕 펫</b><small>v2.0.0</small><small class="pt-badge">실행 중</small></span>
-          <span class="pt-card pt-add"><i>＋</i>가져오기(.zip)</span>
-          <span class="pt-card"><i><svg class="pz" aria-hidden="true" focusable="false"><use href="#i-puzzle"/></svg></i><b>사용량: 이 앱의 API</b><small>내장</small><small class="pt-badge">실행 중</small></span>
-          <span class="pt-card"><i><svg class="pz" aria-hidden="true" focusable="false"><use href="#i-puzzle"/></svg></i><b>사용량: Claude Code</b><small>내장</small><small class="pt-badge">실행 중</small></span>
-          <span class="pt-card"><i><svg class="pz" aria-hidden="true" focusable="false"><use href="#i-puzzle"/></svg></i><b>사용량: 구독 한도</b><small>내장</small><small class="pt-badge">실행 중</small></span>
-          <span class="pt-card"><i><svg class="pz" aria-hidden="true" focusable="false"><use href="#i-puzzle"/></svg></i><b>사용량: Console 조직</b><small>내장</small><small class="pt-badge">실행 중</small></span>
-          <span class="pt-card"><i><svg class="pz" aria-hidden="true" focusable="false"><use href="#i-puzzle"/></svg></i><b>질문하기</b><small>내장</small><small class="pt-badge">실행 중</small></span>
-        </div>
-        <div class="pt-detail">
-          <div class="pt-about">
-            <b class="pt-name">안녕 펫</b>
-            <span class="pt-note">v2.0.0 · 만든 사람: ClaudeTool</span>
-            <span>켜지면 펫이 반응하고 인사말을 말풍선으로 보여 줘요. 플러그인을 만들 때 보는 예제예요.</span>
-            <span class="pt-note">할 수 있는 일</span>
-            <span class="pt-list"><span>말풍선을 띄워요</span><span>펫을 움직여요(동작·전용 그림·이동)</span><span>따로 뜨는 창을 열어요</span></span>
-          </div>
-          <div class="pt-ctl">
-            <span class="pt-check"><i></i>켜기</span>
-            <span class="pt-field">인사말<span class="pt-input">안녕하세요!</span></span>
-            <span class="pt-strip"><svg class="pz" aria-hidden="true" focusable="false"><use href="#i-puzzle"/></svg> 안녕 펫</span>
-            <span class="pt-view">설정 창 안의 플러그인 화면이에요.<span class="pt-vbtns"><span>말풍선 보기</span><span>창 열기</span><span>신호 보내기</span></span></span>
-            <span class="pt-btns"><span>폴더 열기</span><span>내보내기(.zip)</span><span class="pt-danger">지우기</span></span>
-          </div>
-        </div>
-      </div></div>
-      <figcaption>설정 창 › 플러그인(화면을 본떠 그린 그림). 이 프로젝트의 예제 플러그인 “안녕 펫”을 가져와 고른 모습이에요. 안녕 펫은 설치 파일에 들어 있지 않고 따로 받을 수도 없어요. 위는 카드, 아래 왼쪽은 고른 플러그인이 할 수 있는 일, 오른쪽은 켜기·설정 칸·플러그인이 그린 설정 화면이에요. 내장 기능(사용량 4개·질문하기)도 여기서 켜고 꺼요.</figcaption>
+    <figure class="shot reveal">
+      <div class="tilt-host"><img class="tilt" src="images/plugin-tab.png" width="1290" height="1420" loading="lazy" alt="ClaudeTool 설정 창의 플러그인 탭. 위쪽 오른쪽에 가져오기(.zip)와 예제 둘러보기 버튼이 있다. 왼쪽 목록에는 로컬 에이전트·메모 도구·안녕 펫·캘린더 알림·Claude Code 알림 줄이 있고 줄마다 켜짐·동의 필요 같은 상태가 붙어 있다. 오른쪽에는 고른 안녕 펫의 설명·켜기 스위치·할 수 있는 일·인사말 설정 칸·설정 화면이 있고 맨 아래에 폴더 열기·내보내기(.zip)·지우기가 든 위험한 작업 묶음이 있다."></div>
+      <figcaption>설정 창 › 플러그인. 설치한 플러그인만 왼쪽 목록에 보이고 고른 줄의 상세가 오른쪽에 나와요. 위험한 작업(폴더 열기·내보내기·지우기)은 상세 맨 아래에 있어요. 메모 도구와 Claude Code 알림이 “동의 필요”인 것은 아직 동의하지 않아서예요.</figcaption>
+    </figure>
+    <figure class="shot reveal">
+      <div class="tilt-host"><img class="tilt" src="images/examples-gallery.png" width="1290" height="2100" loading="lazy" alt="ClaudeTool 설정 창의 예제 둘러보기 화면. 알림·도구·개발자 예제·캐릭터 묶음마다 체크 칸이 있는 줄이 이어지고 줄마다 이름과 판 번호·한 줄 설명·말풍선이나 로그인 정보 보관 같은 권한 칩이 있다. 안녕 펫·로컬 에이전트·슈크림빵(책상) 등 네 개가 체크되어 있고 아래 막대에 4개 골랐어요와 선택한 4개 설치 버튼이 있다."></div>
+      <figcaption>설정 창 › 플러그인 › 예제 둘러보기. 앱에 들어 있는 예제 플러그인 12개와 캐릭터 2개를 묶음별로 보고 여럿을 체크해 한꺼번에 설치해요. 위험한 권한은 빨간 칩으로 보이고 플러그인마다 동의 창이 하나씩 떠요.</figcaption>
     </figure>
   </div>
 </section>
@@ -1425,7 +1361,7 @@ html:not(.motion) .mini-pet { display: none; }
     <article class="how-item reveal cv" style="--cis: 420px" aria-labelledby="how-usage">
       <div>
         <h3 id="how-usage">사용량</h3>
-        <p>펫을 클릭하면 네 곳의 사용량을 한 창에서 봐요. 소스마다 트레이의 "사용량 소스"에서 켜고 꺼요.</p>
+        <p>펫을 클릭하면 네 곳의 사용량을 한 창에서 봐요. 소스마다 설정 창 › 사용량(또는 트레이의 "사용량 소스")에서 스위치로 켜고 꺼요.</p>
         <p class="fine">구독 한도는 Claude Code의 statusLine과 연결해서 읽고 설치 파일에 든 Node.js를 써요. 조직 사용량은 Admin API 키가 필요하고 UTC 기준이에요.</p>
       </div>
       <div class="tilt-host"><figure class="fig usage-fig tilt">
@@ -1450,7 +1386,7 @@ html:not(.motion) .mini-pet { display: none; }
     <article class="how-item reveal cv" style="--cis: 420px" aria-labelledby="how-ask">
       <div>
         <h3 id="how-ask">질문</h3>
-        <p>기본은 이 PC에 로그인된 Claude Code를 헤드리스로 실행해(<code>claude -p</code>) 구독으로 답해요. 트레이의 "질문 방식"에서 Anthropic API 키 방식으로 바꿀 수 있어요.</p>
+        <p>기본은 이 PC에 로그인된 Claude Code를 헤드리스로 실행해(<code>claude -p</code>) 구독으로 답해요. 설정 창 › AI 연결(또는 트레이의 "질문 방식")에서 Anthropic API 키 방식으로 바꿀 수 있어요.</p>
         <p>질문은 내가 로그인한 Claude Code를 통해 Anthropic으로 가요(API 키 방식이면 Anthropic API로 가요). 비밀번호·키·개인정보·회사 기밀은 적지 마세요.</p>
         <p class="fine">구독 방식은 Claude Code 네이티브 설치(<code>claude.exe</code>)와 로그인이 필요해요. npm으로 설치한 Claude Code(<code>claude.cmd</code>)는 이 앱에서 실행할 수 없어요.</p>
       </div>
@@ -1566,7 +1502,7 @@ html:not(.motion) .mini-pet { display: none; }
     <h2 class="section-title" id="plugins-title">플러그인</h2>
     <span class="status">새 기능</span>
   </div>
-  <p class="section-lede reveal">받은 플러그인(.zip)을 가져와 펫에 기능을 더해요. 가져올 때 무엇을 할 수 있는지 보여 주고 동의를 받아요. 플러그인마다 보이지 않는 격리된 창에서 따로 돌리고 앱과는 정해 둔 통로로만 이야기하게 했으며 인터넷 요청은 선언하고 동의한 주소로만 보내게 했어요. 다만 격리가 완벽하지는 않아요(<a href="#plugin-limits">알아 둘 점</a>). 0.4.3부터는 AI에게 일을 시키고 승인 카드를 거쳐 이 PC에서 프로그램을 실행하거나 고른 폴더의 파일을 쓰는 에이전트 플러그인도 만들 수 있어요. 0.4.4부터는 플러그인이 도구를 내놓아 말풍선 질문의 AI가 부르게 할 수도 있어요(처음 부를 때 말풍선 안 승인 카드로 물어요).</p>
+  <p class="section-lede reveal">받은 플러그인(.zip)을 가져와 펫에 기능을 더해요. 가져올 때 무엇을 할 수 있는지 보여 주고 동의를 받아요. 플러그인마다 보이지 않는 격리된 창에서 따로 돌리고 앱과는 정해 둔 통로로만 이야기하게 했으며 인터넷 요청은 선언하고 동의한 주소로만 보내게 했어요. 다만 격리가 완벽하지는 않아요(<a href="#plugin-limits">알아 둘 점</a>). 0.4.3부터는 AI에게 일을 시키고 승인 카드를 거쳐 이 PC에서 프로그램을 실행하거나 고른 폴더의 파일을 쓰는 에이전트 플러그인도 만들 수 있어요. 0.4.4부터는 플러그인이 도구를 내놓아 말풍선 질문의 AI가 부르게 할 수도 있어요(처음 부를 때 말풍선 안 승인 카드로 물어요). 0.4.5부터는 설정 창의 예제 둘러보기에서 앱에 들어 있는 예제 플러그인과 캐릭터를 골라 한꺼번에 설치할 수 있어요.</p>
 
   <!-- 흐름 무대: 스크립트가 움직임을 허락받으면 is-live를 붙여 한 자리에서 차례로 보이고, 아니면 네 장면이 정지 화면으로 나란히 보인다. -->
   <div class="flow-demo reveal is-off cv" style="--cis: 480px" id="flow-demo" role="group" aria-label="플러그인을 가져와 돌기까지">
@@ -1585,8 +1521,8 @@ html:not(.motion) .mini-pet { display: none; }
           <div class="mt">
             <span class="mt-title">플러그인</span>
             <span class="mt-cards">
-              <span class="mt-card mt-add"><span class="mt-plus">＋</span>가져오기(.zip)<svg class="sv-cur sv-cur-1" viewBox="0 0 18 20"><use href="#i-cursor"/></svg></span>
-              <span class="mt-card"><span class="mt-ico"><svg class="pz" aria-hidden="true" focusable="false"><use href="#i-puzzle"/></svg></span>질문하기<small>내장</small></span>
+              <span class="mt-card mt-add">가져오기(.zip)<svg class="sv-cur sv-cur-1" viewBox="0 0 18 20"><use href="#i-cursor"/></svg></span>
+              <span class="mt-card"><span class="mt-ico"><svg class="pz" aria-hidden="true" focusable="false"><use href="#i-puzzle"/></svg></span>예제 둘러보기</span>
             </span>
           </div>
           <div class="od">
@@ -1596,7 +1532,7 @@ html:not(.motion) .mini-pet { display: none; }
             <span class="od-btns"><span class="od-ok">열기<svg class="sv-cur sv-cur-2" viewBox="0 0 18 20"><use href="#i-cursor"/></svg></span><span>취소</span></span>
           </div>
         </div>
-        <p class="scene-cap"><b>① 가져오기</b>믿을 수 있는 사람에게 받았거나 직접 만든 플러그인 .zip을 설정 창 › 플러그인 탭의 “＋ 가져오기(.zip)”로 골라요(그림은 예제 “안녕 펫”을 묶은 zip이에요). 데이터 폴더의 plugins에 폴더째 넣어도 돼요.</p>
+        <p class="scene-cap"><b>① 가져오기</b>믿을 수 있는 사람에게 받았거나 직접 만든 플러그인 .zip을 설정 창 › 플러그인의 “가져오기(.zip)”로 골라요(그림은 예제 “안녕 펫”을 묶은 zip이에요). 앱에 들어 있는 예제는 “예제 둘러보기”에서 골라 설치해요. 데이터 폴더의 plugins에 폴더째 넣어도 돼요.</p>
       </li>
       <li class="scene">
         <div class="scene-vis sv-consent" aria-hidden="true">
@@ -1659,7 +1595,7 @@ html:not(.motion) .mini-pet { display: none; }
     </ol>
     <p class="sr-only" id="flow-live" aria-live="polite"></p>
   </div>
-  <p class="flow-note fine reveal">그림 속 “안녕 펫”은 이 프로젝트의 예제 플러그인이에요. 설치 파일에 들어 있지 않고 따로 받을 수도 없으니, 직접 해 보려면 아래 <a href="#make-title">직접 만들기</a>처럼 만드는 법 문서의 타이머 예제를 따라 만들어 가져오세요.</p>
+  <p class="flow-note fine reveal">그림 속 “안녕 펫”은 이 프로젝트의 예제 플러그인이에요. 0.4.5부터 앱에 들어 있어서 설정 창 › 플러그인 › 예제 둘러보기의 개발자 예제에서 설치해 볼 수 있어요. 직접 만들어 보려면 아래 <a href="#make-title">직접 만들기</a>처럼 만드는 법 문서의 타이머 예제를 따라 만들어 가져오세요.</p>
 
   <h3 class="sub-title reveal" id="lanes-title">플러그인이 쓰는 통로</h3>
   <p class="sub-lede reveal">플러그인은 Node.js 프로그램이 아니라 보이지 않는 창에서 도는 브라우저용 JavaScript예요. 앱과는 아래 통로로만 이야기하고 동의 창에는 그중 플러그인이 쓰겠다고 적은 권한과 주소가 보여요.</p>
@@ -1681,7 +1617,7 @@ html:not(.motion) .mini-pet { display: none; }
         <div><dt>말풍선</dt><dd>잠깐 떴다 사라지는 알림과 버튼이 있는 카드 말풍선</dd></div>
         <div><dt>펫 동작</dt><dd>캐릭터의 동작·전용 그림·이동</dd></div>
         <div><dt>말풍선 안 화면</dt><dd>말풍선 안에 플러그인이 그린 HTML 카드</dd></div>
-        <div><dt>설정 창 안 화면</dt><dd>플러그인 탭 상세 칸에 그리는 화면</dd></div>
+        <div><dt>설정 창 안 화면</dt><dd>플러그인 상세 칸에 그리는 화면</dd></div>
         <div><dt>따로 뜨는 창</dt><dd>선언한 크기의 작은 창, 3개까지</dd></div>
         <div><dt>신호</dt><dd>플러그인이 신호를 보내면 캐릭터가 정해 둔 동작을 해요(캐릭터 편집기의 “플러그인 신호”)</dd></div>
         <div><dt>나가는 연결</dt><dd>인터넷 연결(앱이 대신 보내는 요청과 WebSocket)은 선언하고 동의한 주소로만 가요. 모든 주소를 원하는 플러그인은 동의 창에 경고가 붙어요. 다만 DNS 이름 조회에 정보를 싣는 틈은 막지 못해요(<a href="https://github.com/BlackBuddle/claude-tool-page/blob/main/DISCLAIMER.md">면책조항</a> 3.4).</dd></div>
@@ -1754,7 +1690,7 @@ html:not(.motion) .mini-pet { display: none; }
 
   <h3 class="sub-title reveal" id="make-title">직접 만들기</h3>
   <ol class="make-steps cv" style="--cis: 200px" aria-labelledby="make-title">
-    <li class="reveal tilt-host"><div class="mk-card tilt"><b><svg class="doc-ico" aria-hidden="true" focusable="false"><use href="#i-doc"/></svg> 만드는 법(.md) 받기</b><span>설정 창 › 플러그인 탭 제목 줄의 버튼으로 안내 문서를 저장해요. 이 문서 하나만 AI에게 건네도 만들 수 있게 썼어요.</span></div></li>
+    <li class="reveal tilt-host"><div class="mk-card tilt"><b><svg class="doc-ico" aria-hidden="true" focusable="false"><use href="#i-doc"/></svg> 만드는 법(.md) 받기</b><span>설정 창 › 플러그인 아래쪽 “직접 만들기”의 받기(.md) 버튼으로 안내 문서를 저장해요. 이 문서 하나만 AI에게 건네도 만들 수 있게 썼어요.</span></div></li>
     <li class="reveal tilt-host"><div class="mk-card tilt"><b>AI에게 건네기</b><span>문서를 건네며 “이걸 보고 타이머 플러그인을 만들어 줘”처럼 원하는 기능과 끝났을 때 펫이 할 일을 말하면 돼요.</span></div></li>
     <li class="reveal tilt-host"><div class="mk-card tilt"><b>.zip으로 묶어 가져오기</b><span>받은 파일을 .zip으로 묶어 가져오고 동의하면 바로 돌아요. 문서에는 처음부터 zip 배포까지 따라 하는 타이머 예제가 들어 있어요.</span></div></li>
   </ol>
@@ -1765,7 +1701,7 @@ html:not(.motion) .mini-pet { display: none; }
     <h2 class="section-title" id="pack-title">예제 플러그인 묶음</h2>
     <span class="status">2026-10</span>
   </div>
-  <p class="section-lede reveal">캘린더·날씨·유튜브·GitHub·Steam·VS Code·메일·SNS 소식을 펫이 말풍선과 Windows 알림으로 알려 주는 예제 플러그인 8개이고 서로 따로 돌아서 필요한 것만 가져오면 돼요. 카드의 그림은 함께 받는 캐릭터 <code>choux-desk</code>가 그 소식에 하는 몸짓이에요.</p>
+  <p class="section-lede reveal">캘린더·날씨·유튜브·GitHub·Steam·VS Code·메일·SNS 소식을 펫이 말풍선과 Windows 알림으로 알려 주는 예제 플러그인 8개이고 서로 따로 돌아서 필요한 것만 가져오면 돼요. 0.4.5 이상이면 앱의 예제 둘러보기에서도 설치할 수 있어요. 카드의 그림은 함께 받는 캐릭터 <code>choux-desk</code>가 그 소식에 하는 몸짓이에요.</p>
   <!-- 카드 그림은 images/plugin-pack.png 스프라이트의 한 칸(--c 열, --r 행). 스프라이트의 칸 순서는 이 카드 순서와 같다. -->
   <ul class="pack-grid cv" style="--cis: 700px">
     <li class="reveal tilt-host"><div class="pack-card tilt">
@@ -1826,10 +1762,10 @@ html:not(.motion) .mini-pet { display: none; }
         <a class="btn btn-solid lift" href="https://github.com/BlackBuddle/claude-tool-page/releases/tag/plugins-2026-10">플러그인 묶음 받기</a>
         <a class="btn btn-line lift" href="https://github.com/BlackBuddle/claude-tool-page/blob/main/plugins/README.md">설치 안내서</a>
       </div>
-      <p class="dl-note">릴리스에서 쓸 플러그인의 zip과 캐릭터 zip(choux-desk-pack.zip)을 받아 설치할 때 동의 창에 보이는 권한과 접속 주소가 안내서의 목록과 같은지 확인하고 목록에 없는 주소나 권한이 보이면 설치하지 마세요.</p>
+      <p class="dl-note">0.4.5 이상이면 앱의 설정 창 › 플러그인 › 예제 둘러보기에서 이 플러그인들과 캐릭터를 골라 설치할 수 있어서 릴리스에서 받지 않아도 돼요(VS Code 확장은 릴리스에서 받아요). 릴리스에서 쓸 플러그인의 zip과 캐릭터 zip(choux-desk-pack.zip)을 받아 설치할 때 동의 창에 보이는 권한과 접속 주소가 안내서의 목록과 같은지 확인하고 목록에 없는 주소나 권한이 보이면 설치하지 마세요.</p>
     </div>
     <ul class="dl-req" aria-label="가져오기와 알아 둘 것">
-      <li><b>가져오기</b>플러그인 zip은 설정 창 › 플러그인의 “＋ 가져오기(.zip)”로, 캐릭터 zip은 설정 창 › 캐릭터의 “가져오기(.zip)”로 가져와요. 카드가 “실행 중”이 되면 상세 칸에 키·토큰·주소를 넣어요.</li>
+      <li><b>가져오기</b>플러그인 zip은 설정 창 › 플러그인의 “가져오기(.zip)”로, 캐릭터 zip은 설정 창 › 캐릭터의 “가져오기(.zip)”로 가져와요. 목록 줄이 “켜짐”이 되면 상세 칸에 키·토큰·주소를 넣어요.</li>
       <li><b>캐릭터 choux-desk</b>책상 앞 슈크림빵이 신호 동작 36개로 소식마다 다른 몸짓을 해요. 한 번 가져오면 8개 플러그인이 함께 쓰고 다른 캐릭터를 써도 말풍선과 Windows 알림은 그대로 와요(몸짓만 빠져요).</li>
       <li><b>키와 토큰</b>저장한 뒤에는 다시 보이지 않고 앱의 안전 저장소에만 둬요. 연결이 실패해도 주소에 든 값을 앱 로그에 남기지 않는 보호는 ClaudeTool 0.4.3부터라서 0.4.2에서는 그 값이 로그에 남을 수 있어요.</li>
     </ul>
@@ -1840,7 +1776,7 @@ html:not(.motion) .mini-pet { display: none; }
   <h2 class="section-title reveal" id="stack-title">쓴 기술</h2>
   <div class="table-wrap reveal cv" style="--cis: 600px">
     <table class="stack">
-      <caption>버전은 <span data-stat="version">0.4.4</span> 기준이에요.</caption>
+      <caption>버전은 <span data-stat="version">0.4.5</span> 기준이에요.</caption>
       <thead>
         <tr><th scope="col">기술과 버전</th><th scope="col">이 프로젝트에서 맡은 일</th></tr>
       </thead>
@@ -1874,23 +1810,23 @@ html:not(.motion) .mini-pet { display: none; }
   <!-- 숫자는 data-stat 이름으로 찾아 바꾼다(tasks·tests·e2e). 화면에 들어오면 스크립트가 0부터 이 값까지 올린다. -->
   <div class="stats">
     <div class="reveal tilt-host"><dl class="stat tilt"><dt>플러그인 틀 계획의 태스크</dt><dd><span class="num" data-stat="tasks">26</span><small>개</small></dd></dl></div>
-    <div class="reveal tilt-host"><dl class="stat tilt"><dt>자동 시험(단위·화면)</dt><dd><span class="num" data-stat="tests">5,149</span><small>개</small></dd></dl></div>
-    <div class="reveal tilt-host"><dl class="stat tilt"><dt>e2e 시험(실제 앱을 띄워서)</dt><dd><span class="num" data-stat="e2e">40</span><small>개</small></dd></dl></div>
+    <div class="reveal tilt-host"><dl class="stat tilt"><dt>자동 시험(단위·화면)</dt><dd><span class="num" data-stat="tests">5,571</span><small>개</small></dd></dl></div>
+    <div class="reveal tilt-host"><dl class="stat tilt"><dt>e2e 시험(실제 앱을 띄워서)</dt><dd><span class="num" data-stat="e2e">53</span><small>개</small></dd></dl></div>
   </div>
-  <p class="fine-stat reveal">숫자는 버전 <span data-stat="version">0.4.4</span> 기준이에요.</p>
+  <p class="fine-stat reveal">숫자는 버전 <span data-stat="version">0.4.5</span> 기준이에요.</p>
 </section>
 
 <section class="section" id="download" aria-labelledby="download-title">
   <div class="dl reveal cv" style="--cis: 460px">
     <div>
       <h2 class="section-title" id="download-title">내려받기</h2>
-      <p class="dl-ver">ClaudeTool <span data-stat="version">0.4.4</span> · Windows 10·11(x64)</p>
+      <p class="dl-ver">ClaudeTool <span data-stat="version">0.4.5</span> · Windows 10·11(x64)</p>
       <div class="dl-actions">
-        <a class="btn btn-solid lift" href="https://github.com/BlackBuddle/claude-tool-page/releases/download/v0.4.4/ClaudeTool-Setup-0.4.4.exe">ClaudeTool-Setup-0.4.4.exe 내려받기(약 125MB)</a>
+        <a class="btn btn-solid lift" href="https://github.com/BlackBuddle/claude-tool-page/releases/download/v0.4.5/ClaudeTool-Setup-0.4.5.exe">ClaudeTool-Setup-0.4.5.exe 내려받기(약 125MB)</a>
         <a class="btn btn-line lift" href="https://github.com/BlackBuddle/claude-tool-page/releases/latest">릴리스 보기</a>
       </div>
       <p class="dl-note">이 저장소의 릴리스에서만 받으세요. 같은 이름으로 다른 곳에서 받은 파일은 위조일 수 있어요. 설치 파일에는 코드 서명이 없어서 처음 실행할 때 Windows SmartScreen 경고가 뜰 수 있어요. 받은 파일의 SHA-256 값을 아래와 비교한 뒤 <b>추가 정보 → 실행</b>을 누르세요. 쓰는 법은 <a href="https://github.com/BlackBuddle/claude-tool-page#readme">사용 설명서</a>에 있어요.</p>
-      <p class="dl-hash">SHA-256 <code>dd97d7fc2ca3def946f8d256c2f217ac5354a613f12ebdd8273d8faea66bb295</code></p>
+      <p class="dl-hash">SHA-256 <code>bba11e73bdb07f161419cad8540696b793f99e2ec0a4b96d4a92c0db69b5cd4d</code></p>
       <span class="dl-pet" id="dl-pet" aria-hidden="true"><svg focusable="false"><use href="#dot-pet"/></svg></span>
     </div>
     <ul class="dl-req" aria-label="필요한 것과 알아 둘 것">
@@ -1898,7 +1834,7 @@ html:not(.motion) .mini-pet { display: none; }
       <li><b>질문하기</b>이 PC에 네이티브로 설치하고 로그인한 Claude Code(구독)로 답해요. 별도 API 키는 필요 없고 원하면 API 키 방식이나 Ollama·LM Studio 같은 로컬 AI(OpenAI 호환 서버)로 바꿀 수 있어요.</li>
       <li><b>구독 한도 보기·Claude Code 알림</b>필요한 Node.js가 설치 파일에 들어 있어서 따로 깔지 않아도 돼요.</li>
       <li><b>새 판 알림</b>0.4.2부터 앱이 새 판을 알려 줘요. 처음에는 확인하기 전에 안내하고 설정 창에서 끌 수 있어요. 내려받기와 설치는 누를 때만 해요. 0.4.1 이하는 이번 한 번만 직접 덮어 설치하세요.</li>
-      <li><b>시작 시 실행</b>Windows에 로그인할 때 자동으로 켜지게 할 수 있어요. 기본은 꺼져 있어요.</li>
+      <li><b>Windows 시작 시 실행</b>Windows에 로그인할 때 자동으로 켜지게 할 수 있어요. 설정 창 › 일반의 스위치로 정하고 기본은 꺼져 있어요.</li>
       <li><b>데이터</b>설정·캐릭터·플러그인 같은 데이터는 설치 폴더 옆 “설치 폴더-data”에 쌓이고 업데이트하거나 지워도 남아요.</li>
     </ul>
   </div>
@@ -1907,7 +1843,7 @@ html:not(.motion) .mini-pet { display: none; }
 </main>
 
 <footer class="foot">
-  <p class="foot-name">ClaudeTool <span data-stat="version">0.4.4</span></p>
+  <p class="foot-name">ClaudeTool <span data-stat="version">0.4.5</span></p>
   <p>개인이 만든 비공식 프로젝트이며 Anthropic과 제휴·후원·승인 관계가 없고 Anthropic의 공식 제품이 아니에요. “Claude”와 “Anthropic”은 Anthropic PBC의 상표예요. 기본 캐릭터 도트 슈크림빵과 벡터 슈크림빵, 트레이·프로그램 아이콘은 이 프로젝트를 위해 직접 그린 오리지널 그림이에요.</p>
   <p>개인 사용자는 무료로 쓸 수 있어요. 업무·영리 목적의 사용과 재배포는 저작권자의 허락이 필요해요. 소스 코드는 공개하지 않아요. 가져온 플러그인과 보안사고를 포함한 면책 범위는 면책조항에, 보안 문제 신고 방법은 보안 안내에 있어요.</p>
   <ul class="foot-links" aria-label="문서">

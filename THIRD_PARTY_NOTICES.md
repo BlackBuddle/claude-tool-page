@@ -4,9 +4,9 @@
 >
 > *This document is not legal advice and has not been reviewed by a lawyer. Get professional advice before any business or commercial use or distribution.*
 
-ClaudeTool 0.4.4(2026-10-07 기준) 설치 파일에는 아래의 제3자 소프트웨어가 들어 있어요(이 문서는 설치 파일을 만들 때 들어가는 구성요소를 기준으로 해요). 이 소프트웨어들은 **각자의 라이선스를 따르고**, ClaudeTool의 라이선스([LICENSE](LICENSE))는 그 라이선스를 바꾸지 않아요(LICENSE 제5조). 목록은 설치 파일에 들어가는 구성요소의 `package.json`과 라이선스 파일에서 가져왔고, 새 판에서 바뀔 수 있어요. 설치·제거 프로그램 쪽(3절)은 확인하지 못한 부분이 있어요. 한국어본과 영어본이 함께 있고, 뜻이 다르면 한국어본이 우선해요. 라이선스 전문은 맨 아래 "라이선스 전문" 절에 원문 그대로(영어) 있어요. 함께 읽으면 좋은 문서: [DISCLAIMER.md](DISCLAIMER.md), [PRIVACY.md](PRIVACY.md), [SECURITY.md](SECURITY.md).
+ClaudeTool 0.4.5(2026-10-12 기준) 설치 파일에는 아래의 제3자 소프트웨어가 들어 있어요(이 문서는 설치 파일을 만들 때 들어가는 구성요소를 기준으로 해요). 이 소프트웨어들은 **각자의 라이선스를 따르고**, ClaudeTool의 라이선스([LICENSE](LICENSE))는 그 라이선스를 바꾸지 않아요(LICENSE 제5조). 목록은 설치 파일에 들어가는 구성요소의 `package.json`과 라이선스 파일에서 가져왔고, 새 판에서 바뀔 수 있어요. 설치·제거 프로그램 쪽(3절)은 확인하지 못한 부분이 있어요. 한국어본과 영어본이 함께 있고, 뜻이 다르면 한국어본이 우선해요. 라이선스 전문은 맨 아래 "라이선스 전문" 절에 원문 그대로(영어) 있어요. 함께 읽으면 좋은 문서: [DISCLAIMER.md](DISCLAIMER.md), [PRIVACY.md](PRIVACY.md), [SECURITY.md](SECURITY.md).
 
-*The ClaudeTool 0.4.4 installer (as of 2026-10-07) contains the third-party software listed below (this document is based on the components that go into the installer when it is built). Each item **follows its own license**, and the ClaudeTool license ([LICENSE](LICENSE)) does not change those licenses (LICENSE Section 5). The list was taken from the `package.json` and license files of the components that go into the installer and may change in new versions. Part of the installer/uninstaller side (Section 3) could not be confirmed. A Korean and an English version are provided; if they differ, the Korean version prevails. The license texts are in the "License texts" section at the very bottom, in their original English. See also: [DISCLAIMER.md](DISCLAIMER.md), [PRIVACY.md](PRIVACY.md), [SECURITY.md](SECURITY.md).*
+*The ClaudeTool 0.4.5 installer (as of 2026-10-12) contains the third-party software listed below (this document is based on the components that go into the installer when it is built). Each item **follows its own license**, and the ClaudeTool license ([LICENSE](LICENSE)) does not change those licenses (LICENSE Section 5). The list was taken from the `package.json` and license files of the components that go into the installer and may change in new versions. Part of the installer/uninstaller side (Section 3) could not be confirmed. A Korean and an English version are provided; if they differ, the Korean version prevails. The license texts are in the "License texts" section at the very bottom, in their original English. See also: [DISCLAIMER.md](DISCLAIMER.md), [PRIVACY.md](PRIVACY.md), [SECURITY.md](SECURITY.md).*
 
 ---
 
@@ -54,6 +54,8 @@ ClaudeTool 0.4.4(2026-10-07 기준) 설치 파일에는 아래의 제3자 소프
 | `ts-algebra` | 2.0.0 | MIT | Copyright (c) 2020 Thomas Aribart | `json-schema-to-ts`의 하위 패키지 |
 | `universalify` | 2.0.1 | MIT | Copyright (c) 2017, Ryan Zimmerman | `fs-extra`·`jsonfile`의 하위 패키지 |
 | `zod` | 4.6.5 | MIT | Copyright (c) 2025 Colin McDonnell | 설정·입력값 검사 |
+
+패키지로 들어오지는 않지만 화면 코드에 **직접 옮겨 그려 넣은 아이콘**도 있어요. 설정 창의 아이콘(설정, 발바닥, 걷기, 반짝이, 막대그래프, 퍼즐, 화살표)은 **Tabler Icons**(MIT 라이선스, Copyright (c) 2020-2024 Paweł Kuna, https://tabler.io/icons)의 아웃라인 그림을 바탕으로 옮겨 그린 것이에요(원본 파일을 그대로 복사한 것이 아니라서 선 모양이 원본과 조금 다를 수 있어요).
 
 ### 3. 설치 프로그램(NSIS)
 
@@ -126,6 +128,8 @@ These are the packages in the install folder's `node_modules` and in the screen 
 | `universalify` | 2.0.1 | MIT | Copyright (c) 2017, Ryan Zimmerman | Sub-package of `fs-extra` and `jsonfile` |
 | `zod` | 4.6.5 | MIT | Copyright (c) 2025 Colin McDonnell | Validating settings and inputs |
 
+Some **icons are redrawn by hand in the screen code**, without being a package. The icons in the settings window (gear, paw, walking figure, sparkles, bar chart, puzzle piece, arrows) are redrawn from the outline icons of **Tabler Icons** (MIT License, Copyright (c) 2020-2024 Paweł Kuna, https://tabler.io/icons); they are not byte-for-byte copies of the original files, so a line may differ slightly from the original.
+
 ### 3. The installer (NSIS)
 
 - The installer and uninstaller were built with NSIS (Nullsoft Scriptable Install System) 3.0.4.1 (the version the build tool electron-builder 26.15.3 downloads and uses), and the installer and uninstaller executables contain NSIS's runtime code. NSIS follows the zlib/libpng license, and its compression modules follow the zlib/libpng, bzip2 and LZMA (Common Public License 1.0) licenses respectively (according to the `COPYING` of the NSIS distribution). The default plugins and headers that come with NSIS (`System`, `nsExec`, `nsDialogs`, etc.) are, except where noted otherwise, under the same zlib/libpng license according to `COPYING`.
@@ -154,7 +158,7 @@ Product and company names in this document are trademarks of their respective ow
 
 원문 그대로(영어)예요. 한국어본·영어본 모두에 적용돼요. *Original English texts; they apply to both the Korean and the English parts above.*
 
-**MIT License:** `@anthropic-ai/sdk`, `@babel/runtime`, `@stablelib/base64`, `builder-util-runtime`, `debug`, `electron-updater`, `fflate`, `fs-extra`, `js-yaml`, `json-schema-to-ts`, `jsonfile`, `lazy-val`, `lodash.escaperegexp`, `lodash.isequal`, `ms`, `preact`, `standardwebhooks`, `tiny-typed-emitter`, `ts-algebra`, `universalify`, `zod`, Electron, electron-builder의 NSIS 템플릿. 저작권 표시는 위 표의 "저작권" 칸(Electron은 `LICENSE.electron.txt`, electron-builder의 NSIS 템플릿은 3절)을 보세요. *Copyright notices: see the "Copyright" column of the table above (for Electron, `LICENSE.electron.txt`; for electron-builder's NSIS templates, Section 3).*
+**MIT License:** `@anthropic-ai/sdk`, `@babel/runtime`, `@stablelib/base64`, `builder-util-runtime`, `debug`, `electron-updater`, `fflate`, `fs-extra`, `js-yaml`, `json-schema-to-ts`, `jsonfile`, `lazy-val`, `lodash.escaperegexp`, `lodash.isequal`, `ms`, `preact`, `standardwebhooks`, `tiny-typed-emitter`, `ts-algebra`, `universalify`, `zod`, Tabler Icons(설정 창 아이콘), Electron, electron-builder의 NSIS 템플릿. 저작권 표시는 위 표의 "저작권" 칸(Electron은 `LICENSE.electron.txt`, electron-builder의 NSIS 템플릿은 3절)을 보세요. *Copyright notices: see the "Copyright" column of the table above (for Electron, `LICENSE.electron.txt`; for electron-builder's NSIS templates, Section 3).*
 
 **The Unlicense:** `fast-sha256`. **BSD 3-Clause:** `@anthropic-ai/sdk` 안의 쿼리 문자열 처리 코드 *(query-string code inside `@anthropic-ai/sdk`)*. **ISC License:** `graceful-fs`, `semver`. **Blue Oak Model License 1.0.0:** `sax`. **Python Software Foundation License(Python-2.0):** `argparse`.
 
