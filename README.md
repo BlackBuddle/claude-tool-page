@@ -1,41 +1,41 @@
 # ClaudeTool
 
-화면 위를 돌아다니는 Windows용 데스크톱 펫이에요. 펫을 누르면 Claude를 얼마나 썼는지 보여 주고 단축키로 질문하면 말풍선으로 답해요. 0.4.0부터는 **플러그인**으로 기능을 더할 수 있고 0.4.1에서는 Claude Code가 질문하거나 승인을 기다릴 때 펫이 알려 주는 **Claude Code 알림**이 생겼어요. 0.4.2부터는 앱이 **새 판을 알려 주고** Windows를 켤 때 **자동으로 시작**하게 할 수 있으며 알림은 설정 창의 **연결 버튼 하나**로 켜요. 0.4.3부터는 질문에 답하는 곳으로 Ollama·LM Studio 같은 **로컬 AI**(OpenAI 호환 서버)를 고를 수 있고 플러그인이 AI에게 일을 시켜 승인을 받고 이 PC에서 행동하는 **에이전트 플러그인**을 만들 수 있어요. 0.4.4부터는 말풍선 질문에서 AI가 앱 기능과 켜 둔 플러그인의 **도구를 불러** 쓸 수 있어요(API 키나 OpenAI 호환 서버 방식). 0.4.5부터는 설정 창이 **새로 바뀌어** 흩어져 있던 설정을 한곳에서 바꿀 수 있고 설정 창의 **예제 둘러보기**에서 앱에 들어 있는 예제 플러그인과 캐릭터를 골라 설치할 수 있어요.
+화면 위를 돌아다니는 Windows용 데스크톱 펫이에요. 펫을 누르면 Claude를 얼마나 썼는지 보여 주고 단축키로 질문하면 말풍선으로 답해요. 0.4.0부터는 **플러그인**으로 기능을 더할 수 있고 0.4.1에서는 Claude Code가 질문하거나 승인을 기다릴 때 펫이 알려 주는 **Claude Code 알림**이 생겼어요. 0.4.2부터는 앱이 **새 판을 알려 주고** Windows를 켤 때 **자동으로 시작**하게 할 수 있으며 알림은 설정 창의 **연결 버튼 하나**로 켜요. 0.4.3부터는 질문에 답하는 곳으로 Ollama·LM Studio 같은 **로컬 AI**(OpenAI 호환 서버)를 고를 수 있고 플러그인이 AI에게 일을 시켜 승인을 받고 이 PC에서 행동하는 **에이전트 플러그인**을 만들 수 있어요. 0.4.4부터는 말풍선 질문에서 AI가 앱 기능과 켜 둔 플러그인의 **도구를 불러** 쓸 수 있어요. 0.4.5부터는 설정 창이 **새로 바뀌어** 흩어져 있던 설정을 한곳에서 바꿀 수 있고 설정 창의 **예제 둘러보기**에서 앱에 들어 있는 예제 플러그인과 캐릭터를 골라 설치할 수 있어요. 0.4.6부터는 말풍선 대화로 설정 창의 거의 모든 설정을 **읽고 바꿀** 수 있고 AI가 제안해서 내가 허락한 것을 **기억**해 두며 Claude Code(구독) 방식에서도 대화 도구를 써요.
 
 <p align="center">
   <img src="images/banner.png" width="100%" alt="어두운 바탕 위에 도트 슈크림빵 펫이 서 있고 머리 위 말풍선에 “안녕하세요! Ctrl+Alt+K로 무엇이든 물어보세요.”라고 적혀 있어요.">
 </p>
 
-**[설치 파일 내려받기(0.4.5)](https://github.com/BlackBuddle/claude-tool-page/releases/latest)** · [소개 페이지](https://blackbuddle.github.io/claude-tool-page/) · [릴리스](https://github.com/BlackBuddle/claude-tool-page/releases)
+**[설치 파일 내려받기(0.4.6)](https://github.com/BlackBuddle/claude-tool-page/releases/latest)** · [소개 페이지](https://blackbuddle.github.io/claude-tool-page/) · [릴리스](https://github.com/BlackBuddle/claude-tool-page/releases)
 
 ClaudeTool은 개인 프로젝트이며 Anthropic과 관계없는 **비공식** 프로그램이에요.
 
 ## 한눈에 보기
 
-- **하는 일:** 사용량 보기 · 질문하기 · 캐릭터 꾸미기와 만들기 · 움직임 정하기 · 플러그인으로 기능 더하기 · Claude Code 알림 받기 · 새 판 알림 · Windows 시작 시 실행 · 로컬 AI 연결 · 에이전트 플러그인 · 대화로 플러그인 부르기 · 새 설정 창 · 예제 둘러보기
+- **하는 일:** 사용량 보기 · 질문하기 · 캐릭터 꾸미기와 만들기 · 움직임 정하기 · 플러그인으로 기능 더하기 · Claude Code 알림 받기 · 새 판 알림 · Windows 시작 시 실행 · 로컬 AI 연결 · 에이전트 플러그인 · 대화로 플러그인 부르기 · 새 설정 창 · 예제 둘러보기 · 대화로 설정 바꾸기 · 대화 기억
 - **필요한 것:** Windows 10·11(64비트). 질문하기는 이 PC에 로그인된 Claude Code가 있어야 해요(Anthropic API 키나 Ollama·LM Studio 같은 OpenAI 호환 서버로 바꿔 쓸 수도 있어요). 펫·캐릭터·플러그인은 Claude Code가 없어도 돼요. Node.js는 설치 파일에 들어 있어서 따로 깔지 않아도 돼요.
 - **설치:** 이 저장소의 [릴리스](https://github.com/BlackBuddle/claude-tool-page/releases/latest)에서 설치 파일(약 125MB)을 받아 실행해요. 사용자별 설치라 관리자 권한은 필요 없어요.
 - **가격:** 개인 사용은 무료예요. 업무·영리 목적의 사용과 재배포는 저작권자의 허락이 필요해요([라이선스](#라이선스)).
 - **내 데이터:** 설치 폴더 바로 옆의 `<설치 폴더 이름>-data`에만 쌓여요. 가입·로그인·사용 통계 전송이 없어요. 새 판 확인만 GitHub에 접속하고 끌 수 있어요([개인정보와 데이터](#개인정보와-데이터)). 질문은 내가 고른 방식(Claude Code·Anthropic API·내가 적은 OpenAI 호환 서버)의 곳으로 가요.
 - **소스 코드:** 공개하지 않아요. 이 저장소에는 사용 설명서·소개 페이지·법적 문서가 있고 설치 파일은 릴리스에 있어요.
 
-바로 가기: [내려받기와 설치](#내려받기와-설치) · [이런 걸 해요](#이런-걸-해요) · [설정 창](#설정-창) · [예제 둘러보기](#예제-둘러보기) · [AI 연결(로컬 AI)](#ai-연결로컬-ai) · [에이전트 플러그인](#에이전트-플러그인) · [대화로 플러그인 부르기](#대화로-플러그인-부르기) · [플러그인 쓰기](#플러그인-쓰기) · [Claude Code 알림 쓰기](#claude-code-알림-쓰기) · [AI로 만들 때 쓰는 규칙](#ai로-만들-때-쓰는-규칙) · [자주 묻는 질문과 문제 해결](#자주-묻는-질문과-문제-해결) · [개인정보와 데이터](#개인정보와-데이터) · [라이선스와 면책](#라이선스와-면책) · [문서](#문서)
+바로 가기: [내려받기와 설치](#내려받기와-설치) · [이런 걸 해요](#이런-걸-해요) · [설정 창](#설정-창) · [예제 둘러보기](#예제-둘러보기) · [AI 연결(로컬 AI)](#ai-연결로컬-ai) · [에이전트 플러그인](#에이전트-플러그인) · [대화로 플러그인 부르기](#대화로-플러그인-부르기) · [대화로 설정 바꾸기](#대화로-설정-바꾸기) · [대화 기억](#대화-기억) · [플러그인 쓰기](#플러그인-쓰기) · [Claude Code 알림 쓰기](#claude-code-알림-쓰기) · [AI로 만들 때 쓰는 규칙](#ai로-만들-때-쓰는-규칙) · [자주 묻는 질문과 문제 해결](#자주-묻는-질문과-문제-해결) · [개인정보와 데이터](#개인정보와-데이터) · [라이선스와 면책](#라이선스와-면책) · [문서](#문서)
 
 ## 내려받기와 설치
 
-설치 파일은 이 저장소의 [릴리스](https://github.com/BlackBuddle/claude-tool-page/releases/latest)에서 받아요. 최신 판은 **0.4.5**이고 파일 이름은 `ClaudeTool-Setup-0.4.5.exe`예요(약 125MB).
+설치 파일은 이 저장소의 [릴리스](https://github.com/BlackBuddle/claude-tool-page/releases/latest)에서 받아요. 최신 판은 **0.4.6**이고 파일 이름은 `ClaudeTool-Setup-0.4.6.exe`예요(약 125MB).
 
 0.4.2를 쓰고 있다면 앱이 새 판을 알려 줘요. **받기**와 **다시 시작해서 설치**만 누르면 돼요([업데이트](#업데이트)). 0.4.1 이하는 업데이트 기능이 없어서 **이번 한 번만 직접** 받아 같은 위치에 덮어 설치하세요. 데이터 폴더는 그대로 남아요.
 
 ### 내려받는 곳과 확인
 
 - **이 저장소의 릴리스에서만** 받으세요. 같은 이름으로 다른 곳에서 받은 파일은 위조일 수 있으니 실행하지 마세요.
-- 받은 파일이 맞는지 SHA-256 값으로 확인할 수 있어요. 0.4.5의 값은 `bba11e73bdb07f161419cad8540696b793f99e2ec0a4b96d4a92c0db69b5cd4d`이고 PowerShell에서 `Get-FileHash .\ClaudeTool-Setup-0.4.5.exe -Algorithm SHA256`로 구해 비교해요.
+- 받은 파일이 맞는지 SHA-256 값으로 확인할 수 있어요. 0.4.6의 값은 `2704b3f3a6e7a2097dc6a3a60e897c85cc0d0f71a1a1605b54c9d405f0bc7586`이고 PowerShell에서 `Get-FileHash .\ClaudeTool-Setup-0.4.6.exe -Algorithm SHA256`로 구해 비교해요.
 - 설치 파일에는 코드 서명이 없어서 처음 실행할 때 Windows SmartScreen 경고가 뜰 수 있어요. 위 확인을 마쳤다면 **추가 정보 → 실행**을 누르세요.
 
 ### 설치 순서
 
-1. 받은 `ClaudeTool-Setup-0.4.5.exe`를 실행해요.
+1. 받은 `ClaudeTool-Setup-0.4.6.exe`를 실행해요.
 2. 라이선스 화면에서 내용을 읽고 동의해요.
 3. 설치 위치를 정해요. 기본은 `D:\Programs\ClaudeTool`이에요(D 드라이브가 없으면 Windows의 기본 위치예요). 사용자별 설치라 관리자 권한은 필요 없어요.
 4. 설치가 끝나면 시작 메뉴의 **ClaudeTool**을 실행해요. 바탕화면 바로가기는 만들지 않아요.
@@ -83,11 +83,11 @@ Windows 설정의 앱 목록(Windows 10은 앱 및 기능, 11은 설치된 앱)�
 
 ## 이런 걸 해요
 
-그림 가운데 설정 창 화면(캐릭터 탭·움직임 탭·플러그인 탭·예제 둘러보기)은 0.4.5의 실제 화면이고 나머지는 [소개 페이지](https://blackbuddle.github.io/claude-tool-page/)에서 옮긴 설명용 그림이에요.
+그림 가운데 설정 창 화면(캐릭터 탭·움직임 탭·플러그인 탭·예제 둘러보기)은 0.4.5에서 찍은 실제 화면이라 왼쪽 탭이 여섯 개예요(0.4.6부터는 일곱 번째 탭 **기억**이 있어요). 기억 탭과 말풍선 카드 화면은 0.4.6의 실제 화면이에요. 나머지는 [소개 페이지](https://blackbuddle.github.io/claude-tool-page/)에서 옮긴 설명용 그림이에요.
 
 ### 설정 창
 
-펫 우클릭 › **설정…**이나 트레이 아이콘 우클릭 › **설정…**으로 열어요. 0.4.5에서 새로 바뀌었어요. 맨 위에 지금 캐릭터와 질문 방식을 보여 주는 카드가 있고 그 아래 왼쪽에 탭 여섯 개가 있어요. 오른쪽에는 묶음마다 이름이 붙은 둥근 칸에 스위치와 단추가 모여 있어요. 트레이 메뉴나 `settings.json` 손 편집으로만 바꾸던 설정도 이제 설정 창에 있어요.
+펫 우클릭 › **설정…**이나 트레이 아이콘 우클릭 › **설정…**으로 열어요. 0.4.5에서 새로 바뀌었어요. 맨 위에 지금 캐릭터와 질문 방식을 보여 주는 카드가 있고 그 아래 왼쪽에 탭이 있어요(0.4.5는 여섯 개였고 0.4.6에서 **기억**이 더해져 일곱 개예요). 오른쪽에는 묶음마다 이름이 붙은 둥근 칸에 스위치와 단추가 모여 있어요. 트레이 메뉴나 `settings.json` 손 편집으로만 바꾸던 설정도 이제 설정 창에 있어요.
 
 | 탭 | 들어 있는 것 |
 |---|---|
@@ -97,6 +97,7 @@ Windows 설정의 앱 목록(Windows 10은 앱 및 기능, 11은 설치된 앱)�
 | **AI 연결** | 질문 방식·모델 · **API 키** · OpenAI 호환 서버(주소·연결 확인·모델·키) · 답(최대 길이·생각 강도) · **질문하기**(질문 단축키·시스템 프롬프트·토큰 표시·도구 호출 횟수) · 고급(Claude Code 실행 파일 고르기) |
 | **사용량** | 사용량 소스 네 개를 켜는 스위치 · **Claude Code 연결** · **Console 조직**의 Admin 키 |
 | **플러그인** | 설치한 플러그인의 목록과 상세 · **가져오기(.zip)** · **예제 둘러보기** · 직접 만들기(만드는 법·엔진 패치 내역) · 고급(들어오는 연결 포트) |
+| **기억** | **기억 쓰기** 스위치 · 기억한 것 목록(줄마다 **고치기**·**지우기**) · **모두 지우기**([대화 기억](#대화-기억)) |
 
 - **정보:** 일반 탭의 **개인정보 안내**·**라이선스**·**오픈소스 사용 고지**를 누르면 설치 폴더에 함께 들어 있는 문서가 열려요. 그 문서가 없거나 열지 못할 때만 이 저장소의 같은 문서를 브라우저로 열어요.
 - **옛 설정은 그대로예요.** 0.4.4에서 쓰던 설정은 그대로 이어져요. 달라진 것은 자리뿐이에요. 플러그인 탭에 있던 내장 **질문하기** 카드는 AI 연결 탭의 **질문하기**로, 내장 **사용량** 카드의 켜기는 사용량 탭의 스위치로 옮겼어요. 옛 사용량 카드에서 소스를 꺼 두었다면 그 꺼짐이 사용량 탭의 스위치로 처음 한 번 옮겨 적혀요.
@@ -135,11 +136,12 @@ Windows 설정의 앱 목록(Windows 10은 앱 및 기능, 11은 설치된 앱)�
   <img src="images/ask.png" width="560" alt="질문하는 순서를 그린 그림. Ctrl+Alt+K로 질문 말풍선이 열리고, 질문을 적어 보내고, Claude Code 구독이나 Anthropic API 키 중 고른 방식으로 답을 받고, 답이 말풍선에 이어서 나타나며 쓴 토큰이 아래에 붙어요. Esc로 취소해요.">
 </p>
 
-- 기본은 이 PC에 **로그인된 Claude Code**가 구독으로 답해요. 별도 API 키는 필요 없어요. 이때 Claude Code는 **답만 하도록** 실행돼요(도구·MCP를 끄고 설정·메모리를 읽지 않게 해요. [개인정보와 데이터](#개인정보와-데이터) 참고).
+- 기본은 이 PC에 **로그인된 Claude Code**가 구독으로 답해요. 별도 API 키는 필요 없어요. 이때 Claude Code는 **답만 하도록** 실행돼요(Claude Code 자신의 도구와 따로 설정해 둔 MCP 서버를 끄고 설정·메모리를 읽지 않게 해요. 0.4.6부터는 앱의 대화 도구를 내놓는 앱 안의 작은 다리 하나만 열어요. [개인정보와 데이터](#개인정보와-데이터) 참고).
 - 원하면 설정 창 › **AI 연결**(또는 트레이의 **질문 방식**)에서 **API 키**로 바꿔 Anthropic API 키로 쓸 수도 있어요(선택 사항이에요). 키는 같은 탭의 **API 키**에 넣어요.
 - 질문 단축키·시스템 프롬프트·토큰 표시는 설정 창 › AI 연결의 **질문하기**에서 정해요.
 - 0.4.3부터는 **OpenAI 호환 서버**(Ollama·LM Studio 같은 로컬 AI)로도 답을 받을 수 있어요. 자세한 건 [AI 연결(로컬 AI)](#ai-연결로컬-ai)에 있어요.
-- 0.4.4부터는 API 키나 OpenAI 호환 서버 방식이면 AI가 앱 기능과 플러그인의 도구를 불러 쓸 수 있어요. 자세한 건 [대화로 플러그인 부르기](#대화로-플러그인-부르기)에 있어요.
+- 0.4.4부터는 AI가 앱 기능과 플러그인의 도구를 불러 쓸 수 있어요(Claude Code 방식은 0.4.6부터). 자세한 건 [대화로 플러그인 부르기](#대화로-플러그인-부르기)에 있어요.
+- 0.4.6부터는 대화로 설정을 바꾸고([대화로 설정 바꾸기](#대화로-설정-바꾸기)) AI가 제안한 것을 기억해 두게 할 수 있어요([대화 기억](#대화-기억)).
 - 질문은 고른 방식의 곳(기본은 Anthropic)으로 전송되니 비밀번호·키·개인정보·회사 기밀은 쓰지 마세요. AI의 답은 틀릴 수 있어요.
 
 ### AI 연결(로컬 AI)
@@ -235,7 +237,7 @@ Windows 설정의 앱 목록(Windows 10은 앱 및 기능, 11은 설치된 앱)�
 - **승인 카드:** 앱이 직접 띄우는 말풍선이에요. 플러그인은 카드를 만들거나 대신 누를 수 없어요. **허용**·**거부**·**이 플러그인은 늘 허용** 가운데 고르고 60초 안에 고르지 않으면 거부돼요.
 - **늘 허용:** 승인 카드에서 **이 플러그인은 늘 허용**을 누른 종류만 카드 없이 실행돼요. 설정 창 플러그인 상세 칸에 빨간 줄로 보이고 **끄기**로 꺼요. 플러그인을 업데이트하거나 새 권한을 허락하면 그 플러그인의 늘 허용은 꺼지고 카드가 다시 떠요. 정말 믿을 수 있는 플러그인의 되풀이 작업에만 쓰세요.
 - **동의 창:** 이 네 권한은 **주의가 필요한 권한**으로 따로 묶여 보여요. `files`는 설치한 뒤 설정 창에서 폴더를 골라야 동작해요.
-- **한계:** 승인 카드는 확인 수단이지 안전 장치가 아니에요. 허락한 프로그램이 하는 일은 앱이 막지 못하고 되돌릴 수도 없어요. 카드에는 명령줄의 앞부분이 보이니 끝까지 읽고 모르는 건 거부하세요. `files` 읽기에는 카드가 없어요. 자세한 한계는 [면책](#면책)과 [개인정보와 데이터](#개인정보와-데이터)에 있어요.
+- **한계:** 승인 카드는 내가 확인하는 단계일 뿐이고 틀린 값을 스스로 막아 주지는 못해요. 허락한 프로그램이 하는 일은 앱이 막지 못하고 되돌릴 수도 없어요. 카드에는 명령줄의 앞부분이 보이니 끝까지 읽고 모르는 건 거부하세요. `files` 읽기에는 카드가 없어요. 자세한 한계는 [면책](#면책)과 [개인정보와 데이터](#개인정보와-데이터)에 있어요.
 - **만들기:** 새 권한의 API는 설정 창 › 플러그인 › **직접 만들기**의 **만드는 법**에서 **받기(.md)**로 받는 안내 문서에 적혀 있어요([플러그인 만들기](#플러그인-만들기)).
 - **예제 받기:** 0.4.5 이상이면 예제 에이전트 **로컬 에이전트**(`local-agent`)와 예제 대화 도구 **메모 도구**(`memo-tools`)가 앱에 들어 있어요. 설정 창 › 플러그인 › **예제 둘러보기**의 개발자 예제에서 골라 설치해요. 이 저장소의 [릴리스](https://github.com/BlackBuddle/claude-tool-page/releases/latest)에도 같은 예제 플러그인 zip 두 개가 올라와 있어서 설정 창 › 플러그인 › **가져오기(.zip)**로 가져올 수 있어요. 예제 에이전트 `local-agent-plugin.zip`(약 8KB)은 `ai`·`run`·`files` 권한과 승인 카드가 어떻게 보이는지 보여 주고 예제 대화 도구 `memo-tools-plugin.zip`(약 4KB)은 `tools` 권한으로 말풍선 대화에서 AI가 메모를 적고 읽게 해 줘요. 둘 다 도구 호출을 지원하는 AI 연결이 필요해요. 받은 파일이 맞는지는 릴리스 노트의 SHA-256 값과 비교하세요.
 
@@ -243,23 +245,63 @@ Windows 설정의 앱 목록(Windows 10은 앱 및 기능, 11은 설치된 앱)�
 
 0.4.4부터 말풍선 질문에서 AI가 **도구를 불러** 앱 기능과 켜 둔 플러그인의 기능을 쓸 수 있어요. 예를 들어 "이번 주 사용량 알려 줘"라고 물으면 AI가 사용량 도구를 불러 답하고 "춤춰 봐"라고 하면 펫이 춤을 춰요. 플러그인이 도구를 내놓았다면 "오늘 일정 뭐 있어?"처럼 물어 그 플러그인의 도구로 답하게 할 수도 있어요.
 
-- **쓸 수 있는 방식:** 질문 방식이 **API 키**나 **OpenAI 호환 서버**일 때예요([AI 연결](#ai-연결로컬-ai)). Claude Code 방식은 도구 없이 지금처럼 대화만 하고 말풍선에 "도구를 쓰려면 설정 창 › AI 연결에서 API 키나 OpenAI 호환 방식을 골라 주세요" 안내가 한 번 보여요. 도구 호출을 지원하는 모델이어야 해요. 모델이 도구를 모르면 같은 질문을 도구 없이 다시 보내고 그 이유를 알려 줘요.
-- **앱 기능 도구 4개:**
+- **쓸 수 있는 방식:** 세 방식 모두예요. **API 키**와 **OpenAI 호환 서버**는 0.4.4부터이고 **Claude Code**(구독) 방식은 0.4.6부터예요([AI 연결](#ai-연결로컬-ai)). Claude Code 방식은 앱에 든 작은 다리로 같은 도구 상자를 내놓아요. 질문마다 이 PC 안에 이름 있는 통로와 새 열쇠를 만들고 질문이 끝나면 닫아요. 외부 MCP 서버는 쓰지 않아요. 도구 호출을 지원하는 모델이어야 해요. OpenAI 호환 서버의 모델이 도구를 모르면 같은 질문을 도구 없이 다시 보내고 그 이유를 알려 줘요. Claude Code 방식에서 다리를 열지 못하면 도구 없이 답하고 말풍선에 "도구를 연결하지 못해 도구 없이 답했어요"가 보여요.
+- **앱 기능 도구:** 여섯 개이고 기억 쓰기가 켜져 있으면 기억 도구 두 개가 더해져요.
 
 | 도구 | 하는 일 | 승인 |
 |---|---|---|
 | `app_usage` | 사용량 창의 내용(5시간·주간 사용 비율과 초기화 시각 같은 것)을 글로 요약해요. | 바로 실행 |
 | `app_pet_action` | 지금 캐릭터가 가진 동작 하나를 재생해요. | 바로 실행 |
-| `app_open_settings` | 설정 창의 탭이나 플러그인 상세 칸을 열어요. | 바로 실행 |
-| `app_change_setting` | 캐릭터 고르기·Windows 시작 시 실행·설치한 플러그인 켜기와 끄기·AI 연결 방식과 모델을 바꿔요. | **매번** 승인 카드 |
+| `app_open_settings` | 설정 창의 탭(**기억** 탭 포함)이나 플러그인 상세 칸을 열어요. | 바로 실행 |
+| `app_read_settings` | 설정 창에서 바꿀 수 있는 설정의 지금 값을 읽어요. 키와 비밀 칸의 값은 읽지 않고 '저장됨'이나 '없음'만 알려 줘요. | 바로 실행 |
+| `app_change_settings` | 설정 값 하나나 여럿을 바꿔요([대화로 설정 바꾸기](#대화로-설정-바꾸기)). | **매번** 승인 카드 |
+| `app_guarded_action` | 위험하거나 창에서 직접 해야 하는 일을 해요(키 입력 화면 열기·Claude Code 실행 파일 고르기·플러그인 동의·자동 허용·업데이트·지우기 같은 것). | 주의 카드 또는 내가 창에서 직접 |
+| `app_remember` · `app_forget` | 기억할 것을 제안하고 기억을 지워요([대화 기억](#대화-기억)). | 기억 카드 |
 
-- **바꿀 수 없는 것:** API 키와 비밀 값·권한 동의·늘 허용 목록·업데이트 설치·데이터 지우기·플러그인 설치와 삭제는 AI가 바꾸지 못해요. 시키면 "설정 창에서 직접 해 주세요"라고 알려 줘요. 아직 동의하지 않은 권한이 있는 플러그인은 켜지 않고 설정 창의 그 플러그인 칸을 열어요.
+- **AI가 혼자 못 하는 것:** 키 값·권한 동의·늘 허용 목록·업데이트 설치·데이터 지우기·플러그인 설치와 삭제는 AI가 카드 없이 하지 못해요. 0.4.5까지는 시켜도 "설정 창에서 직접 해 주세요"라고만 알려 줬지만 0.4.6부터는 위험도에 따라 **주의 카드**를 띄우거나 내가 직접 하는 창을 열어 줘요([대화로 설정 바꾸기](#대화로-설정-바꾸기)). 아직 동의하지 않은 권한이 있는 플러그인은 대화로 켜지지 않고 동의 창을 열어요.
 - **플러그인의 도구:** 도구를 내놓은 플러그인(`tools` 권한)은 켜 두면 AI가 그 도구를 볼 수 있어요. 동의 창에는 "🧰 대화 도구 이름: 설명" 줄로 도구마다 보여요. 플러그인마다 설정 창 상세 칸의 **대화에서 쓰기**로 끌 수 있어요. 처음 부를 때 승인 카드가 도구 이름·설명·입력 요약을 보여 줘요. **허용**·**거부**·**이 도구는 늘 허용** 가운데 고르고 늘 허용을 누른 도구만 다음부터 카드 없이 실행돼요. 플러그인을 업데이트해서 도구 선언(도구 목록과 이름·설명·입력 형식)이 바뀌거나 새 동의를 쓰면 그 플러그인의 늘 허용은 모두 꺼져요.
 - **승인 카드는 질문 말풍선 안에 떠요.** 대화 중의 카드는 열려 있는 말풍선 안에 같은 버튼으로 나타나요. 앱이 직접 그리는 버튼이라 플러그인이나 AI의 답은 누를 수 있는 승인 버튼을 만들 수 없어요. 60초 안에 고르지 않으면 거부돼요. 도구가 실행되는 동안 그 플러그인이 `run`·`files` 쓰기·`open-app` 권한으로 하는 일도 같은 말풍선에서 물어요.
-- **횟수와 멈춤:** 한 질문에서 도구를 부르는 횟수는 기본 8번이고 1~50번으로 정할 수 있어요(설정 창 › AI 연결 › **질문하기**의 "도구 호출 횟수"). 말풍선의 **멈춤**을 누르면 중간에 끝내요. 한도만큼 부른 뒤에도 AI가 더 부르려 하면 그 호출은 하지 않고 도구 없이 한 번 더 물어 지금까지의 결과로 답해요. 한 번에 AI에 보내는 도구는 32개까지이고 정의 글자 수에도 한도가 있어요(API 키 방식 32,000자·OpenAI 호환 방식 6,000자). 넘치면 플러그인 도구가 일부 빠지고 말풍선에 알려 줘요.
-- **어디로 가나요:** 질문과 함께 도구 목록이 가고 도구를 쓴 결과도 이어서 같은 AI 서버로 가요. 사용량 수치나 플러그인이 돌려준 내용(예: 오늘 일정)이 들어 있을 수 있어요. 주소가 이 PC 밖이면 그 서버로 가요. AI가 고른 입력은 그 플러그인에도 전해져요. 접속할 주소를 동의받은 플러그인은 그 입력을 그 주소로 보낼 수 있어요. 앱은 입력과 결과를 저장하지 않고 로그에는 도구 이름과 허락 결과만 남겨요([개인정보와 데이터](#개인정보와-데이터)).
-- **한계:** AI는 틀릴 수 있어요. 엉뚱한 도구를 고르거나 값을 지어내거나 도구를 부르지 않고 답을 지어내기도 하고 작은 로컬 모델은 이런 일이 더 잦을 수 있어요. 도구 결과 속의 글에 속아 의도하지 않은 도구를 부를 수도 있어서 설정 바꾸기는 매번 묻고 플러그인 도구는 첫 호출에 물어요. 승인 카드는 확인 수단이지 안전 장치가 아니에요. 도구를 쓰면 질문 하나에 AI를 여러 번 불러서 API 키 방식에서는 토큰과 요금이 늘 수 있어요. 자세한 한계는 [면책](#면책)에 있어요.
+- **횟수와 멈춤:** 한 질문에서 도구를 부르는 횟수는 기본 8번이고 1~50번으로 정할 수 있어요(설정 창 › AI 연결 › **질문하기**의 "도구 호출 횟수"). 말풍선의 **멈춤**을 누르면 중간에 끝내요. 한도만큼 부른 뒤에도 AI가 더 부르려 하면 그 호출은 하지 않고 도구 없이 한 번 더 물어 지금까지의 결과로 답해요. 한 번에 AI에 보내는 도구는 32개까지이고 정의 글자 수에도 한도가 있어요(API 키 방식과 Claude Code 방식 32,000자·OpenAI 호환 방식 6,000자). 앱 기능 도구의 정의가 약 3,600~4,400자를 먼저 차지해서 OpenAI 호환 방식에서 플러그인 도구가 쓸 수 있는 자리는 합쳐서 약 1,600~2,400자예요. 넘치면 플러그인 도구가 일부 빠지고 말풍선에 알려 줘요. Claude Code 방식은 도구를 한 번에 하나씩 차례로 처리해요.
+- **어디로 가나요:** 질문과 함께 도구 목록이 가고 도구를 쓴 결과도 이어서 같은 AI 서버로 가요(Claude Code 방식이면 Claude Code를 거쳐 Anthropic으로 가요). 사용량 수치나 설정 값이나 플러그인이 돌려준 내용(예: 오늘 일정)이 들어 있을 수 있어요. 주소가 이 PC 밖이면 그 서버로 가요. AI가 고른 입력은 그 플러그인에도 전해져요. 접속할 주소를 동의받은 플러그인은 그 입력을 그 주소로 보낼 수 있어요. 앱은 입력과 결과를 저장하지 않고 로그에는 도구 이름과 허락 결과만 남겨요([개인정보와 데이터](#개인정보와-데이터)).
+- **한계:** AI는 틀릴 수 있어요. 엉뚱한 도구를 고르거나 값을 지어내거나 도구를 부르지 않고 답을 지어내기도 하고 작은 로컬 모델은 이런 일이 더 잦을 수 있어요. 도구 결과 속의 글에 속아 의도하지 않은 도구를 부를 수도 있어서 설정 바꾸기는 매번 묻고 플러그인 도구는 첫 호출에 물어요. 승인 카드는 내가 확인하는 단계일 뿐이고 틀린 값을 스스로 막아 주지는 못해요. 도구를 쓰면 질문 하나에 AI를 여러 번 불러서 API 키 방식에서는 토큰과 요금이 늘 수 있어요. 0.4.6부터는 Claude Code 방식에서도 질문마다 도구 정의가 함께 가서 입력 토큰이 더 들어요. 구독 한도도 그만큼 더 쓸 수 있어요. 자세한 한계는 [면책](#면책)에 있어요.
 - **만들기:** 플러그인에 도구를 내놓는 법은 설정 창 › 플러그인 › **직접 만들기**의 **만드는 법**에서 **받기(.md)**로 받는 안내 문서의 "대화 도구 만들기" 장에 있어요([플러그인 만들기](#플러그인-만들기)). 동작하는 예제는 앱의 **예제 둘러보기**에 든 **메모 도구**이고 같은 파일 `memo-tools-plugin.zip`을 이 저장소의 [릴리스](https://github.com/BlackBuddle/claude-tool-page/releases/latest)에서 받을 수도 있어요.
+
+### 대화로 설정 바꾸기
+
+0.4.6부터 말풍선 대화로 설정 창의 거의 모든 설정을 읽고 바꿀 수 있어요. "펫 움직임 속도를 60으로 하고 활동성을 20%로 바꿔 줘"처럼 말하면 AI가 지금 값을 읽고 바꿀 값을 카드로 보여 줘요. 내가 **허용**을 눌러야 바뀌어요.
+
+<p align="center">
+  <img src="images/chat-settings-card.png" width="340" alt="펫 머리 위 말풍선에 질문 “펫 움직임 속도를 60으로, 활동성을 20%로 바꿔 줘.”가 있고 그 아래에 설정 읽기와 설정 바꾸기 도구 줄이 보여요. 이어서 “설정을 바꿀까요?” 카드에 속도와 활동성이 지금 값에서 새 값으로 바뀌는 줄이 있고 자세히·허용·거부 단추가 있어요."><br>
+  <sub>설정을 바꾸는 카드(0.4.6 실제 화면). 값이 여럿이어도 카드는 한 장이에요.</sub>
+</p>
+
+- **바꿀 수 있는 것:** 설정 창의 일반·캐릭터·움직임·AI 연결·사용량·플러그인·기억 탭에 있는 값이에요. Windows 시작 시 실행·새 판 자동 확인·캐릭터 고르기와 크기·움직임·질문 방식과 모델·시스템 프롬프트·사용량 소스·플러그인 켜기와 설정 칸·AI 월 예산·**대화에서 쓰기**·**기억 쓰기**가 들어 있어요.
+- **카드는 매번 떠요.** 값을 바꾸는 일은 늘 **설정을 바꿀까요?** 카드로 물어요. 여러 값을 한 번에 바꾸면 카드 한 장에 "이름: 지금 값 → 새 값" 줄로 모아 보여 줘요. **자세히**를 누르면 설정 이름이 보여요. **허용**과 **거부** 가운데 고르고 60초 안에 고르지 않으면 거부돼요. 늘 허용은 없어요. 말풍선의 **멈춤**을 누르면 떠 있는 카드를 거부하고 끝내요.
+- **잘못된 값은 카드 전에 걸러요.** 값 하나라도 틀리면 카드 없이 전체를 거절하고 이유를 AI에게 알려 줘요. 허용한 뒤에는 목록 순서대로 바꾸고 하나가 실패하면 나머지는 하지 않아요. AI 연결 설정은 지금 답이 끝난 뒤에 바뀌고 열려 있는 설정 창에는 바뀐 값이 바로 보여요.
+- **카드에 보이는 글이 저장되는 글이에요.** 보이지 않는 글자나 비밀처럼 보이는 글(`Bearer` 뒤의 값·`KEY=값` 꼴·`sk-`로 시작하는 글)이 든 값과 카드에 다 담기지 않을 만큼 긴 변경은 카드 없이 거절해요. 나눠서 시키거나 설정 창에서 직접 바꾸면 돼요. 시스템 프롬프트를 바꿀 때는 새 글 전체가 카드에 보여요.
+- **위험한 일은 주의 카드로 물어요.** 맨 위에 경고 줄이 붙고 빨간 강조로 보이며 기본 단추가 **거부**예요. 늘 허용은 없어요. 플러그인의 **자동 허용**(`run`·`files` 쓰기·`open-app`) 켜기·대화 도구 **늘 허용** 켜기·받아 둔 새 판 설치(앱이 종료되고 다시 시작돼요)·플러그인과 캐릭터 지우기(카드 뒤에 Windows 확인 창이 한 번 더 떠요)·내장 **질문하기** 끄기가 여기에 들어요. 새 판 확인은 카드 없이 하고 받기는 보통 카드로 물어요.
+- **내가 창에서 직접 하는 일:** 키·실행 파일 경로·동의는 AI가 값을 정하지 못해요. AI는 그 창을 열어 줄 뿐이고 내가 입력하거나 고르거나 확인해요. 설정 창의 키 칸(Anthropic 키·OpenAI 호환 서버 키·Admin 키·플러그인 비밀 칸)·**Claude Code 실행 파일 고르기**·아직 동의하지 않은 권한이 있는 플러그인의 동의 창이에요. 예제 설치는 카드 뒤에 플러그인마다 동의 창이 떠요.
+- **키는 대화에 적지 마세요.** 질문이 이 PC 밖으로 가는 방식(Claude Code·API 키·이 PC 밖 OpenAI 호환 서버)에서는 대화에 적은 키를 저장하지 않고 설정 창의 키 칸만 열어 줘요. 질문이 이 PC 안의 OpenAI 호환 서버(`localhost`·`127.0.0.1`)로만 갈 때는 가린 키 모양이 보이는 주의 카드를 허용하면 대화에 적은 키를 바로 저장하고 대화 기록에서는 "[저장한 키]"로 바꿔요. AI가 키 입력 동작을 부르지 않으면 앱이 키를 지우지 못하고 이미 서버로 간 글은 되돌릴 수 없어요. 키는 설정 창에서 직접 넣는 편이 안전해요.
+- **OpenAI 호환 서버 주소는 이 PC 안만:** 대화로는 `localhost`·`127.0.0.1` 같은 이 PC 안 주소로만 바꿀 수 있어요. 집·회사 내부망 주소도 안 돼요. 다른 주소는 "설정 창 › AI 연결에서 직접 바꿔 주세요"라고 알려 줘요. 질문이 엉뚱한 서버로 새는 길을 막으려는 거예요.
+- **대화로 못 하는 것:** 캐릭터 편집기·가져오기와 내보내기·폴더나 파일 고르기·훅 연결·토큰·Claude Code 경로 지우기·사용량 소스의 연결 단추는 설정 창에서 직접 해요.
+- **설정 읽기는 카드 없이 해요.** 읽은 값은 질문과 같은 AI 서버로 가요(시스템 프롬프트와 설치한 플러그인의 비밀이 아닌 설정 칸 값도 들어요). 키와 비밀 칸의 값은 읽지 않고 '저장됨'이나 '없음'만 알려 줘요. 토큰·키·웹훅 주소 같은 값은 플러그인의 **비밀 칸**에만 두세요.
+- **한계:** AI는 틀릴 수 있어요. 카드의 값을 읽고 내가 시킨 일일 때만 허용하세요. 주의 카드는 모르면 **거부**하세요. 카드는 내가 확인하는 단계일 뿐이고 틀린 값을 스스로 막아 주지는 못해요.
+
+### 대화 기억
+
+0.4.6부터 AI가 앞으로도 쓸 말투나 성향을 **기억해 두자고 제안**하고 내가 허락한 것만 저장해요. 저장한 기억은 질문마다 AI에게 함께 보내요. "앞으로 답은 세 줄 이내로 짧게 해 줘. 이건 기억해 둬."라고 말하면 AI가 **이걸 기억할까요?** 카드를 띄워요.
+
+<p align="center">
+  <img src="images/settings-memory-tab.png" width="560" alt="ClaudeTool 설정 창의 기억 탭. 왼쪽 탭 목록 맨 아래에 기억이 골라져 있어요. 오른쪽 위에 기억 쓰기 스위치가 켜져 있고 그 아래 기억은 질문할 때마다 이 PC 안의 AI 서버로 함께 보내져요라는 안내가 있어요. 기억한 것 3/50 묶음에 반말로 짧게 답해 줘 같은 기억 세 줄이 있고 줄마다 고치기·지우기 단추가 있어요. 맨 아래에 빨간 모두 지우기 줄이 있어요."><br>
+  <sub>설정 창 › 기억 탭(0.4.6 실제 화면)</sub>
+</p>
+
+- **제안과 허락:** 카드에 저장할 글이 통째로 보여요. **기억하기**를 눌러야 저장하고 **아니요**를 누르거나 60초 안에 고르지 않으면 저장하지 않아요. "기억해: …"라고 시켜도 같은 카드를 거쳐요. 기억을 지울 때도 **이 기억을 지울까요?** 카드로 물어요(**지우기**·**아니요**).
+- **저장되는 것:** 기억 하나는 200자까지이고 최대 50개예요. 데이터 폴더의 `memory.json`에 암호화하지 않고 저장해요. 비밀처럼 보이는 글(`Bearer` 뒤의 값·`KEY=값` 꼴·`sk-`로 시작하는 글)은 카드 전에 거절해요. 그 밖의 비밀은 걸러 내지 못하니 기억에 비밀을 적지 마세요. 눈에 보이지 않는 글자는 지운 글이 카드에 보이고 그대로 저장돼요.
+- **질문마다 AI로 가요:** 기억 쓰기가 켜져 있으면 질문마다 시스템 프롬프트 끝에 "사용자에 대해 기억하는 것" 목록이 붙어요. 세 방식 모두 그래요. 합계 4,000자까지이고 넘으면 새 기억부터 채워요. 질문과 같은 곳으로 가요. Claude Code 방식과 API 키 방식은 Anthropic으로 가고 OpenAI 호환 서버 방식은 내가 적은 주소로 가요. 그 주소가 이 PC 밖이면 기억도 그 서버로 가요. 이미 간 기억은 그 서버에 남을 수 있어요. 기억 쓰기의 처음 상태는 켜짐이지만 내가 허락한 기억이 없으면 보낼 것이 없어요.
+- **설정 창 › 기억:** 맨 위 **기억 쓰기** 스위치로 켜고 꺼요. 목록에서 줄마다 **고치기**·**지우기**를 누르고 아래 **모두 지우기**는 Windows 확인 창이 떠요. 새 기억을 직접 적는 칸은 없어요. 기억은 대화로만 더해요. 대화로 기억이 바뀌면 열려 있는 탭이 바로 따라와요.
+- **끄거나 지우기:** **기억 쓰기**를 끄면 기억을 질문에 붙이지 않고 기억 도구 둘도 AI에게 보이지 않아요. 저장한 기억은 내가 지우기 전까지 파일에 남아요.
+- **Claude Code 방식 주의:** 이 방식은 시스템 프롬프트를 실행 인자로 넘겨서 같은 PC의 다른 프로그램이 실행 중인 프로세스의 명령줄을 읽을 수 있어요. 기억에 비밀을 적지 마세요.
 
 ### Claude Code 알림
 
@@ -453,7 +495,7 @@ Windows에 로그인할 때 ClaudeTool이 자동으로 켜지게 할 수 있어�
 9. **승인 카드는 끝까지 읽으세요.** 카드에 잘렸다는 표시가 있으면 **자세히**를 열고 모르는 명령은 거부하세요. **늘 허용**은 믿을 수 있는 플러그인의 되풀이 작업에만 켜고 `shell`처럼 무엇이든 실행할 수 있는 것에는 켜지 않기를 권해요. 플러그인을 업데이트하거나 새 권한을 허락하면 그 플러그인의 **늘 허용**은 꺼지고 카드가 다시 떠요.
 10. **`files`에는 필요한 폴더만 고르세요.** 드라이브 맨 위나 사용자 폴더, `.claude`·`.codex`·`AppData` 같은 설정 폴더는 고르지 마세요. 폴더를 넓게 고를수록 플러그인이 읽을 수 있는 파일이 늘어요.
 11. **`ai`를 쓰는 플러그인**은 비밀 값이나 개인 문서를 AI 메시지에 넣지 않는지 확인하세요. API 키 방식과 이 PC 밖 OpenAI 호환 주소에서는 월 예산을 낮게 정하세요.
-12. **대화 도구는 첫 호출 카드를 읽으세요.** 도구 이름·설명·입력 요약을 읽고 모르는 것은 거부하세요. **이 도구는 늘 허용**은 되돌릴 수 있는 조회성 도구에만 켜세요. 설정 바꾸기 카드는 바뀌는 값을 읽고 내가 시킨 일일 때만 허용하세요. 쓰지 않는 플러그인은 **대화에서 쓰기**를 끄세요.
+12. **대화 도구는 첫 호출 카드를 읽으세요.** 도구 이름·설명·입력 요약을 읽고 모르는 것은 거부하세요. **이 도구는 늘 허용**은 되돌릴 수 있는 조회성 도구에만 켜세요. 설정 바꾸기 카드는 바뀌는 값을 읽고 내가 시킨 일일 때만 허용하세요. 주의 카드는 모르면 **거부**하세요. 기억 카드는 저장될 글을 읽고 허락하세요. 키는 대화에 적지 말고 설정 창에서 직접 넣으세요. 쓰지 않는 플러그인은 **대화에서 쓰기**를 끄세요.
 
 ### 알아 둘 한계
 
@@ -462,8 +504,8 @@ Windows에 로그인할 때 ClaudeTool이 자동으로 켜지게 할 수 있어�
 - 플러그인이 그린 화면(말풍선 안·설정 창 안·따로 뜨는 창)은 내가 그 화면을 조작한 직후 브라우저의 복사 기능으로 **클립보드의 내용을 바꿀 수 있어요.** 클립보드를 읽는 것은 막아 뒀지만 쓰는 길은 막지 못했어요. `clipboard-write`를 허락한 플러그인은 화면 없이도 클립보드를 바꿀 수 있어요. 플러그인을 쓴 뒤 붙여 넣을 때는 붙여 넣는 내용이 내가 복사한 것이 맞는지 확인하세요.
 - 허락한 주소의 이름이 DNS 설정에 따라 내부망 주소를 가리키면 그곳에 닿을 수 있어요. 동의 창은 이름만 보여 줘요.
 - 비밀 칸 값은 Windows 계정으로 암호화해 저장하지만 같은 Windows 계정으로 도는 다른 프로그램은 읽을 수 있어요.
-- 승인 카드는 확인 수단이지 안전 장치가 아니에요. 허락한 프로그램이 하는 일(다른 프로그램을 부르는 것·파일을 지우거나 덮어쓰는 것·인터넷으로 보내는 것)은 앱이 막지 못하고 되돌릴 수도 없어요. 카드의 요약은 300자 안쪽에서 잘리고(셸 명령은 앞 200자만 보여요) 비밀로 가려 주는 모양은 세 가지뿐이며 경로 표시는 Windows 짧은 이름이나 비슷한 글자를 가려내지 못해요. `files` 읽기에는 카드가 없고 읽은 내용은 플러그인이 동의받은 주소나 AI 서버로 보낼 수 있어요.
-- 대화 도구에서 AI는 틀린 도구를 고르거나 값을 지어내거나 도구 결과 속의 글에 속아 의도하지 않은 도구를 부를 수 있어요. 앱의 방어는 승인 카드뿐이에요. **이 도구는 늘 허용**을 켠 도구는 AI가 고른 입력으로 카드 없이 실행되고 사용량 보기·펫 동작·설정 창 열기도 카드 없이 실행돼요. 카드 요약은 300자 안쪽에서 잘려서 긴 입력은 다 보이지 않을 수 있어요. 플러그인이 받은 입력과 결과를 동의받은 주소로 보내는 것은 앱이 막지 못해요.
+- 승인 카드는 내가 확인하는 단계일 뿐이고 틀린 값을 스스로 막아 주지는 못해요. 허락한 프로그램이 하는 일(다른 프로그램을 부르는 것·파일을 지우거나 덮어쓰는 것·인터넷으로 보내는 것)은 앱이 막지 못하고 되돌릴 수도 없어요. 카드의 요약은 300자 안쪽에서 잘리고(셸 명령은 앞 200자만 보여요) 비밀로 가려 주는 모양은 세 가지뿐이며 경로 표시는 Windows 짧은 이름이나 비슷한 글자를 가려내지 못해요. `files` 읽기에는 카드가 없고 읽은 내용은 플러그인이 동의받은 주소나 AI 서버로 보낼 수 있어요.
+- 대화 도구에서 AI는 틀린 도구를 고르거나 값을 지어내거나 도구 결과 속의 글에 속아 의도하지 않은 도구를 부를 수 있어요. 앱의 방어는 승인 카드뿐이에요. **이 도구는 늘 허용**을 켠 도구는 AI가 고른 입력으로 카드 없이 실행되고 사용량 보기·펫 동작·설정 창 열기·설정 읽기도 카드 없이 실행돼요. 내가 창에서 직접 끝내야 하는 일(키 입력 화면 열기·Claude Code 실행 파일 고르기·플러그인 동의 창)과 새 판 확인도 카드 없이 시작돼요. 카드 요약은 300자 안쪽에서 잘려서 긴 입력은 다 보이지 않을 수 있어요. 플러그인이 받은 입력과 결과를 동의받은 주소로 보내는 것은 앱이 막지 못해요.
 
 ### 플러그인 만들기
 
@@ -945,7 +987,7 @@ API 키 방식에서 키가 없다고 하거나 올바르지 않다고 하면 �
 | "설정 창 › AI 연결에서 모델을 골라 주세요" | 모델 칸이 비어 있어요. 모델을 고르거나 적으세요. |
 | 키가 틀렸다는 안내 | 서버가 요구하는 키를 **AI 연결**의 키 칸에 넣으세요. |
 | "이 모델은 도구 호출을 지원하지 않아요" | 에이전트 플러그인이 AI에게 도구를 쓰게 하는데 그 모델이 도구를 지원하지 않아요. 도구를 쓸 수 있는 모델로 바꾸세요. |
-| "지금 질문 방식(Claude Code)은 도구 호출을 지원하지 않아요" | 에이전트 플러그인에는 **AI 연결**에서 API 키나 OpenAI 호환 서버 방식을 골라야 해요. |
+| "지금 질문 방식(Claude Code)은 도구 호출을 지원하지 않아요" | 에이전트 플러그인이 `ai`로 직접 도구를 쓰게 할 때는 **AI 연결**에서 API 키나 OpenAI 호환 서버 방식을 골라야 해요. 말풍선 대화의 도구는 0.4.6부터 Claude Code 방식에서도 써요. |
 | "이 플러그인의 월 AI 예산이 정해지지 않았어요" | API 키 방식과 이 PC 밖 OpenAI 호환 주소에서는 플러그인 상세 칸에서 월 예산(토큰)을 정해야 해요. |
 | 승인 카드가 안 뜨고 거부돼요 | 펫이 숨겨져 있으면 카드를 띄우지 못하고 거부해요. 펫을 보이게 하세요. 사용량 창이나 업데이트 안내 같은 앱의 말풍선 창이 떠 있어도 카드가 뜨지 못하고 60초 뒤에 거부될 수 있어요. 그 창을 닫고 다시 시켜 보세요. 카드는 60초 안에 답하지 않아도 거부돼요. |
 
@@ -1071,10 +1113,11 @@ ClaudeTool이 무엇을 저장하고 무엇을 읽고 무엇을 밖으로 보내
 | `claude-notify\` | 0.4.1의 알림 훅 설치 도우미(손으로 연결)를 쓴 경우에만 생겨요. 위와 같은 `token`과 `backup\`이에요. |
 | `claude-code-cwd\` | Claude Code로 질문할 때 쓰는 빈 작업 폴더 |
 | `electron\` | 화면을 그리는 엔진(Chromium)의 내부 저장 공간(캐시 등)과 새 판 확인에 쓰는 임의의 번호 파일(`.updaterId`). 이 폴더를 지우면 `secrets.bin`을 풀 수 없게 돼서 키를 다시 넣어야 해요. |
+| `memory.json` · `memory.json.bak` | 대화 기억(0.4.6부터): 기억 쓰기 켜짐·꺼짐과 내가 카드에서 허락한 기억 글(최대 50개·하나에 200자)과 만든 시각·고친 시각. 암호화하지 않은 글 파일이고 기억 쓰기가 켜져 있으면 질문마다 AI 서버로 함께 가요. 파일이 깨지면 `.bak`으로 옮겨 두고 빈 기억으로 시작해요. |
 | `pricing.json` | 비용 계산에 쓰는 모델 단가표 |
 
 - **API 키·Admin 키·OpenAI 호환 서버 키·플러그인 비밀 칸 값·토큰**은 Windows가 제공하는 보호 기능(DPAPI)으로 암호화해 `secrets.bin`에 저장해요. 이 Windows 계정에서만 풀 수 있어요. 이 PC에서 암호화를 쓸 수 없으면 저장하지 않아요. 이 값들은 설정 파일·로그·내보내기 .zip에 들어가지 않아요. 다만 같은 Windows 계정으로 도는 다른 프로그램은 값을 알아낼 수 있어서 완전한 금고는 아니에요.
-- **질문과 답의 내용은 파일로 저장하지 않아요.** 이어서 묻기 위해 앱이 켜져 있는 동안만 최근 대화(6번까지, 마지막 답 뒤 10분까지)를 기억하고 앱을 끄면 사라져요. 도구를 쓴 질문도 질문과 최종 답 글만 기억하고 도구 호출과 결과는 기억하지 않아요. 사용 기록에는 모델 이름과 토큰 수 같은 숫자만 남아요. 로그에도 질문·답 내용은 적지 않아요(오류 문구에 짧은 설명이 들어갈 수는 있어요).
+- **질문과 답의 내용은 파일로 저장하지 않아요.** 딱 하나 0.4.6부터 내가 카드에서 허락한 **기억**(짧은 글 최대 50개)만 `memory.json`에 저장돼요. 기억 쓰기가 켜져 있으면 질문마다 AI 서버로 함께 가요([대화 기억](#대화-기억)). 이어서 묻기 위해 앱이 켜져 있는 동안만 최근 대화(6번까지, 마지막 답 뒤 10분까지)를 기억하고 앱을 끄면 사라져요. 도구를 쓴 질문도 질문과 최종 답 글만 기억하고 도구 호출과 결과는 기억하지 않아요. 사용 기록에는 모델 이름과 토큰 수 같은 숫자만 남아요. 로그에도 질문·답 내용은 적지 않아요(오류 문구에 짧은 설명이 들어갈 수는 있어요).
 - 플러그인이 `plugins.log`에 적는 글과 `plugin-data`에 저장하는 값은 플러그인이 정해요. 암호화하지 않은 평문 파일이니, 믿을 수 있는 플러그인만 쓰세요.
 - 로그 파일은 자동으로 지우거나 줄이지 않아서 계속 커져요. 필요하면 앱을 끈 뒤 지워도 돼요. 앱이 다시 만들어요.
 - **데이터 폴더 밖에 남는 것:** **Windows 시작 시 실행**을 켰다면 현재 사용자의 레지스트리 `Run` 항목 하나(`HKCU\Software\Microsoft\Windows\CurrentVersion\Run`)가 있어요. 또 **받기**를 눌렀을 때 만들어지는 `%LOCALAPPDATA%\claude-tool-updater\pending` 폴더(받은 설치 파일, 약 125MB)와 차등 내려받기가 쓰는 `current.blockmap`이 있어요. 새 판이 시작될 때 앱이 `pending`을 지워요. 그리고 설치 프로그램이 같은 폴더의 `installer.exe`에 설치 파일의 사본을 남겨요(0.4.0부터 그랬고 끌 수 없어요). 필요 없으면 직접 지우세요(`installer.exe`를 지우면 다음 새 판은 전체를 받아요). 훅·Codex 연결을 켰다면 Claude Code `settings.json`과 Codex `config.toml`에도 그 플러그인의 한 줄이 들어가요.
@@ -1099,7 +1142,9 @@ ClaudeTool이 무엇을 저장하고 무엇을 읽고 무엇을 밖으로 보내
 | 질문하기(API 키 방식, 선택) | ClaudeTool → Anthropic API(`api.anthropic.com`) | 위와 같은 내용, API 키, SDK가 기본으로 붙이는 환경 정보(SDK 버전·운영체제·Node.js 버전 등) |
 | 질문하기(OpenAI 호환 서버 방식, 선택) | ClaudeTool → 내가 **AI 연결**에 적은 주소 | 위와 같은 내용(질문·최근 대화·시스템 프롬프트·모델 이름)과 키를 적었다면 키. 주소가 이 PC 밖이면 인터넷이나 내부망으로 나가요. **연결 확인**을 누르면 그 주소의 `/models`도 요청해요. |
 | 플러그인의 AI 사용(`ai` 권한) | 지금 고른 질문 방식의 곳 | 플러그인이 보낸 글. 무엇을 보낼지는 플러그인이 정해요. 앱은 그 글을 저장하지 않아요. |
-| 말풍선 질문의 대화 도구(0.4.4, API 키·OpenAI 호환 서버 방식) | 질문과 같은 곳(Anthropic API 또는 내가 **AI 연결**에 적은 주소) | 질문과 함께 가는 도구 목록(이름·설명·입력 형식이고 앱 기능 도구의 설명에는 지금 캐릭터의 동작 이름, 고를 수 있는 캐릭터의 id와 이름, 설치한 플러그인의 id와 이름, 켜 둔 사용량 공급원의 id와 이름이 들어가요)과 도구를 쓴 결과(한 번에 16,384자까지이고 사용량 수치나 플러그인이 돌려준 내용이 들어갈 수 있어요). 질문 하나에 AI를 여러 번 불러요. AI가 고른 입력은 그 플러그인에도 전해져요. |
+| 말풍선 질문의 대화 도구(0.4.4부터. Claude Code 방식은 0.4.6부터) | 질문과 같은 곳(Anthropic API 또는 내가 **AI 연결**에 적은 주소. Claude Code 방식은 Claude Code를 거쳐 Anthropic) | 질문과 함께 가는 도구 목록(이름·설명·입력 형식이고 앱 기능 도구의 설명에는 지금 캐릭터의 동작 이름, 고를 수 있는 캐릭터의 id와 이름, 설치한 플러그인의 id와 이름, 켜 둔 사용량 공급원의 id와 이름이 들어가요)과 도구를 쓴 결과(한 번에 16,384자까지이고 사용량 수치나 설정 값이나 플러그인이 돌려준 내용이 들어갈 수 있어요). 설정 읽기 결과에는 시스템 프롬프트와 플러그인의 비밀이 아닌 설정 칸 값이 들어가요. API 키와 비밀 칸의 값은 가지 않아요. 질문 하나에 AI를 여러 번 불러요. AI가 고른 입력은 그 플러그인에도 전해져요. |
+| 말풍선 질문의 기억(0.4.6, 세 방식 모두) | 질문과 같은 곳 | 기억 쓰기가 켜져 있으면 내가 카드에서 허락한 기억 글이 질문마다 시스템 프롬프트 끝에 붙어 가요(합계 4,000자까지). 이 PC 밖 주소면 그 서버로 가요. |
+| 대화에 적은 키(0.4.6) | 질문과 같은 곳 | 대화에 적은 글은 다른 질문과 똑같이 가요. 키는 대화에 적지 마세요. 이 PC 밖으로 가는 방식에서는 AI가 키 입력 동작에 넘겨도 앱이 키를 저장하지 않고 설정 창의 키 칸만 열어 줘요. |
 | 조직 사용량(선택, 기본은 꺼짐) | ClaudeTool → `api.anthropic.com` | Admin 키로 조직 사용량을 조회하는 요청 |
 | 플러그인 | 플러그인이 선언하고 내가 동의한 주소. 알려진 한계: DNS 이름 조회로는 동의하지 않은 곳에도 닿을 수 있어요([알아 둘 한계](#알아-둘-한계)). | 플러그인이 보내기로 한 내용. DNS 이름 조회에는 토큰이나 설정 값 같은 짧은 값을 실을 수 있어요. ClaudeTool은 그 내용을 검열하거나 보증하지 않아요. |
 | 말풍선 속 답의 링크를 누를 때(허락받은 플러그인의 링크 버튼 포함) | 기본 브라우저(`https` 주소만) | 누른 링크 |
@@ -1115,9 +1160,9 @@ ClaudeTool이 무엇을 저장하고 무엇을 읽고 무엇을 밖으로 보내
 - 새 판 확인에 쓰는 임의의 번호는 데이터 폴더의 `electron\.updaterId` 파일에 있어요. 사람이나 PC를 가리키지 않지만 같은 번호의 요청을 이어 줄 수는 있어요. 지우면 다음 확인 때 새 번호를 만들어요.
 - Windows 알림(`notify` 권한)은 Windows가 보여 주는 것이라 앱이 그 내용을 따로 저장하거나 밖으로 보내지 않아요. 훅이 보내는 소식도 이 PC 안(`127.0.0.1`)에서만 오가요.
 - `run`·`files` 쓰기·`open-app`은 승인 카드로 묻고(내가 **늘 허용**을 켠 종류는 빼고) 승인 결과는 `plugins.log`에 비밀 모양을 가린 80자 요약으로만 남겨요. 최근 승인 20건은 메모리에만 있어요.
-- 대화 도구의 승인(플러그인 도구의 첫 호출·설정 바꾸기)도 앱이 질문 말풍선 안에 띄우는 카드로 물어요. 도구에 준 입력과 받은 결과는 저장하지 않고 로그에는 도구 이름과 허락 결과만 남겨요. 승인 결과 줄에도 도구 이름만 남아요. 카드에 보인 입력 요약의 앞부분은 설정 창의 최근 승인 목록(최근 20건)에 메모리에만 있다가 앱을 끄면 사라져요.
+- 대화 도구의 승인(플러그인 도구의 첫 호출·설정 바꾸기·주의 카드·기억 카드)도 앱이 질문 말풍선 안에 띄우는 카드로 물어요. 도구에 준 입력과 받은 결과는 저장하지 않고 로그에는 도구 이름과 허락 결과만 남겨요. 승인 결과 줄에도 도구 이름만 남아요. 카드에 보인 입력 요약의 앞부분은 설정 창의 최근 승인 목록(최근 20건)에 메모리에만 있다가 앱을 끄면 사라져요.
 - 앱 창의 맞춤법 검사는 꺼 두어서 맞춤법 사전을 내려받는 일도 없어요(새 판 확인에 쓰는 네트워크 세션도 확인하기 전에 맞춤법 검사를 꺼 둬요).
-- 구독 방식으로 질문하면 이 PC의 Claude Code를 실행해 답을 받아요. 이때 Claude Code는 **답만 하도록** 실행해요(도구·MCP를 끄고 Claude Code 설정 파일·`CLAUDE.md`·메모리를 읽지 않고 대화 기록도 남기지 않아요). 이 PC의 환경 변수 가운데 `ANTHROPIC_API_KEY`·`ANTHROPIC_AUTH_TOKEN`·`ANTHROPIC_BASE_URL`·`ANTHROPIC_CUSTOM_HEADERS`는 Claude Code에 넘기지 않아요(이 변수들 때문에 API 요금으로 처리되거나 다른 주소로 가지 않게 하려는 거예요). 그 밖의 환경 변수는 그대로 넘어가고 다른 인증 관련 환경 변수가 있을 때 Claude Code가 구독으로 처리하는지는 확인하지 못했어요. 그 뒤의 처리와 요금·한도는 Anthropic의 약관을 따라요.
+- 구독 방식으로 질문하면 이 PC의 Claude Code를 실행해 답을 받아요. 이때 Claude Code는 **답만 하도록** 실행해요(Claude Code 자신의 도구와 따로 설정해 둔 MCP 서버를 끄고 Claude Code 설정 파일·`CLAUDE.md`·메모리를 읽지 않고 대화 기록도 남기지 않아요). 0.4.6부터는 앱의 대화 도구를 내놓는 **도구 다리**만 열어요. 질문마다 앱이 이 PC 안에 이름 있는 통로(Windows 파이프)와 새 열쇠를 만들고 통로 이름과 열쇠는 Claude Code가 띄우는 프로세스의 환경 변수로만 넘겨요. 열쇠를 모르는 연결은 끊고 질문이 끝나면 통로를 닫아요. 외부 MCP 서버에는 연결하지 않아요([SECURITY.md](SECURITY.md)). 이 PC의 환경 변수 가운데 `ANTHROPIC_API_KEY`·`ANTHROPIC_AUTH_TOKEN`·`ANTHROPIC_BASE_URL`·`ANTHROPIC_CUSTOM_HEADERS`는 Claude Code에 넘기지 않아요(이 변수들 때문에 API 요금으로 처리되거나 다른 주소로 가지 않게 하려는 거예요). 그 밖의 환경 변수는 그대로 넘어가고 다른 인증 관련 환경 변수가 있을 때 Claude Code가 구독으로 처리하는지는 확인하지 못했어요. 그 뒤의 처리와 요금·한도는 Anthropic의 약관을 따라요.
 - 앱이 대신 보내는 웹 주소(HTTP) 요청은 동의 창에서 본 주소로만 나가고 WebSocket은 선언한 주소로만 열려요. 다만 알려진 한계가 있어요. 플러그인이 DNS 이름 조회에 짧은 정보를 실어 동의하지 않은 곳으로도 보낼 수 있고 앱은 이 길을 막을 방법을 찾지 못했어요. 받는 쪽이 DNS 서버를 운영해야 해서 보낼 수 있는 양은 적지만 믿을 수 있는 플러그인만 쓰세요([알아 둘 한계](#알아-둘-한계)).
 
 ### 지우는 법
@@ -1127,6 +1172,7 @@ ClaudeTool이 무엇을 저장하고 무엇을 읽고 무엇을 밖으로 보내
 - **키와 비밀 칸 값 전부:** ClaudeTool을 종료하고 데이터 폴더의 `secrets.bin`을 지우세요.
 - **AI 연결 키:** 설정 창 › **AI 연결**의 **API 키**와 **OpenAI 호환 서버**의 키 **지우기**. 조직 Admin 키는 설정 창 › 사용량의 **Console 조직**에서 같은 방법으로 지워요. 주소와 모델은 칸을 비워요.
 - **대화 도구:** 플러그인 상세 칸의 **대화에서 쓰기**를 끄면 그 플러그인의 도구는 AI에 보이지 않아요. 늘 허용은 **끄기**로 꺼요. 도구에 준 입력과 결과는 저장하지 않아요.
+- **기억:** 설정 창 › 기억에서 줄마다 **지우기**를 누르거나 아래 **모두 지우기**(Windows 확인 창이 떠요)를 눌러요. **기억 쓰기**를 끄면 질문에 붙지 않지만 파일에는 남아요. 앱을 끈 뒤 데이터 폴더의 `memory.json`·`memory.json.bak`을 지워도 돼요. 이미 AI 서버로 간 기억은 그 서버에 남아 있을 수 있어요.
 - **사용 기록:** ClaudeTool을 종료하고 데이터 폴더의 `usage` 폴더를 지우세요.
 - **내려받은 새 판 설치 파일:** ClaudeTool을 종료하고 `%LOCALAPPDATA%\claude-tool-updater\pending` 폴더를 지우세요(0.4.2에서 새 판을 받았다면 데이터 폴더에 남은 `updater-cache`도 지워도 돼요). 새 판 확인은 설정 창 › 일반 › 업데이트의 **자동으로 확인** 스위치로 꺼요.
 - **시작 시 실행:** 설정 창 › 일반의 **Windows 시작 시 실행** 스위치나 트레이 메뉴, 또는 Windows 설정의 **시작 앱**에서 꺼요.
@@ -1154,7 +1200,7 @@ ClaudeTool 개인 사용 라이선스 v1.0이에요. 전문은 [LICENSE](LICENSE
 - **Claude Code 알림 훅**을 연결하면 Claude Code의 `settings.json`이 바뀌어요. 앱이 백업을 남긴 뒤 그 플러그인의 훅만 넣어요. 토큰과 백업은 같은 Windows 계정의 다른 프로그램이 읽을 수 있으니 필요 없으면 지우고 앱을 제거하기 전에는 **끊기**로 훅을 빼세요. 훅이 남았다면 [훅이 남았을 때 지우기](#훅이-남았을-때-지우기)를 보세요.
 - **업데이트는 소프트웨어를 설치하는 기능이에요.** 설치 파일에는 코드 서명이 없어서 만든 곳을 확인하지 못하고 해시는 전송 중 손상·변조를 막을 뿐이에요. 설치가 실패하면 영어 오류 상자가 뜰 수 있고 옛 판은 그대로 남아요. 새 판으로 올릴지 언제 설치할지는 사용자가 정해요.
 - **Windows 시작 시 실행**을 켜면 레지스트리 `Run` 항목 하나가 써져요. 앱을 제거하기 전에 먼저 끄세요.
-- **AI의 답은 틀릴 수 있어요.** 질문하기는 기본으로 내가 로그인한 Claude Code를 통해 Anthropic 서비스로 가요(API 키 방식도 Anthropic으로 가고 OpenAI 호환 서버 방식은 내가 적은 주소로 가요). 그 서비스의 약관·요금·사용량 한도는 나와 그 서비스 사이의 일이에요. 말풍선 질문에서 AI가 도구를 불러 앱 기능과 플러그인을 쓰는 경우에도 AI가 고른 도구와 값은 틀릴 수 있고 그 결과는 사용자의 몫이에요.
+- **AI의 답은 틀릴 수 있어요.** 질문하기는 기본으로 내가 로그인한 Claude Code를 통해 Anthropic 서비스로 가요(API 키 방식도 Anthropic으로 가고 OpenAI 호환 서버 방식은 내가 적은 주소로 가요). 그 서비스의 약관·요금·사용량 한도는 나와 그 서비스 사이의 일이에요. 말풍선 질문에서 AI가 도구를 불러 앱 기능과 플러그인을 쓰고 설정을 바꾸고 기억을 제안하는 경우에도 AI가 고른 도구와 값은 틀릴 수 있고 그 결과는 사용자의 몫이에요. 카드는 내가 확인하는 단계일 뿐이고 틀린 값을 스스로 막아 주지는 못해요.
 
 ### 보안 문제를 발견했다면
 
@@ -1178,15 +1224,16 @@ ClaudeTool 개인 사용 라이선스 v1.0이에요. 전문은 [LICENSE](LICENSE
 
 ClaudeTool is an unofficial desktop pet for Windows 10/11 that roams your screen. Click it to see your Claude usage, or press `Ctrl+Alt+K` to ask a question and read the answer in a speech bubble (through a logged-in Claude Code by default, or an Anthropic API key, or from 0.4.3 an OpenAI-compatible server such as Ollama or LM Studio at an address you enter). You can design your own characters, tune how the pet moves, and add features with sandboxed plugins imported as `.zip` files or picked from the examples that come with the app.
 
-- **Download:** the latest version is 0.4.5 (`ClaudeTool-Setup-0.4.5.exe`, about 125 MB) in this repository's [Releases](https://github.com/BlackBuddle/claude-tool-page/releases/latest) (Windows 10/11 x64, per-user install, no admin rights needed). Check the SHA-256 value given above before you run it. The installer is not code-signed, so Windows SmartScreen may show a warning. If you use 0.4.2, the app announces the new version and you only press **받기** (Download) and **다시 시작해서 설치** (Restart and install); 0.4.1 or older has no update feature, so install the latest version over it yourself once in the same folder (your data folder is kept). Node.js is bundled, so you do not need to install it.
+- **Download:** the latest version is 0.4.6 (`ClaudeTool-Setup-0.4.6.exe`, about 125 MB) in this repository's [Releases](https://github.com/BlackBuddle/claude-tool-page/releases/latest) (Windows 10/11 x64, per-user install, no admin rights needed). Check the SHA-256 value given above before you run it. The installer is not code-signed, so Windows SmartScreen may show a warning. If you use 0.4.2, the app announces the new version and you only press **받기** (Download) and **다시 시작해서 설치** (Restart and install); 0.4.1 or older has no update feature, so install the latest version over it yourself once in the same folder (your data folder is kept). Node.js is bundled, so you do not need to install it.
 - **New-version check (new in 0.4.2):** in an app installed with the installer, a speech bubble first tells you about the check, and if you accept it the app checks `github.com` for the latest release one minute after each start and every 24 hours while it stays open. Downloading (about 125 MB) and installing happen only when you press **받기** (Download) and **다시 시작해서 설치** (Restart and install), and the installer is installed only if it matches the sha512 hash in `latest.yml`. It is not code-signed, so the hash only guards against damage or tampering in transit. Installing takes about a minute during which the app is not visible; if it fails, an English error box may appear and the old version stays. You can turn the check off in Settings › General.
 - **Start with Windows (new in 0.4.2):** off by default; Settings › General or the tray menu writes one registry `Run` entry for the current user. Turn it off before uninstalling.
 - **Claude Code notifications (0.4.1, one-button connection in 0.4.2):** the `claude-notify` plugin and the `choux-notify` character make the pet tell you when Claude Code asks a question, waits for approval, finishes, or stops on overload, and a button opens that session. Import both `.zip` files from the release and press **연결** (Connect) in the plugin's detail area, or answer the question that appears right after installing; the app backs up Claude Code's `settings.json` and then adds only that plugin's hooks, and the hooks send only to `127.0.0.1` on this PC. Disconnect with **끊기** or by turning off or deleting the plugin; how to remove leftover hooks (with the setup helper while the app is installed, or by editing `settings.json` by hand after the app is deleted) is described under "훅이 남았을 때 지우기".
 - **Example plugin pack (2026-10):** eight example plugins (calendar, weather, YouTube search and new videos, GitHub, Steam, VS Code through a `.vsix` extension, mail, and Instagram/Threads notifications through an Android phone or the Meta API) and the `choux-desk` character are in the [plugin pack release](https://github.com/BlackBuddle/claude-tool-page/releases/tag/plugins-2026-10). They need ClaudeTool 0.4.2 or later (the log protection for `sns-notify` topics needs 0.4.3). You create the keys and tokens yourself and enter them in the settings window. Guides (Korean): [plugins/README.md](plugins/README.md).
 - **AI connection (new in 0.4.3):** Settings › AI connection (or the tray's question method) lets you choose where questions are answered: a logged-in Claude Code (the default), an Anthropic API key, or an OpenAI-compatible server such as Ollama or LM Studio at an address you enter. With `127.0.0.1` or `localhost` your questions do not leave this PC. With an address outside this PC the content of your questions goes to that server and a warning line says so. A key you enter is kept in encrypted storage.
 - **Agent plugins (new in 0.4.3):** plugins can use four new permissions: `ai` (send text to the AI you chose), `run` (run programs you allowed with your own account's rights), `files` (read and write inside a folder you chose) and `open-app` (open a file or app with its default program). The consent window groups them as caution permissions. `run`, writing with `files` and `open-app` ask first with an approval card that the app shows itself (denied after 60 seconds), and only the kinds you set to "Always allow this plugin" run without a card. The card is a means of confirmation, not a safety guarantee, and the app cannot block or undo what an allowed program does. AI answers can be wrong, and local models differ in how well they call tools.
-- **Chat tools (new in 0.4.4):** with the API-key method or an OpenAI-compatible server, the AI in a speech-bubble question can call tools: four app-feature tools (view usage, play a pet action and open the settings window without a card, and change settings such as the character or the AI connection with an approval card every time) and the tools of plugins you enabled (the `tools` permission; the first call asks with an approval card shown inside the speech bubble, and you can turn a plugin off for chat in its detail area). The question, the tool list and the tool results go to the AI server you chose, and the input the AI chose is passed to the plugin. Keys, permission consent, the always-allow list, installing updates, deleting data and installing or deleting plugins cannot be changed through tools. The AI's choices can be wrong, and one question can call the AI several times (8 tool calls by default). With the Claude Code method no tools are used.
+- **Chat tools (new in 0.4.4):** the AI in a speech-bubble question can call tools: app-feature tools (view usage, play a pet action and open the settings window without a card, and change settings with an approval card every time) and the tools of plugins you enabled (the `tools` permission; the first call asks with an approval card shown inside the speech bubble, and you can turn a plugin off for chat in its detail area). The question, the tool list and the tool results go to the AI server you chose, and the input the AI chose is passed to the plugin. The AI's choices can be wrong, and one question can call the AI several times (8 tool calls by default). In 0.4.4 and 0.4.5 this worked only with the API-key method and an OpenAI-compatible server; since 0.4.6 the Claude Code method uses the tools too (see below).
 - **New settings window and example browser (new in 0.4.5):** the settings window was redesigned. The top shows the current character, and the sidebar has six tabs: General, Character, Movement, AI connection, Usage and Plugins. Settings that were only in the tray menu, in `settings.json` or on the built-in plugin cards now live there: the Anthropic API key, the question shortcut, system prompt, token display and tool-call limit (AI connection), one on/off switch per usage source (Usage), the speech-bubble auto-close time and the log and data folders (General). Settings carry over from 0.4.4 unchanged; if you had turned a usage source off on its old plugin card, that is copied once to the Usage switch. In Plugins, only installed plugins are listed, with the dangerous actions (open folder, export, delete) at the bottom of the detail area. **Browse examples** installs the 12 example plugins and 2 example characters that come inside the app (no internet connection is made; the VS Code extension of `ide-buddy` still comes from the release). You tick several, press **Install N selected**, and each plugin shows its own consent window one at a time. Declining one does not stop the rest. The files are unpacked only when you install them, after a sha256 check. The About rows open the documents in the install folder, and only if one is missing or cannot be opened does the app open the same document in your browser.
+- **Settings and memory from the chat, and tools with Claude Code (new in 0.4.6):** you can now read and change almost every value of the settings window by asking in the speech-bubble chat. Changes always show an approval card ("설정을 바꿀까요?"; several values on one card, no "always allow", denied after 60 seconds). A change is checked before the card and refused as a whole if one value is wrong. Risky actions use a caution card whose default button is Deny (turning on automatic approval or "always allow" for a plugin, installing an update, deleting a plugin or character, turning off the built-in question feature). Keys, the Claude Code executable and plugin consent are never entered by the AI: it opens the key field of the settings window, the file picker or the consent window and you do it yourself. Only when the question stays inside this PC (an OpenAI-compatible server on `localhost` or `127.0.0.1`) can a key typed in the chat be saved directly, after a caution card, and it is then replaced by "[저장한 키]" in the conversation history. Through the chat, the OpenAI-compatible address can only be changed to an address inside this PC. The AI can also propose **memories**: a card ("이걸 기억할까요?") shows the whole text and only what you allow with **기억하기** is saved (up to 50 items of 200 characters each in `memory.json`, shown in the new seventh settings tab **기억** where you can edit, delete and switch memory off). While memory is on, the saved memories are sent with every question to the same AI server as the question (up to 4,000 characters, newest first); do not write secrets in a memory or in the chat. The Claude Code (subscription) method now uses chat tools too, through a small bridge inside the app: for each question the app opens a named pipe on this PC and a fresh random token, and Claude Code starts the app's own MCP script (no external MCP servers; Claude Code's own tools stay off). Tool definitions are sent with each question, so a question uses more input tokens. Settings values the AI reads (including the system prompt and non-secret plugin settings fields) go to the AI server; keys and secret fields are never read.
 - **Plugin rules:** only the permissions listed in the rules work in this version; do not invent new ones. A plugin with a permission this app does not know still installs, but that feature stays off until a newer app asks for it with `새 권한 허락하기` (allow the new permission). The `session` permission (only together with `inbound`) lets a button open a Claude Code session. New in 0.4.2: `secrets` (keep tokens encrypted), `notify` (Windows notifications), `open-link` (open a link you pressed), `clipboard-write` (copy text) and `hooks` (the app puts the plugin's hooks into Claude Code's settings after you press Connect; the consent window groups it as a caution permission). New in 0.4.3: `ai`, `run`, `files` and `open-app` (also caution permissions, described above). The plugin tab also offers an engine change log (.md) under "Create your own" for updating existing plugins, and the character editor allows up to 60 actions (12 by default) and adds a plugin's signal actions in one step. Message windows close with `Esc`.
 - **License:** free for personal, non-commercial use. Business or commercial use and redistribution need the copyright holder's permission (see [LICENSE](LICENSE)). The source code is not published.
 - **Privacy:** no account, no telemetry, and no server run by the author. With default settings, the only connection the app makes on its own is the new-version check to GitHub (request headers carry a tool name, the app language and a random UUID; you can turn it off). Your data stays in a `-data` folder next to the install folder ([PRIVACY.md](PRIVACY.md)).
