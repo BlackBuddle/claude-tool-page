@@ -4,9 +4,9 @@
 >
 > *This document is not legal advice and has not been reviewed by a lawyer. Get professional advice before any business or commercial use or distribution.*
 
-ClaudeTool 0.4.6(2026-10-12 기준) 설치 파일에는 아래의 제3자 소프트웨어가 들어 있어요(이 문서는 설치 파일을 만들 때 들어가는 구성요소를 기준으로 해요). 이 소프트웨어들은 **각자의 라이선스를 따르고**, ClaudeTool의 라이선스([LICENSE](LICENSE))는 그 라이선스를 바꾸지 않아요(LICENSE 제5조). 목록은 설치 파일에 들어가는 구성요소의 `package.json`과 라이선스 파일에서 가져왔고, 새 판에서 바뀔 수 있어요. 설치·제거 프로그램 쪽(3절)은 확인하지 못한 부분이 있어요. 한국어본과 영어본이 함께 있고, 뜻이 다르면 한국어본이 우선해요. 라이선스 전문은 맨 아래 "라이선스 전문" 절에 원문 그대로(영어) 있어요. 함께 읽으면 좋은 문서: [DISCLAIMER.md](DISCLAIMER.md), [PRIVACY.md](PRIVACY.md), [SECURITY.md](SECURITY.md).
+ClaudeTool 0.5.0(2026-10-13 기준) 설치 파일에는 아래의 제3자 소프트웨어가 들어 있어요(이 문서는 설치 파일을 만들 때 들어가는 구성요소를 기준으로 해요). 이 소프트웨어들은 **각자의 라이선스를 따르고**, ClaudeTool의 라이선스([LICENSE](LICENSE))는 그 라이선스를 바꾸지 않아요(LICENSE 제5조). 목록은 설치 파일에 들어가는 구성요소의 `package.json`과 라이선스 파일에서 가져왔고, 새 버전에서 바뀔 수 있어요. 설치·제거 프로그램 쪽(3절)은 확인하지 못한 부분이 있어요. 한국어본과 영어본이 함께 있고, 뜻이 다르면 한국어본이 우선해요. 라이선스 전문은 맨 아래 "라이선스 전문" 절에 원문 그대로(영어) 있어요. 함께 읽으면 좋은 문서: [DISCLAIMER.md](DISCLAIMER.md), [PRIVACY.md](PRIVACY.md), [SECURITY.md](SECURITY.md).
 
-*The ClaudeTool 0.4.6 installer (as of 2026-10-12) contains the third-party software listed below (this document is based on the components that go into the installer when it is built). Each item **follows its own license**, and the ClaudeTool license ([LICENSE](LICENSE)) does not change those licenses (LICENSE Section 5). The list was taken from the `package.json` and license files of the components that go into the installer and may change in new versions. Part of the installer/uninstaller side (Section 3) could not be confirmed. A Korean and an English version are provided; if they differ, the Korean version prevails. The license texts are in the "License texts" section at the very bottom, in their original English. See also: [DISCLAIMER.md](DISCLAIMER.md), [PRIVACY.md](PRIVACY.md), [SECURITY.md](SECURITY.md).*
+*The ClaudeTool 0.5.0 installer (as of 2026-10-13) contains the third-party software listed below (this document is based on the components that go into the installer when it is built). Each item **follows its own license**, and the ClaudeTool license ([LICENSE](LICENSE)) does not change those licenses (LICENSE Section 5). The list was taken from the `package.json` and license files of the components that go into the installer and may change in new versions. Part of the installer/uninstaller side (Section 3) could not be confirmed. A Korean and an English version are provided; if they differ, the Korean version prevails. The license texts are in the "License texts" section at the very bottom, in their original English. See also: [DISCLAIMER.md](DISCLAIMER.md), [PRIVACY.md](PRIVACY.md), [SECURITY.md](SECURITY.md).*
 
 ---
 
@@ -18,13 +18,13 @@ ClaudeTool 0.4.6(2026-10-12 기준) 설치 파일에는 아래의 제3자 소프
 - 설치 폴더 바로 아래에 다음 파일이 **함께 설치돼요.**
   - `LICENSE.electron.txt`: Electron의 라이선스와 저작권 고지
   - `LICENSES.chromium.html`: Chromium과 그 안에 든 구성요소(V8, Node.js, FFmpeg, ICU, ANGLE, SwiftShader, Skia, zlib 등)의 라이선스와 저작권 고지
-- 설치 폴더의 `resources\node`에는 Claude Code 연결 스크립트를 돌리는 **Node.js**(MIT 라이선스, Copyright Node.js contributors)의 `node.exe`가 **함께 설치돼요.** 버전은 설치 파일을 만들 때 쓴 판이라 `resources\node\VERSION.txt`를 참고하세요. 라이선스는 같은 폴더의 `LICENSE`에 있어요.
+- 설치 폴더의 `resources\node`에는 Claude Code 연결 스크립트를 돌리는 **Node.js**(MIT 라이선스, Copyright Node.js contributors)의 `node.exe`가 **함께 설치돼요.** 버전은 설치 파일을 만들 때 쓴 버전이라 `resources\node\VERSION.txt`를 참고하세요. 라이선스는 같은 폴더의 `LICENSE`에 있어요.
 - 해당 구성요소들은 위 파일에 적힌 라이선스(BSD, MIT, Apache-2.0, LGPL-2.1 등)를 따라요. 예를 들어 FFmpeg는 LGPL 2.1을 따르고 `ffmpeg.dll`이라는 별도 파일로 설치돼요.
 - 그 밖에 Electron과 함께 들어 있는 그래픽·시스템 관련 파일(`d3dcompiler_47.dll`, `dxcompiler.dll`, `dxil.dll`, `vulkan-1.dll`, `vk_swiftshader.dll`, `icudtl.dat` 등)도 각각의 제공자가 정한 라이선스를 따라요.
 
 ### 2. 앱에 들어 있는 npm 패키지
 
-설치 폴더의 `node_modules`와 화면 코드에 들어가는 패키지예요. Anthropic SDK와 새 판 확인(`electron-updater`)이 끌고 들어오는 하위 패키지도 모두 적었어요. 각 패키지의 라이선스 파일(`LICENSE`)은 설치 폴더의 `resources\app\node_modules\<패키지 이름>` 안에도 들어 있어요(`standardwebhooks`와 `lazy-val`은 라이선스 파일이 없어요).
+설치 폴더의 `node_modules`와 화면 코드에 들어가는 패키지예요. Anthropic SDK와 새 버전 확인(`electron-updater`)이 끌고 들어오는 하위 패키지도 모두 적었어요. 각 패키지의 라이선스 파일(`LICENSE`)은 설치 폴더의 `resources\app\node_modules\<패키지 이름>` 안에도 들어 있어요(`standardwebhooks`와 `lazy-val`은 라이선스 파일이 없어요).
 
 | 패키지 | 버전 | 라이선스 | 저작권 | 쓰임 |
 |---|---|---|---|---|
@@ -34,7 +34,7 @@ ClaudeTool 0.4.6(2026-10-12 기준) 설치 파일에는 아래의 제3자 소프
 | `argparse` | 2.0.1 | Python-2.0 | PSF 라이선스 전문 아래 "라이선스 전문"에 있어요(전문 안에 "Copyright (c) 2001, 2002, 2003, 2004, 2005, 2006 Python Software Foundation" 표기가 있어요) | `js-yaml`의 하위 패키지 |
 | `builder-util-runtime` | 9.7.0 | MIT | Copyright (c) 2015 Loopline Systems | `electron-updater`의 하위 패키지 |
 | `debug` | 4.4.3 | MIT | Copyright (c) 2014-2017 TJ Holowaychuk, (c) 2018-2021 Josh Junon | `builder-util-runtime`의 하위 패키지 |
-| `electron-updater` | 6.8.10 | MIT | Copyright (c) 2015 Loopline Systems | 새 판 확인과 업데이트 |
+| `electron-updater` | 6.8.10 | MIT | Copyright (c) 2015 Loopline Systems | 새 버전 확인과 업데이트 |
 | `fast-sha256` | 1.3.0 | Unlicense(퍼블릭 도메인) | 저작권을 주장하지 않아요(퍼블릭 도메인으로 공개됨) | `standardwebhooks`의 하위 패키지 |
 | `fflate` | 0.8.3 | MIT | Copyright (c) 2026 Arjun Barrett | zip 가져오기·내보내기 |
 | `fs-extra` | 10.1.0 | MIT | Copyright (c) 2011-2017 JP Richardson | `electron-updater`의 하위 패키지 |
@@ -48,18 +48,18 @@ ClaudeTool 0.4.6(2026-10-12 기준) 설치 파일에는 아래의 제3자 소프
 | `ms` | 2.1.3 | MIT | Copyright (c) 2020 Vercel, Inc. | `debug`의 하위 패키지 |
 | `preact` | 10.29.8 | MIT | Copyright (c) 2015-present Jason Miller | 화면(펫·말풍선·설정 창) |
 | `sax` | 1.6.1 | BlueOak-1.0.0 | 라이선스 전문(아래 "라이선스 전문")에 저작권 줄이 없어요. 만든 사람: Isaac Z. Schlueter(패키지 정보) | `builder-util-runtime`의 하위 패키지 |
-| `semver` | 7.7.4 | ISC | Copyright (c) Isaac Z. Schlueter and Contributors | `electron-updater`의 하위 패키지(판 번호 비교) |
+| `semver` | 7.7.4 | ISC | Copyright (c) Isaac Z. Schlueter and Contributors | `electron-updater`의 하위 패키지(버전 번호 비교) |
 | `standardwebhooks` | 1.1.1 | MIT(패키지 정보에 적힌 값) | 패키지에 라이선스 파일이 들어 있지 않아 저작권 줄을 확인하지 못했어요. 만든 곳: Standard Webhooks | Anthropic SDK의 하위 패키지 |
 | `tiny-typed-emitter` | 2.1.0 | MIT | Copyright (c) 2020 Zurab Benashvili (binier) | `electron-updater`의 하위 패키지 |
 | `ts-algebra` | 2.0.0 | MIT | Copyright (c) 2020 Thomas Aribart | `json-schema-to-ts`의 하위 패키지 |
 | `universalify` | 2.0.1 | MIT | Copyright (c) 2017, Ryan Zimmerman | `fs-extra`·`jsonfile`의 하위 패키지 |
 | `zod` | 4.6.5 | MIT | Copyright (c) 2025 Colin McDonnell | 설정·입력값 검사 |
 
-패키지로 들어오지는 않지만 화면 코드에 **직접 옮겨 그려 넣은 아이콘**도 있어요. 설정 창의 아이콘(설정, 발바닥, 걷기, 반짝이, 막대그래프, 퍼즐, 책갈피, 화살표)은 **Tabler Icons**(MIT 라이선스, Copyright (c) 2020-2024 Paweł Kuna, https://tabler.io/icons)의 아웃라인 그림을 바탕으로 옮겨 그린 것이에요(원본 파일을 그대로 복사한 것이 아니라서 선 모양이 원본과 조금 다를 수 있어요).
+패키지로 들어오지는 않지만 화면 코드에 **직접 옮겨 그려 넣은 아이콘**도 있어요. 설정 창의 아이콘(설정, 발바닥, 걷기, 반짝이, 막대그래프, 퍼즐, 책갈피, 체크리스트, 화살표)은 **Tabler Icons**(MIT 라이선스, Copyright (c) 2020-2024 Paweł Kuna, https://tabler.io/icons)의 아웃라인 그림을 바탕으로 옮겨 그린 것이에요(원본 파일을 그대로 복사한 것이 아니라서 선 모양이 원본과 조금 다를 수 있어요).
 
 ### 3. 설치 프로그램(NSIS)
 
-- 설치·제거 프로그램은 NSIS(Nullsoft Scriptable Install System) 3.0.4.1로 만들었어요(빌드 도구 electron-builder 26.15.3이 내려받아 쓰는 판). 설치·제거 프로그램 실행 파일에 NSIS의 실행 코드가 들어 있어요. NSIS는 zlib/libpng 라이선스를 따르고, 압축 모듈은 각각 zlib/libpng·bzip2·LZMA(Common Public License 1.0) 라이선스를 따라요(NSIS 배포본의 `COPYING` 기준). NSIS와 함께 오는 기본 플러그인·헤더(`System`, `nsExec`, `nsDialogs` 등)도, 따로 표시된 것을 뺀 나머지는 `COPYING`에 따라 같은 zlib/libpng 라이선스예요.
+- 설치·제거 프로그램은 NSIS(Nullsoft Scriptable Install System) 3.0.4.1로 만들었어요(빌드 도구 electron-builder 26.15.3이 내려받아 쓰는 버전). 설치·제거 프로그램 실행 파일에 NSIS의 실행 코드가 들어 있어요. NSIS는 zlib/libpng 라이선스를 따르고, 압축 모듈은 각각 zlib/libpng·bzip2·LZMA(Common Public License 1.0) 라이선스를 따라요(NSIS 배포본의 `COPYING` 기준). NSIS와 함께 오는 기본 플러그인·헤더(`System`, `nsExec`, `nsDialogs` 등)도, 따로 표시된 것을 뺀 나머지는 `COPYING`에 따라 같은 zlib/libpng 라이선스예요.
 - LZMA 압축 모듈의 소스 코드는 NSIS 프로젝트에서 구할 수 있어요.
 - 설치 화면과 설치 순서를 정하는 스크립트는 electron-builder의 NSIS 템플릿에서 왔어요. electron-builder는 MIT 라이선스(Copyright (c) 2015 Loopline Systems)예요.
 - **확인하지 못한 것:** 설치·제거 프로그램 안에 실제로 든 NSIS 플러그인(설치 프로그램용 DLL)과 보조 프로그램의 전체 목록, 그리고 아래 표에서 "확인하지 못한 것"으로 적은 라이선스를 확인하지 못했어요. 설치 파일의 압축된 안은 열어 보지 않았고, electron-builder의 NSIS 템플릿(이 설치 프로그램의 설정에서 쓰이는 부분)과 빌드 도구가 내려받아 둔 NSIS 플러그인 묶음에서 이름이 확인되는 것만 적었어요(0.3.0 빌드의 설치 스크립트 기록에서 이 묶음의 `x86-unicode` 폴더가 플러그인 경로로 지정된 것까지는 확인했어요). 아래 표는 설치 파일에 든 것의 전부라는 보증도, 표에 있는 것이 모두 들어 있다는 보증도 아니에요.
@@ -128,7 +128,7 @@ These are the packages in the install folder's `node_modules` and in the screen 
 | `universalify` | 2.0.1 | MIT | Copyright (c) 2017, Ryan Zimmerman | Sub-package of `fs-extra` and `jsonfile` |
 | `zod` | 4.6.5 | MIT | Copyright (c) 2025 Colin McDonnell | Validating settings and inputs |
 
-Some **icons are redrawn by hand in the screen code**, without being a package. The icons in the settings window (gear, paw, walking figure, sparkles, bar chart, puzzle piece, bookmark, arrows) are redrawn from the outline icons of **Tabler Icons** (MIT License, Copyright (c) 2020-2024 Paweł Kuna, https://tabler.io/icons); they are not byte-for-byte copies of the original files, so a line may differ slightly from the original.
+Some **icons are redrawn by hand in the screen code**, without being a package. The icons in the settings window (gear, paw, walking figure, sparkles, bar chart, puzzle piece, bookmark, checklist, arrows) are redrawn from the outline icons of **Tabler Icons** (MIT License, Copyright (c) 2020-2024 Paweł Kuna, https://tabler.io/icons); they are not byte-for-byte copies of the original files, so a line may differ slightly from the original.
 
 ### 3. The installer (NSIS)
 

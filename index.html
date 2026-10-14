@@ -1211,15 +1211,15 @@ html:not(.motion) .mini-pet { display: none; }
   </div>
 
   <div class="hero">
-    <a class="hero-new rise" style="--i:0" href="#plugins"><b>새 기능</b>새 설정 창에서 예제 플러그인을 골라 설치해요</a>
+    <a class="hero-new rise" style="--i:0" href="#features"><b>새 기능</b>작업 폴더를 열어 주면 AI가 파일을 고치고 일을 해내요</a>
     <h1 class="hero-title rise" style="--i:1">ClaudeTool</h1>
     <p class="hero-lede rise" style="--i:2">화면 위를 걷고 쉬고 잠드는 Windows용 데스크톱 펫</p>
-    <p class="hero-text rise" style="--i:3">펫을 클릭하면 Claude 사용량을, 단축키를 누르면 질문의 답을 말풍선으로 보여 줘요. 펫과 말풍선 밖의 클릭은 아래 창으로 그대로 지나가요. 캐릭터·움직임·AI 연결·사용량은 설정 창에서 바꾸고 플러그인으로 기능을 더해요.</p>
+    <p class="hero-text rise" style="--i:3">펫을 클릭하면 Claude 사용량을, 단축키를 누르면 질문의 답을 말풍선으로 보여 줘요. 펫과 말풍선 밖의 클릭은 아래 창으로 그대로 지나가요. 캐릭터·움직임·AI 연결·사용량은 설정 창에서 바꾸고 플러그인으로 기능을 더해요. 0.5.0부터는 AI에게 작업 폴더를 열어 주면 파일을 읽고 고치고 명령을 실행하는 에이전트 작업을 시킬 수 있어요.</p>
     <div class="hero-actions rise" style="--i:4">
       <a class="btn btn-solid lift" href="#download">설치 파일 내려받기</a>
       <a class="btn btn-line lift" href="#features">기능 살펴보기</a>
     </div>
-    <p class="hero-note rise" style="--i:5">Windows 10·11(x64) · 현재 버전 <span data-stat="version">0.4.6</span> · 개인이 만든 비공식 프로젝트이며 Anthropic과 관계없어요</p>
+    <p class="hero-note rise" style="--i:5">Windows 10·11(x64) · 현재 버전 <span data-stat="version">0.5.0</span> · 개인이 만든 비공식 프로젝트이며 Anthropic과 관계없어요</p>
   </div>
 
   <div class="roam rise" id="roam" style="--i:6">
@@ -1257,7 +1257,7 @@ html:not(.motion) .mini-pet { display: none; }
     </div>
     <div class="use reveal">
       <dt><svg class="ico" aria-hidden="true"><use href="#i-key"/></svg><span><kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>K</kbd></span></dt>
-      <dd>질문 말풍선이 열려요. 로그인된 Claude Code(구독)가 답하고 답은 스트리밍되며 쓴 토큰이 아래에 붙어요. <kbd>Esc</kbd>로 취소해요. 원하면 API 키나 Ollama·LM Studio 같은 로컬 AI(OpenAI 호환 서버)로 답하게 바꿀 수 있어요. 0.4.4부터는 AI가 사용량 보기·펫 동작 같은 앱 기능과 켜 둔 플러그인의 도구를 불러 쓸 수 있어요(Claude Code 방식은 0.4.6부터). 0.4.6부터는 말풍선 대화로 설정 창의 거의 모든 설정을 읽고 바꿔요. 설정을 바꾸는 일은 매번 승인 카드로 물어요. 위험한 일은 기본 단추가 거부인 주의 카드로 묻거나 내가 창에서 직접 하게 해요. AI가 기억해 둘 만한 것을 제안하면 카드에서 허락한 것만 저장하고 질문마다 함께 보내요. 질문 방식·API 키·질문 단축키는 설정 창 › AI 연결에서 정해요.</dd>
+      <dd>질문 말풍선이 열려요. 로그인된 Claude Code(구독)가 답하고 답은 스트리밍되며 쓴 토큰이 아래에 붙어요. <kbd>Esc</kbd>로 취소해요. 원하면 API 키나 Ollama·LM Studio 같은 로컬 AI(OpenAI 호환 서버)로 답하게 바꿀 수 있어요. 0.4.4부터는 AI가 사용량 보기·펫 동작 같은 앱 기능과 켜 둔 플러그인의 도구를 불러 쓸 수 있어요(Claude Code 방식은 0.4.6부터). 0.4.6부터는 말풍선 대화로 설정 창의 거의 모든 설정을 읽고 바꿔요. 설정을 바꾸는 일은 매번 승인 카드로 물어요. 위험한 일은 기본 단추가 거부인 주의 카드로 묻거나 내가 창에서 직접 하게 해요. AI가 기억해 둘 만한 것을 제안하면 카드에서 허락한 것만 저장하고 질문마다 함께 보내요. 0.5.0부터는 입력칸에 /를 치면 /작업·/기록과 플러그인 명령 목록이 떠요(/로 시작한 입력은 AI에게 가지 않아요). 질문 방식·API 키·질문 단축키는 설정 창 › AI 연결에서 정해요.</dd>
     </div>
     <div class="use reveal">
       <dt><svg class="ico" aria-hidden="true"><use href="#i-mouse-l"/></svg>펫을 끌면</dt>
@@ -1269,11 +1269,11 @@ html:not(.motion) .mini-pet { display: none; }
     </div>
     <div class="use reveal">
       <dt><svg class="ico" aria-hidden="true"><use href="#i-tray"/></svg>트레이 아이콘</dt>
-      <dd>작업 표시줄 알림 영역의 도트 슈크림빵 아이콘을 우클릭하면 펫 보이기, 일시정지, 사용량 소스, 말풍선 자동 닫힘, 질문 방식, 질문 모델, API 키 설정…, Windows 시작 시 실행, 설정…, 종료 메뉴가 떠요. 새 판이 있으면 새 판 받기도 보여요.</dd>
+      <dd>작업 표시줄 알림 영역의 도트 슈크림빵 아이콘을 우클릭하면 펫 보이기, 일시정지, 사용량 소스, 말풍선 자동 닫힘, 질문 방식, 질문 모델, API 키 설정…, Windows 시작 시 실행, 설정…, 종료 메뉴가 떠요. 새 버전이 있으면 새 버전 받기도 보여요.</dd>
     </div>
     <div class="use reveal">
       <dt><svg class="ico" aria-hidden="true"><use href="#i-window"/></svg>설정 › 일반</dt>
-      <dd>Windows 시작 시 실행, 새 판 확인과 자동 확인, 말풍선 자동으로 닫기를 정하고 로그 폴더와 데이터 폴더를 열어요. 정보에서는 개인정보 안내·라이선스·오픈소스 사용 고지를 열어요.</dd>
+      <dd>Windows 시작 시 실행, 새 버전 확인과 자동 확인, 말풍선 자동으로 닫기를 정하고 로그 폴더와 데이터 폴더를 열어요. 정보에서는 개인정보 안내·라이선스·오픈소스 사용 고지를 열어요.</dd>
     </div>
     <div class="use reveal">
       <dt><svg class="ico" aria-hidden="true"><use href="#i-window"/></svg>설정 › 캐릭터</dt>
@@ -1297,14 +1297,34 @@ html:not(.motion) .mini-pet { display: none; }
     </div>
     <div class="use reveal">
       <dt><svg class="ico" aria-hidden="true"><use href="#i-window"/></svg>설정 › 기억</dt>
-      <dd>0.4.6에서 더해진 일곱 번째 탭이에요. AI가 “이걸 기억할까요?” 카드로 제안하고 내가 기억하기를 눌러 허락한 글만 저장돼요(하나에 200자까지 최대 50개). 기억 쓰기를 켜 두면 질문마다 AI 서버로 함께 가요. 이 탭에서 기억을 보고 고치고 지우고 기억 쓰기를 끌 수 있어요.</dd>
+      <dd>0.4.6에서 더해진 일곱 번째 탭이에요. AI가 “이걸 기억할까요?” 카드로 제안하고 내가 기억하기를 눌러 허락한 글만 저장돼요(하나에 200자까지 최대 50개). 기억 쓰기를 켜 두면 질문마다 AI 서버로 함께 가요. 이 탭에서 기억을 보고 고치고 지우고 기억 쓰기를 끌 수 있어요. 0.5.0부터 옵시디언 연결과 대화 기록도 이 탭에 있어요.</dd>
+    </div>
+    <div class="use reveal">
+      <dt><svg class="ico" aria-hidden="true"><use href="#i-window"/></svg>설정 › 에이전트</dt>
+      <dd>0.5.0에서 더해진 여덟 번째 탭이에요. 작업 폴더를 추가하면 AI가 그 폴더 안의 파일을 읽고 쓰기를 켠 폴더에서는 고치고 명령 실행을 켠 폴더에서는 명령을 실행해요. 새 폴더는 읽기만 되고 바꾸는 일은 승인 카드로 물어요. 허락한 명령이 하는 일은 앱이 막거나 되돌리지 못하니 쓰기를 켠 폴더는 백업해 두세요. 이 탭에서 도는 작업과 예약, 허용한 웹 사이트, 휴대폰 연결도 다뤄요.</dd>
+    </div>
+    <div class="use reveal">
+      <dt><svg class="ico" aria-hidden="true"><use href="#i-key"/></svg>/작업 목표</dt>
+      <dd>말풍선에 /작업과 목표를 쓰면 AI가 작업 폴더에서 여러 단계를 스스로 해내요. 진행 줄과 작업 멈춤 단추가 보이고 도구 호출 횟수(처음 50번)와 시간(처음 30분)의 한도에 닿으면 끝나요. 예약해 두면 앱이 켜져 있는 동안 정한 때에 돌아요.</dd>
+    </div>
+    <div class="use reveal">
+      <dt><svg class="ico" aria-hidden="true"><use href="#i-out"/></svg>휴대폰(텔레그램)</dt>
+      <dd>내가 만든 텔레그램 봇을 연결하면 휴대폰에서 질문하고 작업을 시키고 승인 단추를 눌러요. 기본은 꺼져 있고 연결한 1대1 대화방의 글만 받아요. 메시지는 텔레그램 서버를 거치고 종단간 암호화가 아니에요.</dd>
+    </div>
+    <div class="use reveal">
+      <dt><svg class="ico" aria-hidden="true"><use href="#i-doc"/></svg>대화 기록과 옵시디언</dt>
+      <dd>질문과 답이 대화 기록으로 이 PC에 파일로 남아요(기본 켜짐, 90일 뒤 삭제). 말풍선의 기록 단추로 지난 대화를 찾아 이어 가고 AI도 지난 대화를 찾아 읽어요. 옵시디언 금고를 연결하면 기억과 대화가 노트로도 남고 AI가 금고의 노트를 읽어요.</dd>
+    </div>
+    <div class="use reveal">
+      <dt><svg class="ico" aria-hidden="true"><use href="#i-puzzle"/></svg>플러그인 명령</dt>
+      <dd>플러그인이 내놓은 명령이 트레이·펫 메뉴와 말풍선의 / 목록에 보이고 AI도 부를 수 있어요. 권한이 따로 없고 처리기는 30초 안에 끝나야 해요.</dd>
     </div>
   </dl>
 </section>
 
 <section class="section" id="screens" aria-labelledby="screens-title">
   <h2 class="section-title reveal" id="screens-title">화면</h2>
-  <p class="section-lede reveal">0.4.5부터 설정 창은 맨 위의 캐릭터 카드와 왼쪽 탭으로 이뤄져요. 0.4.6에서 기억이 더해져 탭은 일곱 개(일반·캐릭터·움직임·AI 연결·사용량·플러그인·기억)예요. 아래는 실제 화면이에요. 캐릭터·움직임·플러그인·예제 둘러보기 화면은 0.4.5에서 찍어서 탭이 여섯 개 보여요.</p>
+  <p class="section-lede reveal">0.4.5부터 설정 창은 맨 위의 캐릭터 카드와 왼쪽 탭으로 이뤄져요. 0.4.6에서 기억이, 0.5.0에서 에이전트가 더해져 탭은 여덟 개(일반·캐릭터·움직임·AI 연결·사용량·플러그인·기억·에이전트)예요. 아래는 실제 화면이에요. 0.5.0의 새 화면은 아직 새로 찍지 않았어요. 캐릭터·움직임·플러그인·예제 둘러보기 화면은 0.4.5에서 찍어서 탭이 여섯 개 보여요.</p>
   <div class="shots cv" style="--cis: 1500px">
     <figure class="shot reveal">
       <div class="tilt-host"><img class="tilt" src="images/settings-character-tab.png" width="1269" height="936" alt="ClaudeTool 설정 창의 캐릭터 탭. 왼쪽 위에 지금 캐릭터 카드가 있고 그 아래에 일반·캐릭터·움직임·AI 연결·사용량·플러그인 탭이 있다. 오른쪽에는 도트 슈크림빵이 사용 중인 캐릭터 카드와 만들기·가져오기(.zip) 카드, 고른 캐릭터의 사용하기·편집·내보내기·지우기·폴더 열기 버튼, 크기·투명도 막대가 있다."></div>
@@ -1319,7 +1339,7 @@ html:not(.motion) .mini-pet { display: none; }
       <figcaption>설정 창 › 플러그인. 설치한 플러그인만 왼쪽 목록에 보이고 고른 줄의 상세가 오른쪽에 나와요. 위험한 작업(폴더 열기·내보내기·지우기)은 상세 맨 아래에 있어요. 메모 도구와 Claude Code 알림이 “동의 필요”인 것은 아직 동의하지 않아서예요.</figcaption>
     </figure>
     <figure class="shot reveal">
-      <div class="tilt-host"><img class="tilt" src="images/examples-gallery.png" width="1290" height="2100" loading="lazy" alt="ClaudeTool 설정 창의 예제 둘러보기 화면. 알림·도구·개발자 예제·캐릭터 묶음마다 체크 칸이 있는 줄이 이어지고 줄마다 이름과 판 번호·한 줄 설명·말풍선이나 로그인 정보 보관 같은 권한 칩이 있다. 안녕 펫·로컬 에이전트·슈크림빵(책상) 등 네 개가 체크되어 있고 아래 막대에 4개 골랐어요와 선택한 4개 설치 버튼이 있다."></div>
+      <div class="tilt-host"><img class="tilt" src="images/examples-gallery.png" width="1290" height="2100" loading="lazy" alt="ClaudeTool 설정 창의 예제 둘러보기 화면. 알림·도구·개발자 예제·캐릭터 묶음마다 체크 칸이 있는 줄이 이어지고 줄마다 이름과 버전 번호·한 줄 설명·말풍선이나 로그인 정보 보관 같은 권한 칩이 있다. 안녕 펫·로컬 에이전트·슈크림빵(책상) 등 네 개가 체크되어 있고 아래 막대에 4개 골랐어요와 선택한 4개 설치 버튼이 있다."></div>
       <figcaption>설정 창 › 플러그인 › 예제 둘러보기. 앱에 들어 있는 예제 플러그인 12개와 캐릭터 2개를 묶음별로 보고 여럿을 체크해 한꺼번에 설치해요. 위험한 권한은 빨간 칩으로 보이고 플러그인마다 동의 창이 하나씩 떠요.</figcaption>
     </figure>
     <figure class="shot reveal">
@@ -1400,6 +1420,7 @@ html:not(.motion) .mini-pet { display: none; }
         <h3 id="how-ask">질문</h3>
         <p>기본은 이 PC에 로그인된 Claude Code를 헤드리스로 실행해(<code>claude -p</code>) 구독으로 답해요. 설정 창 › AI 연결(또는 트레이의 "질문 방식")에서 Anthropic API 키 방식으로 바꿀 수 있어요.</p>
         <p>질문은 내가 로그인한 Claude Code를 통해 Anthropic으로 가요(API 키 방식이면 Anthropic API로 가요). 비밀번호·키·개인정보·회사 기밀은 적지 마세요.</p>
+        <p>0.5.0부터는 작업 폴더가 있거나 에이전트 작업일 때 구독 방식에서도 Claude Code 자신의 파일·명령·웹 도구를 켜고 허락은 앱의 승인 카드로 정해요. 폴더가 없는 보통 질문은 전처럼 답만 하도록 실행해요.</p>
         <p>0.4.6부터 구독 방식에서도 AI가 도구를 불러 써요. 앱 안의 작은 다리가 도구를 내놓고 외부 MCP 서버는 쓰지 않아요. 질문마다 도구 정의가 함께 가서 입력 토큰이 더 들어요.</p>
         <p class="fine">구독 방식은 Claude Code 네이티브 설치(<code>claude.exe</code>)와 로그인이 필요해요. npm으로 설치한 Claude Code(<code>claude.cmd</code>)는 이 앱에서 실행할 수 없어요.</p>
       </div>
@@ -1789,7 +1810,7 @@ html:not(.motion) .mini-pet { display: none; }
   <h2 class="section-title reveal" id="stack-title">쓴 기술</h2>
   <div class="table-wrap reveal cv" style="--cis: 600px">
     <table class="stack">
-      <caption>버전은 <span data-stat="version">0.4.6</span> 기준이에요.</caption>
+      <caption>버전은 <span data-stat="version">0.5.0</span> 기준이에요.</caption>
       <thead>
         <tr><th scope="col">기술과 버전</th><th scope="col">이 프로젝트에서 맡은 일</th></tr>
       </thead>
@@ -1803,7 +1824,7 @@ html:not(.motion) .mini-pet { display: none; }
         <tr><th scope="row">Vitest<span class="ver">5.0.1</span></th><td>단위 시험, happy-dom으로 화면 시험</td></tr>
         <tr><th scope="row">Playwright<span class="ver">1.63.0</span></th><td>실제 앱을 띄우는 e2e 시험</td></tr>
         <tr><th scope="row">electron-builder<span class="ver">26.15.3</span></th><td>Windows 설치 프로그램(NSIS)</td></tr>
-        <tr><th scope="row">electron-updater<span class="ver">6.8.10</span></th><td>새 판 확인과 업데이트(내려받은 설치 파일의 해시 확인)</td></tr>
+        <tr><th scope="row">electron-updater<span class="ver">6.8.10</span></th><td>새 버전 확인과 업데이트(내려받은 설치 파일의 해시 확인)</td></tr>
         <tr><th scope="row">fflate<span class="ver">0.8.3</span></th><td>캐릭터·플러그인 zip 가져오기·내보내기</td></tr>
         <tr><th scope="row">Anthropic SDK<span class="ver">0.127.0</span></th><td>API 키 방식 질문</td></tr>
       </tbody>
@@ -1823,30 +1844,30 @@ html:not(.motion) .mini-pet { display: none; }
   <!-- 숫자는 data-stat 이름으로 찾아 바꾼다(tasks·tests·e2e). 화면에 들어오면 스크립트가 0부터 이 값까지 올린다. -->
   <div class="stats">
     <div class="reveal tilt-host"><dl class="stat tilt"><dt>플러그인 틀 계획의 태스크</dt><dd><span class="num" data-stat="tasks">26</span><small>개</small></dd></dl></div>
-    <div class="reveal tilt-host"><dl class="stat tilt"><dt>자동 시험(단위·화면)</dt><dd><span class="num" data-stat="tests">6,256</span><small>개</small></dd></dl></div>
-    <div class="reveal tilt-host"><dl class="stat tilt"><dt>e2e 시험(실제 앱을 띄워서)</dt><dd><span class="num" data-stat="e2e">71</span><small>개</small></dd></dl></div>
+    <div class="reveal tilt-host"><dl class="stat tilt"><dt>자동 시험(단위·화면)</dt><dd><span class="num" data-stat="tests">7,571</span><small>개</small></dd></dl></div>
+    <div class="reveal tilt-host"><dl class="stat tilt"><dt>e2e 시험(실제 앱을 띄워서)</dt><dd><span class="num" data-stat="e2e">89</span><small>개</small></dd></dl></div>
   </div>
-  <p class="fine-stat reveal">숫자는 버전 <span data-stat="version">0.4.6</span> 기준이에요.</p>
+  <p class="fine-stat reveal">숫자는 버전 <span data-stat="version">0.5.0</span> 기준이에요.</p>
 </section>
 
 <section class="section" id="download" aria-labelledby="download-title">
   <div class="dl reveal cv" style="--cis: 460px">
     <div>
       <h2 class="section-title" id="download-title">내려받기</h2>
-      <p class="dl-ver">ClaudeTool <span data-stat="version">0.4.6</span> · Windows 10·11(x64)</p>
+      <p class="dl-ver">ClaudeTool <span data-stat="version">0.5.0</span> · Windows 10·11(x64)</p>
       <div class="dl-actions">
-        <a class="btn btn-solid lift" href="https://github.com/BlackBuddle/claude-tool-page/releases/download/v0.4.6/ClaudeTool-Setup-0.4.6.exe">ClaudeTool-Setup-0.4.6.exe 내려받기(약 125MB)</a>
+        <a class="btn btn-solid lift" href="https://github.com/BlackBuddle/claude-tool-page/releases/download/v0.5.0/ClaudeTool-Setup-0.5.0.exe">ClaudeTool-Setup-0.5.0.exe 내려받기(약 125MB)</a>
         <a class="btn btn-line lift" href="https://github.com/BlackBuddle/claude-tool-page/releases/latest">릴리스 보기</a>
       </div>
       <p class="dl-note">이 저장소의 릴리스에서만 받으세요. 같은 이름으로 다른 곳에서 받은 파일은 위조일 수 있어요. 설치 파일에는 코드 서명이 없어서 처음 실행할 때 Windows SmartScreen 경고가 뜰 수 있어요. 받은 파일의 SHA-256 값을 아래와 비교한 뒤 <b>추가 정보 → 실행</b>을 누르세요. 쓰는 법은 <a href="https://github.com/BlackBuddle/claude-tool-page#readme">사용 설명서</a>에 있어요.</p>
-      <p class="dl-hash">SHA-256 <code>2704b3f3a6e7a2097dc6a3a60e897c85cc0d0f71a1a1605b54c9d405f0bc7586</code></p>
+      <p class="dl-hash">SHA-256 <code>2b1681eef4fbad36c00ed916de2b9e78cb60efbdb9b01e61cd64b33513bc1219</code></p>
       <span class="dl-pet" id="dl-pet" aria-hidden="true"><svg focusable="false"><use href="#dot-pet"/></svg></span>
     </div>
     <ul class="dl-req" aria-label="필요한 것과 알아 둘 것">
       <li><b>Windows 10·11 64비트</b>펫은 늘 다른 창 위에 떠 있고 작업 표시줄 알림 영역에 아이콘이 생겨요.</li>
       <li><b>질문하기</b>이 PC에 네이티브로 설치하고 로그인한 Claude Code(구독)로 답해요. 별도 API 키는 필요 없고 원하면 API 키 방식이나 Ollama·LM Studio 같은 로컬 AI(OpenAI 호환 서버)로 바꿀 수 있어요.</li>
       <li><b>구독 한도 보기·Claude Code 알림</b>필요한 Node.js가 설치 파일에 들어 있어서 따로 깔지 않아도 돼요.</li>
-      <li><b>새 판 알림</b>0.4.2부터 앱이 새 판을 알려 줘요. 처음에는 확인하기 전에 안내하고 설정 창에서 끌 수 있어요. 내려받기와 설치는 누를 때만 해요. 0.4.1 이하는 이번 한 번만 직접 덮어 설치하세요.</li>
+      <li><b>새 버전 알림</b>0.4.2부터 앱이 새 버전을 알려 줘요. 처음에는 확인하기 전에 안내하고 설정 창에서 끌 수 있어요. 내려받기와 설치는 누를 때만 해요. 0.4.1 이하는 이번 한 번만 직접 덮어 설치하세요.</li>
       <li><b>Windows 시작 시 실행</b>Windows에 로그인할 때 자동으로 켜지게 할 수 있어요. 설정 창 › 일반의 스위치로 정하고 기본은 꺼져 있어요.</li>
       <li><b>데이터</b>설정·캐릭터·플러그인 같은 데이터는 설치 폴더 옆 “설치 폴더-data”에 쌓이고 업데이트하거나 지워도 남아요.</li>
     </ul>
@@ -1856,7 +1877,7 @@ html:not(.motion) .mini-pet { display: none; }
 </main>
 
 <footer class="foot">
-  <p class="foot-name">ClaudeTool <span data-stat="version">0.4.6</span></p>
+  <p class="foot-name">ClaudeTool <span data-stat="version">0.5.0</span></p>
   <p>개인이 만든 비공식 프로젝트이며 Anthropic과 제휴·후원·승인 관계가 없고 Anthropic의 공식 제품이 아니에요. “Claude”와 “Anthropic”은 Anthropic PBC의 상표예요. 기본 캐릭터 도트 슈크림빵과 벡터 슈크림빵, 트레이·프로그램 아이콘은 이 프로젝트를 위해 직접 그린 오리지널 그림이에요.</p>
   <p>개인 사용자는 무료로 쓸 수 있어요. 업무·영리 목적의 사용과 재배포는 저작권자의 허락이 필요해요. 소스 코드는 공개하지 않아요. 가져온 플러그인과 보안사고를 포함한 면책 범위는 면책조항에, 보안 문제 신고 방법은 보안 안내에 있어요.</p>
   <ul class="foot-links" aria-label="문서">
