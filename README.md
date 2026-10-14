@@ -1,6 +1,8 @@
 # ClaudeTool
 
-화면 위를 돌아다니는 Windows용 데스크톱 펫이에요. 펫을 누르면 Claude를 얼마나 썼는지 보여 주고 단축키로 질문하면 말풍선으로 답해요. 0.4.0부터는 **플러그인**으로 기능을 더할 수 있고 0.4.1에서는 Claude Code가 질문하거나 승인을 기다릴 때 펫이 알려 주는 **Claude Code 알림**이 생겼어요. 0.4.2부터는 앱이 **새 버전을 알려 주고** Windows를 켤 때 **자동으로 시작**하게 할 수 있으며 알림은 설정 창의 **연결 버튼 하나**로 켜요. 0.4.3부터는 질문에 답하는 곳으로 Ollama·LM Studio 같은 **로컬 AI**(OpenAI 호환 서버)를 고를 수 있고 플러그인이 AI에게 일을 시켜 승인을 받고 이 PC에서 행동하는 **에이전트 플러그인**을 만들 수 있어요. 0.4.4부터는 말풍선 질문에서 AI가 앱 기능과 켜 둔 플러그인의 **도구를 불러** 쓸 수 있어요. 0.4.5부터는 설정 창이 **새로 바뀌어** 흩어져 있던 설정을 한곳에서 바꿀 수 있고 설정 창의 **예제 둘러보기**에서 앱에 들어 있는 예제 플러그인과 캐릭터를 골라 설치할 수 있어요. 0.4.6부터는 말풍선 대화로 설정 창의 거의 모든 설정을 **읽고 바꿀** 수 있고 AI가 제안해서 내가 허락한 것을 **기억**해 두며 Claude Code(구독) 방식에서도 대화 도구를 써요. 0.5.0부터는 AI에게 **작업 폴더**를 열어 주면 그 안의 파일을 읽고 고치고 명령을 실행하게 할 수 있어요(바꾸는 일은 승인 카드로 물어요). 목표를 주면 스스로 여러 단계를 해내는 **에이전트 작업**과 **예약**, 휴대폰(**텔레그램**)으로 하는 질문·작업 지시·승인, 지난 대화를 남기고 찾는 **대화 기록**, **옵시디언** 연동, 플러그인이 내놓는 **명령**(`/`)도 더해졌어요.
+**내 PC에 사는 AI 비서 캐릭터 — 보이고, 기억하고, 허락받고 일한다.**
+
+ClaudeTool은 Windows 화면 위에 사는 캐릭터 모양의 AI 동반자예요. 처음에는 Claude를 얼마나 썼는지 보여 주는 데스크톱 펫으로 시작했고 지금은 대화하고 기억하고 허락받은 범위 안에서 일하는 비서로 넓어졌어요. 펫을 누르면 Claude를 얼마나 썼는지 보여 주고 단축키로 질문하면 말풍선으로 답해요. 0.4.0부터는 **플러그인**으로 기능을 더할 수 있고 0.4.1에서는 Claude Code가 질문하거나 승인을 기다릴 때 펫이 알려 주는 **Claude Code 알림**이 생겼어요. 0.4.2부터는 앱이 **새 버전을 알려 주고** Windows를 켤 때 **자동으로 시작**하게 할 수 있으며 알림은 설정 창의 **연결 버튼 하나**로 켜요. 0.4.3부터는 질문에 답하는 곳으로 Ollama·LM Studio 같은 **로컬 AI**(OpenAI 호환 서버)를 고를 수 있고 플러그인이 AI에게 일을 시켜 승인을 받고 이 PC에서 행동하는 **에이전트 플러그인**을 만들 수 있어요. 0.4.4부터는 말풍선 질문에서 AI가 앱 기능과 켜 둔 플러그인의 **도구를 불러** 쓸 수 있어요. 0.4.5부터는 설정 창이 **새로 바뀌어** 흩어져 있던 설정을 한곳에서 바꿀 수 있고 설정 창의 **예제 둘러보기**에서 앱에 들어 있는 예제 플러그인과 캐릭터를 골라 설치할 수 있어요. 0.4.6부터는 말풍선 대화로 설정 창의 거의 모든 설정을 **읽고 바꿀** 수 있고 AI가 제안해서 내가 허락한 것을 **기억**해 두며 Claude Code(구독) 방식에서도 대화 도구를 써요. 0.5.0부터는 AI에게 **작업 폴더**를 열어 주면 그 안의 파일을 읽고 고치고 명령을 실행하게 할 수 있어요(바꾸는 일은 승인 카드로 물어요). 목표를 주면 스스로 여러 단계를 해내는 **에이전트 작업**과 **예약**, 휴대폰(**텔레그램**)으로 하는 질문·작업 지시·승인, 지난 대화를 남기고 찾는 **대화 기록**, **옵시디언** 연동, 플러그인이 내놓는 **명령**(`/`)도 더해졌어요.
 
 <p align="center">
   <img src="images/banner.png" width="100%" alt="어두운 바탕 위에 도트 슈크림빵 펫이 서 있고 머리 위 말풍선에 “안녕하세요! Ctrl+Alt+K로 무엇이든 물어보세요.”라고 적혀 있어요.">
@@ -11,6 +13,20 @@
 ClaudeTool은 개인 프로젝트이며 Anthropic과 관계없는 **비공식** 프로그램이에요.
 
 ## 한눈에 보기
+
+- **한 줄로:** 내 PC에 사는 AI 비서 캐릭터 — 보이고, 기억하고, 허락받고 일한다. 처음 목적이던 "Claude를 얼마나 썼는지 보여 주는 데스크톱 펫"에서 대화·기억·작업까지 넓어졌어요.
+- **풀어 쓰면:** 캐릭터 모양의 AI 동반자예요.
+  - Claude(구독·API)나 로컬 AI를 두뇌로 삼아 대화해요.
+  - 내가 허락한 범위 안에서 파일·프로그램·설정을 다뤄요.
+  - 사용량·알림·기억·대화 기록을 한곳에 모아요.
+  - 위험한 행동은 모두 내 승인을 거쳐요.
+- **네 기둥:**
+  - **보이는 동반자:** 캐릭터가 상태와 결과를 보여 줘요.
+  - **허락받는 에이전트:** 작업 폴더·승인 카드·휴대폰 승인으로 일해요.
+  - **기억하는 비서:** 기억·대화 기록·옵시디언으로 이어 가요.
+  - **넓히는 플랫폼:** 격리된 플러그인·명령·예제로 기능을 더해요.
+- **누구를 위해:** Claude 구독이나 Claude Code를 쓰는 한국어 사용자이고 특히 개발자와 파워 유저예요.
+- **이것은 아니에요:** 범용 챗봇의 대체도 사람 없이 도는 자동화 서버도 클라우드 서비스도 아니에요.
 
 - **하는 일:** 사용량 보기 · 질문하기 · 캐릭터 꾸미기와 만들기 · 움직임 정하기 · 플러그인으로 기능 더하기 · Claude Code 알림 받기 · 새 버전 알림 · Windows 시작 시 실행 · 로컬 AI 연결 · 에이전트 플러그인 · 대화로 플러그인 부르기 · 새 설정 창 · 예제 둘러보기 · 대화로 설정 바꾸기 · 대화 기억 · 작업 폴더와 파일·PC 조작 · 에이전트 작업과 예약 · 휴대폰(텔레그램) · 대화 기록 · 옵시디언 연동 · 플러그인 명령
 - **필요한 것:** Windows 10·11(64비트). 질문하기는 이 PC에 로그인된 Claude Code가 있어야 해요(Anthropic API 키나 Ollama·LM Studio 같은 OpenAI 호환 서버로 바꿔 쓸 수도 있어요). 펫·캐릭터·플러그인은 Claude Code가 없어도 돼요. Node.js는 설치 파일에 들어 있어서 따로 깔지 않아도 돼요.
@@ -1358,7 +1374,7 @@ ClaudeTool 개인 사용 라이선스 v1.0이에요. 전문은 [LICENSE](LICENSE
 
 ## English summary
 
-ClaudeTool is an unofficial desktop pet for Windows 10/11 that roams your screen. Click it to see your Claude usage, or press `Ctrl+Alt+K` to ask a question and read the answer in a speech bubble (through a logged-in Claude Code by default, or an Anthropic API key, or from 0.4.3 an OpenAI-compatible server such as Ollama or LM Studio at an address you enter). You can design your own characters, tune how the pet moves, and add features with sandboxed plugins imported as `.zip` files or picked from the examples that come with the app.
+ClaudeTool is an unofficial AI assistant character that lives on your Windows 10/11 PC: it shows itself, remembers, and works only with your permission. It started as a desktop pet that showed how much Claude you had used and has grown into an assistant that talks, remembers and works within the limits you allow. Its four pillars are a visible companion (the character shows status and results), an agent that asks permission (work folders, approval cards, phone approval), an assistant that remembers (memory, chat history, Obsidian) and an extensible platform (isolated plugins, commands, examples). It is for Korean-speaking users of a Claude subscription or Claude Code, especially developers and power users. It is not a replacement for a general chatbot, an automation server that runs without a person, or a cloud service. The character roams your screen. Click it to see your Claude usage, or press `Ctrl+Alt+K` to ask a question and read the answer in a speech bubble (through a logged-in Claude Code by default, or an Anthropic API key, or from 0.4.3 an OpenAI-compatible server such as Ollama or LM Studio at an address you enter). You can design your own characters, tune how the pet moves, and add features with sandboxed plugins imported as `.zip` files or picked from the examples that come with the app.
 
 - **Download:** the latest version is 0.5.0 (`ClaudeTool-Setup-0.5.0.exe`, about 125 MB) in this repository's [Releases](https://github.com/BlackBuddle/claude-tool-page/releases/latest) (Windows 10/11 x64, per-user install, no admin rights needed). Check the SHA-256 value given above before you run it. The installer is not code-signed, so Windows SmartScreen may show a warning. If you use 0.4.2, the app announces the new version and you only press **받기** (Download) and **다시 시작해서 설치** (Restart and install); 0.4.1 or older has no update feature, so install the latest version over it yourself once in the same folder (your data folder is kept). Node.js is bundled, so you do not need to install it.
 - **New-version check (new in 0.4.2):** in an app installed with the installer, a speech bubble first tells you about the check, and if you accept it the app checks `github.com` for the latest release one minute after each start and every 24 hours while it stays open. Downloading (about 125 MB) and installing happen only when you press **받기** (Download) and **다시 시작해서 설치** (Restart and install), and the installer is installed only if it matches the sha512 hash in `latest.yml`. It is not code-signed, so the hash only guards against damage or tampering in transit. Installing takes about a minute during which the app is not visible; if it fails, an English error box may appear and the old version stays. You can turn the check off in Settings › General.
